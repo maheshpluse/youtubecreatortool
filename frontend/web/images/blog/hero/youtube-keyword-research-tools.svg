@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="YouTube Keyword Research: Finding Search Terms Your Channel Can Actually Rank For">
+  <defs>
+    <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff0000" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#ff0000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff0000" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#ff0000" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="gGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0f0f0f"/>
+  <rect width="1200" height="630" fill="url(#gGrid)" opacity=".55"/>
+  <circle cx="1050" cy="90" r="330" fill="url(#gGlow)"/>
+  <rect width="1200" height="6" fill="#ff0000"/>
+
+  <!-- motif panel -->
+  <rect x="668" y="100" width="460" height="430" rx="18" fill="#0f0f0f" fill-opacity=".72" stroke="#303030" stroke-width="1"/>
+<rect x="702" y="164" width="392" height="34" rx="6" fill="#181818"/>
+<rect x="702" y="164" width="258" height="34" rx="6" fill="#8a2626" opacity=".55"/>
+<rect x="714" y="177" width="60" height="8" rx="4" fill="#f1f1f1" opacity=".55"/>
+<text x="1082" y="186" text-anchor="end" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#aaaaaa">68K</text>
+<rect x="702" y="206" width="392" height="34" rx="6" fill="#181818"/>
+<rect x="702" y="206" width="280" height="34" rx="6" fill="#8a2626" opacity=".55"/>
+<rect x="714" y="219" width="97" height="8" rx="4" fill="#f1f1f1" opacity=".55"/>
+<text x="1082" y="228" text-anchor="end" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#aaaaaa">73K</text>
+<rect x="702" y="248" width="392" height="34" rx="6" fill="#181818"/>
+<rect x="702" y="248" width="342" height="34" rx="6" fill="#ff0000" opacity=".55"/>
+<rect x="714" y="261" width="119" height="8" rx="4" fill="#f1f1f1" opacity=".55"/>
+<text x="1082" y="270" text-anchor="end" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#aaaaaa">87K</text>
+<rect x="702" y="290" width="392" height="34" rx="6" fill="#181818"/>
+<rect x="702" y="290" width="280" height="34" rx="6" fill="#8a2626" opacity=".55"/>
+<rect x="714" y="303" width="74" height="8" rx="4" fill="#f1f1f1" opacity=".55"/>
+<text x="1082" y="312" text-anchor="end" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#aaaaaa">73K</text>
+<rect x="702" y="332" width="392" height="34" rx="6" fill="#181818"/>
+<rect x="702" y="332" width="185" height="34" rx="6" fill="#8a2626" opacity=".55"/>
+<rect x="714" y="345" width="109" height="8" rx="4" fill="#f1f1f1" opacity=".55"/>
+<text x="1082" y="354" text-anchor="end" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#aaaaaa">51K</text>
+<rect x="702" y="374" width="392" height="34" rx="6" fill="#181818"/>
+<rect x="702" y="374" width="206" height="34" rx="6" fill="#8a2626" opacity=".55"/>
+<rect x="714" y="387" width="77" height="8" rx="4" fill="#f1f1f1" opacity=".55"/>
+<text x="1082" y="396" text-anchor="end" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#aaaaaa">56K</text>
+<circle cx="1054" cy="140" r="20" fill="none" stroke="#3ea6ff" stroke-width="4"/>
+<line x1="1068" y1="154" x2="1082" y2="168" stroke="#3ea6ff" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- headline block -->
+  <rect x="72" y="174" width="46" height="4" rx="2" fill="#ff0000"/>
+  <text x="72" y="204" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#ff0000" letter-spacing="2.2">SEO</text>
+    <text x="72" y="250" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="800" fill="#f1f1f1" letter-spacing="-.5">Keyword volume</text>
+  <text x="72" y="318" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="500" fill="#717171">Search volume behind each term</text>
+
+  <!-- footer lockup -->
+  <g transform="translate(72 566)">
+    <rect x="0" y="-16" width="30" height="30" rx="8" fill="#ff0000"/>
+    <polygon points="11,-8 11,6 22,-1" fill="#fff"/>
+    <text x="42" y="6" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="700" fill="#f1f1f1">CreatorTools<tspan fill="#717171">.io</tspan></text>
+  </g>
+</svg>

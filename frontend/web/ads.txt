@@ -1,0 +1,11 @@
+# ads.txt for creatortools.biz
+#
+# Authorised digital sellers (IAB Tech Lab). Not mandatory, but Google
+# recommends it: it lets buyers verify that your inventory is genuine.
+# https://support.google.com/adsense/answer/12171612
+#
+# AFTER ADSENSE APPROVAL: uncomment the line below and replace
+# pub-0000000000000000 with your own publisher ID from your AdSense account.
+# Leaving a placeholder ID live is worse than having no ads.txt at all.
+#
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

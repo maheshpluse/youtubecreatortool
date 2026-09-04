@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="YouTube Competitor Analysis: A Repeatable 6-Step Teardown">
+  <defs>
+    <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff0000" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#ff0000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff0000" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#ff0000" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="gGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0f0f0f"/>
+  <rect width="1200" height="630" fill="url(#gGrid)" opacity=".55"/>
+  <circle cx="1050" cy="90" r="330" fill="url(#gGlow)"/>
+  <rect width="1200" height="6" fill="#ff0000"/>
+
+  <!-- motif panel -->
+  <rect x="668" y="100" width="460" height="430" rx="18" fill="#0f0f0f" fill-opacity=".72" stroke="#303030" stroke-width="1"/>
+<polygon points="898,267 945,294 945,348 898,375 851,348 851,294" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<polygon points="898,214 990,268 990,374 898,428 806,374 806,268" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<polygon points="898,162 1036,242 1036,400 898,480 760,401 760,242" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="321" x2="898" y2="162" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="321" x2="1036" y2="242" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="321" x2="1036" y2="400" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="321" x2="898" y2="480" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="321" x2="760" y2="401" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="321" x2="760" y2="242" stroke="#1e1e1e" stroke-width="1"/>
+<polygon points="898,271 954,289 944,348 898,397 831,360 822,277" fill="#717171" fill-opacity="0.13" stroke="#717171" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="898,221 994,266 998,379 898,432 794,381 773,249" fill="#ff0000" fill-opacity="0.22" stroke="#ff0000" stroke-width="2.8" stroke-linejoin="round"/>
+<circle cx="898" cy="221" r="3.5" fill="#ff0000"/>
+<circle cx="994" cy="266" r="3.5" fill="#ff0000"/>
+<circle cx="998" cy="379" r="3.5" fill="#ff0000"/>
+<circle cx="898" cy="432" r="3.5" fill="#ff0000"/>
+<circle cx="794" cy="381" r="3.5" fill="#ff0000"/>
+<circle cx="773" cy="249" r="3.5" fill="#ff0000"/>
+
+  <!-- headline block -->
+  <rect x="72" y="174" width="46" height="4" rx="2" fill="#ff0000"/>
+  <text x="72" y="204" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#ff0000" letter-spacing="2.2">STRATEGY</text>
+    <text x="72" y="250" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="800" fill="#f1f1f1" letter-spacing="-.5">Competitive gap</text>
+  <text x="72" y="318" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="500" fill="#717171">Where you beat the competition</text>
+
+  <!-- footer lockup -->
+  <g transform="translate(72 566)">
+    <rect x="0" y="-16" width="30" height="30" rx="8" fill="#ff0000"/>
+    <polygon points="11,-8 11,6 22,-1" fill="#fff"/>
+    <text x="42" y="6" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="700" fill="#f1f1f1">CreatorTools<tspan fill="#717171">.io</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="How the YouTube Algorithm Works (and What an Algorithm Update Really Changes)">
+  <defs>
+    <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff0000" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#ff0000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff0000" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#ff0000" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="gGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0f0f0f"/>
+  <rect width="1200" height="630" fill="url(#gGrid)" opacity=".55"/>
+  <circle cx="1050" cy="90" r="330" fill="url(#gGlow)"/>
+  <rect width="1200" height="6" fill="#ff0000"/>
+
+  <!-- motif panel -->
+  <rect x="668" y="100" width="460" height="430" rx="18" fill="#0f0f0f" fill-opacity=".72" stroke="#303030" stroke-width="1"/>
+<line x1="805" y1="291" x2="990" y2="438" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="749" y1="394" x2="1068" y2="354" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="998" y1="307" x2="806" y2="208" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="998" y1="307" x2="909" y2="245" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="949" y1="391" x2="1047" y2="252" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="938" y1="191" x2="830" y2="381" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="1068" y2="354" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="1047" y2="252" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="938" y2="191" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="806" y2="208" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="728" y2="292" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="749" y2="394" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="858" y2="455" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="990" y2="438" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="898" y1="323" x2="909" y2="245" stroke="#3a2020" stroke-width="1.6"/>
+<line x1="898" y1="323" x2="805" y2="291" stroke="#3a2020" stroke-width="1.6"/>
+<line x1="898" y1="323" x2="830" y2="381" stroke="#3a2020" stroke-width="1.6"/>
+<line x1="898" y1="323" x2="949" y2="391" stroke="#3a2020" stroke-width="1.6"/>
+<line x1="898" y1="323" x2="998" y2="307" stroke="#3a2020" stroke-width="1.6"/>
+<circle cx="998" cy="307" r="9" fill="#cc0000"/>
+<circle cx="949" cy="391" r="9" fill="#cc0000"/>
+<circle cx="830" cy="381" r="9" fill="#cc0000"/>
+<circle cx="805" cy="291" r="9" fill="#cc0000"/>
+<circle cx="909" cy="245" r="9" fill="#cc0000"/>
+<circle cx="990" cy="438" r="6" fill="#3a3a3a"/>
+<circle cx="858" cy="455" r="6" fill="#3a3a3a"/>
+<circle cx="749" cy="394" r="6" fill="#3a3a3a"/>
+<circle cx="728" cy="292" r="6" fill="#3a3a3a"/>
+<circle cx="806" cy="208" r="6" fill="#3a3a3a"/>
+<circle cx="938" cy="191" r="6" fill="#3a3a3a"/>
+<circle cx="1047" cy="252" r="6" fill="#3a3a3a"/>
+<circle cx="1068" cy="354" r="6" fill="#3a3a3a"/>
+<circle cx="898" cy="323" r="30" fill="#ff0000" opacity=".16"/>
+<circle cx="898" cy="323" r="20" fill="#ff0000"/>
+<polygon points="892,314 892,332 907,323" fill="#fff"/>
+
+  <!-- headline block -->
+  <rect x="72" y="174" width="46" height="4" rx="2" fill="#ff0000"/>
+  <text x="72" y="204" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#ff0000" letter-spacing="2.2">STRATEGY</text>
+    <text x="72" y="250" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="800" fill="#f1f1f1" letter-spacing="-.5">Recommendation graph</text>
+  <text x="72" y="318" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="500" fill="#717171">How one video pulls in the next</text>
+
+  <!-- footer lockup -->
+  <g transform="translate(72 566)">
+    <rect x="0" y="-16" width="30" height="30" rx="8" fill="#ff0000"/>
+    <polygon points="11,-8 11,6 22,-1" fill="#fff"/>
+    <text x="42" y="6" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="700" fill="#f1f1f1">CreatorTools<tspan fill="#717171">.io</tspan></text>
+  </g>
+</svg>

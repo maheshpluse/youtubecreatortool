@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="CreatorTools.biz - Premium YouTube SEO & Growth Tools for Creators">
+        <meta name="theme-color" content="#FF0000" media="(max-width: 767px)">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="CreatorTools.biz">
+        <meta property="og:title" content="CreatorTools.biz - YouTube Creator Tools">
+        <meta property="og:description" content="CreatorTools.biz - Premium YouTube SEO & Growth Tools for Creators">
+        <meta property="og:url" content="https://creatortools.biz">
+        <meta property="og:image" content="https://creatortools.biz/images/og-image.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="CreatorTools.biz - YouTube Creator Tools">
+        <meta name="twitter:description" content="CreatorTools.biz - Premium YouTube SEO & Growth Tools for Creators">
+
+        <title>CreatorTools.biz - YouTube Creator Tools</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- Fonts: Roboto (YouTube's standard font) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        
+        <!-- Material Symbols (Rounded) -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+
+        <!-- Generated CSS -->
+        <link rel="stylesheet" href="main.css">
+        
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            darkMode: 'class',
+            theme: {
+              extend: {
+                fontFamily: {
+                  'sans': ['Roboto', 'system-ui', '-apple-system', 'sans-serif'],
+                },
+                colors: {
+                  // YouTube Brand Colors
+                  yt: {
+                    red: '#FF0000',
+                    darkred: '#CC0000',
+                    blue: {
+                      light: '#3EA6FF', // Dark mode links
+                      dark: '#065FD4',  // Light mode links
+                    },
+                    // Grays used in YouTube UI
+                    gray: {
+                      50: '#F9F9F9',
+                      100: '#F1F1F1',
+                      200: '#E5E5E5',
+                      300: '#CCCCCC',
+                      400: '#AAAAAA',
+                      500: '#909090',
+                      600: '#717171',
+                      700: '#606060',
+                      800: '#282828', // Cards/Search bar in dark mode
+                      900: '#0F0F0F', // Main background in dark mode
+                      950: '#000000',
+                    }
+                  }
+                },
+              }
+            }
+          }
+        </script>
+        
+        <!-- Material Tailwind -->
+        <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" />
+        
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- Theme Toggle -->
+        <script>
+          (function() {
+            var saved = localStorage.getItem('ct-theme');
+            if (saved === 'light') document.documentElement.classList.remove('dark');
+            else document.documentElement.classList.add('dark');
+          })();
+          document.addEventListener('click', function(e) {
+            var btn = e.target.closest('[data-theme-toggle]');
+            if (btn) {
+              document.documentElement.classList.toggle('dark');
+              var isDark = document.documentElement.classList.contains('dark');
+              localStorage.setItem('ct-theme', isDark ? 'dark' : 'light');
+            }
+          });
+        </script>
+
+        <!-- Cookie consent + Google Consent Mode v2.
+             MUST stay above every Google tag (reCAPTCHA, AdSense, gtag) and
+             must NOT be async/defer: the consent defaults have to be in
+             dataLayer before Google reads storage. -->
+        <script src="consent.js"></script>
+
+        <!-- reCAPTCHA integration -->
+        <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+        <script>
+          // Your reCAPTCHA v2 "invisible" site key. Leave empty for local
+          // development: executeRecaptcha() then resolves a dummy token, which
+          // the API only accepts when ALLOW_INSECURE_RECAPTCHA=true.
+          window.RECAPTCHA_SITE_KEY = '6Ld3IqktAAAAACjAdvD4qRs1j2ohkVIlsNWG-cAI';
+
+          let recaptchaWidgetId = null;
+          window.executeRecaptcha = function() {
+            return new Promise((resolve) => {
+              // Degrade to a dummy token when reCAPTCHA is unconfigured or the
+              // script was blocked. Never reject: a rejection here would leave
+              // every button silently dead.
+              if (!window.RECAPTCHA_SITE_KEY ||
+                  typeof grecaptcha === 'undefined' ||
+                  typeof grecaptcha.render !== 'function') {
+                resolve("DUMMY_TOKEN");
+                return;
+              }
+              try {
+                window.onRecaptchaSuccess = function(token) {
+                  grecaptcha.reset(recaptchaWidgetId);
+                  resolve(token);
+                };
+                if (recaptchaWidgetId === null) {
+                  recaptchaWidgetId = grecaptcha.render('recaptcha-element', {
+                    'sitekey': window.RECAPTCHA_SITE_KEY,
+                    'callback': 'onRecaptchaSuccess',
+                    'size': 'invisible'
+                  });
+                }
+                grecaptcha.execute(recaptchaWidgetId);
+              } catch (err) {
+                console.error('reCAPTCHA failed, falling back to dummy token:', err);
+                resolve("DUMMY_TOKEN");
+              }
+            });
+          };
+        </script>
+
+        <script defer src="main.dart.js"></script>
+        
+        <!-- Google AdSense Integration -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+    </head>
+    <body class="font-sans antialiased bg-white dark:bg-yt-gray-900 text-yt-gray-900 dark:text-yt-gray-100 transition-colors duration-300">
+        <div id="recaptcha-element"></div>
+        <div id="app"></div>
+    </body>
+</html>

@@ -1,0 +1,162 @@
+{
+  "adsense-revenue-per-1000-views": {
+    "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
+    "h": 630,
+    "motif": "bars",
+    "png": "/images/blog/hero/adsense-revenue-per-1000-views.png",
+    "svg": "../images/blog/hero/adsense-revenue-per-1000-views.svg",
+    "w": 1200
+  },
+  "content-creation-tools-youtube-creators": {
+    "alt": "Grid of creator tool tiles with three highlighted as recommended picks",
+    "h": 630,
+    "motif": "toolbox",
+    "png": "/images/blog/hero/content-creation-tools-youtube-creators.png",
+    "svg": "../images/blog/hero/content-creation-tools-youtube-creators.svg",
+    "w": 1200
+  },
+  "digital-marketing-funnel-creators": {
+    "alt": "Four-stage marketing funnel narrowing from audience reach down to conversion",
+    "h": 630,
+    "motif": "funnel",
+    "png": "/images/blog/hero/digital-marketing-funnel-creators.png",
+    "svg": "../images/blog/hero/digital-marketing-funnel-creators.svg",
+    "w": 1200
+  },
+  "find-target-audience-youtube": {
+    "alt": "Radar chart comparing your channel against a competitor across six metrics",
+    "h": 630,
+    "motif": "radar",
+    "png": "/images/blog/hero/find-target-audience-youtube.png",
+    "svg": "../images/blog/hero/find-target-audience-youtube.svg",
+    "w": 1200
+  },
+  "high-cpc-keywords-youtube-niches": {
+    "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
+    "h": 630,
+    "motif": "bars",
+    "png": "/images/blog/hero/high-cpc-keywords-youtube-niches.png",
+    "svg": "../images/blog/hero/high-cpc-keywords-youtube-niches.svg",
+    "w": 1200
+  },
+  "how-to-increase-youtube-rpm": {
+    "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
+    "h": 630,
+    "motif": "bars",
+    "png": "/images/blog/hero/how-to-increase-youtube-rpm.png",
+    "svg": "../images/blog/hero/how-to-increase-youtube-rpm.svg",
+    "w": 1200
+  },
+  "how-youtube-algorithm-works": {
+    "alt": "Recommendation network diagram with a central video linked to related videos",
+    "h": 630,
+    "motif": "network",
+    "png": "/images/blog/hero/how-youtube-algorithm-works.png",
+    "svg": "../images/blog/hero/how-youtube-algorithm-works.svg",
+    "w": 1200
+  },
+  "improve-youtube-click-through-rate": {
+    "alt": "Grid of video thumbnails with a cursor clicking the best performing one",
+    "h": 630,
+    "motif": "ctr",
+    "png": "/images/blog/hero/improve-youtube-click-through-rate.png",
+    "svg": "../images/blog/hero/improve-youtube-click-through-rate.svg",
+    "w": 1200
+  },
+  "organic-traffic-growth-strategy": {
+    "alt": "Line chart showing channel traffic growing steadily across nine reporting periods",
+    "h": 630,
+    "motif": "line",
+    "png": "/images/blog/hero/organic-traffic-growth-strategy.png",
+    "svg": "../images/blog/hero/organic-traffic-growth-strategy.svg",
+    "w": 1200
+  },
+  "passive-income-streams-youtube-creators": {
+    "alt": "Four separate income streams converging into a single revenue total",
+    "h": 630,
+    "motif": "streams",
+    "png": "/images/blog/hero/passive-income-streams-youtube-creators.png",
+    "svg": "../images/blog/hero/passive-income-streams-youtube-creators.svg",
+    "w": 1200
+  },
+  "rank-higher-youtube-search": {
+    "alt": "YouTube search results list with the number one ranking position highlighted",
+    "h": 630,
+    "motif": "search",
+    "png": "/images/blog/hero/rank-higher-youtube-search.png",
+    "svg": "../images/blog/hero/rank-higher-youtube-search.svg",
+    "w": 1200
+  },
+  "youtube-affiliate-marketing-strategies": {
+    "alt": "Four separate income streams converging into a single revenue total",
+    "h": 630,
+    "motif": "streams",
+    "png": "/images/blog/hero/youtube-affiliate-marketing-strategies.png",
+    "svg": "../images/blog/hero/youtube-affiliate-marketing-strategies.svg",
+    "w": 1200
+  },
+  "youtube-analytics-metrics-that-matter": {
+    "alt": "Line chart showing channel traffic growing steadily across nine reporting periods",
+    "h": 630,
+    "motif": "line",
+    "png": "/images/blog/hero/youtube-analytics-metrics-that-matter.png",
+    "svg": "../images/blog/hero/youtube-analytics-metrics-that-matter.svg",
+    "w": 1200
+  },
+  "youtube-channel-online-business": {
+    "alt": "Four separate income streams converging into a single revenue total",
+    "h": 630,
+    "motif": "streams",
+    "png": "/images/blog/hero/youtube-channel-online-business.png",
+    "svg": "../images/blog/hero/youtube-channel-online-business.svg",
+    "w": 1200
+  },
+  "youtube-competitor-analysis-guide": {
+    "alt": "Radar chart comparing your channel against a competitor across six metrics",
+    "h": 630,
+    "motif": "radar",
+    "png": "/images/blog/hero/youtube-competitor-analysis-guide.png",
+    "svg": "../images/blog/hero/youtube-competitor-analysis-guide.svg",
+    "w": 1200
+  },
+  "youtube-engagement-rate-calculation": {
+    "alt": "Concentric progress rings showing an engagement rate percentage",
+    "h": 630,
+    "motif": "rings",
+    "png": "/images/blog/hero/youtube-engagement-rate-calculation.png",
+    "svg": "../images/blog/hero/youtube-engagement-rate-calculation.svg",
+    "w": 1200
+  },
+  "youtube-keyword-research-tools": {
+    "alt": "Keyword research table with monthly search volume bars and a magnifier",
+    "h": 630,
+    "motif": "keywords",
+    "png": "/images/blog/hero/youtube-keyword-research-tools.png",
+    "svg": "../images/blog/hero/youtube-keyword-research-tools.svg",
+    "w": 1200
+  },
+  "youtube-monetization-requirements-guide": {
+    "alt": "Requirements checklist with several criteria met and others outstanding",
+    "h": 630,
+    "motif": "checklist",
+    "png": "/images/blog/hero/youtube-monetization-requirements-guide.png",
+    "svg": "../images/blog/hero/youtube-monetization-requirements-guide.svg",
+    "w": 1200
+  },
+  "youtube-seo-checklist-small-channels": {
+    "alt": "Requirements checklist with several criteria met and others outstanding",
+    "h": 630,
+    "motif": "checklist",
+    "png": "/images/blog/hero/youtube-seo-checklist-small-channels.png",
+    "svg": "../images/blog/hero/youtube-seo-checklist-small-channels.svg",
+    "w": 1200
+  },
+  "youtube-sponsored-content-brand-deals": {
+    "alt": "Four separate income streams converging into a single revenue total",
+    "h": 630,
+    "motif": "streams",
+    "png": "/images/blog/hero/youtube-sponsored-content-brand-deals.png",
+    "svg": "../images/blog/hero/youtube-sponsored-content-brand-deals.svg",
+    "w": 1200
+  }
+}

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="How to Rank Higher on YouTube Search: A 9-Step Optimization Workflow">
+  <defs>
+    <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff0000" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#ff0000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff0000" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#ff0000" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="gGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0f0f0f"/>
+  <rect width="1200" height="630" fill="url(#gGrid)" opacity=".55"/>
+  <circle cx="1050" cy="90" r="330" fill="url(#gGlow)"/>
+  <rect width="1200" height="6" fill="#ff0000"/>
+
+  <!-- motif panel -->
+  <rect x="668" y="100" width="460" height="430" rx="18" fill="#0f0f0f" fill-opacity=".72" stroke="#303030" stroke-width="1"/>
+<rect x="700" y="154" width="396" height="54" rx="8" fill="#1f1414" stroke="#ff0000" stroke-width="2"/>
+<rect x="714" y="168" width="40" height="26" rx="4" fill="#3a1616"/>
+<polygon points="730,175 730,187 740,181" fill="#ff0000"/>
+<rect x="766" y="170" width="267" height="8" rx="4" fill="#f1f1f1" opacity="1"/>
+<rect x="766" y="184" width="147" height="7" rx="3.5" fill="#717171"/>
+<text x="1080" y="186" text-anchor="end" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="700" fill="#ff0000">#1</text>
+<rect x="700" y="220" width="396" height="46" rx="8" fill="#181818" stroke="#303030" stroke-width="1"/>
+<rect x="714" y="230" width="40" height="26" rx="4" fill="#242424"/>
+<polygon points="730,237 730,249 740,243" fill="#717171"/>
+<rect x="766" y="232" width="279" height="8" rx="4" fill="#3a3a3a" opacity="0.9"/>
+<rect x="766" y="246" width="153" height="7" rx="3.5" fill="#2c2c2c"/>
+<rect x="700" y="278" width="396" height="46" rx="8" fill="#181818" stroke="#303030" stroke-width="1"/>
+<rect x="714" y="288" width="40" height="26" rx="4" fill="#242424"/>
+<polygon points="730,295 730,307 740,301" fill="#717171"/>
+<rect x="766" y="290" width="293" height="8" rx="4" fill="#3a3a3a" opacity="0.9"/>
+<rect x="766" y="304" width="161" height="7" rx="3.5" fill="#2c2c2c"/>
+<rect x="700" y="336" width="396" height="46" rx="8" fill="#181818" stroke="#303030" stroke-width="1"/>
+<rect x="714" y="346" width="40" height="26" rx="4" fill="#242424"/>
+<polygon points="730,353 730,365 740,359" fill="#717171"/>
+<rect x="766" y="348" width="292" height="8" rx="4" fill="#3a3a3a" opacity="0.9"/>
+<rect x="766" y="362" width="161" height="7" rx="3.5" fill="#2c2c2c"/>
+<rect x="700" y="394" width="396" height="46" rx="8" fill="#181818" stroke="#303030" stroke-width="1"/>
+<rect x="714" y="404" width="40" height="26" rx="4" fill="#242424"/>
+<polygon points="730,411 730,423 740,417" fill="#717171"/>
+<rect x="766" y="406" width="279" height="8" rx="4" fill="#3a3a3a" opacity="0.9"/>
+<rect x="766" y="420" width="153" height="7" rx="3.5" fill="#2c2c2c"/>
+
+  <!-- headline block -->
+  <rect x="72" y="174" width="46" height="4" rx="2" fill="#ff0000"/>
+  <text x="72" y="204" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#ff0000" letter-spacing="2.2">SEO</text>
+    <text x="72" y="250" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="800" fill="#f1f1f1" letter-spacing="-.5">Search ranking</text>
+  <text x="72" y="318" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="500" fill="#717171">The top slot takes most of the</text>
+  <text x="72" y="344" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="500" fill="#717171">clicks</text>
+
+  <!-- footer lockup -->
+  <g transform="translate(72 566)">
+    <rect x="0" y="-16" width="30" height="30" rx="8" fill="#ff0000"/>
+    <polygon points="11,-8 11,6 22,-1" fill="#fff"/>
+    <text x="42" y="6" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="700" fill="#f1f1f1">CreatorTools<tspan fill="#717171">.io</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,77 @@
+{
+  "project_context": {
+    "app_name": "CreatorTools.io",
+    "description": "A premium web utility application for YouTube creators. It provides tools for SEO analysis, Title generation, Tag extraction, and Revenue calculation.",
+    "target_audience": "YouTube Content Creators in Tier 1 countries (USA, UK, Canada).",
+    "monetization_focus": "High RPM Google AdSense. Requires fast load times, professional English copy, and built-in SEO rich text."
+  },
+  "tech_stack": {
+    "frontend": "Jaspr (Dart Web Framework)",
+    "styling": "Tailwind CSS (Utility classes mapped to Jaspr HTML components)",
+    "backend": "Python (FastAPI)",
+    "state_management": "Jaspr StatefulComponent"
+  },
+  "vibe_and_design_system": {
+    "theme": "Dark Mode (Vercel-inspired)",
+    "colors": {
+      "background": "#09090b",
+      "card_background": "#18181b",
+      "primary_accent": "#3b82f6",
+      "success": "#22c55e",
+      "warning": "#eab308",
+      "text_main": "#f3f4f6",
+      "text_muted": "#9ca3af",
+      "borders": "#27272a"
+    },
+    "typography": "Inter or standard sans-serif. Clean, highly legible, professional tone.",
+    "animations": {
+      "tab_switch": "animate-fade-up (custom CSS keyframe: translateY 15px to 0, opacity 0 to 1, duration 400ms)",
+      "results_load": "animate-scale-in (custom CSS keyframe: scale 0.9 to 1.05 to 1, duration 500ms)",
+      "inputs": "focus:-translate-y-1 focus:shadow-lg focus:shadow-blue-500/10 transition-all duration-300",
+      "buttons": "hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 transition-all duration-300"
+    },
+    "ux_rules": [
+      "No alerts or native popups. Use smooth inline error states.",
+      "Mobile-first: Large touch targets for buttons (py-4) and inputs (py-3).",
+      "Tab system must not reload the page (SPA behavior)."
+    ]
+  },
+  "features": [
+    {
+      "id": "seo_analyzer",
+      "inputs": ["Target Keyword (text)", "Video Title (text)", "Description Snippet (textarea)"],
+      "action": "POST to /api/calculate-seo",
+      "output": "0-100 Score circular indicator. Color coded (Green > 75, Yellow otherwise). List of passed/failed feedback points."
+    },
+    {
+      "id": "title_generator",
+      "inputs": ["Topic (text)"],
+      "action": "POST to /api/generate-titles",
+      "output": "List of 4 highly clickable titles with mock CTR scores."
+    },
+    {
+      "id": "tag_extractor",
+      "inputs": ["YouTube URL (text)"],
+      "action": "POST to /api/extract-tags",
+      "output": "Chip-style array of extracted tags."
+    },
+    {
+      "id": "earnings_calculator",
+      "inputs": ["Daily Views (number/slider)", "Niche (dropdown: Finance, Tech, Gaming, Vlog)"],
+      "action": "POST to /api/calculate-earnings",
+      "output": "Estimated monthly revenue range in USD based on Tier 1 RPMs."
+    }
+  ],
+  "seo_and_content_strategy": {
+    "placement": "Below the main tools container.",
+    "structure": "A beautifully styled informational article titled 'The Ultimate Guide to YouTube Monetization & Growth'.",
+    "required_keywords_to_embed_naturally": [
+      "Search Engine Optimization (SEO)", "AdSense revenue", "Target audience", "Video analytics", 
+      "Click-Through Rate (CTR)", "Video engagement rate", "Keyword research tool", "Competitor analysis", 
+      "High CPC keywords", "High RPM", "Passive income streams", "Affiliate marketing strategies", 
+      "Sponsored content", "Online business", "Algorithm update", "Content creation tools", 
+      "Organic traffic growth", "Digital marketing", "Rank higher on YouTube", "Monetization"
+    ]
+  },
+  "generation_instructions": "Act as a Senior Dart/Jaspr & Python developer. Generate the complete `app.dart` utilizing Jaspr's specific HTML syntax `div(classes: '...', [text('...')])`. Ensure the `http` package is used for API calls. Include the custom CSS for animations in a separate block. Ensure the Python FastAPI code matches the exact payload structures expected by the Jaspr frontend."
+}

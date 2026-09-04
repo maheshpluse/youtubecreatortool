@@ -1,0 +1,12 @@
+# CreatorTools.biz
+User-agent: *
+Allow: /
+
+# Google's ad crawlers need access to serve relevant ads on the blog.
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+Sitemap: https://creatortools.biz/sitemap.xml
