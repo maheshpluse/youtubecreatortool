@@ -10,7 +10,7 @@ import 'pages/legal.dart';
 import 'components/adsense_ad.dart';
 
 class App extends StatefulComponent {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   State<App> createState() => _AppState();
@@ -274,10 +274,9 @@ class _AppState extends State<App> {
   Component _buildTabChip(String label, String id) {
     bool isActive = _activeTab == id;
     return button(
-      classes: 'px-4 py-1.5 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ' +
-          (isActive
+      classes: 'px-4 py-1.5 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${isActive
               ? 'bg-yt-gray-900 text-white dark:bg-white dark:text-yt-gray-900'
-              : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'),
+              : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'}',
       onClick: () => switchTab(id),
       [
         text(label),
@@ -304,11 +303,10 @@ class _AppState extends State<App> {
   Component _mobileNavItem(String icon, String label, String tab) {
     bool isActive = _activeTab == tab;
     return button(
-      classes: 'flex flex-col items-center gap-1 py-1 px-3 transition-all duration-300 ' +
-          (isActive ? 'text-yt-gray-900 dark:text-white' : 'text-yt-gray-600 dark:text-yt-gray-400'),
+      classes: 'flex flex-col items-center gap-1 py-1 px-3 transition-all duration-300 ${isActive ? 'text-yt-gray-900 dark:text-white' : 'text-yt-gray-600 dark:text-yt-gray-400'}',
       onClick: () => switchTab(tab),
       [
-        span(classes: 'material-symbols-rounded text-2xl ' + (isActive ? 'filled' : ''), [text(icon)]),
+        span(classes: 'material-symbols-rounded text-2xl ${isActive ? 'filled' : ''}', [text(icon)]),
         span(classes: 'text-[10px] font-medium', [text(label)]),
       ]
     );
@@ -360,7 +358,7 @@ class _AppState extends State<App> {
         if (seoResult != null) ...[
           div(classes: 'score-ring mb-6', [
             div(classes: 'text-center', [
-              span(classes: 'text-4xl font-bold ' + ((seoResult!['score'] as int) > 75 ? 'text-[#2BA640]' : 'text-yt-red'), [
+              span(classes: 'text-4xl font-bold ${(seoResult!['score'] as int) > 75 ? 'text-[#2BA640]' : 'text-yt-red'}', [
                 text(seoResult!['score'].toString())
               ]),
               p(classes: 'text-sm font-medium text-yt-gray-500 mt-1', [text('SEO Score')])
@@ -369,8 +367,7 @@ class _AppState extends State<App> {
           div(classes: 'w-full space-y-2', [
             for (var fb in seoResult!['feedback'])
               div(classes: 'flex items-start gap-2', [
-                span(classes: 'material-symbols-rounded text-sm mt-0.5 ' +
-                    (fb.toString().startsWith('Pass') ? 'text-[#2BA640]' : 'text-yt-red'),
+                span(classes: 'material-symbols-rounded text-sm mt-0.5 ${fb.toString().startsWith('Pass') ? 'text-[#2BA640]' : 'text-yt-red'}',
                     [text(fb.toString().startsWith('Pass') ? 'check_circle' : 'cancel')]),
                 span(classes: 'text-sm text-yt-gray-700 dark:text-yt-gray-300', [text(fb.toString())])
               ])
@@ -413,7 +410,7 @@ class _AppState extends State<App> {
           div(classes: 'card p-4 hover:bg-yt-gray-50 dark:hover:bg-yt-gray-800 cursor-pointer', [
             div(classes: 'flex gap-3', [
               span(classes: 'text-sm font-medium text-yt-gray-500 mt-0.5', [
-                text((i + 1).toString() + '.')
+                text('${i + 1}.')
               ]),
               div(classes: 'flex-1', [
                 p(classes: 'font-medium text-sm text-yt-gray-900 dark:text-white', [
@@ -421,7 +418,7 @@ class _AppState extends State<App> {
                 ]),
                 div(classes: 'flex items-center gap-2 mt-2', [
                   span(classes: 'text-xs text-[#2BA640] font-medium', [
-                    text('CTR: ' + generatedTitles![i]['ctr_score'].toString() + '%')
+                    text('CTR: ${generatedTitles![i]['ctr_score']}%')
                   ]),
                 ]),
               ]),
@@ -478,7 +475,7 @@ class _AppState extends State<App> {
                 div(classes: 'bg-yt-gray-100 dark:bg-yt-gray-900 rounded p-3 border border-yt-gray-200 dark:border-yt-gray-700', [
                   span(classes: 'text-xs font-bold text-yt-gray-500 uppercase tracking-wider', [text('Text on Screen')]),
                   p(classes: 'text-sm font-bold text-yt-gray-900 dark:text-white mt-1 text-xl italic', [
-                    text('"' + generatedThumbnails![i]['text_on_screen'].toString() + '"')
+                    text('"${generatedThumbnails![i]['text_on_screen']}"')
                   ]),
                 ]),
               ])
@@ -517,7 +514,7 @@ class _AppState extends State<App> {
       if (extractedTags != null) div(classes: 'card p-6 animate-fade-in-up animate-delay-200', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'text-sm font-medium text-yt-gray-600 dark:text-yt-gray-400', [
-            text(extractedTags!.length.toString() + ' tags extracted')
+            text('${extractedTags!.length} tags extracted')
           ])
         ]),
         div(classes: 'flex flex-wrap gap-2', [
@@ -580,7 +577,7 @@ class _AppState extends State<App> {
           div(classes: 'text-center animate-bounce-in', [
             span(classes: 'text-sm text-yt-gray-500 font-medium mb-1', [text('Estimated Monthly Revenue')]),
             p(classes: 'text-4xl font-bold text-yt-gray-900 dark:text-white mt-2', [
-              text('\$' + earningsResult!['min_monthly'].toString() + ' - \$' + earningsResult!['max_monthly'].toString())
+              text('\$${earningsResult!['min_monthly']} - \$${earningsResult!['max_monthly']}')
             ]),
             p(classes: 'text-xs text-yt-gray-500 mt-4', [text('Based on US/UK tier-1 CPM rates')]),
           ])
@@ -595,10 +592,9 @@ class _AppState extends State<App> {
   Component _nicheButton(String label, String value) {
     bool isActive = selectedNiche == value;
     return button(
-      classes: 'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ' +
-          (isActive
+      classes: 'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${isActive
               ? 'bg-yt-gray-900 text-white dark:bg-white dark:text-yt-gray-900'
-              : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'),
+              : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'}',
       onClick: () => setState(() => selectedNiche = value),
       [
         text(label),
@@ -619,7 +615,7 @@ class _AppState extends State<App> {
         a(
           href: 'blog/index.html',
           classes: 'text-sm font-medium text-yt-blue-dark dark:text-yt-blue-light hover:underline whitespace-nowrap',
-          [text('View all ' + blogPosts.length.toString() + ' articles')]
+          [text('View all ${blogPosts.length} articles')]
         ),
       ]),
 
@@ -646,7 +642,7 @@ class _AppState extends State<App> {
           div(classes: 'flex flex-col', [
             h3(classes: 'text-sm font-medium text-yt-gray-900 dark:text-white line-clamp-2 leading-tight group-hover:text-yt-red transition-colors', [text(post.title)]),
             p(classes: 'text-xs text-yt-gray-600 dark:text-yt-gray-400 mt-1', [
-              text(post.category + ' \u2022 ' + post.date + ' \u2022 ' + post.readMinutes.toString() + ' min read')
+              text('${post.category} \u2022 ${post.date} \u2022 ${post.readMinutes} min read')
             ]),
           ])
         ])
