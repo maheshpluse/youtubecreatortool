@@ -1,0 +1,51 @@
+rules_version = '2';
+
+// Not deployed automatically - review then run:
+//   firebase deploy --only firestore:rules --project creatortools-cf7e6
+//
+// Everything admin_panel reads/writes lives behind the `admin` custom claim,
+// which backend/create_admin.py (or the Admins page) grants via the Admin SDK.
+// The FastAPI backend itself uses the Admin SDK and always bypasses these
+// rules, so backend writes (system_logs, keyword_cache, etc.) are unaffected.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    // Managed from admin_panel's Blog Manager page only. Not read by the
+    // public site (which builds its blog from a static file), so no public
+    // read access is needed.
+    match /blog_posts/{postId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Holds the Anthropic API key and other operational settings.
+    match /app_settings/{docId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Written only by the backend (Admin SDK); the dashboard just reads counts.
+    match /keyword_cache/{docId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    // Error logs (written by the backend) and audit entries (written by
+    // admin_panel when an admin performs a sensitive action). Append-only:
+    // nobody can edit or delete history, including admins.
+    match /system_logs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin()
+        && request.resource.data.type == 'audit'
+        && request.resource.data.actor == request.auth.token.email;
+      allow update, delete: if false;
+    }
+
+    // Deny everything else by default.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
