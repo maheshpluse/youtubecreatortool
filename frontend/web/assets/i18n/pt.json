@@ -78,5 +78,22 @@
   "article_earn_p2": "Lembre que finanças e tecnologia costumam ter RPM mais alto que games ou vlogs, ou seja, dá para ganhar mais com menos views. Foque sempre em retenção de audiência para aproveitar mais espaços de anúncio.",
   "article_blog_title": "Insights e estratégias para criadores",
   "article_blog_p1": "Fique à frente com as últimas estratégias, mudanças de algoritmo e dicas de monetização no nosso blog para criadores. A gente destrincha assuntos complexos em conselhos práticos para youtubers de qualquer tamanho.",
-  "article_blog_p2": "De melhorar o design das thumbnails a entender a psicologia da audiência, o blog é sua fonte para crescimento sustentável e construção de comunidade."
+  "article_blog_p2": "De melhorar o design das thumbnails a entender a psicologia da audiência, o blog é sua fonte para crescimento sustentável e construção de comunidade.",
+  "about_title": "Sobre nós",
+  "about_p1": "O CreatorTools foi criado por criadores, para criadores. Nossa missão é democratizar o acesso a ferramentas avançadas de análise e SEO do YouTube, ajudando canais de todos os tamanhos a maximizar seu alcance e receita.",
+  "about_p2": "Seja você um vlogger iniciante ou um crítico de tecnologia experiente, nosso conjunto de ferramentas foi projetado para economizar seu tempo e aumentar sua taxa de cliques (CTR).",
+  "contact_title": "Fale conosco",
+  "contact_p1": "Adoraríamos ouvir você! Se tiver pedidos de recursos, relatos de bugs ou consultas comerciais, entre em contato conosco.",
+  "seo_fb_volume_high": "Aprovado: Excelente volume de busca! ({volume} buscas mensais).",
+  "seo_fb_volume_good": "Aprovado: Bom volume de busca ({volume} buscas mensais).",
+  "seo_fb_volume_low": "Reprovado: Baixo volume de busca ({volume} buscas mensais). Considere uma palavra-chave mais ampla.",
+  "seo_fb_competition_low": "Aprovado: A baixa concorrência facilitará o posicionamento!",
+  "seo_fb_competition_medium": "Aprovado: Concorrência média. Certifique-se de que sua miniatura se destaque.",
+  "seo_fb_competition_high": "Reprovado: Alta concorrência. Será difícil se posicionar sem um grande público.",
+  "seo_fb_keyword_title_pass": "Aprovado: Palavra-chave exata encontrada no título.",
+  "seo_fb_keyword_title_fail": "Reprovado: Palavra-chave alvo ausente no título.",
+  "seo_fb_keyword_desc_pass": "Aprovado: Palavra-chave alvo encontrada no início da descrição.",
+  "seo_fb_keyword_desc_fail": "Reprovado: Palavra-chave alvo ausente no início da descrição.",
+  "seo_fb_title_length_pass": "Aprovado: Comprimento do título ideal (30-70 caracteres).",
+  "seo_fb_title_length_fail": "Reprovado: Comprimento do título não ideal."
 }

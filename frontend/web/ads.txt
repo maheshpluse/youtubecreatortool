@@ -1,4 +1,4 @@
-# ads.txt for creatortools.biz
+# ads.txt for vidseokit.com
 #
 # Authorised digital sellers (IAB Tech Lab). Not mandatory, but Google
 # recommends it: it lets buyers verify that your inventory is genuine.

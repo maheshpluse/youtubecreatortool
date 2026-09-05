@@ -3,7 +3,7 @@ import random
 import requests
 import json
 
-# DataForSEO Credentials
+# Default DataForSEO Credentials
 DATAFORSEO_BASE64 = "aW5mb0BlYXN5c2lnbmx5LmNvbTo3NDY0MTZmMGZmYzQ1ZTNi"
 
 def fetch_keyword_data(keyword: str, db=None) -> dict:
@@ -11,9 +11,21 @@ def fetch_keyword_data(keyword: str, db=None) -> dict:
     Fetches real YouTube search volume and CPC data from DataForSEO API.
     If the API fails (e.g., account not verified), it falls back to mock data.
     """
+    api_key = DATAFORSEO_BASE64
+    
+    if db:
+        try:
+            doc_ref = db.collection("app_settings").document("api_keys").get()
+            if doc_ref.exists:
+                dynamic_key = doc_ref.to_dict().get("dataforseo_api_key")
+                if dynamic_key:
+                    api_key = dynamic_key
+        except Exception as e:
+            print(f"Failed to fetch DataForSEO key from Firestore: {e}")
+
     url = "https://api.dataforseo.com/v3/dataforseo_labs/youtube/keyword_ideas/live"
     headers = {
-        'Authorization': f'Basic {DATAFORSEO_BASE64}',
+        'Authorization': f'Basic {api_key}',
         'Content-Type': 'application/json'
     }
     

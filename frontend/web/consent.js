@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   CreatorTools.biz — cookie consent + Google Consent Mode v2
+   CreatorTools — cookie consent + Google Consent Mode v2
 
    Loaded SYNCHRONOUSLY from <head>, before any Google tag. The consent
    defaults below must be in dataLayer before AdSense/gtag boots, otherwise

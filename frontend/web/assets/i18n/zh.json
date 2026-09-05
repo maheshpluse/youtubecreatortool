@@ -78,5 +78,22 @@
   "article_earn_p2": "注意：财经和科技类的 RPM 通常高于游戏或 vlog，也就是说播放量更少也可能赚得更多。想让广告位价值最大化，始终把观众留存放在第一位。",
   "article_blog_title": "创作者洞察与策略",
   "article_blog_p1": "在创作者博客里跟上最新策略、算法更新和变现技巧。我们把复杂的话题拆成能直接上手的建议，适合各种体量的 YouTuber。",
-  "article_blog_p2": "从优化封面设计到理解观众心理，博客是你做长期频道成长和社群运营的常备资源。"
+  "article_blog_p2": "从优化封面设计到理解观众心理，博客是你做长期频道成长和社群运营的常备资源。",
+  "about_title": "关于我们",
+  "about_p1": "CreatorTools 由创作者为创作者打造。我们的使命是让所有规模的频道都能使用先进的 YouTube 数据分析和 SEO 工具，从而扩大影响力并提高收益。",
+  "about_p2": "无论你是新手视频博主还是资深科技测评人，我们的工具套件都能帮你节省时间，提升点击率（CTR）。",
+  "contact_title": "联系我们",
+  "contact_p1": "欢迎与我们联系！如果你有功能建议、错误报告或商务合作意向，请随时联系我们。",
+  "seo_fb_volume_high": "通过：搜索量极高！（每月 {volume} 次搜索）。",
+  "seo_fb_volume_good": "通过：搜索量良好（每月 {volume} 次搜索）。",
+  "seo_fb_volume_low": "未通过：搜索量较低（每月 {volume} 次搜索）。可考虑使用更宽泛的关键词。",
+  "seo_fb_competition_low": "通过：竞争程度低，更容易获得排名！",
+  "seo_fb_competition_medium": "通过：竞争程度中等，请确保缩略图足够吸引人。",
+  "seo_fb_competition_high": "未通过：竞争激烈，没有大量粉丝基础很难获得排名。",
+  "seo_fb_keyword_title_pass": "通过：标题中包含完全匹配的目标关键词。",
+  "seo_fb_keyword_title_fail": "未通过：标题中缺少目标关键词。",
+  "seo_fb_keyword_desc_pass": "通过：目标关键词出现在描述的靠前位置。",
+  "seo_fb_keyword_desc_fail": "未通过：描述开头缺少目标关键词。",
+  "seo_fb_title_length_pass": "通过：标题长度合适（30-70 个字符）。",
+  "seo_fb_title_length_fail": "未通过：标题长度不合适。"
 }

@@ -9,6 +9,6 @@ import 'package:jaspr/client.dart';
 import 'package:frontend/app.dart';
 
 void main() {
-  // Attaches the [App] component to the <body> of the page.
-  runApp(App());
+  // Attaches the [App] component to the <div id="app"> of the page.
+  runApp(App(), attachTo: '#app');
 }

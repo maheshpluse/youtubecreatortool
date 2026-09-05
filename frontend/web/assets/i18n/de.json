@@ -78,5 +78,22 @@
   "article_earn_p2": "Denk daran: Finanzen und Tech haben meist höhere RPMs als Gaming oder Vlogs, du kannst also mit weniger Aufrufen mehr verdienen. Achte immer auf die Zuschauerbindung, damit mehr Werbeplätze ausgespielt werden.",
   "article_blog_title": "Einblicke und Strategien für Creator",
   "article_blog_p1": "Bleib vorn mit den neuesten Strategien, Algorithmus-Updates und Monetarisierungstipps in unserem Creator-Blog. Wir übersetzen komplexe Themen in konkrete Tipps für Kanäle jeder Größe.",
-  "article_blog_p2": "Von besseren Thumbnail-Designs bis zur Psychologie deines Publikums: Der Blog ist deine Anlaufstelle für nachhaltiges Kanalwachstum und echten Community-Aufbau."
+  "article_blog_p2": "Von besseren Thumbnail-Designs bis zur Psychologie deines Publikums: Der Blog ist deine Anlaufstelle für nachhaltiges Kanalwachstum und echten Community-Aufbau.",
+  "about_title": "Über uns",
+  "about_p1": "CreatorTools wurde von Creatorn für Creator entwickelt. Unsere Mission ist es, den Zugang zu fortschrittlichen YouTube-Analyse- und SEO-Tools zu demokratisieren und Kanälen jeder Größe zu helfen, ihre Reichweite und ihren Umsatz zu maximieren.",
+  "about_p2": "Egal, ob du ein neuer Vlogger oder ein erfahrener Technik-Reviewer bist, unsere Toolsammlung wurde entwickelt, um dir Zeit zu sparen und deine Klickrate (CTR) zu steigern.",
+  "contact_title": "Kontaktiere uns",
+  "contact_p1": "Wir freuen uns, von dir zu hören! Wenn du Funktionswünsche, Fehlerberichte oder geschäftliche Anfragen hast, kontaktiere uns bitte.",
+  "seo_fb_volume_high": "Bestanden: Hervorragendes Suchvolumen! ({volume} monatliche Suchanfragen).",
+  "seo_fb_volume_good": "Bestanden: Gutes Suchvolumen ({volume} monatliche Suchanfragen).",
+  "seo_fb_volume_low": "Nicht bestanden: Geringes Suchvolumen ({volume} monatliche Suchanfragen). Erwäge ein breiteres Keyword.",
+  "seo_fb_competition_low": "Bestanden: Geringer Wettbewerb erleichtert das Ranking!",
+  "seo_fb_competition_medium": "Bestanden: Mittlerer Wettbewerb. Achte darauf, dass dein Thumbnail heraussticht.",
+  "seo_fb_competition_high": "Nicht bestanden: Hoher Wettbewerb. Ohne große Fangemeinde wird das Ranking schwierig.",
+  "seo_fb_keyword_title_pass": "Bestanden: Exaktes Ziel-Keyword im Titel gefunden.",
+  "seo_fb_keyword_title_fail": "Nicht bestanden: Ziel-Keyword fehlt im Titel.",
+  "seo_fb_keyword_desc_pass": "Bestanden: Ziel-Keyword früh in der Beschreibung gefunden.",
+  "seo_fb_keyword_desc_fail": "Nicht bestanden: Ziel-Keyword fehlt am Anfang der Beschreibung.",
+  "seo_fb_title_length_pass": "Bestanden: Titellänge ist optimal (30-70 Zeichen).",
+  "seo_fb_title_length_fail": "Nicht bestanden: Titellänge ist nicht optimal."
 }

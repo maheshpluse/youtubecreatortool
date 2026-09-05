@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CreatorTools.io blog hero-image generator.
+CreatorTools blog hero-image generator.
 
 Every image is drawn from code here — no stock photography, no scraped assets,
 nothing with a licence attached. That matters for AdSense: image provenance is

@@ -36,3 +36,9 @@ build/
 .Trashes
 ehthumbs.db
 Thumbs.db
+env.prod.json
+
+# Node / JS
+node_modules/
+dist/
+admin_panel/dist/

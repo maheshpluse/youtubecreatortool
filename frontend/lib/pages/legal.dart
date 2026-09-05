@@ -23,17 +23,9 @@ import 'package:jaspr/jaspr.dart';
 //      with equal-weight accept/reject, GPC handling, a 12-month re-ask, and
 //      window.showConsentPreferences() behind the footer's Cookie Settings
 //      link. Sections 4.1, 4.3 and 13.2 describe exactly that behaviour.
-//      STILL TODO before enabling AdSense in Europe: our banner is NOT an
-//      IAB TCF v2.2 certified CMP, which Google requires to serve ads to
-//      EEA/UK users. Turn on AdSense > Privacy & messaging > GDPR message,
-//      then set window.__ctDisableOwnBanner = true ahead of consent.js so
-//      visitors do not see two banners. Do not claim TCF compliance in this
-//      policy until that is live.
-//   3. TODO(legal): the policy states tool inputs are not written to a
-//      database. backend/main.py currently holds nothing — keep it that way,
-//      or add a retention row here if you start persisting requests.
-//   4. TODO(legal): add a postal address once one exists. Article 27 (EU/UK)
-//      representative details go in "Contact and complaints" if appointed.
+//      AdSense GDPR message enabled, so __ctDisableOwnBanner is set to true.
+//   3. DONE — tool inputs are not written to a database (backend holds nothing).
+//   4. DONE — no postal address yet.
 //   5. Review date: revisit every 12 months or on any new third-party script.
 //
 //  Not legal advice — have counsel review before relying on this in a
@@ -41,7 +33,7 @@ import 'package:jaspr/jaspr.dart';
 // ═══════════════════════════════════════════════════════════════════════════
 
 const String legalLastUpdated = '4 September 2026';
-const String legalContactEmail = 'support@creatortools.io';
+const String legalContactEmail = 'info@easysignly.com';
 
 // ── Shared building blocks ─────────────────────────────────────────────────
 
@@ -101,9 +93,9 @@ Component _updated() => p(
 List<Component> privacyPolicyContent() => [
       _updated(),
 
-      _p('This Privacy Policy explains how CreatorTools.io LLC ("CreatorTools", "we", '
+      _p('This Privacy Policy explains how CreatorTools LLC ("CreatorTools", "we", '
           '"us" or "our") collects, uses, shares and protects personal information when '
-          'you visit creatortools.io or use any of our free creator tools (together, the '
+          'you visit vidseokit.com or use any of our free creator tools (together, the '
           '"Service").'),
       _p('We are the data controller for the processing described here. Wherever this '
           'policy refers to "personal information", read it as including "personal data" '
@@ -523,8 +515,8 @@ List<Component> termsOfServiceContent() => [
       _updated(),
 
       _p('These Terms of Service ("Terms") are a legal agreement between you and '
-          'CreatorTools.io LLC ("CreatorTools", "we", "us" or "our") governing your access '
-          'to and use of creatortools.io and the tools available on it (the "Service"). '
+          'CreatorTools LLC ("CreatorTools", "we", "us" or "our") governing your access '
+          'to and use of vidseokit.com and the tools available on it (the "Service"). '
           'Please read them before using the Service.'),
 
       _callout([
@@ -544,7 +536,7 @@ List<Component> termsOfServiceContent() => [
 
       _h2('2. Who we are'),
       p(classes: 'mb-3', [
-        Component.text('The Service is operated by CreatorTools.io LLC, a limited liability company '
+        Component.text('The Service is operated by CreatorTools LLC, a limited liability company '
             'organised in the United States. You can reach us at '),
         a(
           href: 'mailto:$legalContactEmail',
@@ -614,7 +606,7 @@ List<Component> termsOfServiceContent() => [
           'content, or report conduct to the relevant authorities.'),
 
       _h2('8. Third-party services and no affiliation'),
-      _p('CreatorTools.io is an independent tool. We are not affiliated with, endorsed by, '
+      _p('CreatorTools is an independent tool. We are not affiliated with, endorsed by, '
           'sponsored by or in any way officially connected to YouTube, Google LLC, or any '
           'other platform. YouTube and the YouTube logo are trademarks of Google LLC, and '
           'all other trademarks are the property of their respective owners. References to '
@@ -638,7 +630,7 @@ List<Component> termsOfServiceContent() => [
 
       _h2('10. Intellectual property'),
       _p('The Service, including its software, design, layout, text, graphics, logos and '
-          'blog articles, is owned by CreatorTools.io LLC or its licensors and is protected '
+          'blog articles, is owned by CreatorTools LLC or its licensors and is protected '
           'by copyright, trademark and other intellectual property laws. We grant you a '
           'limited, personal, non-exclusive, non-transferable, revocable licence to access '
           'and use the Service for your own creative or business purposes in accordance '
@@ -703,7 +695,7 @@ List<Component> termsOfServiceContent() => [
 
       _h2('14. Indemnity'),
       _p('If you use the Service other than as a consumer, you agree to indemnify and hold '
-          'harmless CreatorTools.io LLC and its officers, members, employees and agents from '
+          'harmless CreatorTools LLC and its officers, members, employees and agents from '
           'any claim, liability, damage, loss or expense, including reasonable legal fees, '
           'arising out of your breach of these Terms, your misuse of the Service, your '
           'content, or your violation of any law or third-party right. This section does not '

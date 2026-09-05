@@ -78,5 +78,22 @@
   "article_earn_p2": "Finans ve teknoloji kategorilerinin RPM'i genelde oyun veya vloglardan yüksektir; yani daha az izlenmeyle daha çok kazanabilirsin. Reklam alanlarından tam verim almak için her zaman izlenme süresine odaklan.",
   "article_blog_title": "İçerik üreticileri için analiz ve stratejiler",
   "article_blog_p1": "Creator Blog'da en güncel stratejiler, algoritma değişiklikleri ve para kazanma ipuçlarıyla bir adım önde ol. Karmaşık konuları her ölçekten YouTuber'ın uygulayabileceği tavsiyelere indirgiyoruz.",
-  "article_blog_p2": "Kapak tasarımını iyileştirmekten izleyici psikolojisini anlamaya kadar, blog sürdürülebilir kanal büyümesi ve topluluk kurma konusunda başvuru kaynağın."
+  "article_blog_p2": "Kapak tasarımını iyileştirmekten izleyici psikolojisini anlamaya kadar, blog sürdürülebilir kanal büyümesi ve topluluk kurma konusunda başvuru kaynağın.",
+  "about_title": "Hakkımızda",
+  "about_p1": "CreatorTools, içerik üreticileri tarafından içerik üreticileri için oluşturuldu. Misyonumuz, gelişmiş YouTube analiz ve SEO araçlarına erişimi herkes için mümkün kılarak her büyüklükteki kanalın erişimini ve gelirini en üst düzeye çıkarmasına yardımcı olmaktır.",
+  "about_p2": "İster yeni bir vlogger ister deneyimli bir teknoloji eleştirmeni olun, araç setimiz zamandan tasarruf etmenizi ve Tıklama Oranınızı (CTR) artırmanızı sağlamak için tasarlanmıştır.",
+  "contact_title": "Bize Ulaşın",
+  "contact_p1": "Sizden haber almak isteriz! Özellik istekleriniz, hata bildirimleriniz veya iş sorularınız varsa lütfen bizimle iletişime geçin.",
+  "seo_fb_volume_high": "Başarılı: Mükemmel arama hacmi! (aylık {volume} arama).",
+  "seo_fb_volume_good": "Başarılı: İyi arama hacmi (aylık {volume} arama).",
+  "seo_fb_volume_low": "Başarısız: Düşük arama hacmi (aylık {volume} arama). Daha geniş bir anahtar kelime düşünün.",
+  "seo_fb_competition_low": "Başarılı: Düşük rekabet sıralamayı kolaylaştıracak!",
+  "seo_fb_competition_medium": "Başarılı: Orta düzey rekabet. Küçük resminizin öne çıktığından emin olun.",
+  "seo_fb_competition_high": "Başarısız: Yüksek rekabet. Geniş bir takipçi kitlesi olmadan sıralamak zor olacaktır.",
+  "seo_fb_keyword_title_pass": "Başarılı: Hedef anahtar kelime başlıkta tam olarak bulundu.",
+  "seo_fb_keyword_title_fail": "Başarısız: Hedef anahtar kelime başlıkta eksik.",
+  "seo_fb_keyword_desc_pass": "Başarılı: Hedef anahtar kelime açıklamanın başında bulundu.",
+  "seo_fb_keyword_desc_fail": "Başarısız: Hedef anahtar kelime açıklamanın başında eksik.",
+  "seo_fb_title_length_pass": "Başarılı: Başlık uzunluğu optimal (30-70 karakter).",
+  "seo_fb_title_length_fail": "Başarısız: Başlık uzunluğu optimal değil."
 }

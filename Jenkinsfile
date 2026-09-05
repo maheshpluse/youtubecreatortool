@@ -53,6 +53,31 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy to Hetzner') {
+            steps {
+                // Read password and API key using jq or awk and export it
+                sh '''
+                export ROOT_PASSWORD=$(cat env.prod.json | grep ROOT_PASSWORD | cut -d '"' -f 4)
+                export GEMINI_API_KEY=$(cat env.prod.json | grep GEMINI_API_KEY | cut -d '"' -f 4)
+                
+                # 1. Deploy Frontend
+                sshpass -p "$ROOT_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" --delete frontend/build/jaspr/ root@157.180.22.218:/var/www/creatortools/frontend/
+                
+                # 2. Deploy Admin Panel
+                sshpass -p "$ROOT_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" --delete admin_panel/dist/ root@157.180.22.218:/var/www/creatortools/admin_panel/
+                
+                # 3. Deploy Backend (Assuming we just copy files and pip install is handled by the service or we restart)
+                sshpass -p "$ROOT_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" backend/ root@157.180.22.218:/var/www/creatortools/backend/
+                
+                # 4. Inject Environment Variables
+                sshpass -p "$ROOT_PASSWORD" ssh -o StrictHostKeyChecking=no root@157.180.22.218 "echo 'GEMINI_API_KEY=$GEMINI_API_KEY' > /var/www/creatortools/backend/.env"
+                
+                # 5. Restart the python service
+                sshpass -p "$ROOT_PASSWORD" ssh -o StrictHostKeyChecking=no root@157.180.22.218 "sudo systemctl restart creatortools"
+                '''
+            }
+        }
     }
 
     post {

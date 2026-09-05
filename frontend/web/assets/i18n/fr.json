@@ -78,5 +78,22 @@
   "article_earn_p2": "Gardez en tête que la finance et la tech affichent généralement des RPM plus élevés que le gaming ou les vlogs : vous pouvez donc gagner plus avec moins de vues. Travaillez toujours la rétention pour multiplier les emplacements publicitaires.",
   "article_blog_title": "Analyses et stratégies pour créateurs",
   "article_blog_p1": "Gardez une longueur d'avance grâce aux dernières stratégies, mises à jour de l'algorithme et conseils de monétisation sur notre blog créateurs. Nous transformons les sujets complexes en conseils applicables, quelle que soit la taille de votre chaîne.",
-  "article_blog_p2": "De l'amélioration de vos miniatures à la compréhension de la psychologie de votre audience, le blog est votre ressource de référence pour une croissance durable et une vraie communauté."
+  "article_blog_p2": "De l'amélioration de vos miniatures à la compréhension de la psychologie de votre audience, le blog est votre ressource de référence pour une croissance durable et une vraie communauté.",
+  "about_title": "À propos de nous",
+  "about_p1": "CreatorTools a été conçu par des créateurs, pour des créateurs. Notre mission est de démocratiser l'accès à des outils avancés d'analyse et de référencement YouTube, afin d'aider les chaînes de toutes tailles à maximiser leur portée et leurs revenus.",
+  "about_p2": "Que vous soyez un nouveau vlogueur ou un critique tech chevronné, notre suite d'outils est conçue pour vous faire gagner du temps et améliorer votre taux de clics (CTR).",
+  "contact_title": "Contactez-nous",
+  "contact_p1": "Nous serions ravis d'avoir de vos nouvelles ! Pour toute demande de fonctionnalité, rapport de bug ou question commerciale, n'hésitez pas à nous contacter.",
+  "seo_fb_volume_high": "Réussi : Excellent volume de recherche ! ({volume} recherches mensuelles).",
+  "seo_fb_volume_good": "Réussi : Bon volume de recherche ({volume} recherches mensuelles).",
+  "seo_fb_volume_low": "Échec : Faible volume de recherche ({volume} recherches mensuelles). Envisagez un mot-clé plus large.",
+  "seo_fb_competition_low": "Réussi : Une faible concurrence facilitera votre classement !",
+  "seo_fb_competition_medium": "Réussi : Concurrence moyenne. Assurez-vous que votre miniature se démarque.",
+  "seo_fb_competition_high": "Échec : Forte concurrence. Il sera difficile de se classer sans une large audience.",
+  "seo_fb_keyword_title_pass": "Réussi : Le mot-clé cible exact figure dans le titre.",
+  "seo_fb_keyword_title_fail": "Échec : Le mot-clé cible est absent du titre.",
+  "seo_fb_keyword_desc_pass": "Réussi : Le mot-clé cible apparaît tôt dans la description.",
+  "seo_fb_keyword_desc_fail": "Échec : Le mot-clé cible est absent du début de la description.",
+  "seo_fb_title_length_pass": "Réussi : La longueur du titre est optimale (30-70 caractères).",
+  "seo_fb_title_length_fail": "Échec : La longueur du titre n'est pas optimale."
 }

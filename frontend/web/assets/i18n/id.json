@@ -78,5 +78,22 @@
   "article_earn_p2": "Ingat, niche finance dan teknologi biasanya punya RPM lebih tinggi dibanding gaming atau vlog, jadi kamu bisa dapat lebih banyak dengan views lebih sedikit. Selalu fokus ke audience retention supaya slot iklan makin maksimal.",
   "article_blog_title": "Insight & Strategi buat Kreator",
   "article_blog_p1": "Tetap selangkah di depan dengan strategi terbaru, update algoritma, dan tips monetisasi di Blog Kreator kami. Kami mengurai topik rumit jadi saran yang bisa langsung dipakai YouTuber dari segala ukuran.",
-  "article_blog_p2": "Dari memperbaiki desain thumbnail sampai memahami psikologi audiens, blog kami jadi sumber andalan buat pertumbuhan channel yang berkelanjutan dan membangun komunitas."
+  "article_blog_p2": "Dari memperbaiki desain thumbnail sampai memahami psikologi audiens, blog kami jadi sumber andalan buat pertumbuhan channel yang berkelanjutan dan membangun komunitas.",
+  "about_title": "Tentang Kami",
+  "about_p1": "CreatorTools dibangun oleh kreator, untuk kreator. Misi kami adalah mendemokratisasi akses ke alat analitik dan SEO YouTube tingkat lanjut, membantu channel dari segala ukuran memaksimalkan jangkauan dan pendapatan mereka.",
+  "about_p2": "Baik Anda seorang vlogger baru atau reviewer teknologi berpengalaman, rangkaian alat kami dirancang untuk menghemat waktu Anda dan meningkatkan Click-Through Rate (CTR).",
+  "contact_title": "Hubungi Kami",
+  "contact_p1": "Kami senang mendengar dari Anda! Jika Anda memiliki permintaan fitur, laporan bug, atau pertanyaan bisnis, silakan hubungi kami.",
+  "seo_fb_volume_high": "Lolos: Volume pencarian sangat baik! ({volume} pencarian per bulan).",
+  "seo_fb_volume_good": "Lolos: Volume pencarian baik ({volume} pencarian per bulan).",
+  "seo_fb_volume_low": "Gagal: Volume pencarian rendah ({volume} pencarian per bulan). Pertimbangkan kata kunci yang lebih luas.",
+  "seo_fb_competition_low": "Lolos: Persaingan rendah akan memudahkan Anda untuk rangking!",
+  "seo_fb_competition_medium": "Lolos: Persaingan sedang. Pastikan thumbnail Anda menonjol.",
+  "seo_fb_competition_high": "Gagal: Persaingan tinggi. Akan sulit untuk rangking tanpa pengikut yang besar.",
+  "seo_fb_keyword_title_pass": "Lolos: Kata kunci target ditemukan persis di judul.",
+  "seo_fb_keyword_title_fail": "Gagal: Kata kunci target tidak ada di judul.",
+  "seo_fb_keyword_desc_pass": "Lolos: Kata kunci target ditemukan di awal deskripsi.",
+  "seo_fb_keyword_desc_fail": "Gagal: Kata kunci target tidak ada di awal deskripsi.",
+  "seo_fb_title_length_pass": "Lolos: Panjang judul optimal (30-70 karakter).",
+  "seo_fb_title_length_fail": "Gagal: Panjang judul tidak optimal."
 }

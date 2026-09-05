@@ -12,12 +12,6 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 auth.useDeviceLanguage();
 
-document.addEventListener("DOMContentLoaded", function() {
-  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-element', {
-    'size': 'invisible'
-  });
-});
-
 // Global bridge object for Jaspr
 window.CTAuth = {
   currentUser: null,

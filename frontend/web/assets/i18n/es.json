@@ -78,5 +78,22 @@
   "article_earn_p2": "Ten en cuenta que los nichos de finanzas y tecnología suelen tener RPM más altos que gaming o vlogs, así que puedes ganar más con menos visitas. Enfócate siempre en la retención de audiencia para aprovechar mejor los anuncios.",
   "article_blog_title": "Ideas y estrategias para creadores",
   "article_blog_p1": "Mantente al día con las últimas estrategias, cambios de algoritmo y consejos de monetización en nuestro blog para creadores. Desmenuzamos temas complejos en consejos aplicables para youtubers de cualquier tamaño.",
-  "article_blog_p2": "Desde mejorar el diseño de tus miniaturas hasta entender la psicología de tu audiencia, el blog es tu recurso de referencia para crecer de forma sostenible y construir comunidad."
+  "article_blog_p2": "Desde mejorar el diseño de tus miniaturas hasta entender la psicología de tu audiencia, el blog es tu recurso de referencia para crecer de forma sostenible y construir comunidad.",
+  "about_title": "Sobre nosotros",
+  "about_p1": "CreatorTools fue creado por creadores, para creadores. Nuestra misión es democratizar el acceso a herramientas avanzadas de analítica y SEO de YouTube, ayudando a canales de todos los tamaños a maximizar su alcance e ingresos.",
+  "about_p2": "Ya seas un vlogger nuevo o un experimentado crítico de tecnología, nuestro conjunto de herramientas está diseñado para ahorrarte tiempo y aumentar tu tasa de clics (CTR).",
+  "contact_title": "Contáctanos",
+  "contact_p1": "¡Nos encantaría saber de ti! Si tienes solicitudes de funciones, informes de errores o consultas comerciales, no dudes en contactarnos.",
+  "seo_fb_volume_high": "Aprobado: ¡Excelente volumen de búsqueda! ({volume} búsquedas mensuales).",
+  "seo_fb_volume_good": "Aprobado: Buen volumen de búsqueda ({volume} búsquedas mensuales).",
+  "seo_fb_volume_low": "Fallido: Volumen de búsqueda bajo ({volume} búsquedas mensuales). Considera una palabra clave más amplia.",
+  "seo_fb_competition_low": "Aprobado: La baja competencia hará que sea más fácil posicionarte.",
+  "seo_fb_competition_medium": "Aprobado: Competencia media. Asegúrate de que tu miniatura destaque.",
+  "seo_fb_competition_high": "Fallido: Alta competencia. Será difícil posicionarte sin una gran audiencia.",
+  "seo_fb_keyword_title_pass": "Aprobado: La palabra clave exacta se encuentra en el título.",
+  "seo_fb_keyword_title_fail": "Fallido: Falta la palabra clave objetivo en el título.",
+  "seo_fb_keyword_desc_pass": "Aprobado: La palabra clave objetivo aparece al inicio de la descripción.",
+  "seo_fb_keyword_desc_fail": "Fallido: Falta la palabra clave objetivo al inicio de la descripción.",
+  "seo_fb_title_length_pass": "Aprobado: La longitud del título es óptima (30-70 caracteres).",
+  "seo_fb_title_length_fail": "Fallido: La longitud del título no es óptima."
 }

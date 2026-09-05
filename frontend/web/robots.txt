@@ -1,4 +1,4 @@
-# CreatorTools.biz
+# CreatorTools
 User-agent: *
 Allow: /
 
@@ -9,4 +9,4 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
-Sitemap: https://creatortools.biz/sitemap.xml
+Sitemap: https://vidseokit.com/sitemap.xml

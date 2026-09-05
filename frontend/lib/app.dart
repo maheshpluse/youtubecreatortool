@@ -125,14 +125,19 @@ class _AppState extends State<App> {
       });
 
   Future<void> generateTitles() => _run(() async {
-        final data = await _postJson('/api/generate-titles', {'topic': titleTopic});
-        setState(() => generatedTitles = data as List<dynamic>);
+        final data = await _postJson('/api/generate-titles', {
+          'topic': titleTopic,
+          'lang': I18nService().currentLanguage,
+        });
+        setState(() => generatedTitles = data['titles'] as List<dynamic>);
       });
 
   Future<void> generateThumbnails() => _run(() async {
-        final data =
-            await _postJson('/api/generate-thumbnails', {'topic': thumbnailTopic});
-        setState(() => generatedThumbnails = data as List<dynamic>);
+        final data = await _postJson('/api/generate-thumbnails', {
+          'topic': thumbnailTopic,
+          'lang': I18nService().currentLanguage,
+        });
+        setState(() => generatedThumbnails = data['thumbnails'] as List<dynamic>);
       });
 
   Future<void> extractTags() => _run(() async {
@@ -203,7 +208,7 @@ class _AppState extends State<App> {
           // Logo
           div(classes: 'flex items-center gap-2 cursor-pointer', [
             _buildLogoIcon('w-8 h-8'),
-            span(classes: 'text-xl font-bold tracking-tighter', [Component.text('CreatorTools')]),
+            span(classes: 'text-xl font-bold tracking-tighter', [Component.text(t('nav_logo_text'))]),
           ]),
           // Right Actions
           div(classes: 'flex items-center gap-3', [
@@ -211,8 +216,12 @@ class _AppState extends State<App> {
               span(classes: 'material-symbols-rounded text-lg mr-1 text-gray-600 dark:text-gray-400', [Component.text('language')]),
               select(
                 classes: 'bg-transparent text-sm font-medium text-gray-700 dark:text-gray-300 focus:outline-none cursor-pointer outline-none border-none',
-                onChange: (value) {
-                  I18nService().setLanguage(value.toString()).then((_) {
+                onChange: (values) {
+                  // jaspr's <select> onChange reports the selected values as a
+                  // List<String> (to support multi-select); this control only
+                  // ever has one selected, so take the first.
+                  if (values.isEmpty) return;
+                  I18nService().setLanguage(values.first).then((_) {
                     setState(() {});
                   });
                 },
@@ -245,11 +254,11 @@ class _AppState extends State<App> {
     return div(classes: 'pt-24 pb-8 md:pt-28 md:pb-8 text-center px-4 relative overflow-hidden', [
       div(classes: 'relative z-10', [
         h1(classes: 'text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight animate-fade-in-up animate-delay-200', [
-          Component.text('Grow your channel with '),
-          span(classes: 'text-yt-red', [Component.text('CreatorTools')])
+          Component.text(t('hero_grow_channel')),
+          span(classes: 'text-yt-red', [Component.text(t('nav_logo_text'))])
         ]),
         p(classes: 'mt-4 text-yt-gray-600 dark:text-yt-gray-400 text-base max-w-xl mx-auto leading-relaxed animate-fade-in-up animate-delay-400', [
-          Component.text('The all-in-one suite for YouTube creators. Optimize your SEO, generate perfect titles, and estimate your earnings.')
+          Component.text(t('hero_description'))
         ]),
       ])
     ]);
@@ -260,12 +269,12 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   Component _buildDesktopTabs() {
     return div(classes: 'hidden md:flex items-center gap-3 mb-8 animate-fade-in-up animate-delay-500 overflow-x-auto pb-2', [
-      _buildTabChip('SEO Analyzer', 'seo'),
-      _buildTabChip('Titles', 'titles'),
-      _buildTabChip('Thumbnails', 'thumbnails'),
-      _buildTabChip('Tags', 'tags'),
-      _buildTabChip('Earnings', 'earnings'),
-      _buildTabChip('Blog', 'blog'),
+      _buildTabChip(t('tab_seo'), 'seo'),
+      _buildTabChip(t('tab_titles'), 'titles'),
+      _buildTabChip(t('tab_thumbnails'), 'thumbnails'),
+      _buildTabChip(t('tab_tags'), 'tags'),
+      _buildTabChip(t('tab_earnings'), 'earnings'),
+      _buildTabChip(t('tab_blog'), 'blog'),
     ]);
   }
 
@@ -277,7 +286,7 @@ class _AppState extends State<App> {
       [
         span(classes: 'material-symbols-rounded text-yt-red text-xl', [Component.text('error')]),
         div(classes: 'flex-1', [
-          p(classes: 'text-sm font-medium text-yt-red', [Component.text('Something went wrong')]),
+          p(classes: 'text-sm font-medium text-yt-red', [Component.text(t('error_title'))]),
           p(classes: 'mt-1 text-xs text-yt-gray-600 dark:text-yt-gray-400 break-words',
               [Component.text(message)]),
         ]),
@@ -311,12 +320,12 @@ class _AppState extends State<App> {
   Component _buildMobileNav() {
     return div(classes: 'mobile-nav md:hidden', [
       div(classes: 'flex items-center justify-around px-2', [
-        _mobileNavItem('search', 'SEO', 'seo'),
-        _mobileNavItem('title', 'Titles', 'titles'),
-        _mobileNavItem('image', 'Thumb', 'thumbnails'),
-        _mobileNavItem('sell', 'Tags', 'tags'),
-        _mobileNavItem('payments', 'Earn', 'earnings'),
-        _mobileNavItem('article', 'Blog', 'blog'),
+        _mobileNavItem('search', t('mobile_seo'), 'seo'),
+        _mobileNavItem('title', t('mobile_titles'), 'titles'),
+        _mobileNavItem('image', t('mobile_thumb'), 'thumbnails'),
+        _mobileNavItem('sell', t('mobile_tags'), 'tags'),
+        _mobileNavItem('payments', t('mobile_earn'), 'earnings'),
+        _mobileNavItem('article', t('mobile_blog'), 'blog'),
       ])
     ]);
   }
@@ -341,26 +350,26 @@ class _AppState extends State<App> {
       div(classes: 'lg:col-span-2 space-y-4 animate-fade-in-left animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('analytics')]),
-          h2(classes: 'text-xl font-bold', [Component.text('SEO Analyzer')]),
+          h2(classes: 'text-xl font-bold', [Component.text(t('tab_seo'))]),
         ]),
         div([
           input(
             classes: 'input-field',
-            attributes: {'placeholder': 'Target Keyword (e.g. how to code)'},
+            attributes: {'placeholder': t('seo_placeholder_keyword')},
             onInput: (e) => setState(() => seoTargetKeyword = e.toString()),
           ),
         ]),
         div([
           input(
             classes: 'input-field',
-            attributes: {'placeholder': 'Video Title'},
+            attributes: {'placeholder': t('seo_placeholder_title')},
             onInput: (e) => setState(() => seoTitle = e.toString()),
           ),
         ]),
         div([
           textarea(
             classes: 'input-field resize-none',
-            attributes: {'placeholder': 'Video Description...', 'rows': '5'},
+            attributes: {'placeholder': t('seo_placeholder_desc'), 'rows': '5'},
             onInput: (e) => setState(() => seoDescription = e.toString()),
             [],
           ),
@@ -370,7 +379,7 @@ class _AppState extends State<App> {
             classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full md:w-auto',
             onClick: () => calculateSeo(),
             [
-              Component.text(isLoading ? 'Analyzing...' : 'Analyze'),
+              Component.text(isLoading ? t('btn_analyzing') : t('btn_analyze')),
             ]
           ),
         ])
@@ -382,22 +391,32 @@ class _AppState extends State<App> {
               span(classes: 'text-4xl font-bold ${(seoResult!['score'] as int) > 75 ? 'text-[#2BA640]' : 'text-yt-red'}', [
                 Component.text(seoResult!['score'].toString())
               ]),
-              p(classes: 'text-sm font-medium text-yt-gray-500 mt-1', [Component.text('SEO Score')])
+              p(classes: 'text-sm font-medium text-yt-gray-500 mt-1', [Component.text(t('seo_score_label'))])
             ])
           ]),
           div(classes: 'w-full space-y-2', [
             for (var fb in seoResult!['feedback'])
-              div(classes: 'flex items-start gap-2', [
-                span(classes: 'material-symbols-rounded text-sm mt-0.5 ${fb.toString().startsWith('Pass') ? 'text-[#2BA640]' : 'text-yt-red'}',
-                    [Component.text(fb.toString().startsWith('Pass') ? 'check_circle' : 'cancel')]),
-                span(classes: 'text-sm text-yt-gray-700 dark:text-yt-gray-300', [Component.text(fb.toString())])
-              ])
+              _buildSeoFeedbackRow(fb as Map<String, dynamic>)
           ]),
         ] else ...[
           span(classes: 'material-symbols-rounded text-5xl text-yt-gray-300 dark:text-yt-gray-700 mb-4', [Component.text('troubleshoot')]),
-          p(classes: 'text-yt-gray-500 text-sm font-medium text-center', [Component.text('Enter details to see your score')]),
+          p(classes: 'text-yt-gray-500 text-sm font-medium text-center', [Component.text(t('seo_empty_state'))]),
         ]
       ])
+    ]);
+  }
+
+  /// Renders one backend feedback entry. The backend sends a translation `key`
+  /// (+ `params`) rather than pre-formatted English text, so this row reads
+  /// correctly no matter which language is selected.
+  Component _buildSeoFeedbackRow(Map<String, dynamic> fb) {
+    final isPass = fb['status'] == 'pass';
+    final params = (fb['params'] as Map?)?.map((k, v) => MapEntry(k.toString(), v.toString()));
+    return div(classes: 'flex items-start gap-2', [
+      span(classes: 'material-symbols-rounded text-sm mt-0.5 ${isPass ? 'text-[#2BA640]' : 'text-yt-red'}',
+          [Component.text(isPass ? 'check_circle' : 'cancel')]),
+      span(classes: 'text-sm text-yt-gray-700 dark:text-yt-gray-300',
+          [Component.text(t(fb['key'].toString(), params))])
     ]);
   }
 
@@ -409,20 +428,20 @@ class _AppState extends State<App> {
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('title')]),
-          h2(classes: 'text-xl font-bold', [Component.text('Title Generator')]),
+          h2(classes: 'text-xl font-bold', [Component.text(t('title_gen_title'))]),
         ]),
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
-              attributes: {'placeholder': 'Enter video topic...'},
+              attributes: {'placeholder': t('title_gen_placeholder')},
               onInput: (e) => setState(() => titleTopic = e.toString()),
             ),
           ]),
           button(
             classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
             onClick: () => generateTitles(),
-            [Component.text(isLoading ? 'Working...' : 'Generate')]
+            [Component.text(isLoading ? t('btn_working') : t('btn_generate'))]
           ),
         ]),
       ]),
@@ -459,20 +478,20 @@ class _AppState extends State<App> {
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('image')]),
-          h2(classes: 'text-xl font-bold', [Component.text('Thumbnail Idea Generator')]),
+          h2(classes: 'text-xl font-bold', [Component.text(t('thumb_gen_title'))]),
         ]),
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
-              attributes: {'placeholder': 'Enter video topic...'},
+              attributes: {'placeholder': t('thumb_gen_placeholder')},
               onInput: (e) => setState(() => thumbnailTopic = e.toString()),
             ),
           ]),
           button(
             classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
             onClick: () => generateThumbnails(),
-            [Component.text(isLoading ? 'Working...' : 'Generate')]
+            [Component.text(isLoading ? t('btn_working') : t('btn_generate'))]
           ),
         ]),
       ]),
@@ -488,13 +507,13 @@ class _AppState extends State<App> {
                   Component.text(generatedThumbnails![i]['concept_name'].toString())
                 ]),
                 div(classes: 'mb-3', [
-                  span(classes: 'text-xs font-bold text-yt-gray-500 uppercase tracking-wider', [Component.text('Visual Concept')]),
+                  span(classes: 'text-xs font-bold text-yt-gray-500 uppercase tracking-wider', [Component.text(t('thumb_visual_concept'))]),
                   p(classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 mt-1', [
                     Component.text(generatedThumbnails![i]['visual_description'].toString())
                   ]),
                 ]),
                 div(classes: 'bg-yt-gray-100 dark:bg-yt-gray-900 rounded p-3 border border-yt-gray-200 dark:border-yt-gray-700', [
-                  span(classes: 'text-xs font-bold text-yt-gray-500 uppercase tracking-wider', [Component.text('Text on Screen')]),
+                  span(classes: 'text-xs font-bold text-yt-gray-500 uppercase tracking-wider', [Component.text(t('thumb_text_on_screen'))]),
                   p(classes: 'text-sm font-bold text-yt-gray-900 dark:text-white mt-1 text-xl italic', [
                     Component.text('"${generatedThumbnails![i]['text_on_screen']}"')
                   ]),
@@ -512,14 +531,14 @@ class _AppState extends State<App> {
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('sell')]),
-          h2(classes: 'text-xl font-bold', [Component.text('Tag Extractor')]),
+          h2(classes: 'text-xl font-bold', [Component.text(t('tag_ext_title'))]),
         ]),
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
               attributes: {
-                'placeholder': 'e.g. https://youtube.com/watch?v=dQw4w9WgXcQ',
+                'placeholder': t('tag_ext_placeholder'),
                 'value': tagUrl
               },
               onInput: (e) => setState(() => tagUrl = e.toString()),
@@ -528,14 +547,14 @@ class _AppState extends State<App> {
           button(
             classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
             onClick: () => extractTags(),
-            [Component.text(isLoading ? 'Extracting...' : 'Extract')]
+            [Component.text(isLoading ? t('btn_extracting') : t('btn_extract'))]
           ),
         ]),
       ]),
       if (extractedTags != null) div(classes: 'card p-6 animate-fade-in-up animate-delay-200', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'text-sm font-medium text-yt-gray-600 dark:text-yt-gray-400', [
-            Component.text('${extractedTags!.length} tags extracted')
+            Component.text(t('tag_ext_result', {'count': extractedTags!.length.toString()}))
           ])
         ]),
         div(classes: 'flex flex-wrap gap-2', [
@@ -556,12 +575,12 @@ class _AppState extends State<App> {
       div(classes: 'lg:col-span-2 space-y-6 animate-fade-in-left animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('payments')]),
-          h2(classes: 'text-xl font-bold', [Component.text('Earnings Calculator')]),
+          h2(classes: 'text-xl font-bold', [Component.text(t('earn_calc_title'))]),
         ]),
         div(classes: 'card p-6 space-y-6', [
           div([
             div(classes: 'flex items-center justify-between mb-2', [
-              label(classes: 'text-sm font-medium text-yt-gray-900 dark:text-white', [Component.text('Daily Views')]),
+              label(classes: 'text-sm font-medium text-yt-gray-900 dark:text-white', [Component.text(t('earn_daily_views'))]),
               span(classes: 'text-sm font-bold', [Component.text(dailyViews.toString())]),
             ]),
             input(
@@ -571,7 +590,7 @@ class _AppState extends State<App> {
             ),
           ]),
           div([
-            label(classes: 'block text-sm font-medium text-yt-gray-900 dark:text-white mb-3', [Component.text('Niche')]),
+            label(classes: 'block text-sm font-medium text-yt-gray-900 dark:text-white mb-3', [Component.text(t('earn_niche'))]),
             div(classes: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2', [
               _nicheButton('Finance', 'Finance'),
               _nicheButton('Tech', 'Tech'),
@@ -588,7 +607,7 @@ class _AppState extends State<App> {
              button(
               classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full sm:w-auto',
               onClick: () => calculateEarnings(),
-              [Component.text(isLoading ? 'Calculating...' : 'Calculate')]
+              [Component.text(isLoading ? t('btn_calculating') : t('btn_calculate'))]
             ),
           ])
         ]),
@@ -596,15 +615,15 @@ class _AppState extends State<App> {
       div(classes: 'card p-6 flex flex-col items-center justify-center min-h-[300px] animate-fade-in-right animate-delay-200', [
         if (earningsResult != null) ...[
           div(classes: 'text-center animate-bounce-in', [
-            span(classes: 'text-sm text-yt-gray-500 font-medium mb-1', [Component.text('Estimated Monthly Revenue')]),
+            span(classes: 'text-sm text-yt-gray-500 font-medium mb-1', [Component.text(t('earn_monthly_rev'))]),
             p(classes: 'text-4xl font-bold text-yt-gray-900 dark:text-white mt-2', [
               Component.text('\$${earningsResult!['min_monthly']} - \$${earningsResult!['max_monthly']}')
             ]),
-            p(classes: 'text-xs text-yt-gray-500 mt-4', [Component.text('Based on US/UK tier-1 CPM rates')]),
+            p(classes: 'text-xs text-yt-gray-500 mt-4', [Component.text(t('earn_disclaimer'))]),
           ])
         ] else ...[
           span(classes: 'material-symbols-rounded text-5xl text-yt-gray-300 dark:text-yt-gray-700 mb-4', [Component.text('monetization_on')]),
-          p(classes: 'text-yt-gray-500 text-sm font-medium text-center', [Component.text('Select your parameters')]),
+          p(classes: 'text-yt-gray-500 text-sm font-medium text-center', [Component.text(t('earn_empty_state'))]),
         ]
       ])
     ]);
@@ -631,12 +650,12 @@ class _AppState extends State<App> {
       div(classes: 'flex items-center justify-between gap-3 mb-4 animate-fade-in-down animate-delay-100', [
         div(classes: 'flex items-center gap-2', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('article')]),
-          h2(classes: 'text-xl font-bold', [Component.text('Latest from the Creator Blog')]),
+          h2(classes: 'text-xl font-bold', [Component.text(t('blog_latest'))]),
         ]),
         a(
           href: 'blog/index.html',
           classes: 'text-sm font-medium text-yt-blue-dark dark:text-yt-blue-light hover:underline whitespace-nowrap',
-          [Component.text('View all ${blogPosts.length} articles')]
+          [Component.text(t('blog_view_all', {'count': blogPosts.length.toString()}))]
         ),
       ]),
 
@@ -741,16 +760,16 @@ class _AppState extends State<App> {
         div(classes: 'flex flex-col md:flex-row items-center justify-between gap-4', [
            div(classes: 'flex items-center gap-2', [
             _buildLogoIcon('w-5 h-5'),
-            span(classes: 'font-bold text-sm text-yt-gray-900 dark:text-white tracking-tight', [Component.text('CreatorTools')]),
+            span(classes: 'font-bold text-sm text-yt-gray-900 dark:text-white tracking-tight', [Component.text(t('nav_logo_text'))]),
           ]),
           div(classes: 'flex flex-wrap justify-center gap-4', [
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('about'), [Component.text('About')]),
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('contact'), [Component.text('Contact')]),
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('privacy'), [Component.text('Privacy Policy')]),
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('terms'), [Component.text('Terms of Service')]),
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: openConsentPreferences, [Component.text('Cookie Settings')]),
+            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('about'), [Component.text(t('footer_about'))]),
+            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('contact'), [Component.text(t('footer_contact'))]),
+            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('privacy'), [Component.text(t('footer_privacy_policy'))]),
+            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('terms'), [Component.text(t('footer_terms_service'))]),
+            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: openConsentPreferences, [Component.text(t('footer_cookies'))]),
           ]),
-          p(classes: 'text-xs text-yt-gray-500', [Component.text('\u00a9 2026 CreatorTools')]),
+          p(classes: 'text-xs text-yt-gray-500', [Component.text(t('footer_copyright'))]),
         ])
       ])
     ]);
@@ -760,26 +779,26 @@ class _AppState extends State<App> {
   //  STATIC PAGES
   // ═══════════════════════════════════════════
   Component _buildPrivacyPolicy() {
-    return _buildStaticPage('Privacy Policy', privacyPolicyContent());
+    return _buildStaticPage(t('footer_privacy_policy'), privacyPolicyContent());
   }
 
   Component _buildTerms() {
-    return _buildStaticPage('Terms of Service', termsOfServiceContent());
+    return _buildStaticPage(t('footer_terms_service'), termsOfServiceContent());
   }
 
   Component _buildAbout() {
-    return _buildStaticPage('About Us', [
-      p([Component.text('CreatorTools.io was built by creators, for creators. Our mission is to democratize access to advanced YouTube analytics and SEO tools, helping channels of all sizes maximize their reach and revenue.')]),
-      p(classes: 'mt-4', [Component.text('Whether you are a new vlogger or a seasoned tech reviewer, our suite of tools is designed to save you time and boost your Click-Through Rates (CTR).')]),
+    return _buildStaticPage(t('about_title'), [
+      p([Component.text(t('about_p1'))]),
+      p(classes: 'mt-4', [Component.text(t('about_p2'))]),
     ]);
   }
 
   Component _buildContact() {
-    return _buildStaticPage('Contact Us', [
-      p([Component.text('We would love to hear from you! If you have feature requests, bug reports, or business inquiries, please reach out to us.')]),
+    return _buildStaticPage(t('contact_title'), [
+      p([Component.text(t('contact_p1'))]),
       div(classes: 'mt-6 p-4 bg-yt-gray-100 dark:bg-yt-gray-800 rounded-lg flex items-center gap-3', [
         span(classes: 'material-symbols-rounded', [Component.text('mail')]),
-        a(href: 'mailto:support@creatortools.io', classes: 'font-medium text-yt-red hover:underline', [Component.text('support@creatortools.io')])
+        a(href: 'mailto:info@easysignly.com', classes: 'font-medium text-yt-red hover:underline', [Component.text('info@easysignly.com')])
       ])
     ]);
   }

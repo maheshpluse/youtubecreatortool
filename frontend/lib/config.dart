@@ -3,7 +3,7 @@
 /// Defaults to the local backend so `jaspr serve` works with no extra setup.
 /// For a deployed build, override it at compile time:
 ///
-///   jaspr build --dart-define=API_BASE_URL=https://api.creatortools.io
+///   jaspr build --dart-define=API_BASE_URL=https://api.vidseokit.com
 ///
 /// The same origin must also appear in the backend's ALLOWED_ORIGINS.
 const String apiBaseUrl = String.fromEnvironment(

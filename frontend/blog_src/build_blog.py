@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CreatorTools.biz blog builder.
+CreatorTools blog builder.
 
 Reads  : blog_src/posts.json          (metadata for every post)
          blog_src/posts/<slug>.html   (article body, HTML fragment)
@@ -20,8 +20,8 @@ from datetime import date
 # ─────────────────────────────────────────────────────────────
 #  SITE CONFIG  — edit these two blocks, then re-run the build
 # ─────────────────────────────────────────────────────────────
-SITE_URL = "https://creatortools.biz"
-SITE_NAME = "CreatorTools.biz"
+SITE_URL = "https://vidseokit.com"
+SITE_NAME = "CreatorTools"
 AUTHOR = "The CreatorTools Editorial Team"
 PUBLISHER_LOGO = SITE_URL + "/images/logo.svg"
 
@@ -163,7 +163,7 @@ def footer() -> str:
         <a href="../index.html">About</a>
         <a href="../index.html">Privacy Policy</a>
         <a href="../index.html">Terms</a>
-        <a href="mailto:support@creatortools.biz">Contact</a>
+        <a href="mailto:info@easysignly.com">Contact</a>
       </nav>
       <span>&copy; {date.today().year} {SITE_NAME}</span>
     </div>
@@ -368,7 +368,7 @@ def render_index(posts):
     item_list = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "CreatorTools.biz Creator Blog",
+        "name": "CreatorTools Creator Blog",
         "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "url": f"{SITE_URL}/blog/{p['slug']}.html",
              "name": p["title"]} for i, p in enumerate(posts)

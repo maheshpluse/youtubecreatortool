@@ -7,15 +7,21 @@ import random
 from dotenv import load_dotenv
 import firebase_admin
 from firebase_admin import credentials, firestore, auth as firebase_auth
+import google.generativeai as genai
+import json
 
 # Import new services
 from services.keyword_api import fetch_keyword_data
 from services.cache import get_cached_keyword, set_cached_keyword
 from services.logger import log_error, log_admin_action
 from services.rate_limiter import rate_limiter
+from services.languages import language_name
 import traceback
 
 load_dotenv()
+
+# We will initialize Gemini dynamically from Firestore
+gemini_model = None
 
 # Initialize Firebase Admin
 if not firebase_admin._apps:
@@ -33,6 +39,46 @@ if not firebase_admin._apps:
 db = None
 try:
     db = firestore.client()
+
+    # --- DYNAMIC API KEY CONFIGURATION ---
+    def on_api_keys_snapshot(col_snapshot, changes, read_time):
+        global gemini_model
+        for doc in col_snapshot:
+            data = doc.to_dict()
+            if data:
+                gemini_key = data.get("gemini_api_key")
+                if gemini_key:
+                    try:
+                        genai.configure(api_key=gemini_key)
+                        gemini_model = genai.GenerativeModel("gemini-1.5-flash")
+                        print("Gemini API Key dynamically updated from Firestore.")
+                    except Exception as e:
+                        print(f"Failed to configure Gemini from Firestore: {e}")
+                else:
+                    gemini_model = None
+
+    # Watch the api_keys document for real-time updates
+    try:
+        api_keys_ref = db.collection("app_settings").document("api_keys")
+        api_keys_watch = api_keys_ref.on_snapshot(on_api_keys_snapshot)
+
+        # Also attempt a one-time initial load just in case the listener takes a moment
+        initial_doc = api_keys_ref.get()
+        if initial_doc.exists:
+            initial_data = initial_doc.to_dict()
+            if initial_data.get("gemini_api_key"):
+                genai.configure(api_key=initial_data.get("gemini_api_key"))
+                gemini_model = genai.GenerativeModel("gemini-1.5-flash")
+                print("Gemini API Key loaded from Firestore on startup.")
+    except Exception as e:
+        print(f"Could not setup Firestore API key listener: {e}")
+        # Fallback to .env if Firestore fails
+        env_key = os.getenv("GEMINI_API_KEY")
+        if env_key:
+            genai.configure(api_key=env_key)
+            gemini_model = genai.GenerativeModel("gemini-1.5-flash")
+            print("Gemini API Key loaded from .env fallback.")
+    # --- END DYNAMIC API KEY CONFIGURATION ---
 except Exception as e:
     print(f"Warning: Could not initialize Firestore client: {e}")
 
@@ -65,7 +111,7 @@ async def startup_event():
 ALLOWED_ORIGINS = [
     o.strip()
     for o in os.environ.get(
-        "ALLOWED_ORIGINS", "http://localhost:8080,http://127.0.0.1:8080,http://localhost:8082,http://127.0.0.1:8082,http://localhost:5173,http://127.0.0.1:5173,http://creatortools.biz,https://creatortools.biz"
+        "ALLOWED_ORIGINS", "http://localhost:8080,http://127.0.0.1:8080,http://localhost:8082,http://127.0.0.1:8082,http://localhost:5173,http://127.0.0.1:5173,http://vidseokit.com,https://vidseokit.com"
     ).split(",")
     if o.strip()
 ]
@@ -155,9 +201,17 @@ class SEOCheckRequest(BaseModel):
     tags: list[str]
     target_keyword: str
 
+class SEOFeedbackItem(BaseModel):
+    # `key` maps to a frontend i18n string (see seo_fb_* entries in
+    # frontend/web/assets/i18n/en.json) so the UI can render feedback in
+    # whatever language the viewer has selected instead of fixed English text.
+    key: str
+    params: dict[str, str] = {}
+    status: str  # "pass" | "fail"
+
 class SEOResponseSchema(BaseModel):
     score: int
-    feedback: list[str]
+    feedback: list[SEOFeedbackItem]
     status: str
 
 @app.post("/api/calculate-seo", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
@@ -165,9 +219,9 @@ def calculate_seo(request: SEOCheckRequest):
     title = request.title.lower()
     desc = request.description.lower()
     keyword = request.target_keyword.lower().strip()
-    
+
     score = 0
-    feedback = []
+    feedback: list[SEOFeedbackItem] = []
 
     # Fetch Keyword Data using Cache & API
     kw_data = get_cached_keyword(db, keyword)
@@ -180,41 +234,41 @@ def calculate_seo(request: SEOCheckRequest):
 
     # SEO Logic based on real data
     if volume > 50000:
-        feedback.append(f"Pass: Excellent Search Volume! ({volume} monthly searches).")
+        feedback.append(SEOFeedbackItem(key="seo_fb_volume_high", params={"volume": str(volume)}, status="pass"))
         score += 20
     elif volume > 5000:
-        feedback.append(f"Pass: Good Search Volume ({volume} monthly searches).")
+        feedback.append(SEOFeedbackItem(key="seo_fb_volume_good", params={"volume": str(volume)}, status="pass"))
         score += 15
     else:
-        feedback.append(f"Fail: Low Search Volume ({volume} monthly searches). Consider a broader keyword.")
+        feedback.append(SEOFeedbackItem(key="seo_fb_volume_low", params={"volume": str(volume)}, status="fail"))
         score += 5
 
     if competition == "Low":
-        feedback.append("Pass: Low competition means it will be easier to rank!")
+        feedback.append(SEOFeedbackItem(key="seo_fb_competition_low", status="pass"))
         score += 20
     elif competition == "Medium":
-        feedback.append("Pass: Medium competition. Make sure your thumbnail stands out.")
+        feedback.append(SEOFeedbackItem(key="seo_fb_competition_medium", status="pass"))
         score += 10
     else:
-        feedback.append("Fail: High competition. It will be hard to rank for this without a large following.")
+        feedback.append(SEOFeedbackItem(key="seo_fb_competition_high", status="fail"))
 
     if keyword and keyword in title:
         score += 30
-        feedback.append("Pass: Exact Target Keyword found in Title.")
+        feedback.append(SEOFeedbackItem(key="seo_fb_keyword_title_pass", status="pass"))
     else:
-        feedback.append("Fail: Target Keyword is missing from the Title.")
+        feedback.append(SEOFeedbackItem(key="seo_fb_keyword_title_fail", status="fail"))
 
     if keyword and keyword in desc[:200]:
         score += 20
-        feedback.append("Pass: Target Keyword found early in Description.")
+        feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_pass", status="pass"))
     else:
-        feedback.append("Fail: Target Keyword missing from the start of the Description.")
+        feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_fail", status="fail"))
 
     if 30 <= len(request.title) <= 70:
         score += 10
-        feedback.append("Pass: Title Length is Optimal (30-70 characters).")
+        feedback.append(SEOFeedbackItem(key="seo_fb_title_length_pass", status="pass"))
     else:
-        feedback.append("Fail: Title Length is not optimal.")
+        feedback.append(SEOFeedbackItem(key="seo_fb_title_length_fail", status="fail"))
 
     # Cap score at 100
     score = min(score, 100)
@@ -224,6 +278,7 @@ def calculate_seo(request: SEOCheckRequest):
 
 class TitleRequest(BaseModel):
     topic: str
+    lang: str = "en"
 
 class TitleResult(BaseModel):
     title: str
@@ -235,6 +290,22 @@ class TitlesResponse(BaseModel):
 @app.post("/api/generate-titles", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
 def generate_titles(request: TitleRequest):
     topic = request.topic.strip() or "this topic"
+    
+    if gemini_model:
+        try:
+            lang_instruction = (
+                f" Write the titles in {language_name(request.lang)}."
+                if request.lang != "en" else ""
+            )
+            prompt = f"Generate 5 highly clickable, engaging YouTube video titles about '{topic}'.{lang_instruction} Return ONLY a valid JSON array of objects, where each object has a 'title' string and a 'ctr_score' integer between 85 and 99. Example: [{{\"title\": \"The truth about {topic}\", \"ctr_score\": 92}}]"
+            response = gemini_model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+            data = json.loads(response.text)
+            titles = [TitleResult(**item) for item in data]
+            return TitlesResponse(titles=titles)
+        except Exception as e:
+            print(f"Gemini Title Error: {e}")
+            # Fallback below
+            
     templates = [
         f"The Ultimate Guide to {topic} (2026)",
         f"Why {topic} is Changing Everything",
@@ -248,6 +319,7 @@ def generate_titles(request: TitleRequest):
 
 class ThumbnailRequest(BaseModel):
     topic: str
+    lang: str = "en"
 
 class ThumbnailIdea(BaseModel):
     concept_name: str
@@ -260,6 +332,22 @@ class ThumbnailsResponse(BaseModel):
 @app.post("/api/generate-thumbnails", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
 def generate_thumbnails(request: ThumbnailRequest):
     topic = request.topic.strip() or "this"
+    
+    if gemini_model:
+        try:
+            lang_instruction = (
+                f" Write all three fields in {language_name(request.lang)}."
+                if request.lang != "en" else ""
+            )
+            prompt = f"Generate 3 distinct, high-converting YouTube thumbnail concepts for a video about '{topic}'.{lang_instruction} Return ONLY a valid JSON array of objects, where each object has 'concept_name' (string), 'visual_description' (detailed prompt describing the visuals), and 'text_on_screen' (very short catchy 1-4 word text). Example: [{{\"concept_name\": \"Shocked Face\", \"visual_description\": \"A close up of a shocked face pointing at a chart.\", \"text_on_screen\": \"OMG!\"}}]"
+            response = gemini_model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+            data = json.loads(response.text)
+            ideas = [ThumbnailIdea(**item) for item in data]
+            return ThumbnailsResponse(thumbnails=ideas)
+        except Exception as e:
+            print(f"Gemini Thumbnail Error: {e}")
+            # Fallback below
+            
     ideas = [
         ThumbnailIdea(concept_name="The Shocked Reaction", visual_description=f"Shocked face, blurred {topic} background.", text_on_screen="DON'T DO THIS!"),
         ThumbnailIdea(concept_name="Before & After", visual_description=f"Split screen {topic} comparison.", text_on_screen="NOOB vs PRO"),
