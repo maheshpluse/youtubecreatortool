@@ -63,5 +63,20 @@
   "footer_copyright": "© 2026 CreatorTools",
   "article_seo_title": "A YouTube SEO-elemzőről",
   "article_seo_p1": "Ha ma sikeres akarsz lenni a YouTube-on, elengedhetetlen a keresőoptimalizálás (SEO) ismerete. Akár az AdSense-bevételed növelése a cél, akár egy nagyon pontosan meghatározott közönség elérése, a videóelemző eszközök használata és az átkattintási arány (CTR) kiszámítása érezhetően javíthatja a videóid interakciós arányát.",
-  "article_seo_p2": "Egy erős kulcsszókutató eszközzel mély versenytárs-elemzést végezhetsz, és megtalálhatod a magas CPC-jű kulcsszavakat. Ezek a magas RPM-ű kulcsszavak akkor kulcsfontosságúak, amikor passzív bevételi forrásokat építesz, vagy affiliate marketinggel és szponzorált tartalommal bővíted a bevételeidet."
+  "article_seo_p2": "Egy erős kulcsszókutató eszközzel mély versenytárs-elemzést végezhetsz, és megtalálhatod a magas CPC-jű kulcsszavakat. Ezek a magas RPM-ű kulcsszavak akkor kulcsfontosságúak, amikor passzív bevételi forrásokat építesz, vagy affiliate marketinggel és szponzorált tartalommal bővíted a bevételeidet.",
+  "article_titles_title": "Vírusszerűen terjedő YouTube-címek írása",
+  "article_titles_p1": "A cím a videód legfontosabb metaadata. Egy olyan cím, amire tényleg rá akarnak kattintani, jelentősen megemeli a CTR-t (átkattintási arányt), és segít a YouTube algoritmusának szélesebb közönségnek ajánlani a tartalmadat.",
+  "article_titles_p2": "AI-alapú címgenerátorunk elemzi az aktuális trendeket és bevált formulákat, hogy olyan címeket javasoljon, amelyek felkeltik a figyelmet anélkül, hogy félrevezető clickbaitté válnának. Tökéletes a megtekintések és az AdSense-bevétel növeléséhez.",
+  "article_thumb_title": "Kattintásra csábító indexképek tervezése",
+  "article_thumb_p1": "A jó indexkép ugyanolyan fontos, mint a jó cím. Ez az a vizuális horog, ami miatt valaki abbahagyja a görgetést, és rákattint a videódra.",
+  "article_thumb_p2": "AI-unk bevált vizuális koncepciókat generál erős kontraszttal, egyértelmű érzelmekkel és minimális szöveggel, hogy az indexképed kitűnjön, főleg mobilon, ahonnan a legtöbb megtekintés érkezik.",
+  "article_tags_title": "Jól teljesítő címkék kinyerése",
+  "article_tags_p1": "A címkék támogató szerepet töltenek be a YouTube SEO-ban: segítenek az algoritmusnak megérteni a videó kontextusát. A legjobban teljesítő versenytárs-videók címkéinek kinyerésével rejtett kulcsszavakat és rangsorolási lehetőségeket fedezhetsz fel.",
+  "article_tags_p2": "A Címkekinyerővel azonnal megkapod a saját niche-edben virálissá vált videók által valóban használt címkéket. Órákat spórolsz a kézi kutatáson, és jobb keresési rangsoroláshoz igazíthatod a metaadatokat.",
+  "article_earn_title": "A YouTube AdSense-bevétel becslése",
+  "article_earn_p1": "Ha üzletként akarod kezelni a csatornádat, elengedhetetlen megérteni a lehetséges bevételt. Bevételkalkulátorunk különböző niche-ek átlagos CPM- (ezer megjelenítésre eső költség) és RPM-értékeit (ezer megtekintésre eső bevétel) használja reális becsléshez.",
+  "article_earn_p2": "Ne feledd, a pénzügyi és tech niche-ek RPM-je jellemzően magasabb, mint a gaminge vagy a vlogoké, tehát kevesebb megtekintésből is többet kereshetsz. Mindig a nézőmegtartásra összpontosíts, hogy több hirdetési helyet tölthess ki.",
+  "article_blog_title": "Betekintések és stratégiák alkotóknak",
+  "article_blog_p1": "Maradj lépéselőnyben a legújabb stratégiákkal, algoritmusfrissítésekkel és monetizációs tippekkel alkotói blogunkon. Az összetett témákat minden méretű YouTuber számára használható tanácsokká bontjuk le.",
+  "article_blog_p2": "Az indexkép-design javításától a közönség pszichológiájának megértéséig a blog a fenntartható csatornanövekedés és közösségépítés forrása."
 }

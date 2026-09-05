@@ -26,10 +26,6 @@ export default function BlogManager() {
   const [form, setForm] = useState(EMPTY_FORM);
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
   const fetchPosts = async () => {
     setLoading(true);
     try {
@@ -46,6 +42,10 @@ export default function BlogManager() {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
   const openCreateModal = () => {
     setEditingPost(null);

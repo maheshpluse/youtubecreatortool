@@ -27,7 +27,7 @@ PUBLISHER_LOGO = SITE_URL + "/images/logo.svg"
 
 # Leave ADSENSE_CLIENT empty until AdSense approves the site. Empty = no ad
 # markup is emitted at all (blank/broken ad units are an AdSense policy risk).
-ADSENSE_CLIENT = "ca-pub-1234567890123456"            # e.g. "ca-pub-1234567890123456"
+ADSENSE_CLIENT = "ca-pub-3988155577590737"            # e.g. "ca-pub-3988155577590737"
 ADSENSE_SLOT_IN_ARTICLE = "1234567890"   # e.g. "1234567890"
 ADSENSE_SLOT_BOTTOM = "0987654321"       # e.g. "0987654321"
 

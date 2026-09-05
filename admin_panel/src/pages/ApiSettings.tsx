@@ -18,10 +18,6 @@ export default function ApiSettings() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
 
-  useEffect(() => {
-    fetchSettings();
-  }, []);
-
   const fetchSettings = async () => {
     setLoading(true);
     try {
@@ -35,6 +31,10 @@ export default function ApiSettings() {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    fetchSettings();
+  }, []);
 
   const handleSave = async () => {
     setSaving(true);

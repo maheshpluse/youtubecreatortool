@@ -63,5 +63,20 @@
   "footer_copyright": "© 2026 CreatorTools",
   "article_seo_title": "Tietoa YouTuben SEO-analyysistä",
   "article_seo_p1": "Menestyminen YouTubessa edellyttää nykyään hakukoneoptimoinnin (SEO) hallintaa. Halusitpa sitten kasvattaa AdSense-tulojasi tai tavoittaa hyvin tarkasti rajatun yleisön, videoanalytiikan työkalut ja klikkausprosentin (CTR) laskeminen voivat parantaa videoidesi sitoutumisastetta merkittävästi.",
-  "article_seo_p2": "Kunnollinen avainsanatutkimuksen työkalu auttaa tekemään syvällisen kilpailija-analyysin ja löytämään korkean CPC:n avainsanat. Nämä korkean RPM:n avainsanat ovat tärkeitä, kun rakennat passiivisia tulonlähteitä tai laajennat tulojasi kumppanuusmarkkinoinnilla ja sponsoroidulla sisällöllä."
+  "article_seo_p2": "Kunnollinen avainsanatutkimuksen työkalu auttaa tekemään syvällisen kilpailija-analyysin ja löytämään korkean CPC:n avainsanat. Nämä korkean RPM:n avainsanat ovat tärkeitä, kun rakennat passiivisia tulonlähteitä tai laajennat tulojasi kumppanuusmarkkinoinnilla ja sponsoroidulla sisällöllä.",
+  "article_titles_title": "Näin kirjoitat viraaleja YouTube-otsikoita",
+  "article_titles_p1": "Otsikko on videosi tärkein metadata. Otsikko, jota oikeasti haluaa klikata, nostaa CTR:ää (klikkausprosenttia) merkittävästi ja auttaa YouTuben algoritmia suosittelemaan sisältöäsi laajemmalle yleisölle.",
+  "article_titles_p2": "AI-otsikkogeneraattorimme analysoi ajankohtaisia trendejä ja toimivaksi todettuja kaavoja ja ehdottaa otsikoita, jotka kiinnittävät huomion ilman harhaanjohtavaa klikkiotsikointia. Täydellinen katselukertojen ja AdSense-tulojen kasvattamiseen.",
+  "article_thumb_title": "Klikattavien pikkukuvien suunnittelu",
+  "article_thumb_p1": "Hyvä pikkukuva on yhtä tärkeä kuin hyvä otsikko. Se on visuaalinen koukku, joka saa jonkun pysähtymään selailussa ja klikkaamaan videotasi.",
+  "article_thumb_p2": "AI:mme luo toimivaksi todettuja visuaalisia konsepteja, joissa keskitytään vahvaan kontrastiin, selkeisiin tunteisiin ja vähäiseen tekstiin, jotta pikkukuvasi erottuu erityisesti mobiilissa, josta suurin osa katselukerroista tulee.",
+  "article_tags_title": "Toimivien tagien poimiminen",
+  "article_tags_p1": "Tagit toimivat tukiroolissa YouTuben SEO:ssa auttaen algoritmia ymmärtämään videon kontekstin. Poimimalla tageja parhaiten menestyvien kilpailijoiden videoista löydät piilossa olevia avainsanoja ja mahdollisuuksia nousta hakutuloksissa.",
+  "article_tags_p2": "Käytä Tagien poimijaa saadaksesi heti tarkalleen ne tagit, joita oman nichesi viraalit videot käyttävät. Säästät tuntikausia manuaalista tutkimusta ja optimoit metadatasi parempaan hakusijoitukseen.",
+  "article_earn_title": "YouTube AdSense -tulojen arviointi",
+  "article_earn_p1": "Kanavan pyörittäminen liiketoimintana alkaa mahdollisen tuoton ymmärtämisestä. Tulolaskurimme käyttää eri nichejen keskimääräisiä CPM- (hinta tuhatta näyttöä kohden) ja RPM-lukuja (tuotto tuhatta katselukertaa kohden) realistisen arvion antamiseksi.",
+  "article_earn_p2": "Muista, että talous- ja teknologia-nichellä on yleensä korkeampi RPM kuin pelaamisella tai vlogeilla, eli voit ansaita enemmän pienemmällä katselumäärällä. Keskity aina katsojien pysyvyyteen, jotta mainospaikkoja saadaan hyödynnettyä enemmän.",
+  "article_blog_title": "Näkemyksiä ja strategioita tekijöille",
+  "article_blog_p1": "Pysy askeleen edellä uusimpien strategioiden, algoritmimuutosten ja tienausvinkkien avulla tekijäblogissamme. Puramme monimutkaiset aiheet käytännön vinkeiksi kaiken kokoisille YouTubereille.",
+  "article_blog_p2": "Pikkukuvien suunnittelun parantamisesta yleisön psykologian ymmärtämiseen — blogi on jatkuvan kanavan kasvun ja yhteisön rakentamisen tukikohtasi."
 }

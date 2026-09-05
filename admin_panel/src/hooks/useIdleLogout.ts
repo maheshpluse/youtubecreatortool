@@ -12,12 +12,13 @@ const ACTIVITY_EVENTS = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchst
 // stay logged in indefinitely.
 export function useIdleLogout() {
   const navigate = useNavigate();
-  const lastActivity = useRef(Date.now());
+  const lastActivity = useRef(0);
 
   useEffect(() => {
     const markActive = () => {
       lastActivity.current = Date.now();
     };
+    markActive();
     ACTIVITY_EVENTS.forEach((evt) => window.addEventListener(evt, markActive, { passive: true }));
 
     const interval = setInterval(async () => {

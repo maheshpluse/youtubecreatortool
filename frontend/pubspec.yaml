@@ -16,6 +16,7 @@ dev_dependencies:
   jaspr_builder: ^0.23.4
   jaspr_test: ^0.23.4
   lints: ^5.0.0
+  test: ^1.25.0
 
 jaspr:
   mode: client

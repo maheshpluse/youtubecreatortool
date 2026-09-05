@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'dart:js_util' as js_util;
+import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
 
 import 'i18n_strings.dart';
 
@@ -182,22 +183,23 @@ class I18nService {
 
   String? _detectBrowserLanguage() {
     try {
-      final nav = js_util.getProperty(js_util.globalThis, 'navigator');
+      final nav = globalContext.getProperty<JSAny?>('navigator'.toJS) as JSObject?;
+      if (nav == null) return null;
 
       // navigator.languages is ordered by user preference; the first entry we
       // actually ship wins.
-      final languages = js_util.getProperty(nav, 'languages');
+      final languages = nav.getProperty<JSAny?>('languages'.toJS) as JSObject?;
       if (languages != null) {
-        final length = js_util.getProperty(languages, 'length');
+        final length = languages.getProperty<JSAny?>('length'.toJS).dartify();
         if (length is num) {
           for (var i = 0; i < length.toInt(); i++) {
-            final match = resolve(js_util.getProperty(languages, '$i')?.toString());
+            final match = resolve(languages.getProperty<JSAny?>('$i'.toJS).dartify()?.toString());
             if (match != null) return match;
           }
         }
       }
 
-      return resolve(js_util.getProperty(nav, 'language')?.toString());
+      return resolve(nav.getProperty<JSAny?>('language'.toJS).dartify()?.toString());
     } catch (e) {
       print('Could not detect browser language: $e');
       return null;
@@ -206,8 +208,8 @@ class I18nService {
 
   String? _readStoredLanguage() {
     try {
-      final storage = js_util.getProperty(js_util.globalThis, 'localStorage');
-      return js_util.callMethod(storage, 'getItem', [_storageKey])?.toString();
+      final storage = globalContext.getProperty<JSAny?>('localStorage'.toJS) as JSObject?;
+      return storage?.callMethod<JSAny?>('getItem'.toJS, _storageKey.toJS).dartify()?.toString();
     } catch (e) {
       return null; // Private browsing or blocked storage: fall through to detection.
     }
@@ -215,8 +217,8 @@ class I18nService {
 
   void _storeLanguage(String code) {
     try {
-      final storage = js_util.getProperty(js_util.globalThis, 'localStorage');
-      js_util.callMethod(storage, 'setItem', [_storageKey, code]);
+      final storage = globalContext.getProperty<JSAny?>('localStorage'.toJS) as JSObject?;
+      storage?.callMethod<JSAny?>('setItem'.toJS, _storageKey.toJS, code.toJS);
     } catch (e) {
       // Not being able to remember the choice is not worth breaking the switch over.
     }
@@ -226,10 +228,10 @@ class I18nService {
   /// screen readers, search engines and RTL scripts all behave.
   void _applyDocumentAttributes(LanguageOption option) {
     try {
-      final document = js_util.getProperty(js_util.globalThis, 'document');
-      final root = js_util.getProperty(document, 'documentElement');
-      js_util.callMethod(root, 'setAttribute', ['lang', option.code]);
-      js_util.callMethod(root, 'setAttribute', ['dir', option.rtl ? 'rtl' : 'ltr']);
+      final document = globalContext.getProperty<JSAny?>('document'.toJS) as JSObject?;
+      final root = document?.getProperty<JSAny?>('documentElement'.toJS) as JSObject?;
+      root?.callMethod<JSAny?>('setAttribute'.toJS, 'lang'.toJS, option.code.toJS);
+      root?.callMethod<JSAny?>('setAttribute'.toJS, 'dir'.toJS, (option.rtl ? 'rtl' : 'ltr').toJS);
     } catch (e) {
       print('Could not update document language attributes: $e');
     }

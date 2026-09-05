@@ -1,4 +1,6 @@
 @TestOn('browser')
+library;
+
 import 'package:jaspr_test/jaspr_test.dart';
 import 'package:frontend/app.dart';
 
