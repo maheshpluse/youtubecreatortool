@@ -8,4 +8,4 @@
 # pub-0000000000000000 with your own publisher ID from your AdSense account.
 # Leaving a placeholder ID live is worse than having no ads.txt at all.
 #
-# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-3988155577590737, DIRECT, f08c47fec0942fa0
