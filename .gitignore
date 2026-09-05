@@ -42,3 +42,7 @@ env.prod.json
 node_modules/
 dist/
 admin_panel/dist/
+
+# Python venv (must be rebuilt per-OS)
+backend/venv/
+venv/
