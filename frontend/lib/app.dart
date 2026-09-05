@@ -8,6 +8,7 @@ import 'config.dart';
 import 'data/blog_posts.dart';
 import 'pages/legal.dart';
 import 'components/adsense_ad.dart';
+import 'services/i18n_service.dart';
 
 class App extends StatefulComponent {
   const App({super.key});
@@ -205,6 +206,25 @@ class _AppState extends State<App> {
           ]),
           // Right Actions
           div(classes: 'flex items-center gap-3', [
+            div(classes: 'relative flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg px-2 py-1', [
+              span(classes: 'material-symbols-rounded text-lg mr-1 text-gray-600 dark:text-gray-400', [text('language')]),
+              select(
+                classes: 'bg-transparent text-sm font-medium text-gray-700 dark:text-gray-300 focus:outline-none cursor-pointer outline-none border-none',
+                onChange: (value) {
+                  I18nService().setLanguage(value.toString()).then((_) {
+                    setState(() {});
+                  });
+                },
+                [
+                  for (var lang in kSupportedLanguages)
+                    option(
+                      value: lang.code,
+                      attributes: I18nService().currentLanguage == lang.code ? {'selected': 'true'} : {},
+                      [text(lang.nativeName)]
+                    )
+                ]
+              ),
+            ]),
             button(
               classes: 'theme-toggle',
               attributes: {'data-theme-toggle': 'true'},
