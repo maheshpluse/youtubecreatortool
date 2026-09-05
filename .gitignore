@@ -4,6 +4,11 @@
 *.env
 !.env.example
 
+# Firebase / GCP service account credentials - never commit these
+serviceAccountKey.json
+*serviceAccountKey*.json
+*.firebase-adminsdk*.json
+
 # Python
 __pycache__/
 *.pyc

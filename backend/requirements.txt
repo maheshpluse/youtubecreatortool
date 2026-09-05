@@ -3,6 +3,5 @@ uvicorn
 pydantic
 requests
 beautifulsoup4
-anthropic
 python-dotenv
 firebase-admin
