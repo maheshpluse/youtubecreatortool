@@ -111,7 +111,7 @@ async def startup_event():
 ALLOWED_ORIGINS = [
     o.strip()
     for o in os.environ.get(
-        "ALLOWED_ORIGINS", "http://localhost:8080,http://127.0.0.1:8080,http://localhost:8082,http://127.0.0.1:8082,http://localhost:5173,http://127.0.0.1:5173,http://vidseokit.com,https://vidseokit.com"
+        "ALLOWED_ORIGINS", "http://localhost:8080,http://127.0.0.1:8080,http://localhost:8082,http://127.0.0.1:8082,http://localhost:5173,http://127.0.0.1:5173,http://vidseokit.com,https://vidseokit.com,https://www.vidseokit.com"
     ).split(",")
     if o.strip()
 ]
