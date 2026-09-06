@@ -1,7 +1,7 @@
 rules_version = '2';
 
 // Not deployed automatically - review then run:
-//   firebase deploy --only firestore:rules --project creatortools-cf7e6
+//   firebase deploy --only firestore:rules --project vidseokit-cf7e6
 //
 // Everything admin_panel reads/writes lives behind the `admin` custom claim,
 // which backend/create_admin.py (or the Admins page) grants via the Admin SDK.

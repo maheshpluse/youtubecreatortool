@@ -2,7 +2,7 @@ server {
     listen 80;
     server_name vidseokit.com www.vidseokit.com;
 
-    root /var/www/creatortools/frontend;
+    root /var/www/vidseokit/frontend;
     index index.html;
 
     location / {

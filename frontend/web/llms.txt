@@ -1,0 +1,51 @@
+# VidSEOKit
+
+> Free YouTube SEO and analytics tools for creators: SEO scoring, AI title and
+> thumbnail generation, tag extraction, and AdSense earnings estimation. No
+> account required and no paid tier. Written for creators in the US, Canada,
+> UK, Ireland, Australia and Europe.
+
+Content last reviewed: 2026-09-06
+
+## YouTube tools
+
+- [YouTube SEO Analyzer](https://vidseokit.com/): The VidSEOKit YouTube SEO Analyzer is a free tool that scores a video's title, description and tags against a target keyword, then lists the specific changes to make before publishing.
+- [YouTube Title Generator](https://vidseokit.com/youtube-title-generator): The VidSEOKit YouTube Title Generator is a free tool that turns a video topic into several ready-to-use title options, each written to a different framing so you can compare angles side by side.
+- [YouTube Thumbnail Ideas Generator](https://vidseokit.com/youtube-thumbnail-ideas): The VidSEOKit Thumbnail Ideas Generator is a free tool that turns a video topic into concrete thumbnail concepts - subject, expression, overlay text and colour direction - to design or brief from.
+- [YouTube Tag Extractor](https://vidseokit.com/youtube-tag-extractor): The VidSEOKit YouTube Tag Extractor is a free tool that reads the public tags off any YouTube video URL, so you can see how videos already ranking in your niche describe themselves.
+- [YouTube Earnings Calculator](https://vidseokit.com/youtube-earnings-calculator): The VidSEOKit YouTube Earnings Calculator is a free tool that estimates monthly AdSense revenue from your daily view count and content niche, reported as an RPM-based range rather than a single figure.
+
+## Reference and guides
+
+- [YouTube RPM by Country](https://vidseokit.com/youtube-rpm-by-country): YouTube RPM by country is the revenue a channel earns per 1,000 views in each market, which varies roughly fourfold between the highest-paying countries such as the United States and Norway and the lowest-paying European markets.
+- [Blog](https://vidseokit.com/blog): The VidSEOKit blog publishes in-depth guides on YouTube SEO, the recommendation algorithm, monetization requirements, RPM and channel analytics.
+
+## About
+
+- [About](https://vidseokit.com/about): VidSEOKit is a free suite of YouTube SEO and analytics tools - SEO scoring, title generation, thumbnail concepts, tag extraction and earnings estimation - that requires no account to use.
+- [Contact](https://vidseokit.com/contact): This page lists how to reach the VidSEOKit team about the tools, bug reports, feature requests and partnership enquiries.
+- [Privacy Policy](https://vidseokit.com/privacy): This privacy policy explains what data VidSEOKit collects, how cookies and Google AdSense advertising are used, and the choices available under GDPR and CCPA.
+- [Terms of Service](https://vidseokit.com/terms): These terms of service govern use of the free VidSEOKit YouTube tools, covering acceptable use, disclaimers and limitation of liability.
+
+## Blog articles
+
+- [Rank higher youtube search](https://vidseokit.com/blog/rank-higher-youtube-search.html)
+- [Improve youtube click through rate](https://vidseokit.com/blog/improve-youtube-click-through-rate.html)
+- [Youtube monetization requirements guide](https://vidseokit.com/blog/youtube-monetization-requirements-guide.html)
+- [How to increase youtube rpm](https://vidseokit.com/blog/how-to-increase-youtube-rpm.html)
+- [Youtube keyword research tools](https://vidseokit.com/blog/youtube-keyword-research-tools.html)
+- [High cpc keywords youtube niches](https://vidseokit.com/blog/high-cpc-keywords-youtube-niches.html)
+- [Youtube analytics metrics that matter](https://vidseokit.com/blog/youtube-analytics-metrics-that-matter.html)
+- [How youtube algorithm works](https://vidseokit.com/blog/how-youtube-algorithm-works.html)
+- [Youtube competitor analysis guide](https://vidseokit.com/blog/youtube-competitor-analysis-guide.html)
+- [Youtube engagement rate calculation](https://vidseokit.com/blog/youtube-engagement-rate-calculation.html)
+- [Find target audience youtube](https://vidseokit.com/blog/find-target-audience-youtube.html)
+- [Adsense revenue per 1000 views](https://vidseokit.com/blog/adsense-revenue-per-1000-views.html)
+- [Passive income streams youtube creators](https://vidseokit.com/blog/passive-income-streams-youtube-creators.html)
+- [Youtube affiliate marketing strategies](https://vidseokit.com/blog/youtube-affiliate-marketing-strategies.html)
+- [Youtube sponsored content brand deals](https://vidseokit.com/blog/youtube-sponsored-content-brand-deals.html)
+- [Content creation tools youtube creators](https://vidseokit.com/blog/content-creation-tools-youtube-creators.html)
+- [Organic traffic growth strategy](https://vidseokit.com/blog/organic-traffic-growth-strategy.html)
+- [Digital marketing funnel creators](https://vidseokit.com/blog/digital-marketing-funnel-creators.html)
+- [Youtube channel online business](https://vidseokit.com/blog/youtube-channel-online-business.html)
+- [Youtube seo checklist small channels](https://vidseokit.com/blog/youtube-seo-checklist-small-channels.html)

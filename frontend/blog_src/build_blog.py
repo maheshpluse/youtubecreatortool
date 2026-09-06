@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CreatorTools blog builder.
+VidSEOKit blog builder.
 
 Reads  : blog_src/posts.json          (metadata for every post)
          blog_src/posts/<slug>.html   (article body, HTML fragment)
@@ -21,8 +21,8 @@ from datetime import date
 #  SITE CONFIG  — edit these two blocks, then re-run the build
 # ─────────────────────────────────────────────────────────────
 SITE_URL = "https://vidseokit.com"
-SITE_NAME = "CreatorTools"
-AUTHOR = "The CreatorTools Editorial Team"
+SITE_NAME = "VidSEOKit"
+AUTHOR = "The VidSEOKit Editorial Team"
 PUBLISHER_LOGO = SITE_URL + "/images/logo.svg"
 
 # Leave ADSENSE_CLIENT empty until AdSense approves the site. Empty = no ad
@@ -142,7 +142,7 @@ THEME_SCRIPT = """  <script>
 def header(depth_prefix: str = "../") -> str:
     return f"""<header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="{depth_prefix}index.html">{LOGO_SVG}<span>CreatorTools</span></a>
+    <a class="brand" href="{depth_prefix}index.html">{LOGO_SVG}<span>VidSEOKit</span></a>
     <nav class="header-nav" aria-label="Primary">
       <a href="{depth_prefix}index.html">Free tools</a>
       <a href="index.html">Blog</a>
@@ -156,7 +156,7 @@ def footer() -> str:
     return f"""<footer class="site-footer">
   <div class="wrap-wide">
     <div class="footer-inner">
-      <a class="brand" href="../index.html">{LOGO_SVG}<span>CreatorTools</span></a>
+      <a class="brand" href="../index.html">{LOGO_SVG}<span>VidSEOKit</span></a>
       <nav class="footer-nav" aria-label="Footer">
         <a href="index.html">Blog</a>
         <a href="../index.html">Tools</a>
@@ -368,7 +368,7 @@ def render_index(posts):
     item_list = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "CreatorTools Creator Blog",
+        "name": "VidSEOKit Creator Blog",
         "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "url": f"{SITE_URL}/blog/{p['slug']}.html",
              "name": p["title"]} for i, p in enumerate(posts)

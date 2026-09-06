@@ -1,4 +1,4 @@
-/// Base URL of the CreatorTools API, without a trailing slash.
+/// Base URL of the VidSEOKit API, without a trailing slash.
 ///
 /// Defaults to the production API for deployed builds.
 /// For local development, override it at compile time:

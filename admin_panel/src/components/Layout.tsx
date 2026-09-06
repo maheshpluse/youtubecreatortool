@@ -30,7 +30,7 @@ export default function Layout() {
       {/* Sidebar */}
       <aside className="w-64 bg-white border-r border-gray-200 flex flex-col">
         <div className="h-16 flex items-center px-6 border-b border-gray-200">
-          <span className="text-xl font-bold text-red-600 tracking-tight">CreatorTools Admin</span>
+          <span className="text-xl font-bold text-red-600 tracking-tight">VidSEOKit Admin</span>
         </div>
         <nav className="flex-1 overflow-y-auto py-4">
           <ul className="space-y-1 px-3">

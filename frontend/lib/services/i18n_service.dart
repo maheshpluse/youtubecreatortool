@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
-
 import 'i18n_strings.dart';
+import 'i18n_stub.dart' if (dart.library.js_interop) 'i18n_browser.dart' as browser;
 
 /// One entry in the language picker.
 ///
@@ -182,59 +180,26 @@ class I18nService {
   }
 
   String? _detectBrowserLanguage() {
-    try {
-      final nav = globalContext.getProperty<JSAny?>('navigator'.toJS) as JSObject?;
-      if (nav == null) return null;
-
-      // navigator.languages is ordered by user preference; the first entry we
-      // actually ship wins.
-      final languages = nav.getProperty<JSAny?>('languages'.toJS) as JSObject?;
-      if (languages != null) {
-        final length = languages.getProperty<JSAny?>('length'.toJS).dartify();
-        if (length is num) {
-          for (var i = 0; i < length.toInt(); i++) {
-            final match = resolve(languages.getProperty<JSAny?>('$i'.toJS).dartify()?.toString());
-            if (match != null) return match;
-          }
-        }
-      }
-
-      return resolve(nav.getProperty<JSAny?>('language'.toJS).dartify()?.toString());
-    } catch (e) {
-      print('Could not detect browser language: $e');
-      return null;
+    final langs = browser.detectBrowserLanguage();
+    for (final lang in langs) {
+      final match = resolve(lang);
+      if (match != null) return match;
     }
+    return null;
   }
 
   String? _readStoredLanguage() {
-    try {
-      final storage = globalContext.getProperty<JSAny?>('localStorage'.toJS) as JSObject?;
-      return storage?.callMethod<JSAny?>('getItem'.toJS, _storageKey.toJS).dartify()?.toString();
-    } catch (e) {
-      return null; // Private browsing or blocked storage: fall through to detection.
-    }
+    return browser.readStoredLanguage(_storageKey);
   }
 
   void _storeLanguage(String code) {
-    try {
-      final storage = globalContext.getProperty<JSAny?>('localStorage'.toJS) as JSObject?;
-      storage?.callMethod<JSAny?>('setItem'.toJS, _storageKey.toJS, code.toJS);
-    } catch (e) {
-      // Not being able to remember the choice is not worth breaking the switch over.
-    }
+    browser.storeLanguage(_storageKey, code);
   }
 
   /// Keeps `<html lang>` and `<html dir>` in step with the active language so
   /// screen readers, search engines and RTL scripts all behave.
   void _applyDocumentAttributes(LanguageOption option) {
-    try {
-      final document = globalContext.getProperty<JSAny?>('document'.toJS) as JSObject?;
-      final root = document?.getProperty<JSAny?>('documentElement'.toJS) as JSObject?;
-      root?.callMethod<JSAny?>('setAttribute'.toJS, 'lang'.toJS, option.code.toJS);
-      root?.callMethod<JSAny?>('setAttribute'.toJS, 'dir'.toJS, (option.rtl ? 'rtl' : 'ltr').toJS);
-    } catch (e) {
-      print('Could not update document language attributes: $e');
-    }
+    browser.applyDocumentAttributes(option.code, option.rtl ? 'rtl' : 'ltr');
   }
 
   Future<Map<String, dynamic>?> _fetch(String langCode) async {

@@ -1,8 +1,7 @@
-import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
-
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
+
+import '../services/client_interop.dart' as client_interop;
 
 /// One AdSense slot.
 ///
@@ -11,6 +10,7 @@ import 'package:jaspr/dom.dart';
 /// `<script>` tags, so the `adsbygoogle.push` that used to sit inside the
 /// markup never actually fired. It now runs from [initState] instead, once
 /// the element is mounted.
+@client
 class AdSenseAd extends StatefulComponent {
   final String slotId;
   final String format;
@@ -37,17 +37,7 @@ class _AdSenseAdState extends State<AdSenseAd> {
 
   /// The Dart equivalent of `(adsbygoogle = window.adsbygoogle || []).push({})`.
   void _requestAd() {
-    try {
-      var queue = globalContext.getProperty<JSObject?>('adsbygoogle'.toJS);
-      if (queue == null) {
-        queue = globalContext.getProperty<JSFunction>('Array'.toJS).callAsConstructor<JSObject>();
-        globalContext.setProperty('adsbygoogle'.toJS, queue);
-      }
-      queue.callMethod<JSAny?>('push'.toJS, JSObject());
-    } catch (e) {
-      // A blocked or missing ad library must never take the page down.
-      print('AdSense slot ${component.slotId} could not be requested: $e');
-    }
+    client_interop.pushAdSense();
   }
 
   @override

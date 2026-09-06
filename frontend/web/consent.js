@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   CreatorTools — cookie consent + Google Consent Mode v2
+   VidSEOKit — cookie consent + Google Consent Mode v2
 
    Loaded SYNCHRONOUSLY from <head>, before any Google tag. The consent
    defaults below must be in dataLayer before AdSense/gtag boots, otherwise
@@ -165,7 +165,7 @@
 
     var card = el('div', 'ct-consent__card');
 
-    card.appendChild(el('h2', 'ct-consent__title', 'Cookies on CreatorTools'));
+    card.appendChild(el('h2', 'ct-consent__title', 'Cookies on VidSEOKit'));
     card.appendChild(el('p', 'ct-consent__body',
       'We use cookies that are strictly necessary to run the site and keep it secure. ' +
       'With your permission we also use advertising and measurement cookies, which fund ' +

@@ -25,7 +25,7 @@ if os.path.exists(key_path):
     firebase_admin.initialize_app(cred)
 else:
     print("Warning: serviceAccountKey.json not found, initializing with default project ID")
-    firebase_admin.initialize_app(options={"projectId": "creatortools-cf7e6"})
+    firebase_admin.initialize_app(options={"projectId": "vidseokit-cf7e6"})
 
 
 def main():

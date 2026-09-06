@@ -78,7 +78,7 @@ export default function ApiSettings() {
     <div className="space-y-6 max-w-2xl animate-fade-in-up">
       <div>
         <h2 className="text-xl font-bold text-gray-900">API Settings</h2>
-        <p className="mt-1 text-sm text-gray-500">Manage external API keys used by the CreatorTools backend.</p>
+        <p className="mt-1 text-sm text-gray-500">Manage external API keys used by the VidSEOKit backend.</p>
       </div>
 
       {message && (

@@ -1,4 +1,4 @@
-# CreatorTools - Advanced YouTube Utility & SaaS Platform
+# VidSEOKit - Advanced YouTube Utility & SaaS Platform
 
 A premium, highly mobile-responsive utility website designed for YouTube creators targeting Tier-1 countries. Now upgraded with a Firebase-powered Admin Panel for real-time API and configuration updates.
 
@@ -45,7 +45,7 @@ cred = credentials.Certificate("firebase-service-account.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-app = FastAPI(title="CreatorTools API")
+app = FastAPI(title="VidSEOKit API")
 
 @app.post("/api/calculate-earnings")
 def calculate_earnings(request: EarningsRequest):

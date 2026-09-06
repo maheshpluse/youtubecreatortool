@@ -32,7 +32,7 @@ if not firebase_admin._apps:
             cred = credentials.Certificate(key_path)
             firebase_admin.initialize_app(cred)
         else:
-            firebase_admin.initialize_app(options={'projectId': 'creatortools-cf7e6'})
+            firebase_admin.initialize_app(options={'projectId': 'vidseokit-cf7e6'})
     except Exception as e:
         print(f"Firebase Init Error: {e}")
 
@@ -82,7 +82,7 @@ try:
 except Exception as e:
     print(f"Warning: Could not initialize Firestore client: {e}")
 
-app = FastAPI(title="CreatorTools API", version="1.0.0")
+app = FastAPI(title="VidSEOKit API", version="1.0.0")
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
@@ -142,7 +142,7 @@ async def verify_recaptcha(request: Request):
         raise HTTPException(status_code=403, detail="Missing reCAPTCHA token")
 
     try:
-        PROJECT_ID = "creatortools-cf7e6"
+        PROJECT_ID = "vidseokit-cf7e6"
         SITE_KEY = "6LetP6ktAAAAAPn6G2UlIc-EQSMoVHBsJ4FWu5RH"
         url = f"https://recaptchaenterprise.googleapis.com/v1/projects/{PROJECT_ID}/assessments?key={RECAPTCHA_SECRET_KEY}"
         payload = {

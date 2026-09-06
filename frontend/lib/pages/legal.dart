@@ -93,7 +93,7 @@ Component _updated() => p(
 List<Component> privacyPolicyContent() => [
       _updated(),
 
-      _p('This Privacy Policy explains how CreatorTools LLC ("CreatorTools", "we", '
+      _p('This Privacy Policy explains how VidSEOKit LLC ("VidSEOKit", "we", '
           '"us" or "our") collects, uses, shares and protects personal information when '
           'you visit vidseokit.com or use any of our free creator tools (together, the '
           '"Service").'),
@@ -515,7 +515,7 @@ List<Component> termsOfServiceContent() => [
       _updated(),
 
       _p('These Terms of Service ("Terms") are a legal agreement between you and '
-          'CreatorTools LLC ("CreatorTools", "we", "us" or "our") governing your access '
+          'VidSEOKit LLC ("VidSEOKit", "we", "us" or "our") governing your access '
           'to and use of vidseokit.com and the tools available on it (the "Service"). '
           'Please read them before using the Service.'),
 
@@ -536,7 +536,7 @@ List<Component> termsOfServiceContent() => [
 
       _h2('2. Who we are'),
       p(classes: 'mb-3', [
-        Component.text('The Service is operated by CreatorTools LLC, a limited liability company '
+        Component.text('The Service is operated by VidSEOKit LLC, a limited liability company '
             'organised in the United States. You can reach us at '),
         a(
           href: 'mailto:$legalContactEmail',
@@ -555,7 +555,7 @@ List<Component> termsOfServiceContent() => [
           'applicable sanctions or export control laws.'),
 
       _h2('4. The Service'),
-      _p('CreatorTools provides free, browser-based tools for online video creators, '
+      _p('VidSEOKit provides free, browser-based tools for online video creators, '
           'currently including an SEO Analyzer, a Title Generator, a Thumbnail Generator, a '
           'Tag Extractor, an Earnings Calculator and an editorial blog.'),
       _bullets([
@@ -606,7 +606,7 @@ List<Component> termsOfServiceContent() => [
           'content, or report conduct to the relevant authorities.'),
 
       _h2('8. Third-party services and no affiliation'),
-      _p('CreatorTools is an independent tool. We are not affiliated with, endorsed by, '
+      _p('VidSEOKit is an independent tool. We are not affiliated with, endorsed by, '
           'sponsored by or in any way officially connected to YouTube, Google LLC, or any '
           'other platform. YouTube and the YouTube logo are trademarks of Google LLC, and '
           'all other trademarks are the property of their respective owners. References to '
@@ -630,7 +630,7 @@ List<Component> termsOfServiceContent() => [
 
       _h2('10. Intellectual property'),
       _p('The Service, including its software, design, layout, text, graphics, logos and '
-          'blog articles, is owned by CreatorTools LLC or its licensors and is protected '
+          'blog articles, is owned by VidSEOKit LLC or its licensors and is protected '
           'by copyright, trademark and other intellectual property laws. We grant you a '
           'limited, personal, non-exclusive, non-transferable, revocable licence to access '
           'and use the Service for your own creative or business purposes in accordance '
@@ -695,7 +695,7 @@ List<Component> termsOfServiceContent() => [
 
       _h2('14. Indemnity'),
       _p('If you use the Service other than as a consumer, you agree to indemnify and hold '
-          'harmless CreatorTools LLC and its officers, members, employees and agents from '
+          'harmless VidSEOKit LLC and its officers, members, employees and agents from '
           'any claim, liability, damage, loss or expense, including reasonable legal fees, '
           'arising out of your breach of these Terms, your misuse of the Service, your '
           'content, or your violation of any law or third-party right. This section does not '

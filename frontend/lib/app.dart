@@ -2,14 +2,15 @@ import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
-
 import 'config.dart';
 import 'data/blog_posts.dart';
+import 'data/seo_pages.dart';
+import 'data/country_rpm.dart';
 import 'pages/legal.dart';
 import 'components/adsense_ad.dart';
 import 'services/i18n_service.dart';
+import 'services/client_interop.dart' as client_interop;
+import 'package:jaspr_router/jaspr_router.dart';
 
 class App extends StatefulComponent {
   const App({super.key});
@@ -19,7 +20,6 @@ class App extends StatefulComponent {
 }
 
 class _AppState extends State<App> {
-  String _activeTab = 'seo';
   bool isDark = true;
 
   // SEO Analyzer State
@@ -55,14 +55,20 @@ class _AppState extends State<App> {
     super.initState();
     // Let web/consent.js open the Privacy Policy tab from its banner link.
     // The Jaspr app owns routing, so the banner cannot navigate on its own.
-    globalContext.setProperty(
-      'ctOpenPrivacy'.toJS,
-      (() => switchTab('privacy')).toJS,
-    );
+    client_interop.setupPrivacyCallback(() => switchTab('privacy'));
+  }
+
+  String _getPathForTab(String tab) {
+    if (tab == 'seo') return '/youtube-seo-analyzer';
+    if (tab == 'titles') return '/youtube-title-generator';
+    if (tab == 'thumbnails') return '/youtube-thumbnail-ideas';
+    if (tab == 'tags') return '/youtube-tag-extractor';
+    if (tab == 'earnings') return '/youtube-earnings-calculator';
+    return '/$tab';
   }
 
   void switchTab(String tab) {
-    setState(() => _activeTab = tab);
+    Router.of(context).push(_getPathForTab(tab));
   }
 
   void toggleTheme() {
@@ -72,23 +78,18 @@ class _AppState extends State<App> {
   /// Reopens the cookie preferences panel owned by web/consent.js.
   /// No-op if that script failed to load, so the footer link can never throw.
   void openConsentPreferences() {
-    final fn = globalContext.getProperty<JSAny?>('showConsentPreferences'.toJS);
-    if (fn != null) {
-      globalContext.callMethod<JSAny?>('showConsentPreferences'.toJS);
-    }
+    client_interop.openConsentPreferences();
   }
 
   /// POSTs [body] to [path] on the API with a fresh reCAPTCHA token and returns
   /// the decoded JSON. Throws on any non-200 so the caller can surface it.
   Future<dynamic> _postJson(String path, Map<String, dynamic> body) async {
-    final token = await globalContext
-        .callMethod<JSPromise<JSString>>('executeRecaptcha'.toJS)
-        .toDart;
+    final token = await client_interop.getRecaptchaToken();
     final response = await http.post(
       Uri.parse('$apiBaseUrl$path'),
       headers: {
         'Content-Type': 'application/json',
-        'X-Recaptcha-Token': token.toDart,
+        'X-Recaptcha-Token': token,
       },
       body: jsonEncode(body),
     );
@@ -173,29 +174,63 @@ class _AppState extends State<App> {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'min-h-screen font-sans transition-colors duration-300', [
-      _buildNavbar(),
-      _buildHero(),
-      div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 md:pb-16', [
-        _buildDesktopTabs(),
-        if (errorMessage != null) _buildErrorBanner(errorMessage!),
-        div(classes: 'animate-fade-in-up animate-delay-100', [
-          if (_activeTab == 'seo') _buildSeoAnalyzer(),
-          if (_activeTab == 'titles') _buildTitleGenerator(),
-          if (_activeTab == 'thumbnails') _buildThumbnailGenerator(),
-          if (_activeTab == 'tags') _buildTagExtractor(),
-          if (_activeTab == 'earnings') _buildEarningsCalculator(),
-          if (_activeTab == 'blog') _buildBlogSection(),
-          if (_activeTab == 'privacy') _buildPrivacyPolicy(),
-          if (_activeTab == 'terms') _buildTerms(),
-          if (_activeTab == 'about') _buildAbout(),
-          if (_activeTab == 'contact') _buildContact(),
-        ]),
-        _buildSeoArticle(),
-      ]),
-      _buildFooter(),
-      _buildMobileNav(),
-    ]);
+    return Router(
+      routes: [
+        ShellRoute(
+          builder: (context, state, child) {
+            // ShellRoute has no path of its own, so RouteState.path is '' here
+            // (empty, not null) — reading it blanked activeTab and hid every
+            // per-tool article. location carries the real URI.
+            String activeTab = _getTabFromPath(Uri.parse(state.location).path);
+            return div(classes: 'min-h-screen font-sans transition-colors duration-300', [
+              _buildSeoHead(activeTab),
+              _buildNavbar(),
+              _buildHero(),
+              div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 md:pb-16', [
+                _buildDesktopTabs(activeTab),
+                if (errorMessage != null) _buildErrorBanner(errorMessage!),
+                _buildDefinition(activeTab),
+                div(classes: 'animate-fade-in-up animate-delay-100', [
+                  child,
+                ]),
+                _buildSeoArticle(activeTab),
+                _buildPageContent(activeTab),
+              ]),
+              _buildFooter(),
+              _buildMobileNav(activeTab),
+            ]);
+          },
+          routes: [
+            Route(path: '/', builder: (context, state) => _buildSeoAnalyzer()),
+            Route(path: '/youtube-seo-analyzer', builder: (context, state) => _buildSeoAnalyzer()),
+            Route(path: '/youtube-title-generator', builder: (context, state) => _buildTitleGenerator()),
+            Route(path: '/youtube-thumbnail-ideas', builder: (context, state) => _buildThumbnailGenerator()),
+            Route(path: '/youtube-tag-extractor', builder: (context, state) => _buildTagExtractor()),
+            Route(path: '/youtube-earnings-calculator', builder: (context, state) => _buildEarningsCalculator()),
+            Route(path: '/youtube-rpm-by-country', builder: (context, state) => _buildRpmByCountry()),
+            Route(path: '/blog', builder: (context, state) => _buildBlogSection()),
+            Route(path: '/privacy', builder: (context, state) => _buildPrivacyPolicy()),
+            Route(path: '/terms', builder: (context, state) => _buildTerms()),
+            Route(path: '/about', builder: (context, state) => _buildAbout()),
+            Route(path: '/contact', builder: (context, state) => _buildContact()),
+          ]
+        )
+      ]
+    );
+  }
+
+  String _getTabFromPath(String rawPath) {
+    // Normalise '' and '/foo/' so the static build and the client router
+    // resolve to the same tab.
+    String path = rawPath.isEmpty ? '/' : rawPath;
+    if (path.length > 1 && path.endsWith('/')) path = path.substring(0, path.length - 1);
+    if (path == '/youtube-seo-analyzer' || path == '/') return 'seo';
+    if (path == '/youtube-title-generator') return 'titles';
+    if (path == '/youtube-thumbnail-ideas') return 'thumbnails';
+    if (path == '/youtube-tag-extractor') return 'tags';
+    if (path == '/youtube-earnings-calculator') return 'earnings';
+    if (path.startsWith('/')) return path.substring(1);
+    return path;
   }
 
   // ═══════════════════════════════════════════
@@ -267,14 +302,14 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   //  DESKTOP TABS
   // ═══════════════════════════════════════════
-  Component _buildDesktopTabs() {
+  Component _buildDesktopTabs(String activeTab) {
     return div(classes: 'hidden md:flex items-center gap-3 mb-8 animate-fade-in-up animate-delay-500 overflow-x-auto pb-2', [
-      _buildTabChip(t('tab_seo'), 'seo'),
-      _buildTabChip(t('tab_titles'), 'titles'),
-      _buildTabChip(t('tab_thumbnails'), 'thumbnails'),
-      _buildTabChip(t('tab_tags'), 'tags'),
-      _buildTabChip(t('tab_earnings'), 'earnings'),
-      _buildTabChip(t('tab_blog'), 'blog'),
+      _buildTabChip(t('tab_seo'), 'seo', activeTab),
+      _buildTabChip(t('tab_titles'), 'titles', activeTab),
+      _buildTabChip(t('tab_thumbnails'), 'thumbnails', activeTab),
+      _buildTabChip(t('tab_tags'), 'tags', activeTab),
+      _buildTabChip(t('tab_earnings'), 'earnings', activeTab),
+      _buildTabChip(t('tab_blog'), 'blog', activeTab),
     ]);
   }
 
@@ -301,44 +336,42 @@ class _AppState extends State<App> {
     );
   }
 
-  Component _buildTabChip(String label, String id) {
-    bool isActive = _activeTab == id;
-    return button(
+  Component _buildTabChip(String label, String id, String activeTab) {
+    bool isActive = activeTab == id;
+    return Link(
+      to: _getPathForTab(id),
       classes: 'px-4 py-1.5 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${isActive
               ? 'bg-yt-gray-900 text-white dark:bg-white dark:text-yt-gray-900'
               : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'}',
-      onClick: () => switchTab(id),
-      [
-        Component.text(label),
-      ]
+      child: Component.text(label),
     );
   }
 
   // ═══════════════════════════════════════════
   //  MOBILE BOTTOM NAV
   // ═══════════════════════════════════════════
-  Component _buildMobileNav() {
+  Component _buildMobileNav(String activeTab) {
     return div(classes: 'mobile-nav md:hidden', [
       div(classes: 'flex items-center justify-around px-2', [
-        _mobileNavItem('search', t('mobile_seo'), 'seo'),
-        _mobileNavItem('title', t('mobile_titles'), 'titles'),
-        _mobileNavItem('image', t('mobile_thumb'), 'thumbnails'),
-        _mobileNavItem('sell', t('mobile_tags'), 'tags'),
-        _mobileNavItem('payments', t('mobile_earn'), 'earnings'),
-        _mobileNavItem('article', t('mobile_blog'), 'blog'),
+        _mobileNavItem('search', t('mobile_seo'), 'seo', activeTab),
+        _mobileNavItem('title', t('mobile_titles'), 'titles', activeTab),
+        _mobileNavItem('image', t('mobile_thumb'), 'thumbnails', activeTab),
+        _mobileNavItem('sell', t('mobile_tags'), 'tags', activeTab),
+        _mobileNavItem('payments', t('mobile_earn'), 'earnings', activeTab),
+        _mobileNavItem('article', t('mobile_blog'), 'blog', activeTab),
       ])
     ]);
   }
 
-  Component _mobileNavItem(String icon, String label, String tab) {
-    bool isActive = _activeTab == tab;
-    return button(
+  Component _mobileNavItem(String icon, String label, String tab, String activeTab) {
+    bool isActive = activeTab == tab;
+    return Link(
+      to: _getPathForTab(tab),
       classes: 'flex flex-col items-center gap-1 py-1 px-3 transition-all duration-300 ${isActive ? 'text-yt-gray-900 dark:text-white' : 'text-yt-gray-600 dark:text-yt-gray-400'}',
-      onClick: () => switchTab(tab),
-      [
+      child: div(classes: 'flex flex-col items-center gap-1', [
         span(classes: 'material-symbols-rounded text-2xl ${isActive ? 'filled' : ''}', [Component.text(icon)]),
         span(classes: 'text-[10px] font-medium', [Component.text(label)]),
-      ]
+      ])
     );
   }
 
@@ -624,7 +657,14 @@ class _AppState extends State<App> {
         ] else ...[
           span(classes: 'material-symbols-rounded text-5xl text-yt-gray-300 dark:text-yt-gray-700 mb-4', [Component.text('monetization_on')]),
           p(classes: 'text-yt-gray-500 text-sm font-medium text-center', [Component.text(t('earn_empty_state'))]),
-        ]
+        ],
+        div(classes: 'mt-6 pt-4 border-t border-yt-gray-200 dark:border-yt-gray-800 w-full text-center', [
+          a(
+            href: '/youtube-rpm-by-country',
+            classes: 'text-sm font-medium text-yt-blue-dark dark:text-yt-blue-light hover:underline',
+            [Component.text('See typical RPM by country: US, UK, Canada & Europe')],
+          ),
+        ]),
       ])
     ]);
   }
@@ -645,6 +685,65 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   //  BLOG SECTION
   // ═══════════════════════════════════════════
+  // ═══════════════════════════════════════════
+  //  RPM BY COUNTRY
+  // ═══════════════════════════════════════════
+
+  /// Reference table of typical RPM per market.
+  ///
+  /// A real <table> rather than a grid of divs: the rows are tabular data, and
+  /// search engines extract them far more reliably this way.
+  Component _buildRpmByCountry() {
+    return div(classes: 'space-y-6', [
+      div(classes: 'flex items-center gap-2 mb-4', [
+        span(classes: 'material-symbols-rounded text-2xl', [Component.text('public')]),
+        h2(classes: 'text-xl font-bold', [Component.text('YouTube RPM by country')]),
+      ]),
+      p(classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 max-w-3xl', [
+        Component.text(
+            'Typical revenue per 1,000 views across the markets that pay the most. These are commonly '
+            'reported ranges across all niches, not a measurement of any one channel - finance and '
+            'business sit at the top of every range below, entertainment and vlogs at the bottom.')
+      ]),
+      // Wide tables must scroll inside their own container rather than pushing
+      // the page sideways on mobile.
+      div(classes: 'overflow-x-auto -mx-4 px-4', [
+        table(classes: 'w-full min-w-[640px] text-sm border-collapse', [
+          thead([
+            tr(classes: 'border-b border-yt-gray-300 dark:border-yt-gray-700', [
+              th([Component.text('Country')], classes: 'text-left py-3 pr-4 font-semibold', scope: 'col'),
+              th([Component.text('Currency')], classes: 'text-left py-3 pr-4 font-semibold', scope: 'col'),
+              th([Component.text('Typical RPM (USD)')], classes: 'text-left py-3 pr-4 font-semibold', scope: 'col'),
+              th([Component.text('Notes')], classes: 'text-left py-3 font-semibold', scope: 'col'),
+            ])
+          ]),
+          tbody([
+            for (final c in kCountryRpm)
+              tr(classes: 'border-b border-yt-gray-200 dark:border-yt-gray-800 align-top', [
+                th([Component.text(c.country)],
+                    classes: 'text-left py-3 pr-4 font-medium text-yt-gray-900 dark:text-white whitespace-nowrap',
+                    scope: 'row'),
+                td([Component.text(c.currency)], classes: 'py-3 pr-4 text-yt-gray-600 dark:text-yt-gray-400'),
+                td([
+                  Component.text('\$${c.minRpm.toStringAsFixed(2)} - \$${c.maxRpm.toStringAsFixed(2)}')
+                ], classes: 'py-3 pr-4 font-medium text-yt-gray-900 dark:text-white whitespace-nowrap'),
+                td([Component.text(c.note)], classes: 'py-3 text-yt-gray-600 dark:text-yt-gray-400'),
+              ])
+          ])
+        ])
+      ]),
+      p(classes: 'text-xs text-yt-gray-500', [Component.text(kTierOneShareNote)]),
+      p(classes: 'text-sm', [
+        a(
+          href: '/youtube-earnings-calculator',
+          classes: 'font-medium text-yt-blue-dark dark:text-yt-blue-light hover:underline',
+          [Component.text('Estimate your own earnings with the YouTube earnings calculator')],
+        ),
+      ]),
+      AdSenseAd(slotId: '1234567890'),
+    ]);
+  }
+
   Component _buildBlogSection() {
     return div(classes: 'space-y-6', [
       div(classes: 'flex items-center justify-between gap-3 mb-4 animate-fade-in-down animate-delay-100', [
@@ -693,11 +792,190 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   //  SEO ARTICLE
   // ═══════════════════════════════════════════
-  Component _buildSeoArticle() {
+  // ═══════════════════════════════════════════
+  //  PER-ROUTE <head>
+  // ═══════════════════════════════════════════
+
+  Component _jsonLd(Map<String, Object?> data) => Component.element(
+        tag: 'script',
+        attributes: {'type': 'application/ld+json'},
+        children: [RawText(jsonEncode(data))],
+      );
+
+  /// Emits the title, description, canonical and social tags for the current
+  /// route.
+  ///
+  /// web/index.template.html deliberately omits these: the static build renders
+  /// one file per route from a single template, so anything page-specific left
+  /// in the template would be copied verbatim onto all eleven pages and every
+  /// tool would look like a duplicate of the homepage.
+  Component _buildSeoHead(String activeTab) {
+    final PageSeo? seo = kPageSeo[activeTab];
+    if (seo == null) return div([]);
+
+    final List<Component> head = [
+      Component.element(tag: 'link', attributes: {'rel': 'canonical', 'href': seo.canonical}),
+      Component.element(tag: 'meta', attributes: {'property': 'og:title', 'content': seo.title}),
+      Component.element(tag: 'meta', attributes: {'property': 'og:description', 'content': seo.description}),
+      Component.element(tag: 'meta', attributes: {'property': 'og:url', 'content': seo.canonical}),
+      Component.element(tag: 'meta', attributes: {'name': 'twitter:title', 'content': seo.title}),
+      Component.element(tag: 'meta', attributes: {'name': 'twitter:description', 'content': seo.description}),
+    ];
+
+    // Freshness and attribution. The tool pages carried neither, and answer
+    // engines discount pages that cannot say who wrote them or when — which
+    // matters most for the RPM page, whose title claims a year.
+    const Map<String, Object?> publisher = {
+      '@type': 'Organization',
+      'name': 'VidSEOKit',
+      'url': kSiteUrl,
+    };
+    head.add(_jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': seo.title,
+      'description': seo.definition.isNotEmpty ? seo.definition : seo.description,
+      'url': seo.canonical,
+      'inLanguage': 'en',
+      'datePublished': kContentUpdated,
+      'dateModified': kContentUpdated,
+      'author': publisher,
+      'publisher': publisher,
+      'isPartOf': {'@type': 'WebSite', 'name': 'VidSEOKit', 'url': kSiteUrl},
+      if (seo.sources.isNotEmpty)
+        'citation': [
+          for (final src in seo.sources)
+            {'@type': 'CreativeWork', 'name': src.title, 'url': src.url}
+        ],
+    }));
+    head.add(Component.element(
+      tag: 'meta',
+      attributes: {'property': 'og:updated_time', 'content': kContentUpdated},
+    ));
+
+    // Breadcrumbs describe the path to *this* page, so unlike the product
+    // schema in kSiteHead they cannot be shared. The homepage gets none — a
+    // one-item trail says nothing.
+    if (seo.breadcrumbName.isNotEmpty) {
+      head.add(_jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': '\$kSiteUrl/'},
+          {'@type': 'ListItem', 'position': 2, 'name': seo.breadcrumbName, 'item': seo.canonical},
+        ],
+      }));
+    }
+
+    // Only describe an FAQ in structured data when the matching questions are
+    // actually rendered on the page — schema that does not match visible
+    // content is a manual-action risk, not a rich-result shortcut.
+    if (seo.faqs.isNotEmpty) {
+      head.add(_jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [
+          for (final f in seo.faqs)
+            {
+              '@type': 'Question',
+              'name': f.question,
+              'acceptedAnswer': {'@type': 'Answer', 'text': f.answer},
+            }
+        ],
+      }));
+    }
+
+    return Document.head(
+      title: seo.title,
+      meta: {'description': seo.description},
+      children: head,
+    );
+  }
+
+  /// One self-contained sentence saying what this page is, placed above the
+  /// tool.
+  ///
+  /// Answer engines quote the first passage that stands on its own; the hero
+  /// ("Grow your channel with VidSEOKit") does not, because it only makes sense
+  /// next to the rest of the page.
+  Component _buildDefinition(String activeTab) {
+    final PageSeo? seo = kPageSeo[activeTab];
+    if (seo == null || seo.definition.isEmpty) return div([]);
+    return p(
+      classes: 'mb-8 max-w-3xl text-base leading-relaxed text-yt-gray-700 dark:text-yt-gray-300',
+      [Component.text(seo.definition)],
+    );
+  }
+
+  // ═══════════════════════════════════════════
+  //  LONG-FORM PAGE CONTENT
+  // ═══════════════════════════════════════════
+
+  /// Renders the written sections and FAQ for the current tool.
+  ///
+  /// Before a visitor interacts with anything, the tools themselves emit almost
+  /// no text. This is the body copy that search engines and ad reviewers read.
+  Component _buildPageContent(String activeTab) {
+    final PageSeo? seo = kPageSeo[activeTab];
+    if (seo == null || (seo.sections.isEmpty && seo.faqs.isEmpty)) return div([]);
+
+    return div(classes: 'mt-12 pt-8 border-t border-yt-gray-200 dark:border-yt-gray-800 max-w-3xl', [
+      for (final s in seo.sections)
+        div(classes: 'mb-10', [
+          h2(classes: 'text-xl font-bold text-yt-gray-900 dark:text-white mb-4', [Component.text(s.heading)]),
+          div(classes: 'space-y-4 text-yt-gray-600 dark:text-yt-gray-400 text-sm leading-relaxed', [
+            for (final para in s.paragraphs) p([Component.text(para)]),
+          ]),
+        ]),
+      if (seo.sources.isNotEmpty)
+        div(classes: 'mb-10', [
+          h2(classes: 'text-xl font-bold text-yt-gray-900 dark:text-white mb-4',
+              [Component.text('Sources')]),
+          ul(classes: 'space-y-2 text-sm list-disc pl-5 text-yt-gray-600 dark:text-yt-gray-400', [
+            for (final src in seo.sources)
+              li([
+                a(
+                  href: src.url,
+                  classes: 'text-yt-blue-dark dark:text-yt-blue-light hover:underline',
+                  attributes: {'target': '_blank', 'rel': 'noopener'},
+                  [Component.text(src.title)],
+                ),
+              ]),
+          ]),
+        ]),
+      if (seo.faqs.isNotEmpty)
+        div([
+          h2(classes: 'text-xl font-bold text-yt-gray-900 dark:text-white mb-4', [
+            Component.text('Frequently asked questions')
+          ]),
+          div(classes: 'space-y-6', [
+            for (final f in seo.faqs)
+              div([
+                h3(classes: 'text-base font-semibold text-yt-gray-900 dark:text-white mb-2',
+                    [Component.text(f.question)]),
+                p(classes: 'text-yt-gray-600 dark:text-yt-gray-400 text-sm leading-relaxed',
+                    [Component.text(f.answer)]),
+              ]),
+          ]),
+        ]),
+      // Must match dateModified in the WebPage schema — a visible date is what
+      // makes the structured one credible.
+      div(classes: 'mt-10 pt-4 border-t border-yt-gray-200 dark:border-yt-gray-800', [
+        Component.element(
+          tag: 'time',
+          classes: 'text-xs text-yt-gray-500',
+          attributes: {'datetime': kContentUpdated},
+          children: [Component.text('Last reviewed $kContentUpdatedLabel')],
+        ),
+      ]),
+    ]);
+  }
+
+  Component _buildSeoArticle(String activeTab) {
     String title = '';
     List<Component> content = [];
 
-    switch (_activeTab) {
+    switch (activeTab) {
       case 'seo':
         title = t('article_seo_title');
         content = [

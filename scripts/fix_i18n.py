@@ -2,7 +2,7 @@ import re
 import os
 
 keys = {
-  'nav_logo_text': 'CreatorTools',
+  'nav_logo_text': 'VidSEOKit',
   'hero_grow_channel': 'Grow your channel with ',
   'hero_description': 'The all-in-one suite for YouTube creators. Optimize your SEO, generate perfect titles, and estimate your earnings.',
   'tab_seo': 'SEO Analyzer',
@@ -59,7 +59,7 @@ keys = {
   'footer_privacy_policy': 'Privacy Policy',
   'footer_terms_service': 'Terms of Service',
   'footer_cookies': 'Cookie Settings',
-  'footer_copyright': '© 2026 CreatorTools',
+  'footer_copyright': '© 2026 VidSEOKit',
 }
 
 def replace_in_file(filepath):

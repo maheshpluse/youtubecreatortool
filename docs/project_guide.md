@@ -1,4 +1,4 @@
-# CreatorTools - YouTube Utility Website
+# VidSEOKit - YouTube Utility Website
 
 A premium, fast, and mobile-friendly utility website designed for YouTube creators targeting Tier-1 countries (USA, UK, Canada). Built to maximize AdSense revenue (High RPM) and provide real value to content creators.
 
@@ -38,7 +38,7 @@ from bs4 import BeautifulSoup
 import re
 import random
 
-app = FastAPI(title="CreatorTools API", version="1.0.0")
+app = FastAPI(title="VidSEOKit API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"],

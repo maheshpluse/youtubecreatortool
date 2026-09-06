@@ -8,7 +8,7 @@
 /// Every other language is fetched at runtime, but English ships with the app so
 /// a failed or slow asset fetch degrades to readable English instead of raw keys.
 const Map<String, String> kEnglishStrings = {
-  'nav_logo_text': 'CreatorTools',
+  'nav_logo_text': 'VidSEOKit',
   'nav_language': 'Language',
   'lang_search_placeholder': 'Search language...',
   'hero_grow_channel': 'Grow your channel with ',
@@ -69,9 +69,9 @@ const Map<String, String> kEnglishStrings = {
   'footer_privacy_policy': 'Privacy Policy',
   'footer_terms_service': 'Terms of Service',
   'footer_cookies': 'Cookie Settings',
-  'footer_copyright': '© 2026 CreatorTools',
+  'footer_copyright': '© 2026 VidSEOKit',
   'about_title': 'About Us',
-  'about_p1': 'CreatorTools was built by creators, for creators. Our mission is to democratize access to advanced YouTube analytics and SEO tools, helping channels of all sizes maximize their reach and revenue.',
+  'about_p1': 'VidSEOKit was built by creators, for creators. Our mission is to democratize access to advanced YouTube analytics and SEO tools, helping channels of all sizes maximize their reach and revenue.',
   'about_p2': 'Whether you are a new vlogger or a seasoned tech reviewer, our suite of tools is designed to save you time and boost your Click-Through Rates (CTR).',
   'contact_title': 'Contact Us',
   'contact_p1': 'We would love to hear from you! If you have feature requests, bug reports, or business inquiries, please reach out to us.',

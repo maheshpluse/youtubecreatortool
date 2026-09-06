@@ -9,7 +9,7 @@ void main() {
     testComponents('Renders Navbar and Hero', (tester) async {
       tester.pumpComponent(App());
       
-      expect(find.text('CreatorTools'), findsComponents);
+      expect(find.text('VidSEOKit'), findsComponents);
       expect(find.text('Grow your channel with '), findsOneComponent);
       expect(find.text('SEO Analyzer'), findsComponents);
     });

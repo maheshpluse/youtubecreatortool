@@ -1,12 +1,50 @@
-# CreatorTools
+# VidSEOKit
 User-agent: *
 Allow: /
+
+# Build artefacts and the admin SPA carry no search value.
+Disallow: /packages/
+Disallow: /adminx
+Disallow: /api/
 
 # Google's ad crawlers need access to serve relevant ads on the blog.
 User-agent: Mediapartners-Google
 Allow: /
 
 User-agent: AdsBot-Google
+Allow: /
+
+# Answer engines are welcome. These are already permitted by the wildcard
+# above; listing them explicitly records the intent, so a later edit to the
+# wildcard rule cannot cut off citation traffic by accident.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://vidseokit.com/sitemap.xml
