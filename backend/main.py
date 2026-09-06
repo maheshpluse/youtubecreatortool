@@ -40,7 +40,7 @@ db = None
 try:
     db = firestore.client()
 
-    # --- DYNAMIC API KEY CONFIGURATION ---
+# --- DYNAMIC API KEY CONFIGURATION ---
     def on_api_keys_snapshot(col_snapshot, changes, read_time):
         global gemini_model
         for doc in col_snapshot:
@@ -50,7 +50,7 @@ try:
                 if gemini_key:
                     try:
                         genai.configure(api_key=gemini_key)
-                        gemini_model = genai.GenerativeModel("gemini-1.5-flash")
+                        gemini_model = genai.GenerativeModel("gemini-3.6-flash")
                         print("Gemini API Key dynamically updated from Firestore.")
                     except Exception as e:
                         print(f"Failed to configure Gemini from Firestore: {e}")
@@ -68,19 +68,20 @@ try:
             initial_data = initial_doc.to_dict()
             if initial_data.get("gemini_api_key"):
                 genai.configure(api_key=initial_data.get("gemini_api_key"))
-                gemini_model = genai.GenerativeModel("gemini-1.5-flash")
+                gemini_model = genai.GenerativeModel("gemini-3.6-flash")
                 print("Gemini API Key loaded from Firestore on startup.")
     except Exception as e:
         print(f"Could not setup Firestore API key listener: {e}")
-        # Fallback to .env if Firestore fails
-        env_key = os.getenv("GEMINI_API_KEY")
-        if env_key:
-            genai.configure(api_key=env_key)
-            gemini_model = genai.GenerativeModel("gemini-1.5-flash")
-            print("Gemini API Key loaded from .env fallback.")
     # --- END DYNAMIC API KEY CONFIGURATION ---
 except Exception as e:
     print(f"Warning: Could not initialize Firestore client: {e}")
+
+if not gemini_model:
+    env_key = os.getenv("GEMINI_API_KEY")
+    if env_key:
+        genai.configure(api_key=env_key)
+        gemini_model = genai.GenerativeModel("gemini-3.6-flash")
+        print("Gemini API Key loaded from .env fallback.")
 
 app = FastAPI(title="VidSEOKit API", version="1.0.0")
 
