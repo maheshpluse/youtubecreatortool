@@ -6,7 +6,9 @@
 /// failed to generate. Inlining it removes the lookup entirely.
 ///
 /// Anything page-specific (title, description, canonical, og:*) is deliberately
-/// absent — `_buildSeoHead` supplies those per route.
+/// absent — `_buildSeoHead` supplies those per route. The Organization block
+/// also moved there, because its `sameAs` is driven by [kSocialProfiles] and a
+/// raw string cannot be conditional.
 library;
 
 const String kBodyClasses = 'font-sans antialiased bg-white dark:bg-yt-gray-900 text-yt-gray-900 dark:text-yt-gray-100 transition-colors duration-300';
@@ -133,27 +135,6 @@ const String kSiteHead = r'''
     }
   ]
 }
-        </script>
-        <!-- JSON-LD Structured Data: Organization -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "VidSEOKit",
-          "url": "https://vidseokit.com",
-          "logo": "https://vidseokit.com/images/og-image.jpg",
-          "description": "Premium YouTube SEO & Growth Tools for Content Creators",
-          "areaServed": [
-            {"@type": "Country", "name": "United States"},
-            {"@type": "Country", "name": "Canada"},
-            {"@type": "Country", "name": "United Kingdom"},
-            {"@type": "Country", "name": "Ireland"},
-            {"@type": "Country", "name": "Australia"},
-            {"@type": "Place", "name": "Europe"}
-          ],
-          "knowsLanguage": ["en-US", "en-GB", "en-CA", "en-AU"],
-          "sameAs": []
-        }
         </script>
 
         <link rel="icon" href="favicon.ico" type="image/x-icon">

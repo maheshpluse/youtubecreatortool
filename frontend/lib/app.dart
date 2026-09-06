@@ -6,6 +6,7 @@ import 'config.dart';
 import 'data/blog_posts.dart';
 import 'data/seo_pages.dart';
 import 'data/country_rpm.dart';
+import 'data/social_profiles.dart';
 import 'pages/legal.dart';
 import 'components/adsense_ad.dart';
 import 'services/i18n_service.dart';
@@ -835,6 +836,38 @@ class _AppState extends State<App> {
       Component.element(tag: 'meta', attributes: {'name': 'twitter:description', 'content': seo.description}),
     ];
 
+    // Organization lives here rather than in kSiteHead because sameAs is driven
+    // by kSocialProfiles: an empty list must emit no sameAs at all, and a raw
+    // HTML string cannot be conditional.
+    head.add(_jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      'name': 'VidSEOKit',
+      'url': kSiteUrl,
+      'logo': '\$kSiteUrl/images/og-image.jpg',
+      'description': 'Premium YouTube SEO & Growth Tools for Content Creators',
+      'areaServed': const [
+        {'@type': 'Country', 'name': 'United States'},
+        {'@type': 'Country', 'name': 'Canada'},
+        {'@type': 'Country', 'name': 'United Kingdom'},
+        {'@type': 'Country', 'name': 'Ireland'},
+        {'@type': 'Country', 'name': 'Australia'},
+        {'@type': 'Place', 'name': 'Europe'},
+      ],
+      'knowsLanguage': const ['en-US', 'en-GB', 'en-CA', 'en-AU'],
+      if (kSocialProfiles.isNotEmpty)
+        'sameAs': [for (final s in kSocialProfiles) s.url],
+    }));
+
+    // Attributes the X card to the brand account. Omitted entirely while the
+    // handle is unset — an empty twitter:site attributes the card to nobody.
+    if (kTwitterHandle.isNotEmpty) {
+      head.add(Component.element(
+        tag: 'meta',
+        attributes: {'name': 'twitter:site', 'content': '@\$kTwitterHandle'},
+      ));
+    }
+
     // Freshness and attribution. The tool pages carried neither, and answer
     // engines discount pages that cannot say who wrote them or when — which
     // matters most for the RPM page, whose title claims a year.
@@ -876,6 +909,29 @@ class _AppState extends State<App> {
         'itemListElement': [
           {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': '\$kSiteUrl/'},
           {'@type': 'ListItem', 'position': 2, 'name': seo.breadcrumbName, 'item': seo.canonical},
+        ],
+      }));
+    }
+
+    // The blog hub lists 20 articles. Switching to the static build made the
+    // jaspr /blog route overwrite build_blog.py's listing page, which carried an
+    // ItemList of every post; without this the only ItemList left on the page is
+    // the site-navigation one from kSiteHead, and the article list disappears
+    // from structured data.
+    if (activeTab == 'blog') {
+      head.add(_jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        'name': 'VidSEOKit blog articles',
+        'numberOfItems': blogPosts.length,
+        'itemListElement': [
+          for (var i = 0; i < blogPosts.length; i++)
+            {
+              '@type': 'ListItem',
+              'position': i + 1,
+              'name': blogPosts[i].title,
+              'url': '\$kSiteUrl/${blogPosts[i].url}',
+            }
         ],
       }));
     }
@@ -1060,6 +1116,16 @@ class _AppState extends State<App> {
             button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('terms'), [Component.text(t('footer_terms_service'))]),
             button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: openConsentPreferences, [Component.text(t('footer_cookies'))]),
           ]),
+          if (kSocialProfiles.isNotEmpty)
+            div(classes: 'flex flex-wrap justify-center gap-4', [
+              for (final profile in kSocialProfiles)
+                a(
+                  href: profile.url,
+                  classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors',
+                  attributes: const {'rel': 'me noopener', 'target': '_blank'},
+                  [Component.text(profile.name)],
+                ),
+            ]),
           p(classes: 'text-xs text-yt-gray-500', [Component.text(t('footer_copyright'))]),
         ])
       ])
