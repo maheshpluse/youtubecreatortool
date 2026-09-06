@@ -23,7 +23,7 @@ def fetch_keyword_data(keyword: str, db=None) -> dict:
         except Exception as e:
             print(f"Failed to fetch DataForSEO key from Firestore: {e}")
 
-    url = "https://api.dataforseo.com/v3/dataforseo_labs/youtube/keyword_ideas/live"
+    url = "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live"
     headers = {
         'Authorization': f'Basic {api_key}',
         'Content-Type': 'application/json'

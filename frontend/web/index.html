@@ -282,8 +282,8 @@
         <script src="consent.js"></script>
 
         <!-- reCAPTCHA integration -->
-        <script src="https://www.google.com/recaptcha/enterprise.js?render=6LetP6ktAAAAAPn6G2UlIc-EQSMoVHBsJ4FWu5RH"></script>
-        <script>
+        <script defer src="https://www.google.com/recaptcha/enterprise.js?render=6LetP6ktAAAAAPn6G2UlIc-EQSMoVHBsJ4FWu5RH"></script>
+        <script defer>
           window.executeRecaptcha = function() {
             return new Promise((resolve) => {
               if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
@@ -308,13 +308,11 @@
           };
         </script>
 
-        <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-        <script src="auth.js?v=2"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+        <script defer src="auth.js?v=2"></script>
         <script defer src="main.dart.js?v=2"></script>
-        
-        <!-- Google AdSense Integration -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3988155577590737" crossorigin="anonymous"></script>
+
     </head>
     <body class="font-sans antialiased bg-white dark:bg-yt-gray-900 text-yt-gray-900 dark:text-yt-gray-100 transition-colors duration-300">
         <div id="app"></div>
