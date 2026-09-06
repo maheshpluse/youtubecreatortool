@@ -341,7 +341,7 @@ const Map<String, PageSeo> kPageSeo = {
     breadcrumbName: 'About',
   ),
   'contact': PageSeo(
-    title: 'Contact VidSEOKit',
+    title: 'Contact VidSEOKit - Get in Touch with Our Support Team',
     description:
         'Get in touch with the VidSEOKit team about the YouTube SEO tools, bug reports, feature requests or partnership enquiries.',
     canonical: '$kSiteUrl/contact',
@@ -350,7 +350,7 @@ const Map<String, PageSeo> kPageSeo = {
     breadcrumbName: 'Contact',
   ),
   'privacy': PageSeo(
-    title: 'Privacy Policy - VidSEOKit',
+    title: 'Privacy Policy - VidSEOKit Data Collection & Usage Terms',
     description:
         'How VidSEOKit collects, uses and protects your data, including cookies, Google AdSense advertising and your choices under GDPR and CCPA.',
     canonical: '$kSiteUrl/privacy',
@@ -359,7 +359,7 @@ const Map<String, PageSeo> kPageSeo = {
     breadcrumbName: 'Privacy Policy',
   ),
   'terms': PageSeo(
-    title: 'Terms of Service - VidSEOKit',
+    title: 'Terms of Service - VidSEOKit Acceptable Use & Legal Terms',
     description:
         'The terms governing use of VidSEOKit free YouTube SEO and analytics tools, including acceptable use, disclaimers and limitation of liability.',
     canonical: '$kSiteUrl/terms',
