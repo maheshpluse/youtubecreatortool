@@ -261,12 +261,25 @@ class _AppState extends State<App> {
                   });
                 },
                 [
-                  for (var lang in kSupportedLanguages)
+                  // Server-render only the selected language. The full list is
+                  // 71 <option> elements — about 100 words of language names
+                  // ahead of any real content on every page, and the first
+                  // thing an answer engine reads top-down. The client bundle
+                  // renders the complete list, so the picker is unchanged for
+                  // anyone actually using it.
+                  if (kIsWeb)
+                    for (var lang in kSupportedLanguages)
+                      option(
+                        value: lang.code,
+                        attributes: I18nService().currentLanguage == lang.code ? {'selected': 'true'} : {},
+                        [Component.text(lang.nativeName)]
+                      )
+                  else
                     option(
-                      value: lang.code,
-                      attributes: I18nService().currentLanguage == lang.code ? {'selected': 'true'} : {},
-                      [Component.text(lang.nativeName)]
-                    )
+                      value: I18nService().currentOption.code,
+                      attributes: const {'selected': 'true'},
+                      [Component.text(I18nService().currentOption.nativeName)]
+                    ),
                 ]
               ),
             ]),
