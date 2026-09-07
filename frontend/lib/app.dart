@@ -46,10 +46,9 @@ class _AppState extends State<App> {
   String selectedNiche = 'Finance';
   Map<String, dynamic>? earningsResult;
 
-  bool isLoading = false;
-
-  /// Last request failure, shown to the user. Null when the last call succeeded.
-  String? errorMessage;
+  // Loading & Error States per tab
+  Map<String, bool> tabIsLoading = {};
+  Map<String, String> tabErrorMessage = {};
 
   @override
   void initState() {
@@ -101,23 +100,21 @@ class _AppState extends State<App> {
     return jsonDecode(response.body);
   }
 
-  /// Wraps a tool request in the loading + error handling every tool shares.
-  /// Previously each caller swallowed its exception, so a failed request left
-  /// the UI looking idle with no explanation.
-  Future<void> _run(Future<void> Function() request) async {
+  /// Wraps a tool request in the loading + error handling for a specific tab.
+  Future<void> _run(String tab, Future<void> Function() request) async {
     setState(() {
-      isLoading = true;
-      errorMessage = null;
+      tabIsLoading[tab] = true;
+      tabErrorMessage.remove(tab);
     });
     try {
       await request();
     } catch (e) {
-      setState(() => errorMessage = e.toString());
+      setState(() => tabErrorMessage[tab] = e.toString());
     }
-    setState(() => isLoading = false);
+    setState(() => tabIsLoading[tab] = false);
   }
 
-  Future<void> calculateSeo() => _run(() async {
+  Future<void> calculateSeo() => _run('seo', () async {
         final data = await _postJson('/api/calculate-seo', {
           'target_keyword': seoTargetKeyword,
           'title': seoTitle,
@@ -127,7 +124,7 @@ class _AppState extends State<App> {
         setState(() => seoResult = data as Map<String, dynamic>);
       });
 
-  Future<void> generateTitles() => _run(() async {
+  Future<void> generateTitles() => _run('titles', () async {
         final data = await _postJson('/api/generate-titles', {
           'topic': titleTopic,
           'lang': I18nService().currentLanguage,
@@ -135,7 +132,7 @@ class _AppState extends State<App> {
         setState(() => generatedTitles = data['titles'] as List<dynamic>);
       });
 
-  Future<void> generateThumbnails() => _run(() async {
+  Future<void> generateThumbnails() => _run('thumbnails', () async {
         final data = await _postJson('/api/generate-thumbnails', {
           'topic': thumbnailTopic,
           'lang': I18nService().currentLanguage,
@@ -143,12 +140,12 @@ class _AppState extends State<App> {
         setState(() => generatedThumbnails = data['thumbnails'] as List<dynamic>);
       });
 
-  Future<void> extractTags() => _run(() async {
+  Future<void> extractTags() => _run('tags', () async {
         final data = await _postJson('/api/extract-tags', {'url': tagUrl});
         setState(() => extractedTags = data['tags'] as List<dynamic>);
       });
 
-  Future<void> calculateEarnings() => _run(() async {
+  Future<void> calculateEarnings() => _run('earnings', () async {
         final data = await _postJson('/api/calculate-earnings', {
           'daily_views': dailyViews,
           'niche': selectedNiche,
@@ -190,7 +187,7 @@ class _AppState extends State<App> {
               _buildHero(),
               div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 md:pb-16', [
                 _buildDesktopTabs(activeTab),
-                if (errorMessage != null) _buildErrorBanner(errorMessage!),
+                if (tabErrorMessage[activeTab] != null) _buildErrorBanner(activeTab, tabErrorMessage[activeTab]!),
                 _buildDefinition(activeTab),
                 div(classes: 'animate-fade-in-up animate-delay-100', [
                   child,
@@ -328,7 +325,7 @@ class _AppState extends State<App> {
   }
 
   /// Inline banner for a failed request, dismissible so it never blocks the UI.
-  Component _buildErrorBanner(String message) {
+  Component _buildErrorBanner(String tab, String message) {
     return div(
       classes: 'mb-6 flex items-start gap-3 rounded-lg border border-yt-red/30 '
           'bg-yt-red/10 p-4 animate-fade-in-up',
@@ -343,7 +340,7 @@ class _AppState extends State<App> {
           classes: 'material-symbols-rounded text-yt-gray-500 hover:text-yt-gray-900 '
               'dark:hover:text-white text-lg',
           attributes: {'aria-label': 'Dismiss error'},
-          onClick: () => setState(() => errorMessage = null),
+          onClick: () => setState(() => tabErrorMessage.remove(tab)),
           [Component.text('close')],
         ),
       ],
@@ -432,7 +429,7 @@ class _AppState extends State<App> {
             classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full md:w-auto',
             onClick: () => calculateSeo(),
             [
-              Component.text(isLoading ? t('btn_analyzing') : t('btn_analyze')),
+              Component.text((tabIsLoading['seo'] ?? false) ? t('btn_analyzing') : t('btn_analyze')),
             ]
           ),
         ])
@@ -494,7 +491,7 @@ class _AppState extends State<App> {
           button(
             classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
             onClick: () => generateTitles(),
-            [Component.text(isLoading ? t('btn_working') : t('btn_generate'))]
+            [Component.text((tabIsLoading['titles'] ?? false) ? t('btn_working') : t('btn_generate'))]
           ),
         ]),
       ]),
@@ -544,7 +541,7 @@ class _AppState extends State<App> {
           button(
             classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
             onClick: () => generateThumbnails(),
-            [Component.text(isLoading ? t('btn_working') : t('btn_generate'))]
+            [Component.text((tabIsLoading['thumbnails'] ?? false) ? t('btn_working') : t('btn_generate'))]
           ),
         ]),
       ]),
@@ -600,7 +597,7 @@ class _AppState extends State<App> {
           button(
             classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
             onClick: () => extractTags(),
-            [Component.text(isLoading ? t('btn_extracting') : t('btn_extract'))]
+            [Component.text((tabIsLoading['tags'] ?? false) ? t('btn_extracting') : t('btn_extract'))]
           ),
         ]),
       ]),
@@ -660,7 +657,7 @@ class _AppState extends State<App> {
              button(
               classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full sm:w-auto',
               onClick: () => calculateEarnings(),
-              [Component.text(isLoading ? t('btn_calculating') : t('btn_calculate'))]
+              [Component.text((tabIsLoading['earnings'] ?? false) ? t('btn_calculating') : t('btn_calculate'))]
             ),
           ])
         ]),
