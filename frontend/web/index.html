@@ -281,20 +281,50 @@
         <script>window.__ctDisableOwnBanner = true;</script>
         <script src="consent.js"></script>
 
-        <!-- reCAPTCHA integration -->
-        <script defer src="https://www.google.com/recaptcha/enterprise.js?render=6LetP6ktAAAAAPn6G2UlIc-EQSMoVHBsJ4FWu5RH"></script>
+        <!-- reCAPTCHA v2 Invisible integration.
+             RECAPTCHA_V2_SITE_KEY is the public *site* key from
+             https://www.google.com/recaptcha/admin (reCAPTCHA v2 -> "Invisible
+             reCAPTCHA badge") - safe to embed client-side. Its paired *secret*
+             key belongs only in backend/.env as RECAPTCHA_SECRET_KEY. -->
+        <script>const RECAPTCHA_V2_SITE_KEY = "6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik";</script>
+        <script defer src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
         <script defer>
+          // Renders one hidden invisible-badge widget on first use, then
+          // re-executes it (with a reset in between) for every subsequent
+          // form submission on the page.
           window.executeRecaptcha = function() {
             return new Promise((resolve) => {
-              if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
+              if (typeof grecaptcha === 'undefined') {
                 resolve("DUMMY_TOKEN");
                 return;
               }
               try {
-                grecaptcha.enterprise.ready(async () => {
+                grecaptcha.ready(() => {
                   try {
-                    const token = await grecaptcha.enterprise.execute('6LetP6ktAAAAAPn6G2UlIc-EQSMoVHBsJ4FWu5RH', {action: 'submit'});
-                    resolve(token);
+                    if (window.__ctRecaptchaWidgetId === undefined) {
+                      const container = document.createElement('div');
+                      container.style.display = 'none';
+                      document.body.appendChild(container);
+                      window.__ctRecaptchaWidgetId = grecaptcha.render(container, {
+                        sitekey: RECAPTCHA_V2_SITE_KEY,
+                        size: 'invisible',
+                        callback: (token) => {
+                          if (window.__ctRecaptchaResolve) {
+                            window.__ctRecaptchaResolve(token);
+                            window.__ctRecaptchaResolve = null;
+                          }
+                        },
+                        'error-callback': () => {
+                          if (window.__ctRecaptchaResolve) {
+                            window.__ctRecaptchaResolve("DUMMY_TOKEN");
+                            window.__ctRecaptchaResolve = null;
+                          }
+                        },
+                      });
+                    }
+                    window.__ctRecaptchaResolve = resolve;
+                    grecaptcha.reset(window.__ctRecaptchaWidgetId);
+                    grecaptcha.execute(window.__ctRecaptchaWidgetId);
                   } catch (e) {
                     console.error('reCAPTCHA execution failed', e);
                     resolve("DUMMY_TOKEN");

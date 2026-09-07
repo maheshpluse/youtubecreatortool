@@ -46,3 +46,12 @@ admin_panel/dist/
 # Python venv (must be rebuilt per-OS)
 backend/venv/
 venv/
+
+# Stray dart2js output that sometimes gets built at the repo root instead of
+# frontend/build/ - never needed, always regeneratable.
+frontend/out.js
+frontend/out.js.map
+
+# gstack agent tool scratch output (browser test screenshots/reports)
+.gstack/
+**/.gstack/

@@ -764,51 +764,6 @@ class _AppState extends State<App> {
     ]);
   }
 
-  Component _buildBlogSection() {
-    return div(classes: 'space-y-6', [
-      div(classes: 'flex items-center justify-between gap-3 mb-4 animate-fade-in-down animate-delay-100', [
-        div(classes: 'flex items-center gap-2', [
-          span(classes: 'material-symbols-rounded text-2xl', [Component.text('article')]),
-          h2(classes: 'text-xl font-bold', [Component.text(t('blog_latest'))]),
-        ]),
-        a(
-          href: 'blog/index.html',
-          classes: 'text-sm font-medium text-yt-blue-dark dark:text-yt-blue-light hover:underline whitespace-nowrap',
-          [Component.text(t('blog_view_all', {'count': blogPosts.length.toString()}))]
-        ),
-      ]),
-
-      div(
-        classes: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up animate-delay-200',
-        [for (final post in blogPosts.take(20)) _blogCard(post)]
-      ),
-      AdSenseAd(slotId: '1234567890'),
-    ]);
-  }
-
-  Component _blogCard(BlogPost post) {
-    return a(
-      href: post.url,
-      classes: 'flex flex-col gap-2 group',
-      [
-        div(classes: 'aspect-video bg-yt-gray-200 dark:bg-yt-gray-800 rounded-xl flex items-center justify-center overflow-hidden', [
-          img(src: post.imageUrl, classes: 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500', alt: post.title)
-        ]),
-        div(classes: 'flex items-start gap-3 mt-1', [
-          div(classes: 'w-9 h-9 rounded-full bg-yt-gray-200 dark:bg-yt-gray-800 shrink-0 flex items-center justify-center', [
-            _buildLogoIcon('w-4 h-4')
-          ]),
-          div(classes: 'flex flex-col', [
-            h3(classes: 'text-sm font-medium text-yt-gray-900 dark:text-white line-clamp-2 leading-tight group-hover:text-yt-red transition-colors', [Component.text(post.title)]),
-            p(classes: 'text-xs text-yt-gray-600 dark:text-yt-gray-400 mt-1', [
-              Component.text('${post.category} \u2022 ${post.date} \u2022 ${post.readMinutes} min read')
-            ]),
-          ])
-        ])
-      ]
-    );
-  }
-
   // ═══════════════════════════════════════════
   //  SEO ARTICLE
   // ═══════════════════════════════════════════

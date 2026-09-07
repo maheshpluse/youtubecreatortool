@@ -87,9 +87,13 @@ if not gemini_model:
 app = FastAPI(title="VidSEOKit API", version="1.0.0")
 
 @app.exception_handler(Exception)
-async def global_exception_handler(request: Request, exc: Exception):
+def global_exception_handler(request: Request, exc: Exception):
     """
     Catch any unhandled exceptions, log them to Firestore, and return a clean generic message to the frontend.
+
+    Plain (non-async): log_error() does a blocking Firestore write; Starlette
+    runs sync exception handlers in a threadpool, so this keeps that write
+    off the event loop.
     """
     error_details = traceback.format_exc()
     log_error(db, f"Global Error - {request.url.path}", str(exc), error_details)
@@ -132,7 +136,12 @@ ALLOW_INSECURE_RECAPTCHA = os.environ.get(
     "ALLOW_INSECURE_RECAPTCHA", ""
 ).strip().lower() in ("1", "true", "yes")
 
-async def verify_recaptcha(request: Request):
+def verify_recaptcha(request: Request):
+    # Plain (non-async) on purpose: the body below makes a blocking `requests`
+    # call. As `async def`, that call would run directly on the event loop and
+    # stall every other in-flight request for up to its timeout, since this
+    # dependency runs on nearly every endpoint. FastAPI runs sync dependencies
+    # in a threadpool, so this keeps the blocking I/O off the event loop.
     if not RECAPTCHA_SECRET_KEY:
         if ALLOW_INSECURE_RECAPTCHA:
             return True
@@ -144,44 +153,38 @@ async def verify_recaptcha(request: Request):
     if not token:
         raise HTTPException(status_code=403, detail="Missing reCAPTCHA token")
 
+    # Classic reCAPTCHA v2 verification (siteverify) - much simpler than
+    # Enterprise: no GCP-scoped API key needed, just the secret from
+    # https://www.google.com/recaptcha/admin paired with the site key
+    # embedded in frontend/web/index.html. v2 has no risk score; a token is
+    # either valid (the widget's own challenge/invisible check passed) or not.
     try:
-        PROJECT_ID = "vidseokit-cf7e6"
-        SITE_KEY = "6LetP6ktAAAAAPn6G2UlIc-EQSMoVHBsJ4FWu5RH"
-        url = f"https://recaptchaenterprise.googleapis.com/v1/projects/{PROJECT_ID}/assessments?key={RECAPTCHA_SECRET_KEY}"
-        payload = {
-            "event": {
-                "token": token,
-                "siteKey": SITE_KEY,
-                "expectedAction": "submit"
-            }
-        }
-        response = requests.post(url, json=payload, timeout=10)
+        response = requests.post(
+            "https://www.google.com/recaptcha/api/siteverify",
+            data={"secret": RECAPTCHA_SECRET_KEY, "response": token},
+            timeout=10,
+        )
         result = response.json()
     except requests.RequestException as e:
         raise HTTPException(
             status_code=502, detail=f"Could not reach reCAPTCHA service: {e}"
         )
 
-    token_props = result.get("tokenProperties", {})
-    if not token_props.get("valid"):
-        reason = token_props.get("invalidReason", "Unknown")
+    if not result.get("success"):
+        reason = result.get("error-codes", ["unknown"])
         raise HTTPException(status_code=403, detail=f"Invalid reCAPTCHA token: {reason}")
-    
-    if token_props.get("action") != "submit":
-        raise HTTPException(status_code=403, detail="Invalid reCAPTCHA action")
-        
-    risk_analysis = result.get("riskAnalysis", {})
-    score = risk_analysis.get("score", 0.0)
-    if score < 0.3:
-        raise HTTPException(status_code=403, detail="reCAPTCHA score too low (bot detected)")
 
     return True
 
-async def verify_admin(request: Request):
+def verify_admin(request: Request):
     """
     Gate for /api/admin/* endpoints. Requires a Firebase ID token (from the
     signed-in admin_panel user) carrying the `admin` custom claim - the same
     claim admin_panel/src/App.tsx and firestore.rules require.
+
+    Plain (non-async) on purpose: firebase_auth.verify_id_token() is a
+    blocking call, so this stays off the event loop the same way
+    verify_recaptcha does.
     """
     authorization = request.headers.get("Authorization", "")
     if not authorization.startswith("Bearer "):
