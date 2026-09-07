@@ -7,12 +7,76 @@
     "svg": "../images/blog/hero/adsense-revenue-per-1000-views.svg",
     "w": 1200
   },
+  "ai-tools-for-youtube-creators": {
+    "alt": "Grid of creator tool tiles with three highlighted as recommended picks",
+    "h": 630,
+    "motif": "toolbox",
+    "png": "/images/blog/hero/ai-tools-for-youtube-creators.png",
+    "svg": "../images/blog/hero/ai-tools-for-youtube-creators.svg",
+    "w": 1200
+  },
+  "best-microphones-for-youtube": {
+    "alt": "Grid of creator tool tiles with three highlighted as recommended picks",
+    "h": 630,
+    "motif": "toolbox",
+    "png": "/images/blog/hero/best-microphones-for-youtube.png",
+    "svg": "../images/blog/hero/best-microphones-for-youtube.svg",
+    "w": 1200
+  },
+  "best-video-editing-software": {
+    "alt": "Grid of creator tool tiles with three highlighted as recommended picks",
+    "h": 630,
+    "motif": "toolbox",
+    "png": "/images/blog/hero/best-video-editing-software.png",
+    "svg": "../images/blog/hero/best-video-editing-software.svg",
+    "w": 1200
+  },
+  "brand-deal-contracts-creators": {
+    "alt": "Four separate income streams converging into a single revenue total",
+    "h": 630,
+    "motif": "streams",
+    "png": "/images/blog/hero/brand-deal-contracts-creators.png",
+    "svg": "../images/blog/hero/brand-deal-contracts-creators.svg",
+    "w": 1200
+  },
+  "channel-memberships-vs-patreon": {
+    "alt": "Four separate income streams converging into a single revenue total",
+    "h": 630,
+    "motif": "streams",
+    "png": "/images/blog/hero/channel-memberships-vs-patreon.png",
+    "svg": "../images/blog/hero/channel-memberships-vs-patreon.svg",
+    "w": 1200
+  },
+  "community-tab-strategy": {
+    "alt": "Concentric progress rings showing an engagement rate percentage",
+    "h": 630,
+    "motif": "rings",
+    "png": "/images/blog/hero/community-tab-strategy.png",
+    "svg": "../images/blog/hero/community-tab-strategy.svg",
+    "w": 1200
+  },
   "content-creation-tools-youtube-creators": {
     "alt": "Grid of creator tool tiles with three highlighted as recommended picks",
     "h": 630,
     "motif": "toolbox",
     "png": "/images/blog/hero/content-creation-tools-youtube-creators.png",
     "svg": "../images/blog/hero/content-creation-tools-youtube-creators.svg",
+    "w": 1200
+  },
+  "creator-business-insurance-guide": {
+    "alt": "Requirements checklist with several criteria met and others outstanding",
+    "h": 630,
+    "motif": "checklist",
+    "png": "/images/blog/hero/creator-business-insurance-guide.png",
+    "svg": "../images/blog/hero/creator-business-insurance-guide.svg",
+    "w": 1200
+  },
+  "creator-media-kit-guide": {
+    "alt": "Requirements checklist with several criteria met and others outstanding",
+    "h": 630,
+    "motif": "checklist",
+    "png": "/images/blog/hero/creator-media-kit-guide.png",
+    "svg": "../images/blog/hero/creator-media-kit-guide.svg",
     "w": 1200
   },
   "digital-marketing-funnel-creators": {
@@ -23,6 +87,30 @@
     "svg": "../images/blog/hero/digital-marketing-funnel-creators.svg",
     "w": 1200
   },
+  "email-marketing-for-creators": {
+    "alt": "Four-stage marketing funnel narrowing from audience reach down to conversion",
+    "h": 630,
+    "motif": "funnel",
+    "png": "/images/blog/hero/email-marketing-for-creators.png",
+    "svg": "../images/blog/hero/email-marketing-for-creators.svg",
+    "w": 1200
+  },
+  "end-screens-and-cards-guide": {
+    "alt": "Grid of video thumbnails with a cursor clicking the best performing one",
+    "h": 630,
+    "motif": "ctr",
+    "png": "/images/blog/hero/end-screens-and-cards-guide.png",
+    "svg": "../images/blog/hero/end-screens-and-cards-guide.svg",
+    "w": 1200
+  },
+  "faceless-youtube-channel-guide": {
+    "alt": "Recommendation network diagram with a central video linked to related videos",
+    "h": 630,
+    "motif": "network",
+    "png": "/images/blog/hero/faceless-youtube-channel-guide.png",
+    "svg": "../images/blog/hero/faceless-youtube-channel-guide.svg",
+    "w": 1200
+  },
   "find-target-audience-youtube": {
     "alt": "Radar chart comparing your channel against a competitor across six metrics",
     "h": 630,
@@ -31,12 +119,28 @@
     "svg": "../images/blog/hero/find-target-audience-youtube.svg",
     "w": 1200
   },
+  "gdpr-privacy-for-creators": {
+    "alt": "Requirements checklist with several criteria met and others outstanding",
+    "h": 630,
+    "motif": "checklist",
+    "png": "/images/blog/hero/gdpr-privacy-for-creators.png",
+    "svg": "../images/blog/hero/gdpr-privacy-for-creators.svg",
+    "w": 1200
+  },
   "high-cpc-keywords-youtube-niches": {
     "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
     "h": 630,
     "motif": "bars",
     "png": "/images/blog/hero/high-cpc-keywords-youtube-niches.png",
     "svg": "../images/blog/hero/high-cpc-keywords-youtube-niches.svg",
+    "w": 1200
+  },
+  "home-studio-lighting-setup": {
+    "alt": "Grid of creator tool tiles with three highlighted as recommended picks",
+    "h": 630,
+    "motif": "toolbox",
+    "png": "/images/blog/hero/home-studio-lighting-setup.png",
+    "svg": "../images/blog/hero/home-studio-lighting-setup.svg",
     "w": 1200
   },
   "how-to-increase-youtube-rpm": {
@@ -63,6 +167,38 @@
     "svg": "../images/blog/hero/improve-youtube-click-through-rate.svg",
     "w": 1200
   },
+  "llc-for-youtube-channel": {
+    "alt": "Requirements checklist with several criteria met and others outstanding",
+    "h": 630,
+    "motif": "checklist",
+    "png": "/images/blog/hero/llc-for-youtube-channel.png",
+    "svg": "../images/blog/hero/llc-for-youtube-channel.svg",
+    "w": 1200
+  },
+  "local-business-youtube-seo": {
+    "alt": "YouTube search results list with the number one ranking position highlighted",
+    "h": 630,
+    "motif": "search",
+    "png": "/images/blog/hero/local-business-youtube-seo.png",
+    "svg": "../images/blog/hero/local-business-youtube-seo.svg",
+    "w": 1200
+  },
+  "multi-language-youtube-growth": {
+    "alt": "Radar chart comparing your channel against a competitor across six metrics",
+    "h": 630,
+    "motif": "radar",
+    "png": "/images/blog/hero/multi-language-youtube-growth.png",
+    "svg": "../images/blog/hero/multi-language-youtube-growth.svg",
+    "w": 1200
+  },
+  "online-course-for-creators": {
+    "alt": "Four-stage marketing funnel narrowing from audience reach down to conversion",
+    "h": 630,
+    "motif": "funnel",
+    "png": "/images/blog/hero/online-course-for-creators.png",
+    "svg": "../images/blog/hero/online-course-for-creators.svg",
+    "w": 1200
+  },
   "organic-traffic-growth-strategy": {
     "alt": "Line chart showing channel traffic growing steadily across nine reporting periods",
     "h": 630,
@@ -79,12 +215,36 @@
     "svg": "../images/blog/hero/passive-income-streams-youtube-creators.svg",
     "w": 1200
   },
+  "podcast-to-youtube-strategy": {
+    "alt": "Four separate income streams converging into a single revenue total",
+    "h": 630,
+    "motif": "streams",
+    "png": "/images/blog/hero/podcast-to-youtube-strategy.png",
+    "svg": "../images/blog/hero/podcast-to-youtube-strategy.svg",
+    "w": 1200
+  },
   "rank-higher-youtube-search": {
     "alt": "YouTube search results list with the number one ranking position highlighted",
     "h": 630,
     "motif": "search",
     "png": "/images/blog/hero/rank-higher-youtube-search.png",
     "svg": "../images/blog/hero/rank-higher-youtube-search.svg",
+    "w": 1200
+  },
+  "sell-youtube-channel-valuation": {
+    "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
+    "h": 630,
+    "motif": "bars",
+    "png": "/images/blog/hero/sell-youtube-channel-valuation.png",
+    "svg": "../images/blog/hero/sell-youtube-channel-valuation.svg",
+    "w": 1200
+  },
+  "thumbnail-design-psychology": {
+    "alt": "Grid of video thumbnails with a cursor clicking the best performing one",
+    "h": 630,
+    "motif": "ctr",
+    "png": "/images/blog/hero/thumbnail-design-psychology.png",
+    "svg": "../images/blog/hero/thumbnail-design-psychology.svg",
     "w": 1200
   },
   "youtube-affiliate-marketing-strategies": {
@@ -95,12 +255,36 @@
     "svg": "../images/blog/hero/youtube-affiliate-marketing-strategies.svg",
     "w": 1200
   },
+  "youtube-analytics-api-guide": {
+    "alt": "Line chart showing channel traffic growing steadily across nine reporting periods",
+    "h": 630,
+    "motif": "line",
+    "png": "/images/blog/hero/youtube-analytics-api-guide.png",
+    "svg": "../images/blog/hero/youtube-analytics-api-guide.svg",
+    "w": 1200
+  },
   "youtube-analytics-metrics-that-matter": {
     "alt": "Line chart showing channel traffic growing steadily across nine reporting periods",
     "h": 630,
     "motif": "line",
     "png": "/images/blog/hero/youtube-analytics-metrics-that-matter.png",
     "svg": "../images/blog/hero/youtube-analytics-metrics-that-matter.svg",
+    "w": 1200
+  },
+  "youtube-automation-business": {
+    "alt": "Recommendation network diagram with a central video linked to related videos",
+    "h": 630,
+    "motif": "network",
+    "png": "/images/blog/hero/youtube-automation-business.png",
+    "svg": "../images/blog/hero/youtube-automation-business.svg",
+    "w": 1200
+  },
+  "youtube-camera-buying-guide": {
+    "alt": "Grid of creator tool tiles with three highlighted as recommended picks",
+    "h": 630,
+    "motif": "toolbox",
+    "png": "/images/blog/hero/youtube-camera-buying-guide.png",
+    "svg": "../images/blog/hero/youtube-camera-buying-guide.svg",
     "w": 1200
   },
   "youtube-channel-online-business": {
@@ -119,6 +303,22 @@
     "svg": "../images/blog/hero/youtube-competitor-analysis-guide.svg",
     "w": 1200
   },
+  "youtube-copyright-fair-use-guide": {
+    "alt": "Requirements checklist with several criteria met and others outstanding",
+    "h": 630,
+    "motif": "checklist",
+    "png": "/images/blog/hero/youtube-copyright-fair-use-guide.png",
+    "svg": "../images/blog/hero/youtube-copyright-fair-use-guide.svg",
+    "w": 1200
+  },
+  "youtube-cpm-rates-by-country": {
+    "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
+    "h": 630,
+    "motif": "bars",
+    "png": "/images/blog/hero/youtube-cpm-rates-by-country.png",
+    "svg": "../images/blog/hero/youtube-cpm-rates-by-country.svg",
+    "w": 1200
+  },
   "youtube-engagement-rate-calculation": {
     "alt": "Concentric progress rings showing an engagement rate percentage",
     "h": 630,
@@ -135,12 +335,36 @@
     "svg": "../images/blog/hero/youtube-keyword-research-tools.svg",
     "w": 1200
   },
+  "youtube-live-stream-monetization": {
+    "alt": "Four separate income streams converging into a single revenue total",
+    "h": 630,
+    "motif": "streams",
+    "png": "/images/blog/hero/youtube-live-stream-monetization.png",
+    "svg": "../images/blog/hero/youtube-live-stream-monetization.svg",
+    "w": 1200
+  },
   "youtube-monetization-requirements-guide": {
     "alt": "Requirements checklist with several criteria met and others outstanding",
     "h": 630,
     "motif": "checklist",
     "png": "/images/blog/hero/youtube-monetization-requirements-guide.png",
     "svg": "../images/blog/hero/youtube-monetization-requirements-guide.svg",
+    "w": 1200
+  },
+  "youtube-playlist-strategy": {
+    "alt": "YouTube search results list with the number one ranking position highlighted",
+    "h": 630,
+    "motif": "search",
+    "png": "/images/blog/hero/youtube-playlist-strategy.png",
+    "svg": "../images/blog/hero/youtube-playlist-strategy.svg",
+    "w": 1200
+  },
+  "youtube-premium-revenue-explained": {
+    "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
+    "h": 630,
+    "motif": "bars",
+    "png": "/images/blog/hero/youtube-premium-revenue-explained.png",
+    "svg": "../images/blog/hero/youtube-premium-revenue-explained.svg",
     "w": 1200
   },
   "youtube-seo-checklist-small-channels": {
@@ -151,12 +375,28 @@
     "svg": "../images/blog/hero/youtube-seo-checklist-small-channels.svg",
     "w": 1200
   },
+  "youtube-shorts-monetization-guide": {
+    "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
+    "h": 630,
+    "motif": "bars",
+    "png": "/images/blog/hero/youtube-shorts-monetization-guide.png",
+    "svg": "../images/blog/hero/youtube-shorts-monetization-guide.svg",
+    "w": 1200
+  },
   "youtube-sponsored-content-brand-deals": {
     "alt": "Four separate income streams converging into a single revenue total",
     "h": 630,
     "motif": "streams",
     "png": "/images/blog/hero/youtube-sponsored-content-brand-deals.png",
     "svg": "../images/blog/hero/youtube-sponsored-content-brand-deals.svg",
+    "w": 1200
+  },
+  "youtube-taxes-for-creators": {
+    "alt": "Requirements checklist with several criteria met and others outstanding",
+    "h": 630,
+    "motif": "checklist",
+    "png": "/images/blog/hero/youtube-taxes-for-creators.png",
+    "svg": "../images/blog/hero/youtube-taxes-for-creators.svg",
     "w": 1200
   }
 }

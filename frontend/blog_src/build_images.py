@@ -556,7 +556,7 @@ def build_svg(post, titled):
   <g transform="translate(72 {H-64})">
     <rect x="0" y="-16" width="30" height="30" rx="8" fill="{RED}"/>
     <polygon points="11,-8 11,6 22,-1" fill="#fff"/>
-    <text x="42" y="6" font-family="{FONT}" font-size="19" font-weight="700" fill="{TEXT}">VidSEOKit<tspan fill="{DIM}">.io</tspan></text>
+    <text x="42" y="6" font-family="{FONT}" font-size="19" font-weight="700" fill="{TEXT}">VidSEOKit<tspan fill="{DIM}">.com</tspan></text>
   </g>
 </svg>
 """

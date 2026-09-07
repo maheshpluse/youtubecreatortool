@@ -144,8 +144,6 @@ th { background: var(--bg-soft); font-weight: 700; font-size: 13px; text-transfo
 .endmatter { margin-top: 3rem; padding-top: 1.8rem; border-top: 1px solid var(--border); }
 .endmatter h2 { font-size: 1.15rem; margin-top: 1.6em; }
 .endmatter h2:first-child { margin-top: 0; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 .5em; padding: 0; list-style: none; }
-.chips li { background: var(--card); color: var(--text-soft); font-size: 13px; padding: 5px 11px; border-radius: 999px; }
 .sources { font-size: 15px; padding-left: 1.3em; }
 .sources li { margin-bottom: .55em; color: var(--text-soft); }
 .sources a { word-break: break-word; }

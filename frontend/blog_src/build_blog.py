@@ -93,6 +93,15 @@ LOGO_SVG = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5
 PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'
 
 
+def pretty(d) -> str:
+    """'September 7, 2026'. Day is interpolated rather than formatted because
+    the no-pad directive is %#d on Windows and %-d elsewhere -- neither is
+    portable, and the wrong one silently renders the literal text."""
+    if isinstance(d, str):
+        d = date.fromisoformat(d)
+    return f"{d:%B} {d.day}, {d.year}"
+
+
 def words(fragment: str) -> int:
     txt = re.sub(r"<[^>]+>", " ", fragment)
     txt = html.unescape(txt)
@@ -144,10 +153,10 @@ THEME_SCRIPT = """  <script>
 def header(depth_prefix: str = "../") -> str:
     return f"""<header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="{depth_prefix}index.html">{LOGO_SVG}<span>VidSEOKit</span></a>
+    <a class="brand" href="/">{LOGO_SVG}<span>VidSEOKit</span></a>
     <nav class="header-nav" aria-label="Primary">
-      <a href="{depth_prefix}index.html">Free tools</a>
-      <a href="index.html">Blog</a>
+      <a href="/">Free tools</a>
+      <a href="/blog/">Blog</a>
       <button class="theme-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">&#9681;</button>
     </nav>
   </div>
@@ -158,13 +167,13 @@ def footer() -> str:
     return f"""<footer class="site-footer">
   <div class="wrap-wide">
     <div class="footer-inner">
-      <a class="brand" href="../index.html">{LOGO_SVG}<span>VidSEOKit</span></a>
+      <a class="brand" href="/">{LOGO_SVG}<span>VidSEOKit</span></a>
       <nav class="footer-nav" aria-label="Footer">
-        <a href="index.html">Blog</a>
-        <a href="../index.html">Tools</a>
-        <a href="../index.html">About</a>
-        <a href="../index.html">Privacy Policy</a>
-        <a href="../index.html">Terms</a>
+        <a href="/blog/">Blog</a>
+        <a href="/">Tools</a>
+        <a href="/">About</a>
+        <a href="/">Privacy Policy</a>
+        <a href="/">Terms</a>
         <a href="mailto:info@easysignly.com">Contact</a>
       </nav>
       <span>&copy; {date.today().year} {SITE_NAME}</span>
@@ -188,7 +197,10 @@ def render_faq(faq):
 
 
 def render_endmatter(post):
-    kw = "\n".join('    <li>%s</li>' % html.escape(k) for k in post["keywords"])
+    # No visible keyword list. A rendered list of target terms at the foot of an
+    # article reads as keyword stuffing to both readers and search engines; the
+    # terms still travel in the JSON-LD "keywords" property, which is the
+    # appropriate place for them.
     src = "\n".join(
         '  <li>%s &mdash; <a href="%s" rel="noopener nofollow" target="_blank">%s</a></li>'
         % (html.escape(t), u, html.escape(u.replace("https://", "")))
@@ -196,10 +208,6 @@ def render_endmatter(post):
     )
     return f"""
 <section class="endmatter">
-  <h2>Keywords covered in this article</h2>
-  <ul class="chips">
-{kw}
-  </ul>
   <h2>Sources and further reading</h2>
   <ol class="sources">
 {src}
@@ -280,8 +288,12 @@ def json_ld(post):
 def render_post(post, posts, body):
     url = f"{SITE_URL}/blog/{post['slug']}.html"
     desc = html.escape(post["description"], quote=True)
+    # Head-only description: search results truncate ~160 chars, while the
+    # on-page standfirst is deliberately fuller. Falls back when absent.
+    meta_desc = html.escape(post.get("meta_description") or post["description"],
+                            quote=True)
     title_tag = html.escape(post["seo_title"], quote=True)
-    pretty_date = date.fromisoformat(post["date"]).strftime("%B %#d, %Y")
+    pretty_date = pretty(post["date"])
     mins = max(1, round(post["_words"] / 220))
 
     return f"""<!DOCTYPE html>
@@ -290,7 +302,7 @@ def render_post(post, posts, body):
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title_tag}</title>
-  <meta name="description" content="{desc}">
+  <meta name="description" content="{meta_desc}">
   <meta name="author" content="{AUTHOR}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{url}">
@@ -298,13 +310,13 @@ def render_post(post, posts, body):
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="{SITE_NAME}">
   <meta property="og:title" content="{html.escape(post['title'], quote=True)}">
-  <meta property="og:description" content="{desc}">
+  <meta property="og:description" content="{meta_desc}">
   <meta property="og:url" content="{url}">
   <meta property="article:published_time" content="{post['date']}">
   <meta property="article:section" content="{post['category']}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{html.escape(post['title'], quote=True)}">
-  <meta name="twitter:description" content="{desc}">{hero_meta(post)}
+  <meta name="twitter:description" content="{meta_desc}">{hero_meta(post)}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
@@ -362,7 +374,7 @@ def render_index(posts):
       <span class="cat">{html.escape(p['category'])}</span>
       <h2><a href="{p['slug']}.html">{html.escape(p['title'])}</a></h2>
       <p>{html.escape(p['description'])}</p>
-      <span class="meta"><time datetime="{p['date']}">{date.fromisoformat(p['date']).strftime('%B %#d, %Y')}</time>
+      <span class="meta"><time datetime="{p['date']}">{pretty(p['date'])}</time>
         &middot; {max(1, round(p['_words'] / 220))} min read</span>
       </div>
     </li>""" for p in posts
@@ -456,7 +468,7 @@ def render_dart(posts):
             "  ),"
             % (dq(p["slug"]), dq(p["title"]), dq(p["description"]),
                dq(p["category"]),
-               dq(date.fromisoformat(p["date"]).strftime("%B %#d, %Y")),
+               dq(pretty(p["date"])),
                max(1, round(p["_words"] / 220)),
                dq(img_url))
         )
@@ -507,7 +519,9 @@ def render_sitemap(posts):
     )
     ns = "http://www.sitemaps.org/schemas/sitemap/0.9"
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
-            '<urlset xmlns="%s">\n%s\n</urlset>\n' % (ns, body))
+            '<urlset xmlns="%s"\n'
+            '        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n'
+            '        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n%s\n</urlset>\n' % (ns, body))
 
 
 def main():
@@ -526,7 +540,11 @@ def main():
         faq_text = " ".join(q + " " + a for q, a in p.get("faq", []))
         p["_words"] = words(bodies[p["slug"]]) + words(faq_text)
 
+    # Newest first, regardless of the order entries were appended to
+    # posts.json. Ties keep their file order, so a batch published on one
+    # day stays in the sequence the editor chose.
     live = [p for p in posts if p["slug"] in bodies]
+    live.sort(key=lambda p: p["date"], reverse=True)
 
     short = []
     for p in live:

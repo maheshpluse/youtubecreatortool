@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Analytics API Guide: Build Your Own Reports</title>
+  <meta name="description" content="YouTube Analytics API guide: when Studio is not enough, which API you need, how quota works, and how to build useful reports without writing any code.">
+  <meta name="author" content="The VidSEOKit Editorial Team">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://vidseokit.com/blog/youtube-analytics-api-guide.html">
+  <link rel="icon" href="../favicon.ico">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="VidSEOKit">
+  <meta property="og:title" content="The YouTube Analytics API: When Studio Is Not Enough">
+  <meta property="og:description" content="YouTube Analytics API guide: when Studio is not enough, which API you need, how quota works, and how to build useful reports without writing any code.">
+  <meta property="og:url" content="https://vidseokit.com/blog/youtube-analytics-api-guide.html">
+  <meta property="article:published_time" content="2026-02-06">
+  <meta property="article:section" content="Analytics">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The YouTube Analytics API: When Studio Is Not Enough">
+  <meta name="twitter:description" content="YouTube Analytics API guide: when Studio is not enough, which API you need, how quota works, and how to build useful reports without writing any code.">
+  <meta property="og:image" content="https://vidseokit.com/images/blog/hero/youtube-analytics-api-guide.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Line chart showing channel traffic growing steadily across nine reporting periods">
+  <meta name="twitter:image" content="https://vidseokit.com/images/blog/hero/youtube-analytics-api-guide.png">
+  <meta name="twitter:image:alt" content="Line chart showing channel traffic growing steadily across nine reporting periods">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="assets/blog.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The YouTube Analytics API: When Studio Is Not Enough","image":["https://vidseokit.com/images/blog/hero/youtube-analytics-api-guide.png"],"description":"Cross-video analysis, long history and joining video data to your own sales figures are all things Studio cannot do. Which API you need, how quota works, and how to get useful data without writing code.","articleSection":"Analytics","keywords":"YouTube Analytics API, YouTube Data API, API quota, creator dashboard, YouTube reporting API, channel analytics automation","wordCount":1246,"inLanguage":"en","datePublished":"2026-02-06","dateModified":"2026-02-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://vidseokit.com/blog/youtube-analytics-api-guide.html"},"url":"https://vidseokit.com/blog/youtube-analytics-api-guide.html","author":{"@type":"Organization","name":"The VidSEOKit Editorial Team","url":"https://vidseokit.com"},"publisher":{"@type":"Organization","name":"VidSEOKit","url":"https://vidseokit.com","logo":{"@type":"ImageObject","url":"https://vidseokit.com/images/logo.svg"}},"isAccessibleForFree":true}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vidseokit.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://vidseokit.com/blog/"},{"@type":"ListItem","position":3,"name":"The YouTube Analytics API: When Studio Is Not Enough","item":"https://vidseokit.com/blog/youtube-analytics-api-guide.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to be a developer to use the YouTube API?","acceptedAnswer":{"@type":"Answer","text":"No. Scheduled bulk CSV exports from the Reporting API, spreadsheet connectors and business intelligence tools all give you most of the value with no code. A scheduled export into a spreadsheet covers the majority of use cases."}},{"@type":"Question","name":"Why does my script run out of quota?","acceptedAnswer":{"@type":"Answer","text":"Search operations are dramatically more expensive than reads. Enumerate a channel's videos through its uploads playlist rather than calling search in a loop, batch your requests, and cache anything that does not change."}},{"@type":"Question","name":"Is API revenue data the same as what I get paid?","acceptedAnswer":{"@type":"Answer","text":"Recent revenue figures are estimates and change as they finalise. Never treat the last few days of revenue data as final, and be careful about reporting estimates to sponsors or buyers as confirmed earnings."}}]}</script>
+  <script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3988155577590737"></script>
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem('ct-theme');
+        if (s === 'light') document.documentElement.classList.remove('dark');
+        else document.documentElement.classList.add('dark');
+      } catch (e) {}
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-theme-toggle]');
+        if (!b) return;
+        document.documentElement.classList.toggle('dark');
+        try {
+          localStorage.setItem('ct-theme',
+            document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        } catch (e) {}
+      });
+    })();
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5a2.25 2.25 0 003.36 1.95l10.07-5.75a2.25 2.25 0 000-3.9L9.86 4.3A2.25 2.25 0 006.5 6.25z"/></svg><span>VidSEOKit</span></a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="/">Free tools</a>
+      <a href="/blog/">Blog</a>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">&#9681;</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>&rsaquo;</span><a href="index.html">Blog</a><span>&rsaquo;</span>Analytics
+  </nav>
+
+  <article>
+    <header class="post-head">
+      <span class="eyebrow">Analytics</span>
+      <h1>The YouTube Analytics API: When Studio Is Not Enough</h1>
+      <div class="post-meta">
+        <span>By The VidSEOKit Editorial Team</span><span>&middot;</span>
+        <time datetime="2026-02-06">February 6, 2026</time><span>&middot;</span>
+        <span>6 min read</span><span>&middot;</span>
+        <span>1,246 words</span>
+      </div>
+      <p class="standfirst">Cross-video analysis, long history and joining video data to your own sales figures are all things Studio cannot do. Which API you need, how quota works, and how to get useful data without writing code.</p>
+    </header>
+
+<div class="ad-slot">
+  <span class="ad-label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3988155577590737" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<p>YouTube Studio answers most questions well. It becomes limiting at a predictable point: when you want data across many videos at once, history beyond the retention window, or numbers combined with something Studio has never heard of, like your sales figures. That is where the API earns its keep.</p>
+
+<p>This guide explains what the APIs actually offer, which one you need, and how to get useful data out without becoming a full-time developer.</p>
+
+<div class="toc">
+  <p>What this guide covers</p>
+  <ol>
+    <li><a href="#which">Two APIs, different jobs</a></li>
+    <li><a href="#worth">When it is worth the effort</a></li>
+    <li><a href="#access">Getting access</a></li>
+    <li><a href="#quota">Quota, the thing that catches everyone</a></li>
+    <li><a href="#reports">Reports worth building first</a></li>
+    <li><a href="#nocode">Doing it without writing code</a></li>
+    <li><a href="#pitfalls">Pitfalls</a></li>
+  </ol>
+</div>
+
+<h2 id="which">Two APIs, different jobs</h2>
+
+<div class="table-scroll">
+<table>
+  <thead><tr><th></th><th>YouTube Data API</th><th>YouTube Analytics &amp; Reporting API</th></tr></thead>
+  <tbody>
+    <tr><td>Answers</td><td>What exists &mdash; videos, playlists, metadata, public counts</td><td>How it performed &mdash; views, watch time, retention, revenue</td></tr>
+    <tr><td>Scope</td><td>Any public channel</td><td>Only channels you own or manage</td></tr>
+    <tr><td>Typical use</td><td>Cataloguing, metadata audits, competitor listings</td><td>Dashboards, performance history, revenue analysis</td></tr>
+    <tr><td>Auth</td><td>API key for public data</td><td>OAuth, always</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Most creator projects need both: the Data API to enumerate videos and pull titles and publish dates, the Analytics API to attach performance figures to them.</p>
+
+<figure class="fig" role="group">
+  <svg class="fig-svg" viewBox="0 0 720 300" role="img" aria-labelledby="t-retention" preserveAspectRatio="xMidYMid meet">
+    <title id="t-retention">Audience retention curve falling steeply in the first thirty seconds</title>
+    <style>
+      .frt-curve { fill: none; stroke: var(--link, #065fd4); stroke-width: 3.5;
+                   stroke-linecap: round; stroke-dasharray: 900; }
+      .frt-area  { fill: var(--link, #065fd4); opacity: .10; }
+      .frt-grid  { stroke: var(--border, #e5e5e5); stroke-width: 1; }
+      .frt-lbl   { fill: var(--text-mute, #909090); font: 500 13px Roboto, system-ui, sans-serif; }
+      .frt-drop  { stroke: var(--red, #cc0000); stroke-width: 2; stroke-dasharray: 5 5; }
+      .frt-dot   { fill: var(--red, #cc0000); }
+      .frt-curve { stroke-dashoffset: 0; }
+      @media (prefers-reduced-motion: no-preference) {
+        .frt-curve { animation: frt-draw 3.2s ease-in-out infinite; }
+        .frt-dot   { animation: frt-pulse 3.2s ease-in-out infinite; }
+        @keyframes frt-draw {
+          0%   { stroke-dashoffset: 900; }
+          55%, 100% { stroke-dashoffset: 0; }
+        }
+        @keyframes frt-pulse {
+          0%, 30% { opacity: 0; r: 4; }
+          45%     { opacity: 1; r: 8; }
+          60%,100% { opacity: 1; r: 5.5; }
+        }
+      }
+    </style>
+    <line class="frt-grid" x1="60" y1="250" x2="690" y2="250"/>
+    <line class="frt-grid" x1="60" y1="60"  x2="690" y2="60"/>
+    <path class="frt-area" d="M60 62 C 120 96, 150 168, 210 190 C 300 222, 420 232, 690 242 L690 250 L60 250 Z"/>
+    <path class="frt-curve" d="M60 62 C 120 96, 150 168, 210 190 C 300 222, 420 232, 690 242"/>
+    <line class="frt-drop" x1="210" y1="60" x2="210" y2="250"/>
+    <circle class="frt-dot" cx="210" cy="190" r="5.5"/>
+    <text class="frt-lbl" x="60"  y="272">0:00</text>
+    <text class="frt-lbl" x="184" y="272">0:30</text>
+    <text class="frt-lbl" x="640" y="272">End</text>
+    <text class="frt-lbl" x="228" y="150">The cliff</text>
+  </svg>
+  <figcaption>Most channels lose a third of the audience before the 30-second mark. The shape of that first drop is the single most useful thing in your analytics.</figcaption>
+</figure>
+
+<h2 id="worth">When it is worth the effort</h2>
+
+<p>Honestly, most creators do not need this. Studio is good, and building a pipeline to reproduce it is wasted effort. The API becomes worthwhile when you hit one of these:</p>
+
+<ul>
+  <li><strong>Cross-video analysis.</strong> Comparing retention across two hundred videos to find what your best openings share. Studio makes you click through them one at a time.</li>
+  <li><strong>Long history.</strong> Some Studio reports have limited retention windows. Pulling data regularly builds an archive nobody can shorten.</li>
+  <li><strong>Joining external data.</strong> Video performance against your sales, signups or affiliate conversions. Only possible outside Studio.</li>
+  <li><strong>Managing several channels.</strong> One dashboard beats logging in and out repeatedly.</li>
+  <li><strong>Automated alerting.</strong> Notifying you when a video outperforms or a metric drops sharply.</li>
+  <li><strong>Client or sponsor reporting.</strong> Repeatable, branded reports without manual screenshotting.</li>
+</ul>
+
+<h2 id="access">Getting access</h2>
+
+<p>The sequence, once, takes under an hour:</p>
+
+<ol>
+  <li>Create a project in Google Cloud Console.</li>
+  <li>Enable the YouTube Data API and the YouTube Analytics API on that project.</li>
+  <li>Configure the OAuth consent screen. For personal use you can keep it in testing mode and add your own account as a test user, which avoids the verification process entirely.</li>
+  <li>Create credentials &mdash; an API key for public data, an OAuth client for anything channel-specific.</li>
+  <li>Authorise once with the account that owns the channel and store the refresh token securely.</li>
+</ol>
+
+<p>The step that trips people up is authorising with the wrong Google account. It must be the account that actually owns the channel, which for Brand Accounts is not always the one you use daily.</p>
+
+<h2 id="quota">Quota, the thing that catches everyone</h2>
+
+<p>The Data API allocates a daily quota, and different operations cost different amounts. Read operations are cheap; search is dramatically more expensive. A naive script that calls search in a loop can exhaust an entire day's allowance in minutes.</p>
+
+<p>The habits that prevent this: use the uploads playlist to enumerate a channel's videos rather than searching; request videos in batches rather than one call each; ask only for the parts you need; and cache anything that does not change, like titles and publish dates. Metadata does not need re-fetching every hour.</p>
+
+<div class="callout">
+  <span class="callout-label">Design for it early</span>
+  <p>Assume quota is scarce and build a local cache from day one. Retrofitting caching after you have hit the ceiling is considerably more annoying than including it at the start.</p>
+</div>
+
+<h2 id="reports">Reports worth building first</h2>
+
+<ol>
+  <li><strong>Full catalogue performance.</strong> Every video with views, watch time and average view duration in one table. Sorting this reveals patterns invisible one video at a time.</li>
+  <li><strong>Retention benchmark.</strong> Average view percentage against video length, to find where your own format stops holding people.</li>
+  <li><strong>Traffic source over time.</strong> Whether your search share is growing or you are becoming dependent on browse traffic.</li>
+  <li><strong>Revenue per video against effort.</strong> Combine earnings with your own production-time notes. Frequently uncomfortable and always useful.</li>
+  <li><strong>Publication cadence against growth.</strong> Whether posting more actually helps you, rather than assuming it does.</li>
+</ol>
+
+<figure class="fig" role="group">
+  <svg class="fig-svg" viewBox="0 0 720 300" role="img" aria-labelledby="t-revbars" preserveAspectRatio="xMidYMid meet">
+    <title id="t-revbars">Bar chart showing advertising revenue climbing across six months</title>
+    <style>
+      .frb-bar { fill: var(--red, #cc0000); transform-origin: center bottom; }
+      .frb-grid { stroke: var(--border, #e5e5e5); stroke-width: 1; }
+      .frb-lbl { fill: var(--text-mute, #909090); font: 500 13px Roboto, system-ui, sans-serif; }
+      @media (prefers-reduced-motion: no-preference) {
+        .frb-bar { animation: frb-grow 2.4s cubic-bezier(.2,.7,.3,1) infinite; }
+        .frb-bar:nth-of-type(2) { animation-delay: .10s; }
+        .frb-bar:nth-of-type(3) { animation-delay: .20s; }
+        .frb-bar:nth-of-type(4) { animation-delay: .30s; }
+        .frb-bar:nth-of-type(5) { animation-delay: .40s; }
+        .frb-bar:nth-of-type(6) { animation-delay: .50s; }
+        @keyframes frb-grow {
+          0%, 100% { transform: scaleY(.35); opacity: .55; }
+          45%, 70% { transform: scaleY(1);   opacity: 1; }
+        }
+      }
+    </style>
+    <line class="frb-grid" x1="60" y1="245" x2="680" y2="245"/>
+    <line class="frb-grid" x1="60" y1="165" x2="680" y2="165"/>
+    <line class="frb-grid" x1="60" y1="85"  x2="680" y2="85"/>
+    <g>
+      <rect class="frb-bar" x="90"  y="175" width="58" height="70"  rx="5"/>
+      <rect class="frb-bar" x="188" y="150" width="58" height="95"  rx="5"/>
+      <rect class="frb-bar" x="286" y="128" width="58" height="117" rx="5"/>
+      <rect class="frb-bar" x="384" y="104" width="58" height="141" rx="5"/>
+      <rect class="frb-bar" x="482" y="74"  width="58" height="171" rx="5"/>
+      <rect class="frb-bar" x="580" y="52"  width="58" height="193" rx="5"/>
+    </g>
+    <text class="frb-lbl" x="105" y="268">Jan</text>
+    <text class="frb-lbl" x="203" y="268">Feb</text>
+    <text class="frb-lbl" x="301" y="268">Mar</text>
+    <text class="frb-lbl" x="399" y="268">Apr</text>
+    <text class="frb-lbl" x="497" y="268">May</text>
+    <text class="frb-lbl" x="595" y="268">Jun</text>
+  </svg>
+  <figcaption>Revenue compounds when RPM and volume rise together — the bars that matter are the last three, not the first.</figcaption>
+</figure>
+
+<h2 id="nocode">Doing it without writing code</h2>
+
+<p>You do not need to be a developer. Several routes avoid it almost entirely:</p>
+
+<ul>
+  <li><strong>Scheduled reports.</strong> The Reporting API can generate bulk CSV exports on a schedule, which you then load into a spreadsheet.</li>
+  <li><strong>Spreadsheet connectors.</strong> Add-ons exist that pull YouTube data directly into a sheet on a timer.</li>
+  <li><strong>Business intelligence tools.</strong> Several dashboard products offer a YouTube connector with no code at all.</li>
+  <li><strong>Automation platforms.</strong> Trigger-based services can move data between YouTube and a spreadsheet or database.</li>
+</ul>
+
+<p>For most creators a scheduled export into a spreadsheet covers ninety percent of the value with none of the maintenance.</p>
+
+<h2 id="store">Where to keep the data</h2>
+
+<p>The temptation is to pull data on demand every time you want to look at something. Resist it &mdash; that design burns quota, breaks when the API is slow, and gives you nothing you did not already have in Studio.</p>
+
+<p>The better shape is a small local store that you append to on a schedule. A single spreadsheet works for one channel. A lightweight database is worth it once you are tracking several, or once you want to keep daily snapshots rather than current totals.</p>
+
+<p>Daily snapshots are the part people skip and later wish they had. Studio shows you what a metric is now; a snapshot history shows you how it got there, which is the question you actually ask when a video behaves oddly. Storing a row per video per day costs almost nothing and answers questions retroactively that are otherwise unanswerable.</p>
+
+<div class="watch">
+  <div class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="watch-body">
+    <p class="watch-title">Start with the official reference</p>
+    <p>Google's <a href="https://developers.google.com/youtube/analytics" rel="noopener nofollow" target="_blank">YouTube Analytics and Reporting API documentation</a> includes the full list of available metrics and dimensions, plus which combinations are valid. Skimming the metrics list first saves a lot of guessing.</p>
+  </div>
+</div>
+
+<h2 id="pitfalls">Pitfalls</h2>
+
+<ul>
+  <li><strong>Estimated versus finalised revenue.</strong> Recent revenue figures are estimates and change. Never report earnings from the last few days as final.</li>
+  <li><strong>Time zones.</strong> Analytics uses a specific reporting time zone. Mixing it with local timestamps produces days that quietly disagree.</li>
+  <li><strong>Invalid metric combinations.</strong> Not every metric works with every dimension. The documentation lists what is permitted; the errors are not always clear.</li>
+  <li><strong>Data latency.</strong> Some metrics settle over days. A dashboard showing today's numbers as final will mislead you.</li>
+  <li><strong>Credential security.</strong> A refresh token grants ongoing access to your channel data. Never commit it to a repository.</li>
+</ul>
+
+<p>Built once and left running, a simple daily export becomes more valuable every month, because the archive it accumulates is something no dashboard can give you retroactively.</p>
+
+<div class="callout">
+  <span class="callout-label">Editorial note</span>
+  <p>API quotas, available metrics and authentication requirements change. Always check the current official documentation before building anything you intend to rely on.</p>
+</div>
+
+
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq">
+  <details><summary>Do I need to be a developer to use the YouTube API?</summary><p>No. Scheduled bulk CSV exports from the Reporting API, spreadsheet connectors and business intelligence tools all give you most of the value with no code. A scheduled export into a spreadsheet covers the majority of use cases.</p></details>
+  <details><summary>Why does my script run out of quota?</summary><p>Search operations are dramatically more expensive than reads. Enumerate a channel's videos through its uploads playlist rather than calling search in a loop, batch your requests, and cache anything that does not change.</p></details>
+  <details><summary>Is API revenue data the same as what I get paid?</summary><p>Recent revenue figures are estimates and change as they finalise. Never treat the last few days of revenue data as final, and be careful about reporting estimates to sponsors or buyers as confirmed earnings.</p></details>
+</div>
+
+
+<div class="ad-slot">
+  <span class="ad-label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3988155577590737" data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+
+<section class="endmatter">
+  <h2>Sources and further reading</h2>
+  <ol class="sources">
+  <li>Google for Developers — YouTube Analytics and Reporting APIs &mdash; <a href="https://developers.google.com/youtube/analytics" rel="noopener nofollow" target="_blank">developers.google.com/youtube/analytics</a></li>
+  <li>YouTube Help — Understand your YouTube content performance &mdash; <a href="https://support.google.com/youtube/answer/12220281" rel="noopener nofollow" target="_blank">support.google.com/youtube/answer/12220281</a></li>
+  <li>YouTube Help — RPM and CPM explained &mdash; <a href="https://support.google.com/youtube/answer/9314357" rel="noopener nofollow" target="_blank">support.google.com/youtube/answer/9314357</a></li>
+  <li>YouTube for Creators — Helpful resources &mdash; <a href="https://www.youtube.com/creators/resources/" rel="noopener nofollow" target="_blank">www.youtube.com/creators/resources/</a></li>
+  <li>Google Search Central — Creating helpful, reliable, people-first content &mdash; <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener nofollow" target="_blank">developers.google.com/search/docs/fundamentals/creating-helpful-content</a></li>
+  </ol>
+</section>
+  </article>
+
+<section class="related">
+  <h2>Keep reading</h2>
+  <ul class="card-grid">
+    <li class="card"><span class="cat">Strategy</span><h3><a href="gdpr-privacy-for-creators.html">GDPR and Privacy for Creators: What Actually Applies to You</a></h3><p>If you run a website, newsletter or shop, privacy obligations are yours rather than the platform&#x27;s. Where…</p></li>
+    <li class="card"><span class="cat">Monetization</span><h3><a href="youtube-shorts-monetization-guide.html">How YouTube Shorts Monetization Actually Works</a></h3><p>Shorts pay from a pooled revenue model with music licensing deducted first, which is why per-view earnings…</p></li>
+    <li class="card"><span class="cat">Monetization</span><h3><a href="sell-youtube-channel-valuation.html">What Is Your YouTube Channel Worth? How Buyers Actually Value Channels</a></h3><p>Buyers value profit that survives without you, not subscribers. What sets the multiple, what destroys value…</p></li>
+  </ul>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap-wide">
+    <div class="footer-inner">
+      <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5a2.25 2.25 0 003.36 1.95l10.07-5.75a2.25 2.25 0 000-3.9L9.86 4.3A2.25 2.25 0 006.5 6.25z"/></svg><span>VidSEOKit</span></a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/blog/">Blog</a>
+        <a href="/">Tools</a>
+        <a href="/">About</a>
+        <a href="/">Privacy Policy</a>
+        <a href="/">Terms</a>
+        <a href="mailto:info@easysignly.com">Contact</a>
+      </nav>
+      <span>&copy; 2026 VidSEOKit</span>
+    </div>
+    <p class="disclosure">Editorial note: earnings figures on this site are estimates, not
+    guarantees &mdash; real revenue depends on your audience, watch time and advertiser demand.
+    Some articles link to third-party products; where a link is a paid affiliate link it is
+    labelled as such in the article. This site is not affiliated with, endorsed by, or sponsored
+    by YouTube or Google.</p>
+  </div>
+</footer>
+</body>
+</html>

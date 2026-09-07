@@ -1,406 +1,2558 @@
 [
-{
-  "slug": "rank-higher-youtube-search",
-  "title": "How to Rank Higher on YouTube Search: A 9-Step Optimization Workflow",
-  "seo_title": "How to Rank Higher on YouTube Search: 9-Step Workflow (2026)",
-  "description": "YouTube search rewards relevance, engagement and satisfaction — in that order. Here is the repeatable nine-step workflow we use to plan, publish and re-optimise a video so it earns search traffic for years.",
-  "category": "SEO",
-  "date": "2026-09-01",
-  "keywords": ["rank higher on YouTube", "Search Engine Optimization (SEO)", "keyword research tool", "organic traffic growth", "video engagement rate", "how to rank higher on YouTube search"],
-  "sources": [
-    ["YouTube — Navigating YouTube Search (How YouTube Works)", "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"],
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["YouTube Help — Impressions & click-through rate FAQs", "https://support.google.com/youtube/answer/7628154"],
-    ["Google Search Central — Creating helpful, reliable, people-first content", "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"],
-    ["YouTube for Creators — Helpful resources", "https://www.youtube.com/creators/resources/"]
-  ],
-  "faq": [
-    ["Do tags still help you rank higher on YouTube?", "Tags play a minor, supporting role. YouTube has said tags are useful mainly when your topic is commonly misspelled. Titles, thumbnails, the first two lines of your description and actual viewer satisfaction carry far more weight, so fix those before you spend an hour writing tags."],
-    ["How long does it take for a video to rank in YouTube search?", "Search rankings usually settle within two to six weeks, but evergreen videos keep climbing for months as watch time accumulates. Judge a search-intent video on its 90-day impressions curve, not its first 48 hours."],
-    ["Should I change the title of a video that is not ranking?", "Yes, if the video has impressions but a weak click-through rate, or if it is ranking for the wrong query. Change one variable at a time and give it 14 days before you judge the result."]
-  ]
-},
-{
-  "slug": "improve-youtube-click-through-rate",
-  "title": "How to Improve Your YouTube Click-Through Rate Without Clickbait",
-  "seo_title": "How to Improve YouTube Click-Through Rate (CTR) Without Clickbait",
-  "description": "Half of all YouTube channels sit between a 2% and 10% impressions click-through rate. Here is how packaging, thumbnail contrast and title–promise alignment lift CTR without wrecking retention.",
-  "category": "Analytics",
-  "date": "2026-08-27",
-  "keywords": ["Click-Through Rate (CTR)", "video analytics", "how to improve YouTube click-through rate", "thumbnail CTR", "video engagement rate", "organic traffic growth"],
-  "sources": [
-    ["YouTube Help — Impressions & click-through rate FAQs", "https://support.google.com/youtube/answer/7628154"],
-    ["YouTube Help — Decoding CTR & impressions in your Analytics", "https://support.google.com/youtube/answer/16767369"],
-    ["YouTube Help — Check your YouTube impressions and watch time", "https://support.google.com/youtube/answer/9314486"],
-    ["YouTube — Navigating YouTube's Recommended Videos", "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"]
-  ],
-  "faq": [
-    ["What is a good click-through rate on YouTube?", "YouTube states that half of all channels and videos have an impressions CTR between 2% and 10%. A brand-new channel often sits lower because most impressions come from cold browse traffic; a channel with loyal subscribers can exceed 10% simply because its audience recognises the name."],
-    ["Why does my CTR drop when a video goes viral?", "That is normal and usually healthy. As YouTube pushes a video to broader, colder audiences the denominator (impressions) grows much faster than clicks. Falling CTR alongside rising total views is a sign of expanding reach, not failure."],
-    ["Does changing a thumbnail reset a video's performance?", "No. Swapping a thumbnail does not reset the video or remove it from recommendations. YouTube keeps serving impressions and you can compare the before/after period in the Content tab of Analytics."]
-  ]
-},
-{
-  "slug": "youtube-monetization-requirements-guide",
-  "title": "YouTube Monetization Requirements: The Complete Eligibility Guide",
-  "seo_title": "YouTube Monetization Requirements 2026: Full Eligibility Guide",
-  "description": "500 subscribers or 1,000? 3,000 watch hours or 4,000? Here are the current YouTube Partner Program thresholds, what each tier actually unlocks, and the policy checks that quietly disqualify channels.",
-  "category": "Monetization",
-  "date": "2026-08-22",
-  "keywords": ["Monetization", "AdSense revenue", "YouTube Partner Program requirements", "YouTube monetization requirements", "passive income streams", "online business"],
-  "sources": [
-    ["YouTube Help — YouTube Partner Program overview & eligibility", "https://support.google.com/youtube/answer/72851"],
-    ["YouTube Help — Overview of the expanded YouTube Partner Program", "https://support.google.com/youtube/answer/13429240"],
-    ["YouTube Help — YouTube channel monetization policies", "https://support.google.com/youtube/answer/1311392"],
-    ["YouTube Help — YouTube partner earnings overview", "https://support.google.com/youtube/answer/72902"],
-    ["YouTube Help — YouTube Shorts monetization policies", "https://support.google.com/youtube/answer/12504220"]
-  ],
-  "faq": [
-    ["Can I join the YouTube Partner Program with 500 subscribers?", "Yes, in eligible countries. The expanded YPP opens at 500 subscribers, 3 valid public uploads in the last 90 days, and either 3,000 valid public watch hours in 12 months or 3 million valid public Shorts views in 90 days. That tier unlocks fan funding features; ad revenue sharing arrives at the 1,000 subscriber / 4,000 watch hour tier."],
-    ["Does watch time from private or unlisted videos count?", "No. Only valid public watch hours count toward the threshold. Watch time from videos you later delete, make private, or that are removed for policy violations is not counted."],
-    ["Why was my monetization application rejected for reused content?", "YouTube requires that you add significant original commentary, editing or educational value. Compilations, reaction videos with minimal input, and re-uploaded clips are the most common rejection reasons under the channel monetization policies."]
-  ]
-},
-{
-  "slug": "how-to-increase-youtube-rpm",
-  "title": "How to Increase Your YouTube RPM: 11 Levers That Actually Move Revenue",
-  "seo_title": "How to Increase YouTube RPM: 11 Proven Revenue Levers",
-  "description": "RPM is the only revenue metric that reflects what you actually keep. Here are eleven levers — from ad load and video length to audience geography and niche selection — ranked by how much they realistically move the number.",
-  "category": "Monetization",
-  "date": "2026-08-18",
-  "keywords": ["High RPM", "AdSense revenue", "how to increase YouTube RPM", "High CPC keywords", "Monetization", "target audience"],
-  "sources": [
-    ["Google AdSense Help — Revenue per thousand impressions (RPM)", "https://support.google.com/adsense/answer/190515"],
-    ["Google AdSense Help — Page RPM", "https://support.google.com/adsense/answer/112030"],
-    ["YouTube Help — YouTube partner earnings overview", "https://support.google.com/youtube/answer/72902"],
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"]
-  ],
-  "faq": [
-    ["What is the difference between CPM and RPM?", "CPM is what advertisers pay per thousand ad impressions before YouTube's share. RPM is your estimated earnings per thousand video views after the revenue split and including views that carried no ads. RPM is always lower than CPM, and RPM is the number that matters to you."],
-    ["How much of ad revenue does YouTube pay creators?", "For watch page ads on long-form videos, YouTube pays creators 55% of net ad revenue. For Shorts feed ads the allocation works differently: revenue enters a Creator Pool and monetizing creators receive 45% of their allocated share after music licensing costs."],
-    ["Does making longer videos increase RPM?", "It can, because videos over roughly eight minutes are eligible for mid-roll ads, which raises the number of ad impressions per view. But padding a five-minute idea to eight minutes usually hurts retention enough to cancel out the gain."]
-  ]
-},
-{
-  "slug": "youtube-keyword-research-tools",
-  "title": "YouTube Keyword Research: Finding Search Terms Your Channel Can Actually Rank For",
-  "seo_title": "YouTube Keyword Research: Find Terms You Can Actually Rank For",
-  "description": "Most keyword research fails because it chases volume instead of winnability. This guide covers the free data sources, the competition test, and how to build a keyword map that fills a publishing calendar for six months.",
-  "category": "SEO",
-  "date": "2026-08-13",
-  "keywords": ["keyword research tool", "Search Engine Optimization (SEO)", "YouTube keyword research", "long tail keywords", "organic traffic growth", "competitor analysis"],
-  "sources": [
-    ["YouTube — Navigating YouTube Search (How YouTube Works)", "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"],
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["Google Search Central — Google Search Essentials", "https://developers.google.com/search/docs/essentials"],
-    ["Google Trends", "https://trends.google.com/trends/"]
-  ],
-  "faq": [
-    ["Do I need a paid keyword research tool?", "Not to start. YouTube's own search suggestions, the Research tab in YouTube Studio, Google Trends and your existing traffic-source report cover most of what a small channel needs. Paid tools mainly save time on competition scoring once you publish weekly."],
-    ["How do I know if a keyword is too competitive?", "Search it and read the first six results. If every one comes from a channel with more than ten times your subscriber count, and the videos are recent and thorough, pick a narrower variant instead."],
-    ["Should every video target a keyword?", "No. Roughly half your catalogue should target search intent and half should target browse and suggested traffic. Search-led videos build a compounding library; browse-led videos build an audience."]
-  ]
-},
-{
-  "slug": "high-cpc-keywords-youtube-niches",
-  "title": "High CPC Keywords and the YouTube Niches That Attract Them",
-  "seo_title": "High CPC Keywords: The YouTube Niches Advertisers Pay Most For",
-  "description": "Advertiser demand, not view count, sets your ad rates. Here is how high CPC keywords work, which niches consistently attract them, and how to move a channel toward higher-value topics without abandoning your audience.",
-  "category": "Monetization",
-  "date": "2026-08-08",
-  "keywords": ["High CPC keywords", "High RPM", "AdSense revenue", "high CPC keywords for YouTube", "Monetization", "target audience"],
-  "sources": [
-    ["Google AdSense Help — Revenue per thousand impressions (RPM)", "https://support.google.com/adsense/answer/190515"],
-    ["Google AdSense Help — Ad RPM", "https://support.google.com/adsense/answer/112032"],
-    ["YouTube Help — YouTube partner earnings overview", "https://support.google.com/youtube/answer/72902"],
-    ["Google Ads Help — Keyword Planner", "https://support.google.com/google-ads/answer/7337243"]
-  ],
-  "faq": [
-    ["Do high CPC keywords in the title raise my ad rates?", "Not directly. Advertisers bid on audiences and topics, not on the literal words in your title. What raises your rates is producing content that genuinely attracts viewers advertisers want — typically people close to a purchase decision."],
-    ["Which YouTube niches have the highest CPMs?", "Personal finance, investing, insurance, B2B software, legal and real estate consistently sit at the top because a single converted customer is worth hundreds or thousands of dollars. Gaming, vlogs and entertainment sit at the bottom for the opposite reason."],
-    ["Is it worth switching niches purely for higher CPM?", "Rarely. A finance channel you have no interest in will stall long before the RPM advantage matters. A better move is finding the highest-value sub-topic inside a niche you can sustain for years."]
-  ]
-},
-{
-  "slug": "youtube-analytics-metrics-that-matter",
-  "title": "The 8 YouTube Analytics Metrics That Actually Predict Growth",
-  "seo_title": "8 YouTube Analytics Metrics That Actually Predict Channel Growth",
-  "description": "YouTube Studio reports dozens of numbers and most of them are noise. These eight metrics — and the specific thresholds attached to them — tell you whether a video is working and what to fix next.",
-  "category": "Analytics",
-  "date": "2026-08-04",
-  "keywords": ["Video analytics", "Click-Through Rate (CTR)", "video engagement rate", "YouTube analytics metrics", "audience retention", "organic traffic growth"],
-  "sources": [
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["YouTube Help — Impressions & click-through rate FAQs", "https://support.google.com/youtube/answer/7628154"],
-    ["YouTube Help — Check your YouTube impressions and watch time", "https://support.google.com/youtube/answer/9314486"],
-    ["YouTube — Navigating YouTube's Recommended Videos", "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"]
-  ],
-  "faq": [
-    ["What is the single most important YouTube metric?", "Average view duration relative to video length, combined with click-through rate. Together they tell you whether the packaging attracted the right people and whether the content kept them. Views alone tell you nothing about why."],
-    ["How many impressions does a video need before the data is meaningful?", "As a rule of thumb, wait for at least 1,000 impressions before drawing conclusions about CTR, and 48 to 72 hours before comparing retention against your channel average."],
-    ["Why do returning viewers matter more than subscribers?", "Subscriber count is a vanity number once a channel is a few years old; many subscribers never return. The returning-viewers figure in the Audience tab shows how many real people came back this month, which is a far better predictor of stable revenue."]
-  ]
-},
-{
-  "slug": "how-youtube-algorithm-works",
-  "title": "How the YouTube Algorithm Works (and What an Algorithm Update Really Changes)",
-  "seo_title": "How the YouTube Algorithm Works in 2026 — Plain-English Guide",
-  "description": "There is no single YouTube algorithm. There are separate systems for search, home and suggested — and understanding which one is feeding a video tells you exactly what to fix when views fall off a cliff.",
-  "category": "Strategy",
-  "date": "2026-07-30",
-  "keywords": ["Algorithm update", "rank higher on YouTube", "how the YouTube algorithm works", "Video analytics", "organic traffic growth", "Search Engine Optimization (SEO)"],
-  "sources": [
-    ["YouTube — Navigating YouTube's Recommended Videos", "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"],
-    ["YouTube — Navigating YouTube Search (How YouTube Works)", "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"],
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["Google Search Central — Google Search's core updates", "https://developers.google.com/search/docs/appearance/core-updates"]
-  ],
-  "faq": [
-    ["Does the YouTube algorithm punish channels for uploading inconsistently?", "There is no penalty for an irregular schedule. What actually happens is that fewer recent uploads means fewer chances to be recommended, and a dormant audience clicks less when you return. The effect looks like a penalty but is really lost momentum."],
-    ["Do the first 24 hours decide a video's fate?", "For browse-driven videos, early signals matter a lot. For search-driven videos they barely matter — evergreen tutorials routinely find their audience weeks or months after upload as they accumulate search rankings."],
-    ["How should I respond to an algorithm update?", "Check whether the drop is concentrated in one traffic source before changing anything. A fall in browse traffic with stable search traffic is a packaging or freshness issue, not a sitewide penalty."]
-  ]
-},
-{
-  "slug": "youtube-competitor-analysis-guide",
-  "title": "YouTube Competitor Analysis: A Repeatable 6-Step Teardown",
-  "seo_title": "YouTube Competitor Analysis: A Repeatable 6-Step Teardown",
-  "description": "Copying a competitor's topics is the least useful thing you can do. This teardown method finds the format gaps, packaging patterns and neglected keywords that a bigger channel has left on the table.",
-  "category": "Strategy",
-  "date": "2026-07-25",
-  "keywords": ["Competitor analysis", "keyword research tool", "YouTube competitor analysis", "Search Engine Optimization (SEO)", "target audience", "Video analytics"],
-  "sources": [
-    ["YouTube — Navigating YouTube Search (How YouTube Works)", "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"],
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["YouTube for Creators — Helpful resources", "https://www.youtube.com/creators/resources/"],
-    ["Google Trends", "https://trends.google.com/trends/"]
-  ],
-  "faq": [
-    ["How many competitors should I analyse?", "Three to five is plenty: one channel roughly your size, two a tier above, and one outside your niche whose format you admire. More than that and the patterns blur together."],
-    ["Is it legal to use a competitor's tags?", "Tags are public metadata and using similar tags is not a violation. What you cannot do is copy their thumbnails, scripts or footage, which is a copyright issue and a monetization risk under the reused content policy."],
-    ["How often should I redo a competitor teardown?", "Once a quarter. Doing it more often leads to reactive, imitative content; doing it less means you miss format shifts that spread through a niche in a matter of months."]
-  ]
-},
-{
-  "slug": "youtube-engagement-rate-calculation",
-  "title": "Video Engagement Rate: How to Calculate It and What Counts as Good",
-  "seo_title": "Video Engagement Rate: How to Calculate It (Formula + Benchmarks)",
-  "description": "Brands ask for your engagement rate, but nobody agrees on the formula. Here are the three definitions in circulation, the one to quote in a media kit, and realistic benchmarks by channel size.",
-  "category": "Analytics",
-  "date": "2026-07-21",
-  "keywords": ["Video engagement rate", "Video analytics", "how to calculate engagement rate", "Sponsored content", "Click-Through Rate (CTR)", "target audience"],
-  "sources": [
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["YouTube Help — Impressions & click-through rate FAQs", "https://support.google.com/youtube/answer/7628154"],
-    ["YouTube — Navigating YouTube's Recommended Videos", "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"],
-    ["YouTube for Creators — Helpful resources", "https://www.youtube.com/creators/resources/"]
-  ],
-  "faq": [
-    ["What is a good engagement rate on YouTube?", "Using the likes-plus-comments over views formula, 2% to 5% is typical for an established channel and anything above 8% is strong. Smaller channels usually post higher percentages because their audience is disproportionately loyal."],
-    ["Do comments count more than likes?", "For your media kit they weigh the same, but for the recommendation system a comment is a much stronger signal of investment. A video with an unusually high comment-to-view ratio is a format worth repeating."],
-    ["Should I include Shorts in my engagement rate?", "Report them separately. Shorts generate huge view counts with proportionally fewer likes and comments, so blending them into one figure understates your long-form engagement and confuses sponsors."]
-  ]
-},
-{
-  "slug": "find-target-audience-youtube",
-  "title": "How to Find Your Target Audience on YouTube (Without Guessing)",
-  "seo_title": "How to Find Your Target Audience on YouTube — Data-Led Method",
-  "description": "“Everyone interested in tech” is not an audience. This is the data-led process for narrowing a target audience using your own analytics, the other-videos-your-audience-watched report and a simple viewer profile.",
-  "category": "Growth",
-  "date": "2026-07-16",
-  "keywords": ["Target audience", "Video analytics", "how to find your target audience on YouTube", "Digital marketing", "video engagement rate", "organic traffic growth"],
-  "sources": [
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["YouTube — Navigating YouTube's Recommended Videos", "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"],
-    ["YouTube for Creators — How to start and manage your channel", "https://www.youtube.com/creators/get-started/"],
-    ["Google Search Central — Creating helpful, reliable, people-first content", "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"]
-  ],
-  "faq": [
-    ["What if my analytics audience is not the audience I want?", "That gap is useful information. It usually means your packaging is attracting a broader or more casual viewer than your content is written for. Narrow the titles and thumbnails first — they set expectations before anyone presses play."],
-    ["How specific should a target audience be?", "Specific enough that you can name a real person who fits it and predict what they would search this week. “Self-taught developers in their first six months of job hunting” is workable; “programmers” is not."],
-    ["Does a narrow audience limit growth?", "In the early years it accelerates it. A narrow audience produces higher retention and stronger engagement signals, which is exactly what pushes a video into broader recommendation surfaces later."]
-  ]
-},
-{
-  "slug": "adsense-revenue-per-1000-views",
-  "title": "AdSense Revenue Explained: What YouTube Actually Pays per 1,000 Views",
-  "seo_title": "AdSense Revenue: What YouTube Really Pays per 1,000 Views",
-  "description": "Where the money comes from, how the 55% split works, why your RPM is far below the CPM you see in Studio, and how to build an earnings estimate you can plan a business around.",
-  "category": "Monetization",
-  "date": "2026-07-11",
-  "keywords": ["AdSense revenue", "High RPM", "how much does YouTube pay per 1000 views", "Monetization", "passive income streams", "online business"],
-  "sources": [
-    ["YouTube Help — YouTube partner earnings overview", "https://support.google.com/youtube/answer/72902"],
-    ["Google AdSense Help — Revenue per thousand impressions (RPM)", "https://support.google.com/adsense/answer/190515"],
-    ["Google AdSense Help — Page RPM", "https://support.google.com/adsense/answer/112030"],
-    ["YouTube Help — How to earn money on YouTube", "https://support.google.com/youtube/answer/72857"],
-    ["YouTube Help — YouTube Shorts monetization policies", "https://support.google.com/youtube/answer/12504220"]
-  ],
-  "faq": [
-    ["How much does YouTube pay for 1,000 views?", "There is no fixed rate. Payment depends on how many of those views showed ads, what advertisers bid in your viewers' countries, and your niche. Across the platform, long-form RPMs commonly land somewhere between roughly $1 and $10, with finance and B2B niches running higher and entertainment lower."],
-    ["Why is my CPM high but my earnings low?", "CPM counts only monetized playbacks and sits before YouTube's share. If only a third of your views carried an ad, your RPM will be a fraction of your CPM even though nothing is wrong."],
-    ["When does AdSense pay out?", "Earnings are finalised in the first half of the following month and paid once your balance passes the payment threshold, provided your payment details and tax information are verified."]
-  ]
-},
-{
-  "slug": "passive-income-streams-youtube-creators",
-  "title": "7 Passive Income Streams That Work for YouTube Creators",
-  "seo_title": "7 Passive Income Streams for YouTube Creators (Ranked by Effort)",
-  "description": "Ad revenue is the least reliable money a channel makes. Here are seven income streams ranked by how much upkeep they need, with realistic conversion rates and the traffic level each one needs to be worth building.",
-  "category": "Monetization",
-  "date": "2026-07-07",
-  "keywords": ["Passive income streams", "Affiliate marketing strategies", "Monetization", "passive income for YouTubers", "online business", "AdSense revenue"],
-  "sources": [
-    ["YouTube Help — How to earn money on YouTube", "https://support.google.com/youtube/answer/72857"],
-    ["YouTube Help — YouTube Partner Program overview & eligibility", "https://support.google.com/youtube/answer/72851"],
-    ["Google AdSense Help — AdSense Program policies", "https://support.google.com/adsense/answer/48182"],
-    ["US Federal Trade Commission — Disclosures 101 for Social Media Influencers", "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"]
-  ],
-  "faq": [
-    ["Is YouTube income really passive?", "Ad revenue from an evergreen back catalogue is the closest thing to passive, and even that decays without new uploads. Treat every stream on this list as semi-passive: heavy work up front, light maintenance afterwards."],
-    ["How many views do I need before a digital product is worth making?", "As a rough guide, 10,000 monthly views on topic-relevant videos. Below that, the conversion volume rarely justifies weeks of production time — affiliate links are the better first step."],
-    ["Do I have to disclose affiliate links?", "Yes. The FTC requires clear and conspicuous disclosure of material connections, and YouTube requires you to declare paid promotions. Put it in the video, not only the description."]
-  ]
-},
-{
-  "slug": "youtube-affiliate-marketing-strategies",
-  "title": "Affiliate Marketing Strategies for YouTube Creators That Don't Annoy Your Audience",
-  "seo_title": "YouTube Affiliate Marketing Strategies That Don't Annoy Viewers",
-  "description": "The gap between a channel earning $40 a month in affiliate commission and one earning $4,000 is almost never traffic. It is intent matching, placement and trust. Here is how the high earners structure it.",
-  "category": "Marketing",
-  "date": "2026-07-02",
-  "keywords": ["Affiliate marketing strategies", "Passive income streams", "Digital marketing", "YouTube affiliate marketing", "Monetization", "target audience"],
-  "sources": [
-    ["US Federal Trade Commission — Disclosures 101 for Social Media Influencers", "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"],
-    ["YouTube Help — Paid product placements, sponsorships & endorsements", "https://support.google.com/youtube/answer/154235"],
-    ["YouTube Help — How to earn money on YouTube", "https://support.google.com/youtube/answer/72857"],
-    ["Google Search Central — Creating helpful, reliable, people-first content", "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"]
-  ],
-  "faq": [
-    ["Which videos convert best for affiliate marketing?", "High-intent formats: “best X for Y” comparisons, single-product reviews after real use, and tutorials where the product is the tool being used. Entertainment videos convert poorly no matter how large the audience."],
-    ["How many affiliate links should a description contain?", "Link only what you mentioned, in the order you mentioned it, above the fold. A wall of twenty links reads as spam and depresses click-through on all of them."],
-    ["Can affiliate links get a video demonetized?", "Not by themselves. Problems arise when you fail to disclose the relationship, link to prohibited products, or use misleading claims — all of which are covered by YouTube's advertiser-friendly guidelines and FTC rules."]
-  ]
-},
-{
-  "slug": "youtube-sponsored-content-brand-deals",
-  "title": "Sponsored Content: How Small Channels Land (and Price) Brand Deals",
-  "seo_title": "Sponsored Content: How Small YouTube Channels Land Brand Deals",
-  "description": "You do not need 100,000 subscribers to be sponsored. You need a defined audience, honest numbers and a media kit. Here is the outreach process, the pricing maths and the contract terms worth arguing about.",
-  "category": "Marketing",
-  "date": "2026-06-26",
-  "keywords": ["Sponsored content", "video engagement rate", "brand deals for small YouTubers", "Digital marketing", "Monetization", "online business"],
-  "sources": [
-    ["YouTube Help — Paid product placements, sponsorships & endorsements", "https://support.google.com/youtube/answer/154235"],
-    ["US Federal Trade Commission — Disclosures 101 for Social Media Influencers", "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"],
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["YouTube Help — Advertiser-friendly content guidelines", "https://support.google.com/youtube/answer/6162278"]
-  ],
-  "faq": [
-    ["What should I charge for a sponsored YouTube video?", "A common starting point is $20 to $50 per thousand expected views for a 60-second integration, adjusted up for a high-value niche and down for a broad entertainment audience. Price on expected views in the first 30 days, not on subscriber count."],
-    ["Do I have to declare a paid promotion to YouTube?", "Yes. Tick the paid promotion box in Studio and state the sponsorship verbally in the video. Both YouTube's policy and FTC guidance require clear disclosure that viewers cannot miss."],
-    ["Should I accept revenue-share-only deals?", "Only when you already know the product converts for your audience. Otherwise you are financing the brand's marketing test with your production time."]
-  ]
-},
-{
-  "slug": "content-creation-tools-youtube-creators",
-  "title": "The Content Creation Tools Stack for a One-Person YouTube Channel",
-  "seo_title": "Content Creation Tools: The Stack for a Solo YouTube Channel",
-  "description": "A practical tool stack for solo creators, organised by the stage it serves — research, scripting, recording, editing, packaging and analysis — with notes on what is genuinely worth paying for.",
-  "category": "Tools",
-  "date": "2026-06-20",
-  "keywords": ["Content creation tools", "keyword research tool", "Video analytics", "content creation tools for YouTube", "Search Engine Optimization (SEO)", "organic traffic growth"],
-  "sources": [
-    ["YouTube for Creators — Helpful resources", "https://www.youtube.com/creators/resources/"],
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["YouTube Help — Use the YouTube Audio Library", "https://support.google.com/youtube/answer/3376882"],
-    ["Google Search Central — Google Search's guidance about AI-generated content", "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"]
-  ],
-  "faq": [
-    ["What is the minimum gear needed to start a YouTube channel?", "A phone with a recent camera, a $60 lapel or USB microphone, a window for light, and free editing software. Audio is the only place where cheap equipment is genuinely noticeable to viewers."],
-    ["Is AI-generated content against YouTube or Google rules?", "Neither bans AI assistance outright. Google's guidance judges content on quality and usefulness rather than production method, while YouTube requires disclosure of realistic synthetic media. Fully automated, low-value content is what gets penalised."],
-    ["Which subscription is worth paying for first?", "An editor with proper proxy support and a keyword or analytics tool, in that order. Everything upstream of editing can run on free tools for a surprisingly long time."]
-  ]
-},
-{
-  "slug": "organic-traffic-growth-strategy",
-  "title": "Organic Traffic Growth: Pairing a YouTube Channel With a Website",
-  "seo_title": "Organic Traffic Growth: Pair Your YouTube Channel With a Site",
-  "description": "A channel and a website feed each other: video answers the query, the article captures the search demand video cannot. Here is how to run both without doubling your workload.",
-  "category": "SEO",
-  "date": "2026-06-15",
-  "keywords": ["Organic traffic growth", "Search Engine Optimization (SEO)", "Digital marketing", "organic traffic growth strategy", "AdSense revenue", "keyword research tool"],
-  "sources": [
-    ["Google Search Central — Google Search Essentials", "https://developers.google.com/search/docs/essentials"],
-    ["Google Search Central — Creating helpful, reliable, people-first content", "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"],
-    ["Google Search Central — Video SEO best practices", "https://developers.google.com/search/docs/appearance/video"],
-    ["YouTube — Navigating YouTube Search (How YouTube Works)", "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"]
-  ],
-  "faq": [
-    ["Does embedding my video on my own site steal YouTube views?", "No. Embedded playbacks count as views on YouTube and can still serve ads, so a well-trafficked embed adds watch time rather than cannibalising it."],
-    ["Will Google see a transcript as duplicate content?", "A raw transcript pasted alone adds little value and may be judged thin. A transcript restructured into a proper article with headings, context and extra detail is treated as ordinary content."],
-    ["How long before a new site gets organic traffic?", "Expect three to nine months of near-zero traffic on a fresh domain, then a compounding curve. Publish the pages that will still be relevant in two years first."]
-  ]
-},
-{
-  "slug": "digital-marketing-funnel-creators",
-  "title": "Digital Marketing for Creators: Building a Funnel Behind Your Videos",
-  "seo_title": "Digital Marketing for Creators: Build a Funnel Behind Your Videos",
-  "description": "Views are rented; an email list is owned. This is the four-stage funnel model adapted for creators, with the specific call to action that belongs at each stage and the numbers to track.",
-  "category": "Marketing",
-  "date": "2026-06-09",
-  "keywords": ["Digital marketing", "Target audience", "Affiliate marketing strategies", "marketing funnel for creators", "online business", "Monetization"],
-  "sources": [
-    ["Google Search Central — Creating helpful, reliable, people-first content", "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"],
-    ["YouTube Help — Understand your YouTube content performance", "https://support.google.com/youtube/answer/12220281"],
-    ["US Federal Trade Commission — CAN-SPAM Act compliance guide for business", "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business"],
-    ["YouTube for Creators — Helpful resources", "https://www.youtube.com/creators/resources/"]
-  ],
-  "faq": [
-    ["How many calls to action should one video have?", "One primary CTA, placed where the viewer has just received value. A second, softer mention in the description is fine. Stacking three competing asks reliably lowers all three conversion rates."],
-    ["What is a realistic email opt-in rate from YouTube traffic?", "Between 0.5% and 3% of views for a relevant free resource. Anything above 3% usually means the offer is unusually well matched to the video topic."],
-    ["Do I need paid ads to build a creator funnel?", "No. Organic video is the top of the funnel. Paid ads are worth testing only once you know the lifetime value of an email subscriber."]
-  ]
-},
-{
-  "slug": "youtube-channel-online-business",
-  "title": "Turning a YouTube Channel Into a Real Online Business",
-  "seo_title": "How to Turn a YouTube Channel Into a Real Online Business",
-  "description": "The difference between a channel and a business is revenue concentration, documented processes and assets you own. Here is the transition, in the order most sustainable creators actually make it.",
-  "category": "Strategy",
-  "date": "2026-06-03",
-  "keywords": ["Online business", "Passive income streams", "Monetization", "YouTube channel as a business", "Digital marketing", "Sponsored content"],
-  "sources": [
-    ["YouTube Help — How to earn money on YouTube", "https://support.google.com/youtube/answer/72857"],
-    ["YouTube Help — YouTube channel monetization policies", "https://support.google.com/youtube/answer/1311392"],
-    ["US Small Business Administration — Choose a business structure", "https://www.sba.gov/business-guide/launch-your-business/choose-business-structure"],
-    ["US Internal Revenue Service — Self-employed individuals tax center", "https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center"]
-  ],
-  "faq": [
-    ["When should a creator register a business entity?", "Most creators look at it once income becomes consistent enough to plan around, or once contracts and liability enter the picture. The right structure depends on your country and tax situation, so take local professional advice rather than following a video."],
-    ["What percentage of revenue should come from ads?", "Under half is a reasonable target. Channels that survive an algorithm shift usually have ads, direct audience revenue and business revenue in roughly equal thirds."],
-    ["How do I make a channel less dependent on me being on camera?", "Document the repeatable parts first — research, scripting structure, thumbnail templates, publishing checklist. Those systems are what let you delegate editing and production without the output feeling different."]
-  ]
-},
-{
-  "slug": "youtube-seo-checklist-small-channels",
-  "title": "The YouTube SEO Checklist for Channels Under 1,000 Subscribers",
-  "seo_title": "YouTube SEO Checklist for Small Channels (Under 1,000 Subs)",
-  "description": "Small-channel SEO is a different game: you cannot win on authority, so you win on specificity. This checklist covers the pre-production, upload and post-publish steps that actually move a new channel.",
-  "category": "SEO",
-  "date": "2026-05-28",
-  "keywords": ["Search Engine Optimization (SEO)", "rank higher on YouTube", "YouTube SEO checklist", "keyword research tool", "Click-Through Rate (CTR)", "organic traffic growth"],
-  "sources": [
-    ["YouTube — Navigating YouTube Search (How YouTube Works)", "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"],
-    ["YouTube Help — Impressions & click-through rate FAQs", "https://support.google.com/youtube/answer/7628154"],
-    ["YouTube Help — Add subtitles & captions", "https://support.google.com/youtube/answer/2734796"],
-    ["YouTube for Creators — How to start and manage your channel", "https://www.youtube.com/creators/get-started/"],
-    ["Google Search Central — Creating helpful, reliable, people-first content", "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"]
-  ],
-  "faq": [
-    ["How many videos before a new channel gets traction?", "There is no magic number, but most channels that break through have published enough to find one format that works — often somewhere between 20 and 50 videos. The value is in the iteration, not the count."],
-    ["Should a small channel post Shorts or long-form?", "Both, with different jobs. Shorts are the cheapest way to get discovered; long-form is where watch time, ad revenue and genuine loyalty are built. Shorts that never lead anywhere are a treadmill."],
-    ["Is it worth optimising old videos on a small channel?", "Yes, and it is the highest-return hour you can spend. Rewriting titles and thumbnails on your five most-impressed videos usually beats publishing one more upload."]
-  ]
-}
+  {
+    "slug": "rank-higher-youtube-search",
+    "title": "How to Rank Higher on YouTube Search: A 9-Step Optimization Workflow",
+    "seo_title": "How to Rank Higher on YouTube Search: 9-Step Workflow (2026)",
+    "description": "YouTube search rewards relevance, engagement and satisfaction — in that order. Here is the repeatable nine-step workflow we use to plan, publish and re-optimise a video so it earns search traffic for years.",
+    "category": "SEO",
+    "date": "2026-09-01",
+    "keywords": [
+      "rank higher on YouTube",
+      "Search Engine Optimization (SEO)",
+      "keyword research tool",
+      "organic traffic growth",
+      "video engagement rate",
+      "how to rank higher on YouTube search"
+    ],
+    "sources": [
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — Impressions & click-through rate FAQs",
+        "https://support.google.com/youtube/answer/7628154"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ]
+    ],
+    "faq": [
+      [
+        "Do tags still help you rank higher on YouTube?",
+        "Tags play a minor, supporting role. YouTube has said tags are useful mainly when your topic is commonly misspelled. Titles, thumbnails, the first two lines of your description and actual viewer satisfaction carry far more weight, so fix those before you spend an hour writing tags."
+      ],
+      [
+        "How long does it take for a video to rank in YouTube search?",
+        "Search rankings usually settle within two to six weeks, but evergreen videos keep climbing for months as watch time accumulates. Judge a search-intent video on its 90-day impressions curve, not its first 48 hours."
+      ],
+      [
+        "Should I change the title of a video that is not ranking?",
+        "Yes, if the video has impressions but a weak click-through rate, or if it is ranking for the wrong query. Change one variable at a time and give it 14 days before you judge the result."
+      ]
+    ]
+  },
+  {
+    "slug": "improve-youtube-click-through-rate",
+    "title": "How to Improve Your YouTube Click-Through Rate Without Clickbait",
+    "seo_title": "How to Improve YouTube Click-Through Rate (CTR) Without Clickbait",
+    "description": "Half of all YouTube channels sit between a 2% and 10% impressions click-through rate. Here is how packaging, thumbnail contrast and title–promise alignment lift CTR without wrecking retention.",
+    "category": "Analytics",
+    "date": "2026-08-27",
+    "keywords": [
+      "Click-Through Rate (CTR)",
+      "video analytics",
+      "how to improve YouTube click-through rate",
+      "thumbnail CTR",
+      "video engagement rate",
+      "organic traffic growth"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Impressions & click-through rate FAQs",
+        "https://support.google.com/youtube/answer/7628154"
+      ],
+      [
+        "YouTube Help — Decoding CTR & impressions in your Analytics",
+        "https://support.google.com/youtube/answer/16767369"
+      ],
+      [
+        "YouTube Help — Check your YouTube impressions and watch time",
+        "https://support.google.com/youtube/answer/9314486"
+      ],
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ]
+    ],
+    "faq": [
+      [
+        "What is a good click-through rate on YouTube?",
+        "YouTube states that half of all channels and videos have an impressions CTR between 2% and 10%. A brand-new channel often sits lower because most impressions come from cold browse traffic; a channel with loyal subscribers can exceed 10% simply because its audience recognises the name."
+      ],
+      [
+        "Why does my CTR drop when a video goes viral?",
+        "That is normal and usually healthy. As YouTube pushes a video to broader, colder audiences the denominator (impressions) grows much faster than clicks. Falling CTR alongside rising total views is a sign of expanding reach, not failure."
+      ],
+      [
+        "Does changing a thumbnail reset a video's performance?",
+        "No. Swapping a thumbnail does not reset the video or remove it from recommendations. YouTube keeps serving impressions and you can compare the before/after period in the Content tab of Analytics."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-monetization-requirements-guide",
+    "title": "YouTube Monetization Requirements: The Complete Eligibility Guide",
+    "seo_title": "YouTube Monetization Requirements 2026: Full Eligibility Guide",
+    "description": "500 subscribers or 1,000? 3,000 watch hours or 4,000? Here are the current YouTube Partner Program thresholds, what each tier actually unlocks, and the policy checks that quietly disqualify channels.",
+    "category": "Monetization",
+    "date": "2026-08-22",
+    "keywords": [
+      "Monetization",
+      "AdSense revenue",
+      "YouTube Partner Program requirements",
+      "YouTube monetization requirements",
+      "passive income streams",
+      "online business"
+    ],
+    "sources": [
+      [
+        "YouTube Help — YouTube Partner Program overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube Help — Overview of the expanded YouTube Partner Program",
+        "https://support.google.com/youtube/answer/13429240"
+      ],
+      [
+        "YouTube Help — YouTube channel monetization policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube Help — YouTube partner earnings overview",
+        "https://support.google.com/youtube/answer/72902"
+      ],
+      [
+        "YouTube Help — YouTube Shorts monetization policies",
+        "https://support.google.com/youtube/answer/12504220"
+      ]
+    ],
+    "faq": [
+      [
+        "Can I join the YouTube Partner Program with 500 subscribers?",
+        "Yes, in eligible countries. The expanded YPP opens at 500 subscribers, 3 valid public uploads in the last 90 days, and either 3,000 valid public watch hours in 12 months or 3 million valid public Shorts views in 90 days. That tier unlocks fan funding features; ad revenue sharing arrives at the 1,000 subscriber / 4,000 watch hour tier."
+      ],
+      [
+        "Does watch time from private or unlisted videos count?",
+        "No. Only valid public watch hours count toward the threshold. Watch time from videos you later delete, make private, or that are removed for policy violations is not counted."
+      ],
+      [
+        "Why was my monetization application rejected for reused content?",
+        "YouTube requires that you add significant original commentary, editing or educational value. Compilations, reaction videos with minimal input, and re-uploaded clips are the most common rejection reasons under the channel monetization policies."
+      ]
+    ]
+  },
+  {
+    "slug": "how-to-increase-youtube-rpm",
+    "title": "How to Increase Your YouTube RPM: 11 Levers That Actually Move Revenue",
+    "seo_title": "How to Increase YouTube RPM: 11 Proven Revenue Levers",
+    "description": "RPM is the only revenue metric that reflects what you actually keep. Here are eleven levers — from ad load and video length to audience geography and niche selection — ranked by how much they realistically move the number.",
+    "category": "Monetization",
+    "date": "2026-08-18",
+    "keywords": [
+      "High RPM",
+      "AdSense revenue",
+      "how to increase YouTube RPM",
+      "High CPC keywords",
+      "Monetization",
+      "target audience"
+    ],
+    "sources": [
+      [
+        "Google AdSense Help — Revenue per thousand impressions (RPM)",
+        "https://support.google.com/adsense/answer/190515"
+      ],
+      [
+        "Google AdSense Help — Page RPM",
+        "https://support.google.com/adsense/answer/112030"
+      ],
+      [
+        "YouTube Help — YouTube partner earnings overview",
+        "https://support.google.com/youtube/answer/72902"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ]
+    ],
+    "faq": [
+      [
+        "What is the difference between CPM and RPM?",
+        "CPM is what advertisers pay per thousand ad impressions before YouTube's share. RPM is your estimated earnings per thousand video views after the revenue split and including views that carried no ads. RPM is always lower than CPM, and RPM is the number that matters to you."
+      ],
+      [
+        "How much of ad revenue does YouTube pay creators?",
+        "For watch page ads on long-form videos, YouTube pays creators 55% of net ad revenue. For Shorts feed ads the allocation works differently: revenue enters a Creator Pool and monetizing creators receive 45% of their allocated share after music licensing costs."
+      ],
+      [
+        "Does making longer videos increase RPM?",
+        "It can, because videos over roughly eight minutes are eligible for mid-roll ads, which raises the number of ad impressions per view. But padding a five-minute idea to eight minutes usually hurts retention enough to cancel out the gain."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-keyword-research-tools",
+    "title": "YouTube Keyword Research: Finding Search Terms Your Channel Can Actually Rank For",
+    "seo_title": "YouTube Keyword Research: Find Terms You Can Actually Rank For",
+    "description": "Most keyword research fails because it chases volume instead of winnability. This guide covers the free data sources, the competition test, and how to build a keyword map that fills a publishing calendar for six months.",
+    "category": "SEO",
+    "date": "2026-08-13",
+    "keywords": [
+      "keyword research tool",
+      "Search Engine Optimization (SEO)",
+      "YouTube keyword research",
+      "long tail keywords",
+      "organic traffic growth",
+      "competitor analysis"
+    ],
+    "sources": [
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "Google Search Central — Google Search Essentials",
+        "https://developers.google.com/search/docs/essentials"
+      ],
+      [
+        "Google Trends",
+        "https://trends.google.com/trends/"
+      ]
+    ],
+    "faq": [
+      [
+        "Do I need a paid keyword research tool?",
+        "Not to start. YouTube's own search suggestions, the Research tab in YouTube Studio, Google Trends and your existing traffic-source report cover most of what a small channel needs. Paid tools mainly save time on competition scoring once you publish weekly."
+      ],
+      [
+        "How do I know if a keyword is too competitive?",
+        "Search it and read the first six results. If every one comes from a channel with more than ten times your subscriber count, and the videos are recent and thorough, pick a narrower variant instead."
+      ],
+      [
+        "Should every video target a keyword?",
+        "No. Roughly half your catalogue should target search intent and half should target browse and suggested traffic. Search-led videos build a compounding library; browse-led videos build an audience."
+      ]
+    ]
+  },
+  {
+    "slug": "high-cpc-keywords-youtube-niches",
+    "title": "High CPC Keywords and the YouTube Niches That Attract Them",
+    "seo_title": "High CPC Keywords: The YouTube Niches Advertisers Pay Most For",
+    "description": "Advertiser demand, not view count, sets your ad rates. Here is how high CPC keywords work, which niches consistently attract them, and how to move a channel toward higher-value topics without abandoning your audience.",
+    "category": "Monetization",
+    "date": "2026-08-08",
+    "keywords": [
+      "High CPC keywords",
+      "High RPM",
+      "AdSense revenue",
+      "high CPC keywords for YouTube",
+      "Monetization",
+      "target audience"
+    ],
+    "sources": [
+      [
+        "Google AdSense Help — Revenue per thousand impressions (RPM)",
+        "https://support.google.com/adsense/answer/190515"
+      ],
+      [
+        "Google AdSense Help — Ad RPM",
+        "https://support.google.com/adsense/answer/112032"
+      ],
+      [
+        "YouTube Help — YouTube partner earnings overview",
+        "https://support.google.com/youtube/answer/72902"
+      ],
+      [
+        "Google Ads Help — Keyword Planner",
+        "https://support.google.com/google-ads/answer/7337243"
+      ]
+    ],
+    "faq": [
+      [
+        "Do high CPC keywords in the title raise my ad rates?",
+        "Not directly. Advertisers bid on audiences and topics, not on the literal words in your title. What raises your rates is producing content that genuinely attracts viewers advertisers want — typically people close to a purchase decision."
+      ],
+      [
+        "Which YouTube niches have the highest CPMs?",
+        "Personal finance, investing, insurance, B2B software, legal and real estate consistently sit at the top because a single converted customer is worth hundreds or thousands of dollars. Gaming, vlogs and entertainment sit at the bottom for the opposite reason."
+      ],
+      [
+        "Is it worth switching niches purely for higher CPM?",
+        "Rarely. A finance channel you have no interest in will stall long before the RPM advantage matters. A better move is finding the highest-value sub-topic inside a niche you can sustain for years."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-analytics-metrics-that-matter",
+    "title": "The 8 YouTube Analytics Metrics That Actually Predict Growth",
+    "seo_title": "8 YouTube Analytics Metrics That Actually Predict Channel Growth",
+    "description": "YouTube Studio reports dozens of numbers and most of them are noise. These eight metrics — and the specific thresholds attached to them — tell you whether a video is working and what to fix next.",
+    "category": "Analytics",
+    "date": "2026-08-04",
+    "keywords": [
+      "Video analytics",
+      "Click-Through Rate (CTR)",
+      "video engagement rate",
+      "YouTube analytics metrics",
+      "audience retention",
+      "organic traffic growth"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — Impressions & click-through rate FAQs",
+        "https://support.google.com/youtube/answer/7628154"
+      ],
+      [
+        "YouTube Help — Check your YouTube impressions and watch time",
+        "https://support.google.com/youtube/answer/9314486"
+      ],
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ]
+    ],
+    "faq": [
+      [
+        "What is the single most important YouTube metric?",
+        "Average view duration relative to video length, combined with click-through rate. Together they tell you whether the packaging attracted the right people and whether the content kept them. Views alone tell you nothing about why."
+      ],
+      [
+        "How many impressions does a video need before the data is meaningful?",
+        "As a rule of thumb, wait for at least 1,000 impressions before drawing conclusions about CTR, and 48 to 72 hours before comparing retention against your channel average."
+      ],
+      [
+        "Why do returning viewers matter more than subscribers?",
+        "Subscriber count is a vanity number once a channel is a few years old; many subscribers never return. The returning-viewers figure in the Audience tab shows how many real people came back this month, which is a far better predictor of stable revenue."
+      ]
+    ]
+  },
+  {
+    "slug": "how-youtube-algorithm-works",
+    "title": "How the YouTube Algorithm Works (and What an Algorithm Update Really Changes)",
+    "seo_title": "How the YouTube Algorithm Works in 2026 — Plain-English Guide",
+    "description": "There is no single YouTube algorithm. There are separate systems for search, home and suggested — and understanding which one is feeding a video tells you exactly what to fix when views fall off a cliff.",
+    "category": "Strategy",
+    "date": "2026-07-30",
+    "keywords": [
+      "Algorithm update",
+      "rank higher on YouTube",
+      "how the YouTube algorithm works",
+      "Video analytics",
+      "organic traffic growth",
+      "Search Engine Optimization (SEO)"
+    ],
+    "sources": [
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ],
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "Google Search Central — Google Search's core updates",
+        "https://developers.google.com/search/docs/appearance/core-updates"
+      ]
+    ],
+    "faq": [
+      [
+        "Does the YouTube algorithm punish channels for uploading inconsistently?",
+        "There is no penalty for an irregular schedule. What actually happens is that fewer recent uploads means fewer chances to be recommended, and a dormant audience clicks less when you return. The effect looks like a penalty but is really lost momentum."
+      ],
+      [
+        "Do the first 24 hours decide a video's fate?",
+        "For browse-driven videos, early signals matter a lot. For search-driven videos they barely matter — evergreen tutorials routinely find their audience weeks or months after upload as they accumulate search rankings."
+      ],
+      [
+        "How should I respond to an algorithm update?",
+        "Check whether the drop is concentrated in one traffic source before changing anything. A fall in browse traffic with stable search traffic is a packaging or freshness issue, not a sitewide penalty."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-competitor-analysis-guide",
+    "title": "YouTube Competitor Analysis: A Repeatable 6-Step Teardown",
+    "seo_title": "YouTube Competitor Analysis: A Repeatable 6-Step Teardown",
+    "description": "Copying a competitor's topics is the least useful thing you can do. This teardown method finds the format gaps, packaging patterns and neglected keywords that a bigger channel has left on the table.",
+    "category": "Strategy",
+    "date": "2026-07-25",
+    "keywords": [
+      "Competitor analysis",
+      "keyword research tool",
+      "YouTube competitor analysis",
+      "Search Engine Optimization (SEO)",
+      "target audience",
+      "Video analytics"
+    ],
+    "sources": [
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Trends",
+        "https://trends.google.com/trends/"
+      ]
+    ],
+    "faq": [
+      [
+        "How many competitors should I analyse?",
+        "Three to five is plenty: one channel roughly your size, two a tier above, and one outside your niche whose format you admire. More than that and the patterns blur together."
+      ],
+      [
+        "Is it legal to use a competitor's tags?",
+        "Tags are public metadata and using similar tags is not a violation. What you cannot do is copy their thumbnails, scripts or footage, which is a copyright issue and a monetization risk under the reused content policy."
+      ],
+      [
+        "How often should I redo a competitor teardown?",
+        "Once a quarter. Doing it more often leads to reactive, imitative content; doing it less means you miss format shifts that spread through a niche in a matter of months."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-engagement-rate-calculation",
+    "title": "Video Engagement Rate: How to Calculate It and What Counts as Good",
+    "seo_title": "Video Engagement Rate: How to Calculate It (Formula + Benchmarks)",
+    "description": "Brands ask for your engagement rate, but nobody agrees on the formula. Here are the three definitions in circulation, the one to quote in a media kit, and realistic benchmarks by channel size.",
+    "category": "Analytics",
+    "date": "2026-07-21",
+    "keywords": [
+      "Video engagement rate",
+      "Video analytics",
+      "how to calculate engagement rate",
+      "Sponsored content",
+      "Click-Through Rate (CTR)",
+      "target audience"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — Impressions & click-through rate FAQs",
+        "https://support.google.com/youtube/answer/7628154"
+      ],
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ]
+    ],
+    "faq": [
+      [
+        "What is a good engagement rate on YouTube?",
+        "Using the likes-plus-comments over views formula, 2% to 5% is typical for an established channel and anything above 8% is strong. Smaller channels usually post higher percentages because their audience is disproportionately loyal."
+      ],
+      [
+        "Do comments count more than likes?",
+        "For your media kit they weigh the same, but for the recommendation system a comment is a much stronger signal of investment. A video with an unusually high comment-to-view ratio is a format worth repeating."
+      ],
+      [
+        "Should I include Shorts in my engagement rate?",
+        "Report them separately. Shorts generate huge view counts with proportionally fewer likes and comments, so blending them into one figure understates your long-form engagement and confuses sponsors."
+      ]
+    ]
+  },
+  {
+    "slug": "find-target-audience-youtube",
+    "title": "How to Find Your Target Audience on YouTube (Without Guessing)",
+    "seo_title": "How to Find Your Target Audience on YouTube — Data-Led Method",
+    "description": "“Everyone interested in tech” is not an audience. This is the data-led process for narrowing a target audience using your own analytics, the other-videos-your-audience-watched report and a simple viewer profile.",
+    "category": "Growth",
+    "date": "2026-07-16",
+    "keywords": [
+      "Target audience",
+      "Video analytics",
+      "how to find your target audience on YouTube",
+      "Digital marketing",
+      "video engagement rate",
+      "organic traffic growth"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ],
+      [
+        "YouTube for Creators — How to start and manage your channel",
+        "https://www.youtube.com/creators/get-started/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "What if my analytics audience is not the audience I want?",
+        "That gap is useful information. It usually means your packaging is attracting a broader or more casual viewer than your content is written for. Narrow the titles and thumbnails first — they set expectations before anyone presses play."
+      ],
+      [
+        "How specific should a target audience be?",
+        "Specific enough that you can name a real person who fits it and predict what they would search this week. “Self-taught developers in their first six months of job hunting” is workable; “programmers” is not."
+      ],
+      [
+        "Does a narrow audience limit growth?",
+        "In the early years it accelerates it. A narrow audience produces higher retention and stronger engagement signals, which is exactly what pushes a video into broader recommendation surfaces later."
+      ]
+    ]
+  },
+  {
+    "slug": "adsense-revenue-per-1000-views",
+    "title": "AdSense Revenue Explained: What YouTube Actually Pays per 1,000 Views",
+    "seo_title": "AdSense Revenue: What YouTube Really Pays per 1,000 Views",
+    "description": "Where the money comes from, how the 55% split works, why your RPM is far below the CPM you see in Studio, and how to build an earnings estimate you can plan a business around.",
+    "category": "Monetization",
+    "date": "2026-07-11",
+    "keywords": [
+      "AdSense revenue",
+      "High RPM",
+      "how much does YouTube pay per 1000 views",
+      "Monetization",
+      "passive income streams",
+      "online business"
+    ],
+    "sources": [
+      [
+        "YouTube Help — YouTube partner earnings overview",
+        "https://support.google.com/youtube/answer/72902"
+      ],
+      [
+        "Google AdSense Help — Revenue per thousand impressions (RPM)",
+        "https://support.google.com/adsense/answer/190515"
+      ],
+      [
+        "Google AdSense Help — Page RPM",
+        "https://support.google.com/adsense/answer/112030"
+      ],
+      [
+        "YouTube Help — How to earn money on YouTube",
+        "https://support.google.com/youtube/answer/72857"
+      ],
+      [
+        "YouTube Help — YouTube Shorts monetization policies",
+        "https://support.google.com/youtube/answer/12504220"
+      ]
+    ],
+    "faq": [
+      [
+        "How much does YouTube pay for 1,000 views?",
+        "There is no fixed rate. Payment depends on how many of those views showed ads, what advertisers bid in your viewers' countries, and your niche. Across the platform, long-form RPMs commonly land somewhere between roughly $1 and $10, with finance and B2B niches running higher and entertainment lower."
+      ],
+      [
+        "Why is my CPM high but my earnings low?",
+        "CPM counts only monetized playbacks and sits before YouTube's share. If only a third of your views carried an ad, your RPM will be a fraction of your CPM even though nothing is wrong."
+      ],
+      [
+        "When does AdSense pay out?",
+        "Earnings are finalised in the first half of the following month and paid once your balance passes the payment threshold, provided your payment details and tax information are verified."
+      ]
+    ]
+  },
+  {
+    "slug": "passive-income-streams-youtube-creators",
+    "title": "7 Passive Income Streams That Work for YouTube Creators",
+    "seo_title": "7 Passive Income Streams for YouTube Creators (Ranked by Effort)",
+    "description": "Ad revenue is the least reliable money a channel makes. Here are seven income streams ranked by how much upkeep they need, with realistic conversion rates and the traffic level each one needs to be worth building.",
+    "category": "Monetization",
+    "date": "2026-07-07",
+    "keywords": [
+      "Passive income streams",
+      "Affiliate marketing strategies",
+      "Monetization",
+      "passive income for YouTubers",
+      "online business",
+      "AdSense revenue"
+    ],
+    "sources": [
+      [
+        "YouTube Help — How to earn money on YouTube",
+        "https://support.google.com/youtube/answer/72857"
+      ],
+      [
+        "YouTube Help — YouTube Partner Program overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "Google AdSense Help — AdSense Program policies",
+        "https://support.google.com/adsense/answer/48182"
+      ],
+      [
+        "US Federal Trade Commission — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ]
+    ],
+    "faq": [
+      [
+        "Is YouTube income really passive?",
+        "Ad revenue from an evergreen back catalogue is the closest thing to passive, and even that decays without new uploads. Treat every stream on this list as semi-passive: heavy work up front, light maintenance afterwards."
+      ],
+      [
+        "How many views do I need before a digital product is worth making?",
+        "As a rough guide, 10,000 monthly views on topic-relevant videos. Below that, the conversion volume rarely justifies weeks of production time — affiliate links are the better first step."
+      ],
+      [
+        "Do I have to disclose affiliate links?",
+        "Yes. The FTC requires clear and conspicuous disclosure of material connections, and YouTube requires you to declare paid promotions. Put it in the video, not only the description."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-affiliate-marketing-strategies",
+    "title": "Affiliate Marketing Strategies for YouTube Creators That Don't Annoy Your Audience",
+    "seo_title": "YouTube Affiliate Marketing Strategies That Don't Annoy Viewers",
+    "description": "The gap between a channel earning $40 a month in affiliate commission and one earning $4,000 is almost never traffic. It is intent matching, placement and trust. Here is how the high earners structure it.",
+    "category": "Marketing",
+    "date": "2026-07-02",
+    "keywords": [
+      "Affiliate marketing strategies",
+      "Passive income streams",
+      "Digital marketing",
+      "YouTube affiliate marketing",
+      "Monetization",
+      "target audience"
+    ],
+    "sources": [
+      [
+        "US Federal Trade Commission — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "YouTube Help — Paid product placements, sponsorships & endorsements",
+        "https://support.google.com/youtube/answer/154235"
+      ],
+      [
+        "YouTube Help — How to earn money on YouTube",
+        "https://support.google.com/youtube/answer/72857"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Which videos convert best for affiliate marketing?",
+        "High-intent formats: “best X for Y” comparisons, single-product reviews after real use, and tutorials where the product is the tool being used. Entertainment videos convert poorly no matter how large the audience."
+      ],
+      [
+        "How many affiliate links should a description contain?",
+        "Link only what you mentioned, in the order you mentioned it, above the fold. A wall of twenty links reads as spam and depresses click-through on all of them."
+      ],
+      [
+        "Can affiliate links get a video demonetized?",
+        "Not by themselves. Problems arise when you fail to disclose the relationship, link to prohibited products, or use misleading claims — all of which are covered by YouTube's advertiser-friendly guidelines and FTC rules."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-sponsored-content-brand-deals",
+    "title": "Sponsored Content: How Small Channels Land (and Price) Brand Deals",
+    "seo_title": "Sponsored Content: How Small YouTube Channels Land Brand Deals",
+    "description": "You do not need 100,000 subscribers to be sponsored. You need a defined audience, honest numbers and a media kit. Here is the outreach process, the pricing maths and the contract terms worth arguing about.",
+    "category": "Marketing",
+    "date": "2026-06-26",
+    "keywords": [
+      "Sponsored content",
+      "video engagement rate",
+      "brand deals for small YouTubers",
+      "Digital marketing",
+      "Monetization",
+      "online business"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Paid product placements, sponsorships & endorsements",
+        "https://support.google.com/youtube/answer/154235"
+      ],
+      [
+        "US Federal Trade Commission — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — Advertiser-friendly content guidelines",
+        "https://support.google.com/youtube/answer/6162278"
+      ]
+    ],
+    "faq": [
+      [
+        "What should I charge for a sponsored YouTube video?",
+        "A common starting point is $20 to $50 per thousand expected views for a 60-second integration, adjusted up for a high-value niche and down for a broad entertainment audience. Price on expected views in the first 30 days, not on subscriber count."
+      ],
+      [
+        "Do I have to declare a paid promotion to YouTube?",
+        "Yes. Tick the paid promotion box in Studio and state the sponsorship verbally in the video. Both YouTube's policy and FTC guidance require clear disclosure that viewers cannot miss."
+      ],
+      [
+        "Should I accept revenue-share-only deals?",
+        "Only when you already know the product converts for your audience. Otherwise you are financing the brand's marketing test with your production time."
+      ]
+    ]
+  },
+  {
+    "slug": "content-creation-tools-youtube-creators",
+    "title": "The Content Creation Tools Stack for a One-Person YouTube Channel",
+    "seo_title": "Content Creation Tools: The Stack for a Solo YouTube Channel",
+    "description": "A practical tool stack for solo creators, organised by the stage it serves — research, scripting, recording, editing, packaging and analysis — with notes on what is genuinely worth paying for.",
+    "category": "Tools",
+    "date": "2026-06-20",
+    "keywords": [
+      "Content creation tools",
+      "keyword research tool",
+      "Video analytics",
+      "content creation tools for YouTube",
+      "Search Engine Optimization (SEO)",
+      "organic traffic growth"
+    ],
+    "sources": [
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — Use the YouTube Audio Library",
+        "https://support.google.com/youtube/answer/3376882"
+      ],
+      [
+        "Google Search Central — Google Search's guidance about AI-generated content",
+        "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+      ]
+    ],
+    "faq": [
+      [
+        "What is the minimum gear needed to start a YouTube channel?",
+        "A phone with a recent camera, a $60 lapel or USB microphone, a window for light, and free editing software. Audio is the only place where cheap equipment is genuinely noticeable to viewers."
+      ],
+      [
+        "Is AI-generated content against YouTube or Google rules?",
+        "Neither bans AI assistance outright. Google's guidance judges content on quality and usefulness rather than production method, while YouTube requires disclosure of realistic synthetic media. Fully automated, low-value content is what gets penalised."
+      ],
+      [
+        "Which subscription is worth paying for first?",
+        "An editor with proper proxy support and a keyword or analytics tool, in that order. Everything upstream of editing can run on free tools for a surprisingly long time."
+      ]
+    ]
+  },
+  {
+    "slug": "organic-traffic-growth-strategy",
+    "title": "Organic Traffic Growth: Pairing a YouTube Channel With a Website",
+    "seo_title": "Organic Traffic Growth: Pair Your YouTube Channel With a Site",
+    "description": "A channel and a website feed each other: video answers the query, the article captures the search demand video cannot. Here is how to run both without doubling your workload.",
+    "category": "SEO",
+    "date": "2026-06-15",
+    "keywords": [
+      "Organic traffic growth",
+      "Search Engine Optimization (SEO)",
+      "Digital marketing",
+      "organic traffic growth strategy",
+      "AdSense revenue",
+      "keyword research tool"
+    ],
+    "sources": [
+      [
+        "Google Search Central — Google Search Essentials",
+        "https://developers.google.com/search/docs/essentials"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ],
+      [
+        "Google Search Central — Video SEO best practices",
+        "https://developers.google.com/search/docs/appearance/video"
+      ],
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ]
+    ],
+    "faq": [
+      [
+        "Does embedding my video on my own site steal YouTube views?",
+        "No. Embedded playbacks count as views on YouTube and can still serve ads, so a well-trafficked embed adds watch time rather than cannibalising it."
+      ],
+      [
+        "Will Google see a transcript as duplicate content?",
+        "A raw transcript pasted alone adds little value and may be judged thin. A transcript restructured into a proper article with headings, context and extra detail is treated as ordinary content."
+      ],
+      [
+        "How long before a new site gets organic traffic?",
+        "Expect three to nine months of near-zero traffic on a fresh domain, then a compounding curve. Publish the pages that will still be relevant in two years first."
+      ]
+    ]
+  },
+  {
+    "slug": "digital-marketing-funnel-creators",
+    "title": "Digital Marketing for Creators: Building a Funnel Behind Your Videos",
+    "seo_title": "Digital Marketing for Creators: Build a Funnel Behind Your Videos",
+    "description": "Views are rented; an email list is owned. This is the four-stage funnel model adapted for creators, with the specific call to action that belongs at each stage and the numbers to track.",
+    "category": "Marketing",
+    "date": "2026-06-09",
+    "keywords": [
+      "Digital marketing",
+      "Target audience",
+      "Affiliate marketing strategies",
+      "marketing funnel for creators",
+      "online business",
+      "Monetization"
+    ],
+    "sources": [
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "US Federal Trade Commission — CAN-SPAM Act compliance guide for business",
+        "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ]
+    ],
+    "faq": [
+      [
+        "How many calls to action should one video have?",
+        "One primary CTA, placed where the viewer has just received value. A second, softer mention in the description is fine. Stacking three competing asks reliably lowers all three conversion rates."
+      ],
+      [
+        "What is a realistic email opt-in rate from YouTube traffic?",
+        "Between 0.5% and 3% of views for a relevant free resource. Anything above 3% usually means the offer is unusually well matched to the video topic."
+      ],
+      [
+        "Do I need paid ads to build a creator funnel?",
+        "No. Organic video is the top of the funnel. Paid ads are worth testing only once you know the lifetime value of an email subscriber."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-channel-online-business",
+    "title": "Turning a YouTube Channel Into a Real Online Business",
+    "seo_title": "How to Turn a YouTube Channel Into a Real Online Business",
+    "description": "The difference between a channel and a business is revenue concentration, documented processes and assets you own. Here is the transition, in the order most sustainable creators actually make it.",
+    "category": "Strategy",
+    "date": "2026-06-03",
+    "keywords": [
+      "Online business",
+      "Passive income streams",
+      "Monetization",
+      "YouTube channel as a business",
+      "Digital marketing",
+      "Sponsored content"
+    ],
+    "sources": [
+      [
+        "YouTube Help — How to earn money on YouTube",
+        "https://support.google.com/youtube/answer/72857"
+      ],
+      [
+        "YouTube Help — YouTube channel monetization policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "US Small Business Administration — Choose a business structure",
+        "https://www.sba.gov/business-guide/launch-your-business/choose-business-structure"
+      ],
+      [
+        "US Internal Revenue Service — Self-employed individuals tax center",
+        "https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center"
+      ]
+    ],
+    "faq": [
+      [
+        "When should a creator register a business entity?",
+        "Most creators look at it once income becomes consistent enough to plan around, or once contracts and liability enter the picture. The right structure depends on your country and tax situation, so take local professional advice rather than following a video."
+      ],
+      [
+        "What percentage of revenue should come from ads?",
+        "Under half is a reasonable target. Channels that survive an algorithm shift usually have ads, direct audience revenue and business revenue in roughly equal thirds."
+      ],
+      [
+        "How do I make a channel less dependent on me being on camera?",
+        "Document the repeatable parts first — research, scripting structure, thumbnail templates, publishing checklist. Those systems are what let you delegate editing and production without the output feeling different."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-seo-checklist-small-channels",
+    "title": "The YouTube SEO Checklist for Channels Under 1,000 Subscribers",
+    "seo_title": "YouTube SEO Checklist for Small Channels (Under 1,000 Subs)",
+    "description": "Small-channel SEO is a different game: you cannot win on authority, so you win on specificity. This checklist covers the pre-production, upload and post-publish steps that actually move a new channel.",
+    "category": "SEO",
+    "date": "2026-05-28",
+    "keywords": [
+      "Search Engine Optimization (SEO)",
+      "rank higher on YouTube",
+      "YouTube SEO checklist",
+      "keyword research tool",
+      "Click-Through Rate (CTR)",
+      "organic traffic growth"
+    ],
+    "sources": [
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube Help — Impressions & click-through rate FAQs",
+        "https://support.google.com/youtube/answer/7628154"
+      ],
+      [
+        "YouTube Help — Add subtitles & captions",
+        "https://support.google.com/youtube/answer/2734796"
+      ],
+      [
+        "YouTube for Creators — How to start and manage your channel",
+        "https://www.youtube.com/creators/get-started/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "How many videos before a new channel gets traction?",
+        "There is no magic number, but most channels that break through have published enough to find one format that works — often somewhere between 20 and 50 videos. The value is in the iteration, not the count."
+      ],
+      [
+        "Should a small channel post Shorts or long-form?",
+        "Both, with different jobs. Shorts are the cheapest way to get discovered; long-form is where watch time, ad revenue and genuine loyalty are built. Shorts that never lead anywhere are a treadmill."
+      ],
+      [
+        "Is it worth optimising old videos on a small channel?",
+        "Yes, and it is the highest-return hour you can spend. Rewriting titles and thumbnails on your five most-impressed videos usually beats publishing one more upload."
+      ]
+    ]
+  },
+  {
+    "slug": "youtube-cpm-rates-by-country",
+    "title": "YouTube CPM Rates by Country: Why the Same Video Earns Different Money",
+    "seo_title": "YouTube CPM Rates by Country: US, UK, CA & AU (2026)",
+    "description": "Advertiser demand varies enormously by market. Here is what actually sets your CPM and RPM, why the US, Canada, UK and Australia sit at the top, and what you can realistically change.",
+    "category": "Monetization",
+    "date": "2026-05-20",
+    "keywords": [
+      "YouTube CPM by country",
+      "YouTube RPM",
+      "advertising rates",
+      "CPM vs RPM",
+      "YouTube ad revenue",
+      "highest CPM countries"
+    ],
+    "sources": [
+      [
+        "YouTube Help — RPM and CPM explained",
+        "https://support.google.com/youtube/answer/9314357"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "What is a good CPM on YouTube?",
+        "There is no universal figure. CPM depends on your niche, your audience's location and the time of year, and it varies by several times between those factors. Compare your own RPM month over month rather than against another channel's published number."
+      ],
+      [
+        "Why did my revenue drop in January?",
+        "Advertising budgets reset at the start of the calendar year, so rates typically fall sharply from the December peak. If your views held steady and revenue fell, seasonality is almost always the explanation rather than an algorithm change."
+      ],
+      [
+        "Can I choose which countries see my videos?",
+        "Not directly, and you should not try to manipulate this. You can influence your audience mix legitimately by covering market-specific topics, publishing in a particular language, and scheduling for when your target market is awake."
+      ]
+    ],
+    "meta_description": "YouTube CPM rates vary hugely by country. What sets your CPM and RPM, why the US, UK, Canada and Australia pay most, and what you can actually change."
+  },
+  {
+    "slug": "youtube-taxes-for-creators",
+    "title": "YouTube Taxes for Creators: A Plain-English Guide for the US, UK, Canada, Australia and the EU",
+    "seo_title": "YouTube Taxes for Creators: US, UK, CA, AU & EU Guide",
+    "description": "Ad revenue arrives untaxed and the bill comes later. How creator income is treated across the main markets, the AdSense withholding form that costs money if you skip it, and what you can deduct.",
+    "category": "Monetization",
+    "date": "2025-02-10",
+    "keywords": [
+      "YouTube taxes",
+      "creator self-employment tax",
+      "AdSense tax information",
+      "content creator deductions",
+      "US withholding for creators",
+      "1099 YouTube income"
+    ],
+    "sources": [
+      [
+        "YouTube Help — US tax requirements for creators outside the US",
+        "https://support.google.com/youtube/answer/10391362"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "Google AdSense Help — Payments and tax information",
+        "https://support.google.com/adsense/answer/190515"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Do I need to pay tax on small YouTube earnings?",
+        "In most countries the obligation begins at the first unit of income, not at a threshold that feels significant. Reporting requirements and allowances differ, so check your own country's rules or ask an accountant rather than assuming a minimum exists."
+      ],
+      [
+        "What happens if I do not submit tax information in AdSense?",
+        "Google may apply withholding at a higher default rate, and in some cases against your total earnings rather than only the portion generated from US viewers. Submitting the form and claiming any applicable treaty rate takes about ten minutes."
+      ],
+      [
+        "Can I deduct a camera I also use personally?",
+        "Generally only the business-use proportion. Claiming the full cost of equipment used for both personal and business purposes is one of the most common errors and one of the easiest for a tax authority to question."
+      ]
+    ],
+    "meta_description": "A plain-English guide to YouTube taxes for creators in the US, UK, Canada, Australia and the EU, plus the AdSense form that costs you money if you skip it."
+  },
+  {
+    "slug": "llc-for-youtube-channel",
+    "title": "Should You Form an LLC for Your YouTube Channel?",
+    "seo_title": "LLC for a YouTube Channel: When It Is Worth It (2026)",
+    "description": "What a limited company actually protects, when creators typically incorporate, what it costs in ongoing admin, and the habits that quietly destroy the liability protection you paid for.",
+    "category": "Monetization",
+    "date": "2026-02-25",
+    "keywords": [
+      "LLC for YouTube channel",
+      "creator business structure",
+      "limited company for creators",
+      "sole trader vs limited company",
+      "content creator liability"
+    ],
+    "sources": [
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "FTC — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ],
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ]
+    ],
+    "faq": [
+      [
+        "At what income should a creator incorporate?",
+        "There is no universal number. The more useful triggers are signing contracts with indemnity clauses, hiring people, covering legally risky subjects, or having a co-owner. An accountant can tell you where the tax maths turns positive in your country."
+      ],
+      [
+        "Does an LLC protect me from a copyright claim?",
+        "Not personally, in many cases. You remain liable for your own acts, and using unlicensed material is your act. A company helps with business debts and contractual claims; media liability insurance is the product that responds to publishing claims."
+      ],
+      [
+        "Can I form a company in another country for lower tax?",
+        "Structures marketed to creators for offshore tax advantages are usually inappropriate and sometimes illegal where you actually live and work. Form the entity in your own jurisdiction and take professional advice."
+      ]
+    ],
+    "meta_description": "Should you form an LLC for your YouTube channel? What it protects, when creators typically incorporate, the ongoing costs, and how people void their own cover."
+  },
+  {
+    "slug": "sell-youtube-channel-valuation",
+    "title": "What Is Your YouTube Channel Worth? How Buyers Actually Value Channels",
+    "seo_title": "YouTube Channel Valuation: What Buyers Pay & Why",
+    "description": "Buyers value profit that survives without you, not subscribers. What sets the multiple, what destroys value in diligence, and how to prepare a channel for sale over twelve months.",
+    "category": "Monetization",
+    "date": "2025-12-16",
+    "keywords": [
+      "sell YouTube channel",
+      "YouTube channel valuation",
+      "buy a YouTube channel",
+      "channel multiple",
+      "online business acquisition"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Move a channel to a Brand Account",
+        "https://support.google.com/youtube/answer/3056283"
+      ],
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "How much is a channel with 100,000 subscribers worth?",
+        "Subscriber count is not the basis of valuation. Buyers work from trailing monthly net profit multiplied by a multiple reflecting how predictable that profit is without you. Two channels of identical size can differ enormously in value."
+      ],
+      [
+        "Does a faceless channel sell for more?",
+        "Usually, yes. Removing dependence on a single presenter makes the profit transferable, which is precisely what a buyer is pricing. Documented processes and diversified revenue have a similar effect."
+      ],
+      [
+        "What stops a channel selling?",
+        "Copyright or community-guideline strikes, unlicensed music, undisclosed sponsorships, bought engagement, and a declining twelve-month trend. Each of these surfaces during diligence, and several make a channel unsellable outright."
+      ]
+    ],
+    "meta_description": "How buyers value a YouTube channel: trailing profit times a multiple set by risk. What raises the price, what kills a deal, and how to prepare for a sale."
+  },
+  {
+    "slug": "youtube-shorts-monetization-guide",
+    "title": "How YouTube Shorts Monetization Actually Works",
+    "seo_title": "YouTube Shorts Monetization: How the Revenue Pool Works",
+    "description": "Shorts pay from a pooled revenue model with music licensing deducted first, which is why per-view earnings look so small. How the mechanism works and the three strategies that make Shorts pay.",
+    "category": "Monetization",
+    "date": "2026-01-05",
+    "keywords": [
+      "YouTube Shorts monetization",
+      "Shorts RPM",
+      "Shorts revenue sharing",
+      "monetize Shorts",
+      "YouTube Partner Programme Shorts"
+    ],
+    "sources": [
+      [
+        "YouTube Help — How Shorts monetisation works",
+        "https://support.google.com/youtube/answer/12504220"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — RPM and CPM explained",
+        "https://support.google.com/youtube/answer/9314357"
+      ]
+    ],
+    "faq": [
+      [
+        "Why do Shorts earn so much less per view than long-form?",
+        "Four reasons compound: far lower ad load, music licensing deducted from the pool before creators are paid, an enormous total view denominator to divide across, and lower advertiser demand for short skippable placements."
+      ],
+      [
+        "Can Shorts alone get me monetised?",
+        "Yes. There is a Shorts-views route into the Partner Programme alongside the long-standing watch-hours route, plus a lower tier unlocking fan funding first. Thresholds vary by country, so check current figures in YouTube Studio."
+      ],
+      [
+        "Does using trending music reduce my earnings?",
+        "Generally yes. Licensing costs are met from the revenue pool, and Shorts using more licensed music typically receive a smaller allocation. Original or royalty-free audio avoids that deduction, though licensed tracks may still help reach."
+      ]
+    ],
+    "meta_description": "How YouTube Shorts monetization really works: a pooled revenue model with music licensing deducted first, and the three strategies that make Shorts pay."
+  },
+  {
+    "slug": "youtube-premium-revenue-explained",
+    "title": "YouTube Premium Revenue: The Income Line Most Creators Ignore",
+    "seo_title": "YouTube Premium Revenue Explained for Creators",
+    "description": "Premium pays from a subscription pool divided by watch time, not by ad impressions. Which channels benefit most, where to find it in analytics, and why an ad-free viewer is not lost revenue.",
+    "category": "Monetization",
+    "date": "2025-12-01",
+    "keywords": [
+      "YouTube Premium revenue",
+      "Premium revenue share",
+      "creator subscription income",
+      "watch time revenue",
+      "ad blocker YouTube"
+    ],
+    "sources": [
+      [
+        "YouTube Help — YouTube Premium revenue for creators",
+        "https://support.google.com/youtube/answer/7060016"
+      ],
+      [
+        "YouTube Help — RPM and CPM explained",
+        "https://support.google.com/youtube/answer/9314357"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ]
+    ],
+    "faq": [
+      [
+        "Do I earn anything from YouTube Premium subscribers?",
+        "Yes. A portion of subscription fees is distributed to creators in proportion to Premium members' watch time on their content. No advertisement runs, but the watch time is paid for through a different mechanism."
+      ],
+      [
+        "Which channels earn most from Premium?",
+        "Long-form content with strong retention — education, documentary, podcasts, background-friendly formats — because allocation is based on minutes watched. Shorts-led channels see very little, since watch time per view is low."
+      ],
+      [
+        "Are ad blockers costing me money?",
+        "A Premium subscriber sees no ads and still earns you money through the subscription pool. The genuine loss is a viewer blocking ads without subscribing. Diversified revenue is a more productive response than asking viewers to disable blockers."
+      ]
+    ],
+    "meta_description": "YouTube Premium pays creators from subscription fees by watch time, not ad impressions. Which channels benefit, and why ad-free viewers are not lost revenue."
+  },
+  {
+    "slug": "youtube-live-stream-monetization",
+    "title": "Live Stream Monetization on YouTube: Every Revenue Source, Ranked",
+    "seo_title": "YouTube Live Stream Monetization: A Complete Guide",
+    "description": "Four of the five live revenue sources are paid by your audience rather than advertisers. How Super Chat behaviour actually works, how to structure a stream that earns, and why the replay is half the value.",
+    "category": "Monetization",
+    "date": "2025-09-08",
+    "keywords": [
+      "YouTube live monetization",
+      "Super Chat",
+      "Super Stickers",
+      "live stream revenue",
+      "channel memberships live"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Super Chat & Super Stickers",
+        "https://support.google.com/youtube/answer/7277005"
+      ],
+      [
+        "YouTube Help — Channel memberships overview",
+        "https://support.google.com/youtube/answer/7636690"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ]
+    ],
+    "faq": [
+      [
+        "How much do live streamers make from Super Chat?",
+        "It varies enormously and depends far more on chat velocity and audience relationship than on viewer count. Streams where paid messages are visibly read and answered sustain the behaviour; streams that ignore them do not."
+      ],
+      [
+        "Do ads run during live streams?",
+        "Yes — pre-roll when viewers join, and mid-roll that can be triggered manually or automatically. Manual placement at natural breaks is worth using rather than letting ads interrupt an answer."
+      ],
+      [
+        "Should I make my stream replay public?",
+        "Almost always. Retitle it to describe the actual topic, add chapters, and cut the best segments into standalone videos and Shorts. An unnamed two-hour recording earns nothing after the stream ends."
+      ]
+    ],
+    "meta_description": "YouTube live monetization: Super Chat, Super Stickers, memberships, live ads and shopping compared, plus how to structure a stream that actually earns."
+  },
+  {
+    "slug": "channel-memberships-vs-patreon",
+    "title": "Channel Memberships vs Patreon: Which Recurring Revenue Model Fits Your Channel",
+    "seo_title": "YouTube Memberships vs Patreon: Which Should You Use?",
+    "description": "One-tap signup and higher conversion, or owning the customer relationship and their email address. A practical comparison, plus how to design tiers people actually buy and keep.",
+    "category": "Monetization",
+    "date": "2025-06-27",
+    "keywords": [
+      "YouTube channel memberships",
+      "Patreon for creators",
+      "recurring creator revenue",
+      "membership tiers",
+      "creator subscription income"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Channel memberships overview",
+        "https://support.google.com/youtube/answer/7636690"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ]
+    ],
+    "faq": [
+      [
+        "Which converts better, YouTube memberships or an external platform?",
+        "YouTube memberships convert substantially better because signup is one tap inside the player with payment details already stored. External platforms convert lower but give you the email address and a relationship that survives anything happening to your channel."
+      ],
+      [
+        "Can I run both at once?",
+        "Yes, provided each has a distinct purpose. Identical offers in both places split your audience for no gain. A common structure is low-friction YouTube tiers for badges and early access, with the external platform carrying deeper perks."
+      ],
+      [
+        "What is a good membership churn rate?",
+        "Compare it to your own trend rather than a benchmark. What matters is whether members accumulate over time. Delivering perks on schedule and keeping promises modest enough to sustain are the two biggest levers on retention."
+      ]
+    ],
+    "meta_description": "YouTube channel memberships vs Patreon: one-tap conversion against owning the customer. How to choose, design tiers people buy, and keep churn down."
+  },
+  {
+    "slug": "youtube-copyright-fair-use-guide",
+    "title": "YouTube Copyright and Fair Use: What Actually Gets Channels Removed",
+    "seo_title": "YouTube Copyright & Fair Use: Claims vs Strikes Explained",
+    "description": "Content ID claims and copyright strikes are completely different systems with completely different consequences. What fair use really requires, why fair dealing is narrower, and the myths that cost people channels.",
+    "category": "Strategy",
+    "date": "2025-04-21",
+    "keywords": [
+      "YouTube copyright strike",
+      "Content ID claim",
+      "fair use YouTube",
+      "fair dealing",
+      "copyright for creators",
+      "music licensing YouTube"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Copyright strike basics",
+        "https://support.google.com/youtube/answer/2797466"
+      ],
+      [
+        "YouTube Help — Fair use on YouTube",
+        "https://support.google.com/youtube/answer/6396261"
+      ],
+      [
+        "YouTube Help — How Content ID works",
+        "https://support.google.com/youtube/answer/2797370"
+      ],
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ]
+    ],
+    "faq": [
+      [
+        "Is there a number of seconds I can safely use?",
+        "No. The idea of a safe duration has no legal basis in any jurisdiction. Fair use weighs four factors together, and a short excerpt taking the most recognisable part of a work can weigh more heavily than a longer excerpt of something incidental."
+      ],
+      [
+        "Does crediting the creator make it legal?",
+        "No. Attribution and permission are separate things, and giving credit does not grant a licence. You need the right to use the material regardless of whether you name its owner."
+      ],
+      [
+        "What is the difference between a claim and a strike?",
+        "A Content ID claim is automated, carries no penalty against your channel, and usually redirects revenue to the rights holder. A copyright strike is a formal legal removal request with serious consequences, and three active strikes results in channel termination."
+      ]
+    ],
+    "meta_description": "YouTube copyright explained: Content ID claims and strikes are different systems. What fair use really requires, and the myths that get channels removed."
+  },
+  {
+    "slug": "creator-business-insurance-guide",
+    "title": "Insurance for Content Creators: What You Actually Need and When",
+    "seo_title": "Content Creator Insurance: Cover You Actually Need",
+    "description": "Your home policy almost certainly excludes business use, which is discovered at the worst possible moment. The policies that apply to creator work, when each becomes worth buying, and why claims get declined.",
+    "category": "Strategy",
+    "date": "2025-10-27",
+    "keywords": [
+      "content creator insurance",
+      "public liability creators",
+      "equipment insurance",
+      "media liability",
+      "professional indemnity creators"
+    ],
+    "sources": [
+      [
+        "FTC — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ]
+    ],
+    "faq": [
+      [
+        "Does my home contents policy cover my camera?",
+        "Usually not, once it is used to earn income. Business-use exclusions are standard in home and contents policies, and a claim for stolen equipment can be declined on that basis. Declare business use or arrange a separate policy."
+      ],
+      [
+        "What insurance do brands ask creators for?",
+        "Public liability is the most common requirement, sometimes with the brand named as an additional insured party. Larger campaigns may also ask for media liability. Arranging basic cover in advance avoids a deal stalling over paperwork."
+      ],
+      [
+        "What is media liability insurance?",
+        "Cover for claims arising from what you publish — defamation, copyright allegations, privacy claims. It is the policy most specific to creator work and the one fewest creators hold."
+      ]
+    ],
+    "meta_description": "Insurance for content creators: your home policy excludes business use. Which policies apply to creator work, when to buy each, and why claims get declined."
+  },
+  {
+    "slug": "brand-deal-contracts-creators",
+    "title": "Brand Deal Contracts: The Clauses That Actually Cost You Money",
+    "seo_title": "Brand Deal Contracts for Creators: What to Negotiate",
+    "description": "Usage rights are frequently worth more than the fee, and most creators give them away. A clause-by-clause guide to deliverables, exclusivity, approval loops, payment terms and the terms worth refusing.",
+    "category": "Marketing",
+    "date": "2025-09-19",
+    "keywords": [
+      "brand deal contract",
+      "creator sponsorship agreement",
+      "usage rights influencer",
+      "exclusivity clause",
+      "influencer contract negotiation",
+      "sponsored content disclosure"
+    ],
+    "sources": [
+      [
+        "FTC — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "YouTube Help — Paid product placements and endorsements",
+        "https://support.google.com/youtube/answer/154235"
+      ],
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "What are usage rights and why do they matter?",
+        "Usage rights determine what a brand may do with your content beyond your own channel. Organic resharing is routine; paid advertising, whitelisting and perpetual all-media use are separate, valuable rights that should be time-limited and priced rather than included by default."
+      ],
+      [
+        "Is exclusivity normal in creator contracts?",
+        "Yes, and it should be paid for. Negotiate a narrow named list of competitors rather than a whole category, tie the duration to the campaign, and price the income you are agreeing to turn down."
+      ],
+      [
+        "Do I have to disclose paid partnerships?",
+        "Yes. Disclosure is legally required in the US, UK, EU, Canada and Australia, and YouTube separately requires the paid promotion setting to be enabled. Both are needed, and a brand asking you to omit disclosure is asking you to break the law."
+      ]
+    ],
+    "meta_description": "Brand deal contracts for creators: usage rights often cost more than the fee. Deliverables, exclusivity, approvals, payment terms and clauses worth refusing."
+  },
+  {
+    "slug": "gdpr-privacy-for-creators",
+    "title": "GDPR and Privacy for Creators: What Actually Applies to You",
+    "seo_title": "GDPR for YouTube Creators: A Practical Compliance Guide",
+    "description": "If you run a website, newsletter or shop, privacy obligations are yours rather than the platform's. Where creators collect data, what cookie consent genuinely requires, and a realistic compliance checklist.",
+    "category": "Strategy",
+    "date": "2026-01-19",
+    "keywords": [
+      "GDPR for creators",
+      "cookie consent",
+      "creator privacy policy",
+      "email marketing consent",
+      "made for kids YouTube",
+      "data protection creators"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Determining if your content is made for kids",
+        "https://support.google.com/youtube/answer/9528076"
+      ],
+      [
+        "FTC — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "FTC — CAN-SPAM Act Compliance Guide for Business",
+        "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Does GDPR apply if I only upload videos to YouTube?",
+        "Largely not — most obligations sit with the platform. It becomes yours the moment you run your own website with analytics, collect email addresses, or sell anything directly."
+      ],
+      [
+        "Is my cookie banner compliant?",
+        "Only if non-essential cookies do not fire before consent, refusing is as easy as accepting, and nothing is pre-ticked. Banners saying 'by continuing you accept' with only an OK button do not meet the standard."
+      ],
+      [
+        "What happens if I mark content as made for kids?",
+        "Personalised advertising is disabled and features including comments are restricted, which typically reduces revenue. The designation should reflect the nature of the content honestly — marking it incorrectly to preserve revenue carries regulatory and platform consequences."
+      ]
+    ],
+    "meta_description": "GDPR for creators: what applies once you run a site, newsletter or shop. Where you collect data, what cookie consent requires, and a realistic checklist."
+  },
+  {
+    "slug": "best-video-editing-software",
+    "title": "Choosing Video Editing Software: Match the Tool to the Format, Not the Feature List",
+    "seo_title": "Best Video Editing Software for YouTube Creators (2026)",
+    "description": "Editing quality comes from decisions, not software. The four tiers of editor, which one suits your format, why hardware is usually the real bottleneck, and what actually makes editing faster.",
+    "category": "Tools",
+    "date": "2026-04-17",
+    "keywords": [
+      "best video editing software",
+      "YouTube editing software",
+      "video editor comparison",
+      "proxy editing",
+      "editing workflow"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Recommended upload encoding settings",
+        "https://support.google.com/youtube/answer/1722171"
+      ],
+      [
+        "YouTube Help — Recommended resolutions and aspect ratios",
+        "https://support.google.com/youtube/answer/6375112"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Do I need paid editing software for YouTube?",
+        "No. Free and one-off-purchase editors in the prosumer tier handle everything a typical channel needs. A professional subscription mainly buys collaboration features and ecosystem integration rather than better picture quality."
+      ],
+      [
+        "Why is my editing timeline so slow?",
+        "Usually hardware or codec rather than software. Editing from a slow external drive, insufficient memory, or highly compressed camera footage are the common causes. Try proxy editing before buying anything."
+      ],
+      [
+        "Is it worth switching editors?",
+        "Only when your current tool genuinely cannot do something your format requires, when you need compatible project files for collaboration, or when the subscription costs more than the value you get. Switching costs several weeks of productivity."
+      ]
+    ],
+    "meta_description": "Choosing video editing software for YouTube: the four tiers, which suits your format, why hardware is the usual bottleneck, and what really speeds up editing."
+  },
+  {
+    "slug": "email-marketing-for-creators",
+    "title": "Email Marketing for Creators: The Only Audience You Actually Own",
+    "seo_title": "Email Marketing for YouTube Creators: Build a List",
+    "description": "Subscribers are a revocable permission; an email list is an asset. How to convert viewers without wrecking retention, what to send, and the metrics that matter more than total subscriber count.",
+    "category": "Marketing",
+    "date": "2025-04-01",
+    "keywords": [
+      "email marketing for creators",
+      "creator newsletter",
+      "lead magnet",
+      "email list building",
+      "audience ownership",
+      "newsletter conversion"
+    ],
+    "sources": [
+      [
+        "FTC — CAN-SPAM Act Compliance Guide for Business",
+        "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business"
+      ],
+      [
+        "FTC — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "How do I get YouTube viewers onto an email list?",
+        "Offer something specific tied to that video — the checklist, template or data behind it — rather than a generic newsletter signup. Mention it briefly mid-video, make the real ask at the end, and pin a comment with the link."
+      ],
+      [
+        "How often should I email my list?",
+        "Pick a frequency you can sustain indefinitely. A reliable monthly email outperforms an erratic weekly one, because consistency is what keeps people opening. What matters is that each send is worth reading."
+      ],
+      [
+        "Should I remove inactive subscribers?",
+        "Yes. A large list of people who never open anything damages deliverability for everyone else and costs you money. Removing long-inactive subscribers usually improves open rates and inbox placement."
+      ]
+    ],
+    "meta_description": "Email marketing for creators: subscribers are borrowed, a list is owned. Converting viewers without hurting retention, what to send, and metrics that matter."
+  },
+  {
+    "slug": "ai-tools-for-youtube-creators",
+    "title": "AI Tools for YouTube Creators: What Works, What Fails, and What You Must Disclose",
+    "seo_title": "AI Tools for YouTube: What Works and What to Disclose",
+    "description": "AI is genuinely good at mechanical, verifiable tasks and genuinely bad at judgment. Where it saves real time, where it damages a channel, and what YouTube's synthetic content rules require.",
+    "category": "Tools",
+    "date": "2026-05-01",
+    "keywords": [
+      "AI tools for YouTube",
+      "AI video editing",
+      "synthetic content disclosure",
+      "AI captions",
+      "AI dubbing",
+      "reused content policy"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Disclosing altered or synthetic content",
+        "https://support.google.com/youtube/answer/14328491"
+      ],
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Do I have to disclose AI use on YouTube?",
+        "You must disclose meaningfully altered or synthetic content that could mislead viewers into thinking something real happened. Production assistance like captions, colour correction, noise removal and script help generally does not require disclosure."
+      ],
+      [
+        "Can AI-generated videos be monetised?",
+        "Only where you add significant original value. Channels built on generated scripts, synthetic voiceover and stock footage published at volume sit directly in the path of the reused-content policy and have been demonetised in bulk."
+      ],
+      [
+        "Is AI good enough to write my scripts?",
+        "It produces structurally competent, generic output. What makes a video worth watching is a specific point of view, which is exactly what a model averaging its training data cannot supply. Use it for structure and research leads, not voice."
+      ]
+    ],
+    "meta_description": "AI tools for YouTube creators: where they genuinely save time, where they damage a channel, and exactly what YouTube's synthetic content rules require."
+  },
+  {
+    "slug": "youtube-analytics-api-guide",
+    "title": "The YouTube Analytics API: When Studio Is Not Enough",
+    "seo_title": "YouTube Analytics API Guide: Build Your Own Reports",
+    "description": "Cross-video analysis, long history and joining video data to your own sales figures are all things Studio cannot do. Which API you need, how quota works, and how to get useful data without writing code.",
+    "category": "Analytics",
+    "date": "2026-02-06",
+    "keywords": [
+      "YouTube Analytics API",
+      "YouTube Data API",
+      "API quota",
+      "creator dashboard",
+      "YouTube reporting API",
+      "channel analytics automation"
+    ],
+    "sources": [
+      [
+        "Google for Developers — YouTube Analytics and Reporting APIs",
+        "https://developers.google.com/youtube/analytics"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — RPM and CPM explained",
+        "https://support.google.com/youtube/answer/9314357"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Do I need to be a developer to use the YouTube API?",
+        "No. Scheduled bulk CSV exports from the Reporting API, spreadsheet connectors and business intelligence tools all give you most of the value with no code. A scheduled export into a spreadsheet covers the majority of use cases."
+      ],
+      [
+        "Why does my script run out of quota?",
+        "Search operations are dramatically more expensive than reads. Enumerate a channel's videos through its uploads playlist rather than calling search in a loop, batch your requests, and cache anything that does not change."
+      ],
+      [
+        "Is API revenue data the same as what I get paid?",
+        "Recent revenue figures are estimates and change as they finalise. Never treat the last few days of revenue data as final, and be careful about reporting estimates to sponsors or buyers as confirmed earnings."
+      ]
+    ],
+    "meta_description": "YouTube Analytics API guide: when Studio is not enough, which API you need, how quota works, and how to build useful reports without writing any code."
+  },
+  {
+    "slug": "podcast-to-youtube-strategy",
+    "title": "Putting a Podcast on YouTube: What Actually Grows a Show",
+    "seo_title": "Podcast to YouTube Strategy: Grow an Audio Show on Video",
+    "description": "Podcast naming conventions actively hurt on YouTube. How to make a two-hour show discoverable, why clips are the real growth engine, and how podcast revenue differs from typical channel economics.",
+    "category": "Strategy",
+    "date": "2025-10-08",
+    "keywords": [
+      "podcast on YouTube",
+      "video podcast",
+      "podcast clips strategy",
+      "podcast SEO",
+      "podcast growth",
+      "YouTube chapters"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Add video chapters",
+        "https://support.google.com/youtube/answer/9884579"
+      ],
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — RPM and CPM explained",
+        "https://support.google.com/youtube/answer/9314357"
+      ]
+    ],
+    "faq": [
+      [
+        "Should I upload my podcast as video or just audio?",
+        "A single locked-off camera is the highest-return upgrade available. It meaningfully improves retention over a static image and makes clips possible, which is where most podcast growth on the platform comes from."
+      ],
+      [
+        "How should I title podcast episodes on YouTube?",
+        "Not by episode number. Nobody searches for episode 47. Lead with the subject or the most interesting claim in the conversation, and use the guest's name where it genuinely helps discovery."
+      ],
+      [
+        "Do I need a separate channel for podcast clips?",
+        "Not necessarily. A separate channel keeps analytics clean, while one channel concentrates subscribers in a single place. For most shows a single channel is simpler and works perfectly well."
+      ]
+    ],
+    "meta_description": "Putting a podcast on YouTube: why episode numbers hurt discovery, how to make long shows findable, and why clips drive nearly all the growth."
+  },
+  {
+    "slug": "best-microphones-for-youtube",
+    "title": "Microphones for YouTube: Why the Room Matters More Than the Mic",
+    "seo_title": "Best Microphone Setup for YouTube: A Practical Guide",
+    "description": "Viewers forgive a soft image and leave over bad audio. The four microphone types, USB versus XLR, polar patterns explained usefully, and why placement beats equipment at any budget.",
+    "category": "Tools",
+    "date": "2025-01-07",
+    "keywords": [
+      "best microphone for YouTube",
+      "USB vs XLR",
+      "dynamic vs condenser",
+      "polar pattern",
+      "recording audio for video",
+      "room treatment"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Recommended upload encoding settings",
+        "https://support.google.com/youtube/answer/1722171"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — Recommended resolutions and aspect ratios",
+        "https://support.google.com/youtube/answer/6375112"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Should I buy a dynamic or condenser microphone?",
+        "In an untreated room, a dynamic microphone almost always sounds better because it rejects reflections. Condensers are more detailed but capture everything including your room, so they suit treated spaces."
+      ],
+      [
+        "Is a USB microphone good enough for YouTube?",
+        "Yes, for a solo creator recording into a computer. XLR becomes worthwhile when you need multiple microphones, want to use the mic with a camera, or expect to build a setup over years."
+      ],
+      [
+        "How do I stop my audio sounding echoey?",
+        "Add soft furnishings, record away from the centre of the room, avoid sitting between parallel hard walls, and get closer to the microphone. Echo cannot be convincingly removed afterwards, so it must be prevented at the source."
+      ]
+    ],
+    "meta_description": "Microphones for YouTube: why the room matters more than the mic. Dynamic vs condenser, USB vs XLR, polar patterns, and placement that beats expensive gear."
+  },
+  {
+    "slug": "youtube-camera-buying-guide",
+    "title": "Buying a Camera for YouTube: What Actually Changes Your Video Quality",
+    "seo_title": "YouTube Camera Buying Guide: What Matters and What Does Not",
+    "description": "The camera matters fourth, after lighting, audio and framing. The five categories compared, the specifications worth paying for, and how to tell whether an upgrade will change anything viewers notice.",
+    "category": "Tools",
+    "date": "2025-05-09",
+    "keywords": [
+      "best camera for YouTube",
+      "mirrorless for video",
+      "camera buying guide",
+      "autofocus for video",
+      "4K vs 1080p",
+      "lens for YouTube"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Recommended resolutions and aspect ratios",
+        "https://support.google.com/youtube/answer/6375112"
+      ],
+      [
+        "YouTube Help — Recommended upload encoding settings",
+        "https://support.google.com/youtube/answer/1722171"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Do I need a 4K camera for YouTube?",
+        "Not really. Most viewing happens at 1080p or lower, and resolution beyond 4K multiplies storage and editing costs for something almost nobody sees. Autofocus quality and low-light performance matter far more."
+      ],
+      [
+        "Is my phone good enough to start?",
+        "Yes, in good light. Modern phones produce genuinely good images, and a well-lit phone video looks more professional than a poorly lit expensive camera. Fix lighting and audio before upgrading the camera."
+      ],
+      [
+        "Body or lens — where should the money go?",
+        "Given a fixed budget, a modest body with a good lens beats an expensive body with a kit lens. The lens determines the character of the image far more than the sensor does."
+      ]
+    ],
+    "meta_description": "A YouTube camera buying guide: the five categories, which specs are worth paying for, why autofocus matters most, and when an upgrade changes nothing."
+  },
+  {
+    "slug": "home-studio-lighting-setup",
+    "title": "Home Studio Lighting: The Highest-Return Upgrade in Any Creator Setup",
+    "seo_title": "Home Studio Lighting Setup for YouTube: A Practical Guide",
+    "description": "Lighting changes perceived quality more than any camera. Why softness comes from size, three setups worth copying, how to fix mixed colour temperature, and what to buy in what order.",
+    "category": "Tools",
+    "date": "2025-02-28",
+    "keywords": [
+      "home studio lighting",
+      "YouTube lighting setup",
+      "three point lighting",
+      "softbox",
+      "colour temperature video",
+      "key light"
+    ],
+    "sources": [
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — Recommended upload encoding settings",
+        "https://support.google.com/youtube/answer/1722171"
+      ],
+      [
+        "YouTube Help — Recommended resolutions and aspect ratios",
+        "https://support.google.com/youtube/answer/6375112"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "What is the cheapest way to light videos well?",
+        "A window and a piece of white card. Sit facing the window at roughly forty-five degrees and bounce light back into the shadow side. This costs nothing and beats most beginner light kits."
+      ],
+      [
+        "Why does my video look grainy?",
+        "Almost always insufficient light, which forces the camera to higher sensitivity. Add light before adjusting camera settings — noise reduction in editing degrades the image further."
+      ],
+      [
+        "Why does one side of my face look orange?",
+        "Mixed colour temperature — daylight from a window combined with a warm household bulb. Commit to one source type, either blocking the window or matching your lights to daylight, and set white balance manually."
+      ]
+    ],
+    "meta_description": "Home studio lighting for YouTube: why softness comes from size, three setups worth copying, fixing mixed colour temperature, and what to buy in what order."
+  },
+  {
+    "slug": "faceless-youtube-channel-guide",
+    "title": "Faceless YouTube Channels: What Replaces the Personal Connection",
+    "seo_title": "Faceless YouTube Channel Guide: Formats That Actually Work",
+    "description": "Not appearing on camera is a format choice with real trade-offs. The formats that work, why voice and writing carry everything, the originality requirement, and why most faceless channels fail.",
+    "category": "Growth",
+    "date": "2025-07-31",
+    "keywords": [
+      "faceless YouTube channel",
+      "cash cow channel",
+      "narrated video content",
+      "reused content policy",
+      "voiceover channel",
+      "channel without showing face"
+    ],
+    "sources": [
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube Help — Disclosing altered or synthetic content",
+        "https://support.google.com/youtube/answer/14328491"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Can faceless channels be monetised?",
+        "Yes, provided the content is original and adds value. What fails the requirement is assembling other people's footage or mass-producing generated content with minimal contribution — not the absence of a face."
+      ],
+      [
+        "What is the biggest weakness of faceless channels?",
+        "Neutral, encyclopaedic narration with no point of view. Without a face, your writing and voice carry the entire relationship with the audience, so a distinctive perspective matters more, not less."
+      ],
+      [
+        "Are faceless channels worth more when sold?",
+        "Generally yes. Removing dependence on a single presenter makes the profit transferable, which is exactly what buyers price. Documented production processes increase that advantage further."
+      ]
+    ],
+    "meta_description": "Faceless YouTube channels: the formats that work, why voice and writing carry everything, the originality rules, and why most faceless channels fail."
+  },
+  {
+    "slug": "youtube-automation-business",
+    "title": "YouTube Automation: An Honest Look at the Business Model",
+    "seo_title": "YouTube Automation Business: Does It Actually Work?",
+    "description": "Strip away the marketing and it is a small media production company, not passive income. The cost structure people skip, the policy risk underneath it, and what separates operations that work.",
+    "category": "Strategy",
+    "date": "2026-03-09",
+    "keywords": [
+      "YouTube automation",
+      "faceless channel business",
+      "passive income YouTube",
+      "outsourcing video production",
+      "content farm risk"
+    ],
+    "sources": [
+      [
+        "YouTube Help — YouTube channel monetisation policies",
+        "https://support.google.com/youtube/answer/1311392"
+      ],
+      [
+        "YouTube Help — YouTube Partner Programme overview & eligibility",
+        "https://support.google.com/youtube/answer/72851"
+      ],
+      [
+        "YouTube Help — Disclosing altered or synthetic content",
+        "https://support.google.com/youtube/answer/14328491"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Is YouTube automation passive income?",
+        "No. You are doing the work of a commissioning editor and producer — hiring, briefing, reviewing quality and deciding what to make. The tasks are delegated, which requires management rather than removing work."
+      ],
+      [
+        "Why do automation channels get demonetised?",
+        "The cheapest version of the model — generated scripts, synthetic narration, stock footage published at volume — sits directly in the territory the reused-content and spam policies target. Volume means the same mistake applies across the whole catalogue."
+      ],
+      [
+        "How much capital do you need to start?",
+        "Enough to fund a full slate of videos for many months with no revenue, treated as money at risk. Most videos on a new channel earn almost nothing, and you are funding the whole slate to find the few that work."
+      ]
+    ],
+    "meta_description": "An honest look at the YouTube automation business model: the cost structure people skip, the policy risk underneath it, and what the working ones do."
+  },
+  {
+    "slug": "thumbnail-design-psychology",
+    "title": "Thumbnail Psychology: Designing for a Tenth of a Second",
+    "seo_title": "YouTube Thumbnail Psychology: Design That Earns the Click",
+    "description": "A thumbnail is scanned, not evaluated. Why curiosity beats information, the design rules that survive being shrunk to postage-stamp size, and how to test rather than argue about taste.",
+    "category": "Growth",
+    "date": "2025-01-27",
+    "keywords": [
+      "YouTube thumbnail design",
+      "click-through rate",
+      "thumbnail testing",
+      "CTR optimization",
+      "thumbnail psychology",
+      "title and thumbnail"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Impressions & click-through rate FAQs",
+        "https://support.google.com/youtube/answer/7628154"
+      ],
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ]
+    ],
+    "faq": [
+      [
+        "What is a good click-through rate on YouTube?",
+        "There is no universal benchmark — it varies enormously by traffic source and topic. Judge against your own baseline. A falling rate on a video performing well is normal, because it is being shown to progressively broader audiences."
+      ],
+      [
+        "Should my thumbnail repeat my title?",
+        "No. That wastes half your packaging. The title should carry the specific claim and searchable words; the thumbnail should carry the emotional hook and visual surprise. Together they should raise a question the video answers."
+      ],
+      [
+        "Do faces always improve thumbnails?",
+        "No. Faces are detected preattentively and work well with genuine, specific expressions. Generic surprise is now so common it reads as noise, and on tutorial or data content a face can crowd out the information viewers are shopping for."
+      ]
+    ],
+    "meta_description": "YouTube thumbnail psychology: designing for a tenth of a second. Why curiosity beats information, rules that survive small sizes, and how to test properly."
+  },
+  {
+    "slug": "youtube-playlist-strategy",
+    "title": "Playlist Strategy: The Most Underused Feature on YouTube",
+    "seo_title": "YouTube Playlist Strategy: Rank and Extend Watch Sessions",
+    "description": "Playlists autoplay the next video, rank independently in search, and turn one view into several. How to structure and order them, plus the settings almost no creator touches.",
+    "category": "SEO",
+    "date": "2025-03-20",
+    "keywords": [
+      "YouTube playlist strategy",
+      "playlist SEO",
+      "session watch time",
+      "autoplay next video",
+      "channel organisation",
+      "start here playlist"
+    ],
+    "sources": [
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Do playlists actually help with ranking?",
+        "Playlists have their own URL, title and description and can be indexed independently, which makes them useful for broad competitive terms a single video struggles with. They also increase session length, which recommendation systems reward."
+      ],
+      [
+        "What order should videos be in?",
+        "Instructional series should follow a logical progression. For everything else, lead with your strongest video, because the first one determines whether anyone continues. Date added is almost always the worst available order."
+      ],
+      [
+        "Can I add other people's videos to my playlists?",
+        "Yes, and it is legitimate for genuine resource collections. It makes the playlist more valuable to viewers and costs you nothing."
+      ]
+    ],
+    "meta_description": "YouTube playlist strategy: playlists autoplay, rank independently in search and extend sessions. How to structure, order and optimise them properly."
+  },
+  {
+    "slug": "end-screens-and-cards-guide",
+    "title": "End Screens and Cards: The Twenty Seconds Most Creators Waste",
+    "seo_title": "YouTube End Screens & Cards: Keep Your Retention",
+    "description": "End screens occupy seconds that count in your retention graph. How to overlap them with content worth watching, what to put in the limited slots, and when cards actually help.",
+    "category": "Growth",
+    "date": "2025-05-23",
+    "keywords": [
+      "YouTube end screens",
+      "YouTube cards",
+      "retention graph",
+      "session time",
+      "next video suggestion",
+      "video outro"
+    ],
+    "sources": [
+      [
+        "YouTube Help — Add end screens",
+        "https://support.google.com/youtube/answer/6388789"
+      ],
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube Help — Impressions & click-through rate FAQs",
+        "https://support.google.com/youtube/answer/7628154"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ]
+    ],
+    "faq": [
+      [
+        "Do end screens hurt retention?",
+        "They can. The final seconds count in your retention graph, so an end screen over a silent logo loop produces a visible cliff. Keep talking over it and deliver a genuine final thought so the seconds are worth watching."
+      ],
+      [
+        "How many end screen elements should I use?",
+        "Two well-chosen options usually outperform four generic ones. More choices at the end of a video frequently resolve as no choice at all."
+      ],
+      [
+        "Where should cards go?",
+        "At moments where a viewer might genuinely be wondering about something you just referenced. Cards placed at regular intervals regardless of relevance are ignored, and one that pulls someone away mid-video costs you the remaining watch time."
+      ]
+    ],
+    "meta_description": "YouTube end screens and cards: the last twenty seconds count in your retention graph. How to use them without losing watch time, and what to put in each slot."
+  },
+  {
+    "slug": "community-tab-strategy",
+    "title": "The Community Tab: Reaching Your Audience Without Making a Video",
+    "seo_title": "YouTube Community Tab Strategy: Posts That Actually Work",
+    "description": "The only place you can reach subscribers without publishing. What the tab is genuinely good at, why polls are the most underrated tool on the platform, and how to support an upload properly.",
+    "category": "Growth",
+    "date": "2025-07-17",
+    "keywords": [
+      "YouTube community tab",
+      "community posts",
+      "YouTube polls",
+      "audience engagement",
+      "subscriber engagement",
+      "between uploads"
+    ],
+    "sources": [
+      [
+        "YouTube Help Centre — search \"community posts\"",
+        "https://support.google.com/youtube/"
+      ],
+      [
+        "YouTube — Navigating YouTube's Recommended Videos",
+        "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "How often should I post on the community tab?",
+        "Two or three times a week is a reasonable ceiling; once a week is entirely sufficient. Posts appear in subscriber feeds, so over-posting competes with your own videos and prompts unsubscribes."
+      ],
+      [
+        "Do community posts help videos perform better?",
+        "Indirectly. They keep you present between uploads, which supports the click when a video does arrive, and a warmed-up audience gives a new video a better start through early engagement."
+      ],
+      [
+        "What should I post other than video announcements?",
+        "Polls that shape upcoming videos, work in progress, a short useful tip, a question, or resurfacing an older video when something makes it relevant again. Announcement-only posting trains people that your posts contain nothing."
+      ]
+    ],
+    "meta_description": "YouTube community tab strategy: reach subscribers without publishing. What the tab is good at, why polls are underrated, and how to support an upload."
+  },
+  {
+    "slug": "multi-language-youtube-growth",
+    "title": "Multi-Language YouTube: Reaching Audiences You Currently Exclude",
+    "seo_title": "Multi-Language YouTube Growth: Audio Tracks and Dubbing",
+    "description": "Multi-language audio tracks consolidate engagement on one video instead of splitting it. Which content translates well, how to pick languages from your own data, and why metadata matters as much as audio.",
+    "category": "Growth",
+    "date": "2026-03-30",
+    "keywords": [
+      "multi-language audio tracks",
+      "YouTube dubbing",
+      "international audience growth",
+      "translated metadata",
+      "localisation for creators"
+    ],
+    "sources": [
+      [
+        "YouTube Help Centre — search \"multi-language audio\"",
+        "https://support.google.com/youtube/"
+      ],
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "Is multi-language audio better than separate channels?",
+        "Usually. Audio tracks consolidate all engagement on one video, while separate channels build each subscriber base from zero and split ranking signals. Separate channels make sense when content must genuinely differ by market."
+      ],
+      [
+        "Which content translates well?",
+        "Instructional, technical and visual craft content, where the need is universal and the language incidental. Comedy, wordplay and personality-driven commentary translate poorly because the appeal is bound to the delivery."
+      ],
+      [
+        "Do I need to translate the title too?",
+        "Yes. Viewers see the title before hearing anything, and an untranslated title in a feed is a reason to scroll past. Translate rather than transliterate — the phrase people search is often not the literal translation."
+      ]
+    ],
+    "meta_description": "Multi-language YouTube growth: audio tracks consolidate engagement instead of splitting it. Which content translates well and how to pick languages from data."
+  },
+  {
+    "slug": "online-course-for-creators",
+    "title": "Selling an Online Course: Validate Before You Build",
+    "seo_title": "Online Courses for Creators: Validate, Price and Launch",
+    "description": "A course is the highest-margin product most creators can sell and the one most often abandoned half-built. How to choose what to teach, validate it cheaply, structure for completion, and launch without a big audience.",
+    "category": "Marketing",
+    "date": "2025-11-10",
+    "keywords": [
+      "online course for creators",
+      "sell a course",
+      "course validation",
+      "course pricing",
+      "creator products",
+      "digital product launch"
+    ],
+    "sources": [
+      [
+        "FTC — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "FTC — CAN-SPAM Act Compliance Guide for Business",
+        "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "How big does my audience need to be to sell a course?",
+        "Smaller than most people assume, provided it is specific. A few hundred people who arrived through a resource about the exact problem your course solves convert far better than a general audience ten times the size."
+      ],
+      [
+        "How should I price a course?",
+        "Against the value of the outcome rather than the hours of video. Low prices attract the least committed buyers, who complete least and request the most refunds, and require far more sales for the same revenue."
+      ],
+      [
+        "How do I validate a course idea?",
+        "Teach it live to a small paying group first, or pre-sell with an honest delivery date and unconditional refunds. Real money is the only reliable validation, and live teaching shows you where people actually get stuck."
+      ]
+    ],
+    "meta_description": "Selling an online course as a creator: how to choose what to teach, validate it cheaply before building, structure for completion, price it and launch."
+  },
+  {
+    "slug": "creator-media-kit-guide",
+    "title": "The Creator Media Kit: What Brands Actually Read",
+    "seo_title": "Creator Media Kit Guide: What to Include and What to Cut",
+    "description": "A media kit helps a marketing manager justify spending money on you. What belongs in it, how to present numbers that are not enormous, whether to include prices, and how to keep it current.",
+    "category": "Marketing",
+    "date": "2025-06-11",
+    "keywords": [
+      "creator media kit",
+      "influencer rate card",
+      "brand partnership pitch",
+      "audience demographics",
+      "sponsorship pricing",
+      "creator outreach"
+    ],
+    "sources": [
+      [
+        "FTC — Disclosures 101 for Social Media Influencers",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      [
+        "YouTube Help — Paid product placements and endorsements",
+        "https://support.google.com/youtube/answer/154235"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    ],
+    "faq": [
+      [
+        "What should a media kit include?",
+        "Who you are in two sentences, audience demographics from Studio, recent average performance figures, what you offer, previous partnership results where you have permission to share, a work sample and contact details."
+      ],
+      [
+        "Should I put my prices in the media kit?",
+        "A starting-from figure is a reasonable compromise: it filters unserious enquiries without capping what a larger budget might pay. Always price usage rights and exclusivity separately rather than bundling them."
+      ],
+      [
+        "How do I pitch with a small audience?",
+        "Lead with engagement rate, audience specificity and evidence that your viewers act on recommendations. A narrowly defined audience that matches the brand's customer is worth more per view than a large general one."
+      ]
+    ],
+    "meta_description": "What belongs in a creator media kit, how to present numbers that are not enormous, whether to include prices, and how to keep it current for brands."
+  },
+  {
+    "slug": "local-business-youtube-seo",
+    "title": "YouTube for Local Businesses: Why Low View Counts Can Be a Win",
+    "seo_title": "Local Business YouTube SEO: Video That Generates Enquiries",
+    "description": "A plumber gains nothing from views in another country. Which formats generate enquiries, how to optimise for a place without keyword stuffing, and why standard YouTube metrics will mislead you.",
+    "category": "SEO",
+    "date": "2025-08-19",
+    "keywords": [
+      "local business YouTube SEO",
+      "video marketing for small business",
+      "local video SEO",
+      "service area video",
+      "business profile video",
+      "video structured data"
+    ],
+    "sources": [
+      [
+        "Google Search Central — Video structured data",
+        "https://developers.google.com/search/docs/appearance/structured-data/video"
+      ],
+      [
+        "YouTube — Navigating YouTube Search (How YouTube Works)",
+        "https://www.youtube.com/intl/ALL_en/howyoutubeworks/product-features/search/"
+      ],
+      [
+        "Google Search Central — Creating helpful, reliable, people-first content",
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ],
+      [
+        "YouTube Help — Understand your YouTube content performance",
+        "https://support.google.com/youtube/answer/12220281"
+      ],
+      [
+        "YouTube for Creators — Helpful resources",
+        "https://www.youtube.com/creators/resources/"
+      ]
+    ],
+    "faq": [
+      [
+        "How many videos does a local business need?",
+        "Roughly fifteen genuinely useful videos answering the questions customers actually ask, kept findable. A weekly upload schedule is a media-business strategy and is not the lever here."
+      ],
+      [
+        "Should I make a separate video for each town I serve?",
+        "No. Near-identical videos for surrounding towns are the video equivalent of doorway pages — thin, duplicated and unhelpful. One good video covering your service area works better."
+      ],
+      [
+        "How do I measure whether video is working for my business?",
+        "Ask every caller how they found you and write it down. Views from your actual service area, clicks to your website, and quotes closed after sending a video matter far more than subscriber count or total views."
+      ]
+    ],
+    "meta_description": "Local business YouTube SEO: low view counts can be a win. Formats that generate enquiries, optimising for a place, and the metrics that actually matter."
+  }
 ]
