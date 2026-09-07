@@ -232,7 +232,7 @@ def calculate_seo(request: SEOCheckRequest):
     # Fetch Keyword Data using Cache & API
     kw_data = get_cached_keyword(db, keyword)
     if not kw_data:
-        kw_data = fetch_keyword_data(keyword, db)
+        kw_data = fetch_keyword_data(keyword, db, gemini_model)
         set_cached_keyword(db, keyword, kw_data)
 
     volume = kw_data.get('search_volume', 0)
@@ -310,18 +310,9 @@ def generate_titles(request: TitleRequest):
             return TitlesResponse(titles=titles)
         except Exception as e:
             print(f"Gemini Title Error: {e}")
-            # Fallback below
+            raise HTTPException(status_code=500, detail="Failed to generate titles using AI.")
             
-    templates = [
-        f"The Ultimate Guide to {topic} (2026)",
-        f"Why {topic} is Changing Everything",
-        f"I Tried {topic} For 30 Days",
-        f"The TRUTH About {topic}",
-        f"Stop Doing {topic} Like This!"
-    ]
-    
-    titles = [TitleResult(title=t, ctr_score=random.randint(85, 98)) for t in random.sample(templates, min(4, len(templates)))]
-    return TitlesResponse(titles=titles)
+    raise HTTPException(status_code=500, detail="AI model not configured.")
 
 class ThumbnailRequest(BaseModel):
     topic: str
@@ -352,21 +343,25 @@ def generate_thumbnails(request: ThumbnailRequest):
             return ThumbnailsResponse(thumbnails=ideas)
         except Exception as e:
             print(f"Gemini Thumbnail Error: {e}")
-            # Fallback below
+            raise HTTPException(status_code=500, detail="Failed to generate thumbnails using AI.")
             
-    ideas = [
-        ThumbnailIdea(concept_name="The Shocked Reaction", visual_description=f"Shocked face, blurred {topic} background.", text_on_screen="DON'T DO THIS!"),
-        ThumbnailIdea(concept_name="Before & After", visual_description=f"Split screen {topic} comparison.", text_on_screen="NOOB vs PRO"),
-        ThumbnailIdea(concept_name="The Proof", visual_description=f"Holding physical proof of {topic} results.", text_on_screen="IT WORKED!")
-    ]
-    return ThumbnailsResponse(thumbnails=ideas)
+    raise HTTPException(status_code=500, detail="AI model not configured.")
 
 class TagRequest(BaseModel):
     url: str
 
 @app.post("/api/extract-tags", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
 def extract_tags(request: TagRequest):
-    return {"tags": ["seo", "youtube growth", "monetization"]}
+    if gemini_model:
+        try:
+            prompt = f"Extract 10-15 highly relevant YouTube tags for the content or topic: '{request.url}'. Return ONLY a valid JSON array of strings. Example: [\"tag1\", \"tag2\"]"
+            response = gemini_model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+            tags = json.loads(response.text)
+            return {"tags": tags}
+        except Exception as e:
+            print(f"Gemini Tag Error: {e}")
+            raise HTTPException(status_code=500, detail="Failed to extract tags using AI.")
+    raise HTTPException(status_code=500, detail="AI model not configured.")
 
 class EarningsRequest(BaseModel):
     daily_views: int
@@ -379,7 +374,7 @@ def calculate_earnings(request: EarningsRequest):
     # Fetch real CPC data for the niche/keyword
     kw_data = get_cached_keyword(db, niche)
     if not kw_data:
-        kw_data = fetch_keyword_data(niche, db)
+        kw_data = fetch_keyword_data(niche, db, gemini_model)
         set_cached_keyword(db, niche, kw_data)
         
     cpc = kw_data.get('cpc', 1.0)
