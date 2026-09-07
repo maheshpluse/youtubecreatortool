@@ -65,6 +65,7 @@ class _AppState extends State<App> {
     if (tab == 'thumbnails') return '/youtube-thumbnail-ideas';
     if (tab == 'tags') return '/youtube-tag-extractor';
     if (tab == 'earnings') return '/youtube-earnings-calculator';
+    if (tab == 'blog') return '/blog/index.html';
     return '/$tab';
   }
 
@@ -209,7 +210,6 @@ class _AppState extends State<App> {
             Route(path: '/youtube-tag-extractor', builder: (context, state) => _buildTagExtractor()),
             Route(path: '/youtube-earnings-calculator', builder: (context, state) => _buildEarningsCalculator()),
             Route(path: '/youtube-rpm-by-country', builder: (context, state) => _buildRpmByCountry()),
-            Route(path: '/blog', builder: (context, state) => _buildBlogSection()),
             Route(path: '/privacy', builder: (context, state) => _buildPrivacyPolicy()),
             Route(path: '/terms', builder: (context, state) => _buildTerms()),
             Route(path: '/about', builder: (context, state) => _buildAbout()),
@@ -352,11 +352,17 @@ class _AppState extends State<App> {
 
   Component _buildTabChip(String label, String id, String activeTab) {
     bool isActive = activeTab == id;
+    final classes = 'px-4 py-1.5 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${isActive
+            ? 'bg-yt-gray-900 text-white dark:bg-white dark:text-yt-gray-900'
+            : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'}';
+    
+    if (id == 'blog') {
+      return a(href: _getPathForTab(id), classes: classes, [Component.text(label)]);
+    }
+    
     return Link(
       to: _getPathForTab(id),
-      classes: 'px-4 py-1.5 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${isActive
-              ? 'bg-yt-gray-900 text-white dark:bg-white dark:text-yt-gray-900'
-              : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'}',
+      classes: classes,
       child: Component.text(label),
     );
   }
