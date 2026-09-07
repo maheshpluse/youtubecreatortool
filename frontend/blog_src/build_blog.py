@@ -82,7 +82,7 @@ def hero_thumb(post):
     if not h:
         return ""
     return (
-        f'      <a class="thumb" href="{post["slug"]}.html" tabindex="-1" aria-hidden="true">'
+        f'      <a class="thumb" href="/blog/{post['slug']}.html" tabindex="-1" aria-hidden="true">'
         f'<img src="{h["svg"]}" width="{h["w"]}" height="{h["h"]}" alt="" loading="lazy" decoding="async"></a>\n'
     )
 
@@ -220,7 +220,7 @@ def render_related(post, posts):
     picks = [posts[(i + n) % len(posts)] for n in (1, 2, 3)]
     cards = "\n".join(
         '    <li class="card"><span class="cat">%s</span>'
-        '<h3><a href="%s.html">%s</a></h3><p>%s</p></li>'
+        '<h3><a href="/blog/%s.html">%s</a></h3><p>%s</p></li>'
         % (html.escape(p["category"]), p["slug"], html.escape(p["title"]),
            html.escape(p["description"][:110].rsplit(" ", 1)[0] + "…"))
         for p in picks
@@ -306,7 +306,7 @@ def render_post(post, posts, body):
   <meta name="author" content="{AUTHOR}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{url}">
-  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" href="/favicon.ico">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="{SITE_NAME}">
   <meta property="og:title" content="{html.escape(post['title'], quote=True)}">
@@ -320,7 +320,7 @@ def render_post(post, posts, body):
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
-  <link rel="stylesheet" href="assets/blog.css">
+  <link rel="stylesheet" href="/blog/assets/blog.css">
 {json_ld(post)}{adsense_head()}
 {THEME_SCRIPT}
 </head>
@@ -329,7 +329,7 @@ def render_post(post, posts, body):
 
 <main class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb">
-    <a href="../index.html">Home</a><span>&rsaquo;</span><a href="index.html">Blog</a><span>&rsaquo;</span>{html.escape(post['category'])}
+    <a href="/">Home</a><span>&rsaquo;</span><a href="/blog/">Blog</a><span>&rsaquo;</span>{html.escape(post['category'])}
   </nav>
 
   <article>
@@ -372,7 +372,7 @@ def render_index(posts):
         f"""    <li data-cat="{html.escape(p['category'])}">
 {hero_thumb(p)}      <div class="post-list-body">
       <span class="cat">{html.escape(p['category'])}</span>
-      <h2><a href="{p['slug']}.html">{html.escape(p['title'])}</a></h2>
+      <h2><a href="/blog/{p['slug']}.html">{html.escape(p['title'])}</a></h2>
       <p>{html.escape(p['description'])}</p>
       <span class="meta"><time datetime="{p['date']}">{pretty(p['date'])}</time>
         &middot; {max(1, round(p['_words'] / 220))} min read</span>
@@ -397,14 +397,14 @@ def render_index(posts):
   <meta name="description" content="In-depth, source-backed guides on YouTube SEO, click-through rate, RPM, keyword research and creator monetization. {len(posts)} long-form articles, updated regularly.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SITE_URL}/blog/">
-  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" href="/favicon.ico">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Creator Blog | {SITE_NAME}">
   <meta property="og:url" content="{SITE_URL}/blog/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
-  <link rel="stylesheet" href="assets/blog.css">
+  <link rel="stylesheet" href="/blog/assets/blog.css">
   <script type="application/ld+json">{json.dumps(item_list, ensure_ascii=False, separators=(",", ":"))}</script>{adsense_head()}
 {THEME_SCRIPT}
 </head>
@@ -509,7 +509,20 @@ def render_dart(posts):
 
 def render_sitemap(posts):
     today = date.today().isoformat()
-    urls = [(SITE_URL + "/", today, "1.0"), (SITE_URL + "/blog/", today, "0.9")]
+    urls = [
+        (SITE_URL + "/", today, "1.0"),
+        (SITE_URL + "/youtube-seo-analyzer", today, "0.9"),
+        (SITE_URL + "/youtube-title-generator", today, "0.9"),
+        (SITE_URL + "/youtube-thumbnail-ideas", today, "0.9"),
+        (SITE_URL + "/youtube-tag-extractor", today, "0.9"),
+        (SITE_URL + "/youtube-earnings-calculator", today, "0.9"),
+        (SITE_URL + "/youtube-rpm-by-country", today, "0.9"),
+        (SITE_URL + "/blog/", today, "0.9"),
+        (SITE_URL + "/about", today, "0.6"),
+        (SITE_URL + "/contact", today, "0.6"),
+        (SITE_URL + "/privacy", today, "0.5"),
+        (SITE_URL + "/terms", today, "0.5"),
+    ]
     urls += [(f"{SITE_URL}/blog/{p['slug']}.html", p.get("updated", p["date"]), "0.8")
              for p in posts]
     body = "\n".join(

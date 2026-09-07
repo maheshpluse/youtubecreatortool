@@ -181,18 +181,18 @@ const String kSiteHead = r'''
         <script src="consent.js"></script>
 
         <!-- reCAPTCHA integration -->
-        <script src="https://www.google.com/recaptcha/enterprise.js?render=6LetP6ktAAAAAPn6G2UlIc-EQSMoVHBsJ4FWu5RH"></script>
-        <script>
-          window.executeRecaptcha = function() {
-            return new Promise((resolve) => {
-              if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
-                resolve("DUMMY_TOKEN");
-                return;
-              }
+        <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik"></script>
+    <script>
+      window.executeRecaptcha = function() {
+        return new Promise((resolve) => {
+          if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
+            resolve("DUMMY_TOKEN");
+            return;
+          }
+          try {
+            grecaptcha.enterprise.ready(async () => {
               try {
-                grecaptcha.enterprise.ready(async () => {
-                  try {
-                    const token = await grecaptcha.enterprise.execute('6LetP6ktAAAAAPn6G2UlIc-EQSMoVHBsJ4FWu5RH', {action: 'submit'});
+                const token = await grecaptcha.enterprise.execute('6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik', {action: 'submit'});
                     resolve(token);
                   } catch (e) {
                     console.error('reCAPTCHA execution failed', e);
