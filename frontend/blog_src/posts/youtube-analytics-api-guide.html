@@ -1,0 +1,130 @@
+<p>YouTube Studio answers most questions well. It becomes limiting at a predictable point: when you want data across many videos at once, history beyond the retention window, or numbers combined with something Studio has never heard of, like your sales figures. That is where the API earns its keep.</p>
+
+<p>This guide explains what the APIs actually offer, which one you need, and how to get useful data out without becoming a full-time developer.</p>
+
+<div class="toc">
+  <p>What this guide covers</p>
+  <ol>
+    <li><a href="#which">Two APIs, different jobs</a></li>
+    <li><a href="#worth">When it is worth the effort</a></li>
+    <li><a href="#access">Getting access</a></li>
+    <li><a href="#quota">Quota, the thing that catches everyone</a></li>
+    <li><a href="#reports">Reports worth building first</a></li>
+    <li><a href="#nocode">Doing it without writing code</a></li>
+    <li><a href="#pitfalls">Pitfalls</a></li>
+  </ol>
+</div>
+
+<h2 id="which">Two APIs, different jobs</h2>
+
+<div class="table-scroll">
+<table>
+  <thead><tr><th></th><th>YouTube Data API</th><th>YouTube Analytics &amp; Reporting API</th></tr></thead>
+  <tbody>
+    <tr><td>Answers</td><td>What exists &mdash; videos, playlists, metadata, public counts</td><td>How it performed &mdash; views, watch time, retention, revenue</td></tr>
+    <tr><td>Scope</td><td>Any public channel</td><td>Only channels you own or manage</td></tr>
+    <tr><td>Typical use</td><td>Cataloguing, metadata audits, competitor listings</td><td>Dashboards, performance history, revenue analysis</td></tr>
+    <tr><td>Auth</td><td>API key for public data</td><td>OAuth, always</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Most creator projects need both: the Data API to enumerate videos and pull titles and publish dates, the Analytics API to attach performance figures to them.</p>
+
+{{figure:retention-curve}}
+
+<h2 id="worth">When it is worth the effort</h2>
+
+<p>Honestly, most creators do not need this. Studio is good, and building a pipeline to reproduce it is wasted effort. The API becomes worthwhile when you hit one of these:</p>
+
+<ul>
+  <li><strong>Cross-video analysis.</strong> Comparing retention across two hundred videos to find what your best openings share. Studio makes you click through them one at a time.</li>
+  <li><strong>Long history.</strong> Some Studio reports have limited retention windows. Pulling data regularly builds an archive nobody can shorten.</li>
+  <li><strong>Joining external data.</strong> Video performance against your sales, signups or affiliate conversions. Only possible outside Studio.</li>
+  <li><strong>Managing several channels.</strong> One dashboard beats logging in and out repeatedly.</li>
+  <li><strong>Automated alerting.</strong> Notifying you when a video outperforms or a metric drops sharply.</li>
+  <li><strong>Client or sponsor reporting.</strong> Repeatable, branded reports without manual screenshotting.</li>
+</ul>
+
+<h2 id="access">Getting access</h2>
+
+<p>The sequence, once, takes under an hour:</p>
+
+<ol>
+  <li>Create a project in Google Cloud Console.</li>
+  <li>Enable the YouTube Data API and the YouTube Analytics API on that project.</li>
+  <li>Configure the OAuth consent screen. For personal use you can keep it in testing mode and add your own account as a test user, which avoids the verification process entirely.</li>
+  <li>Create credentials &mdash; an API key for public data, an OAuth client for anything channel-specific.</li>
+  <li>Authorise once with the account that owns the channel and store the refresh token securely.</li>
+</ol>
+
+<p>The step that trips people up is authorising with the wrong Google account. It must be the account that actually owns the channel, which for Brand Accounts is not always the one you use daily.</p>
+
+<h2 id="quota">Quota, the thing that catches everyone</h2>
+
+<p>The Data API allocates a daily quota, and different operations cost different amounts. Read operations are cheap; search is dramatically more expensive. A naive script that calls search in a loop can exhaust an entire day's allowance in minutes.</p>
+
+<p>The habits that prevent this: use the uploads playlist to enumerate a channel's videos rather than searching; request videos in batches rather than one call each; ask only for the parts you need; and cache anything that does not change, like titles and publish dates. Metadata does not need re-fetching every hour.</p>
+
+<div class="callout">
+  <span class="callout-label">Design for it early</span>
+  <p>Assume quota is scarce and build a local cache from day one. Retrofitting caching after you have hit the ceiling is considerably more annoying than including it at the start.</p>
+</div>
+
+<h2 id="reports">Reports worth building first</h2>
+
+<ol>
+  <li><strong>Full catalogue performance.</strong> Every video with views, watch time and average view duration in one table. Sorting this reveals patterns invisible one video at a time.</li>
+  <li><strong>Retention benchmark.</strong> Average view percentage against video length, to find where your own format stops holding people.</li>
+  <li><strong>Traffic source over time.</strong> Whether your search share is growing or you are becoming dependent on browse traffic.</li>
+  <li><strong>Revenue per video against effort.</strong> Combine earnings with your own production-time notes. Frequently uncomfortable and always useful.</li>
+  <li><strong>Publication cadence against growth.</strong> Whether posting more actually helps you, rather than assuming it does.</li>
+</ol>
+
+{{figure:revenue-bars}}
+
+<h2 id="nocode">Doing it without writing code</h2>
+
+<p>You do not need to be a developer. Several routes avoid it almost entirely:</p>
+
+<ul>
+  <li><strong>Scheduled reports.</strong> The Reporting API can generate bulk CSV exports on a schedule, which you then load into a spreadsheet.</li>
+  <li><strong>Spreadsheet connectors.</strong> Add-ons exist that pull YouTube data directly into a sheet on a timer.</li>
+  <li><strong>Business intelligence tools.</strong> Several dashboard products offer a YouTube connector with no code at all.</li>
+  <li><strong>Automation platforms.</strong> Trigger-based services can move data between YouTube and a spreadsheet or database.</li>
+</ul>
+
+<p>For most creators a scheduled export into a spreadsheet covers ninety percent of the value with none of the maintenance.</p>
+
+<h2 id="store">Where to keep the data</h2>
+
+<p>The temptation is to pull data on demand every time you want to look at something. Resist it &mdash; that design burns quota, breaks when the API is slow, and gives you nothing you did not already have in Studio.</p>
+
+<p>The better shape is a small local store that you append to on a schedule. A single spreadsheet works for one channel. A lightweight database is worth it once you are tracking several, or once you want to keep daily snapshots rather than current totals.</p>
+
+<p>Daily snapshots are the part people skip and later wish they had. Studio shows you what a metric is now; a snapshot history shows you how it got there, which is the question you actually ask when a video behaves oddly. Storing a row per video per day costs almost nothing and answers questions retroactively that are otherwise unanswerable.</p>
+
+<div class="watch">
+  <div class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+  <div class="watch-body">
+    <p class="watch-title">Start with the official reference</p>
+    <p>Google's <a href="https://developers.google.com/youtube/analytics" rel="noopener nofollow" target="_blank">YouTube Analytics and Reporting API documentation</a> includes the full list of available metrics and dimensions, plus which combinations are valid. Skimming the metrics list first saves a lot of guessing.</p>
+  </div>
+</div>
+
+<h2 id="pitfalls">Pitfalls</h2>
+
+<ul>
+  <li><strong>Estimated versus finalised revenue.</strong> Recent revenue figures are estimates and change. Never report earnings from the last few days as final.</li>
+  <li><strong>Time zones.</strong> Analytics uses a specific reporting time zone. Mixing it with local timestamps produces days that quietly disagree.</li>
+  <li><strong>Invalid metric combinations.</strong> Not every metric works with every dimension. The documentation lists what is permitted; the errors are not always clear.</li>
+  <li><strong>Data latency.</strong> Some metrics settle over days. A dashboard showing today's numbers as final will mislead you.</li>
+  <li><strong>Credential security.</strong> A refresh token grants ongoing access to your channel data. Never commit it to a repository.</li>
+</ul>
+
+<p>Built once and left running, a simple daily export becomes more valuable every month, because the archive it accumulates is something no dashboard can give you retroactively.</p>
+
+<div class="callout">
+  <span class="callout-label">Editorial note</span>
+  <p>API quotas, available metrics and authentication requirements change. Always check the current official documentation before building anything you intend to rely on.</p>
+</div>

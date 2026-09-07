@@ -56,6 +56,38 @@ FONT = ("system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-s
 # Motif per post. Keyword match wins; category is the fallback. Keeping this
 # explicit beats being clever — you can see at a glance what each post gets.
 KEYWORD_MOTIFS = [
+    # -- 2026 expansion set. Listed first: first match wins, so these take
+    #    priority over the broader needles below.
+    ("cpm-rates",              "bars"),
+    ("taxes",                  "checklist"),
+    ("llc-for",                "checklist"),
+    ("sell-youtube-channel",   "bars"),
+    ("shorts-monetization",    "bars"),
+    ("premium-revenue",        "bars"),
+    ("live-stream-monet",      "streams"),
+    ("memberships-vs",         "streams"),
+    ("copyright",              "checklist"),
+    ("insurance",              "checklist"),
+    ("brand-deal-contracts",   "streams"),
+    ("gdpr",                   "checklist"),
+    ("video-editing-software", "toolbox"),
+    ("email-marketing",        "funnel"),
+    ("analytics-api",          "line"),
+    ("podcast-to-youtube",     "streams"),
+    ("microphones",            "toolbox"),
+    ("camera-buying",          "toolbox"),
+    ("lighting-setup",         "toolbox"),
+    ("faceless",               "network"),
+    ("automation-business",    "network"),
+    ("thumbnail-design",       "ctr"),
+    ("playlist",               "search"),
+    ("end-screens",            "ctr"),
+    ("community-tab",          "rings"),
+    ("multi-language",         "radar"),
+    ("online-course",          "funnel"),
+    ("media-kit",              "checklist"),
+    ("local-business",         "search"),
+    # -- original set
     ("click-through",          "ctr"),
     ("engagement-rate",        "rings"),
     ("keyword-research",       "keywords"),

@@ -224,3 +224,35 @@ th { background: var(--bg-soft); font-weight: 700; font-size: 13px; text-transfo
   .post-list .thumb { flex: none; width: 100%; }
   .post-hero { margin: 20px 0 24px; }
 }
+
+/* ---------- Inline animated SVG figures ---------- */
+/* Diagrams are inline SVG: no extra request, no layout shift, and they
+   re-theme themselves because their fills reference the CSS variables above.
+   Motion is opt-in via prefers-reduced-motion inside each figure's own
+   <style>, so a reduced-motion visitor gets the finished diagram, not a
+   frozen first frame. */
+.fig {
+  margin: 2em 0;
+  padding: 18px 18px 14px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.fig-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.fig figcaption {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+@media (max-width: 520px) {
+  .fig { padding: 12px 12px 10px; }
+  .fig figcaption { font-size: 13px; }
+}

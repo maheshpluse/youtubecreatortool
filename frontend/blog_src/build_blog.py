@@ -17,6 +17,8 @@ import os
 import re
 from datetime import date
 
+import figures
+
 # ─────────────────────────────────────────────────────────────
 #  SITE CONFIG  — edit these two blocks, then re-run the build
 # ─────────────────────────────────────────────────────────────
@@ -529,7 +531,7 @@ def main():
     short = []
     for p in live:
         with open(os.path.join(OUT, p["slug"] + ".html"), "w", encoding="utf-8") as f:
-            f.write(render_post(p, live, bodies[p["slug"]]))
+            f.write(render_post(p, live, figures.render(bodies[p["slug"]])))
         flag = "" if p["_words"] >= 1000 else "  <-- UNDER 1000"
         if p["_words"] < 1000:
             short.append(p["slug"])
