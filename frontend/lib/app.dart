@@ -774,7 +774,7 @@ class _AppState extends State<App> {
 
       div(
         classes: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up animate-delay-200',
-        [for (final post in blogPosts) _blogCard(post)]
+        [for (final post in blogPosts.take(20)) _blogCard(post)]
       ),
       AdSenseAd(slotId: '1234567890'),
     ]);
