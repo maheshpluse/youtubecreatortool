@@ -15,11 +15,26 @@ void openConsentPreferences() {
   }
 }
 
+/// Fetches a reCAPTCHA token, or throws if one cannot be obtained.
+///
+/// executeRecaptcha resolves `null` whenever grecaptcha.enterprise.execute()
+/// yields nothing, which happens on repeat calls within a single page session.
+/// Typing the promise as `JSPromise<JSString>` made that null cross the interop
+/// boundary as a type error raised inside a JS microtask: it never surfaced as
+/// a Dart exception, so the awaiting Future never completed. The tool sat on
+/// "Working..." forever and never issued the request. Take the value as
+/// nullable and convert it explicitly so a missing token is an ordinary
+/// exception the caller can show.
 Future<String> getRecaptchaToken() async {
-  final token = await globalContext
-      .callMethod<JSPromise<JSString>>('executeRecaptcha'.toJS)
+  final result = await globalContext
+      .callMethod<JSPromise<JSAny?>>('executeRecaptcha'.toJS)
       .toDart;
-  return token.toDart;
+  final token = result?.dartify();
+  if (token is! String || token.isEmpty) {
+    throw Exception(
+        'Could not verify you are human. Please reload the page and try again.');
+  }
+  return token;
 }
 
 void pushAdSense() {

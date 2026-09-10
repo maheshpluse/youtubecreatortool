@@ -85,7 +85,14 @@ class _AppState extends State<App> {
   /// POSTs [body] to [path] on the API with a fresh reCAPTCHA token and returns
   /// the decoded JSON. Throws on any non-200 so the caller can surface it.
   Future<dynamic> _postJson(String path, Map<String, dynamic> body) async {
-    final token = await client_interop.getRecaptchaToken();
+    // Belt and braces: if the token bridge ever hangs again rather than
+    // throwing, this bounds the wait so the UI reports a failure instead of
+    // spinning forever.
+    final token = await client_interop.getRecaptchaToken().timeout(
+      const Duration(seconds: 20),
+      onTimeout: () => throw Exception(
+          'Verification timed out. Please check your connection and try again.'),
+    );
     final response = await http.post(
       Uri.parse('$apiBaseUrl$path'),
       headers: {

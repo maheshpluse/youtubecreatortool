@@ -195,7 +195,10 @@ const String kSiteHead = r'''
             grecaptcha.enterprise.ready(async () => {
               try {
                 const token = await grecaptcha.enterprise.execute('6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik', {action: 'submit'});
-                    resolve(token);
+                    // execute() yields null on repeat calls within a page
+                    // session; never resolve null or the Dart side cannot
+                    // type it and the awaiting Future hangs.
+                    resolve(token || "DUMMY_TOKEN");
                   } catch (e) {
                     console.error('reCAPTCHA execution failed', e);
                     resolve("DUMMY_TOKEN");
