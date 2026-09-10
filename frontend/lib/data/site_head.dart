@@ -211,8 +211,6 @@ const String kSiteHead = r'''
         <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
         <script src="auth.js?v=2"></script>
         <script defer src="main.dart.js?v=2"></script>
-        
-        <!-- Google AdSense Integration -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3988155577590737" crossorigin="anonymous"></script>
-    
+
+
 ''';

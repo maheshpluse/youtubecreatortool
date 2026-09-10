@@ -426,7 +426,7 @@ class _AppState extends State<App> {
         ]),
         div(classes: 'flex justify-end', [
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full md:w-auto',
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full md:w-auto pr-10 ${(tabIsLoading['seo'] ?? false) ? 'btn-loading' : ''}',
             onClick: () => calculateSeo(),
             [
               Component.text((tabIsLoading['seo'] ?? false) ? t('btn_analyzing') : t('btn_analyze')),
@@ -435,8 +435,24 @@ class _AppState extends State<App> {
         ])
       ]),
       div(classes: 'card p-6 flex flex-col items-center justify-center min-h-[300px] animate-fade-in-right animate-delay-200', [
-        if (seoResult != null) ...[
-          div(classes: 'score-ring mb-6', [
+        if (tabIsLoading['seo'] ?? false) ...[
+          // SEO Analysis loading — progress steps + skeleton
+          div(classes: 'w-full space-y-5 animate-fade-in', [
+            div(classes: 'flex items-center gap-3', [
+              div(classes: 'loading-spinner', []),
+              p(classes: 'text-sm font-medium text-yt-gray-600 dark:text-yt-gray-400', [Component.text(t('btn_analyzing'))]),
+            ]),
+            div(classes: 'progress-step-bar', []),
+            div(classes: 'space-y-3 mt-4', [
+              for (var w in [100, 85, 70, 90, 60])
+                div(classes: 'flex items-center gap-3', [
+                  div(classes: 'skeleton w-5 h-5 rounded-full shrink-0', []),
+                  div(classes: 'skeleton h-4 flex-1', attributes: {'style': 'max-width: ${w}%'}, []),
+                ]),
+            ]),
+          ]),
+        ] else if (seoResult != null) ...[
+          div(classes: 'score-ring score-ring-animate mb-6', [
             div(classes: 'text-center', [
               span(classes: 'text-4xl font-bold ${(seoResult!['score'] as int) > 75 ? 'text-[#2BA640]' : 'text-yt-red'}', [
                 Component.text(seoResult!['score'].toString())
@@ -445,8 +461,10 @@ class _AppState extends State<App> {
             ])
           ]),
           div(classes: 'w-full space-y-2', [
-            for (var fb in seoResult!['feedback'])
-              _buildSeoFeedbackRow(fb as Map<String, dynamic>)
+            for (var i = 0; i < (seoResult!['feedback'] as List).length; i++)
+              div(classes: 'card-stagger', attributes: {'style': 'animation-delay: ${i * 80}ms'}, [
+                _buildSeoFeedbackRow(seoResult!['feedback'][i] as Map<String, dynamic>)
+              ])
           ]),
         ] else ...[
           span(classes: 'material-symbols-rounded text-5xl text-yt-gray-300 dark:text-yt-gray-700 mb-4', [Component.text('troubleshoot')]),
@@ -489,15 +507,32 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['titles'] ?? false) ? 'btn-loading' : ''}',
             onClick: () => generateTitles(),
             [Component.text((tabIsLoading['titles'] ?? false) ? t('btn_working') : t('btn_generate'))]
           ),
         ]),
       ]),
-      if (generatedTitles != null) div(classes: 'grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up animate-delay-200', [
+      // Title loading skeleton
+      if (tabIsLoading['titles'] ?? false) div(classes: 'grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in', [
+        for (var i = 0; i < 5; i++)
+          div(classes: 'card p-4', [
+            div(classes: 'flex gap-3', [
+              div(classes: 'skeleton w-6 h-6 rounded-full shrink-0', []),
+              div(classes: 'flex-1 space-y-2', [
+                div(classes: 'skeleton h-4 w-full', []),
+                div(classes: 'skeleton h-3', attributes: {'style': 'width: 30%'}, []),
+              ]),
+            ]),
+          ]),
+        div(classes: 'md:col-span-2 flex items-center justify-center gap-2 py-2', [
+          div(classes: 'typing-dots', [span([]), span([]), span([])]),
+          p(classes: 'text-sm text-yt-gray-500 ml-2', [Component.text(t('btn_working'))]),
+        ]),
+      ]),
+      if (generatedTitles != null && !(tabIsLoading['titles'] ?? false)) div(classes: 'grid grid-cols-1 md:grid-cols-2 gap-4', [
         for (var i = 0; i < generatedTitles!.length; i++)
-          div(classes: 'card p-4 hover:bg-yt-gray-50 dark:hover:bg-yt-gray-800 cursor-pointer', [
+          div(classes: 'card p-4 hover:bg-yt-gray-50 dark:hover:bg-yt-gray-800 cursor-pointer card-stagger', attributes: {'style': 'animation-delay: ${i * 100}ms'}, [
             div(classes: 'flex gap-3', [
               span(classes: 'text-sm font-medium text-yt-gray-500 mt-0.5', [
                 Component.text('${i + 1}.')
@@ -539,15 +574,34 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['thumbnails'] ?? false) ? 'btn-loading' : ''}',
             onClick: () => generateThumbnails(),
             [Component.text((tabIsLoading['thumbnails'] ?? false) ? t('btn_working') : t('btn_generate'))]
           ),
         ]),
       ]),
-      if (generatedThumbnails != null) div(classes: 'space-y-4 animate-fade-in-up animate-delay-200', [
+      // Thumbnail loading skeleton
+      if (tabIsLoading['thumbnails'] ?? false) div(classes: 'space-y-4 animate-fade-in', [
+        for (var i = 0; i < 3; i++)
+          div(classes: 'card p-5', [
+            div(classes: 'flex items-start gap-3', [
+              div(classes: 'skeleton w-8 h-8 rounded-full shrink-0', []),
+              div(classes: 'flex-1 space-y-3', [
+                div(classes: 'skeleton h-5', attributes: {'style': 'width: 40%'}, []),
+                div(classes: 'skeleton h-4 w-full', []),
+                div(classes: 'skeleton h-4', attributes: {'style': 'width: 75%'}, []),
+                div(classes: 'skeleton h-12 w-full rounded', []),
+              ]),
+            ]),
+          ]),
+        div(classes: 'flex items-center justify-center gap-2 py-2', [
+          div(classes: 'typing-dots', [span([]), span([]), span([])]),
+          p(classes: 'text-sm text-yt-gray-500 ml-2', [Component.text(t('btn_working'))]),
+        ]),
+      ]),
+      if (generatedThumbnails != null && !(tabIsLoading['thumbnails'] ?? false)) div(classes: 'space-y-4', [
         for (var i = 0; i < generatedThumbnails!.length; i++)
-          div(classes: 'card p-5 hover:bg-yt-gray-50 dark:hover:bg-yt-gray-800 transition-colors', [
+          div(classes: 'card p-5 hover:bg-yt-gray-50 dark:hover:bg-yt-gray-800 transition-colors card-stagger', attributes: {'style': 'animation-delay: ${i * 120}ms'}, [
             div(classes: 'flex items-start gap-3', [
               span(classes: 'flex items-center justify-center w-8 h-8 rounded-full bg-yt-gray-100 dark:bg-yt-gray-700 font-bold text-yt-red shrink-0 mt-1', [
                 Component.text((i + 1).toString())
@@ -595,22 +649,33 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap',
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['tags'] ?? false) ? 'btn-loading' : ''}',
             onClick: () => extractTags(),
             [Component.text((tabIsLoading['tags'] ?? false) ? t('btn_extracting') : t('btn_extract'))]
           ),
         ]),
       ]),
-      if (extractedTags != null) div(classes: 'card p-6 animate-fade-in-up animate-delay-200', [
+      // Tag extraction loading skeleton
+      if (tabIsLoading['tags'] ?? false) div(classes: 'card p-6 animate-fade-in', [
+        div(classes: 'flex items-center gap-3 mb-4', [
+          div(classes: 'loading-spinner', attributes: {'style': 'width:24px;height:24px;border-width:2px'}, []),
+          p(classes: 'text-sm text-yt-gray-500', [Component.text(t('btn_extracting'))]),
+        ]),
+        div(classes: 'flex flex-wrap gap-2', [
+          for (var w in [80, 100, 60, 90, 70, 110, 75, 95, 65, 85])
+            div(classes: 'tag-skeleton skeleton', attributes: {'style': 'width: ${w}px'}, []),
+        ]),
+      ]),
+      if (extractedTags != null && !(tabIsLoading['tags'] ?? false)) div(classes: 'card p-6 animate-fade-in', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'text-sm font-medium text-yt-gray-600 dark:text-yt-gray-400', [
             Component.text(t('tag_ext_result', {'count': extractedTags!.length.toString()}))
           ])
         ]),
         div(classes: 'flex flex-wrap gap-2', [
-          for (var tag in extractedTags!)
-            span(classes: 'bg-yt-gray-100 dark:bg-yt-gray-800 text-yt-gray-900 dark:text-white px-3 py-1.5 rounded-full text-sm hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700 cursor-pointer transition-colors', [
-              Component.text(tag.toString())
+          for (var i = 0; i < extractedTags!.length; i++)
+            span(classes: 'bg-yt-gray-100 dark:bg-yt-gray-800 text-yt-gray-900 dark:text-white px-3 py-1.5 rounded-full text-sm hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700 cursor-pointer transition-colors card-stagger', attributes: {'style': 'animation-delay: ${i * 50}ms'}, [
+              Component.text(extractedTags![i].toString())
             ])
         ])
       ])
@@ -655,7 +720,7 @@ class _AppState extends State<App> {
           ]),
           div(classes: 'flex justify-end pt-2', [
              button(
-              classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full sm:w-auto',
+              classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full sm:w-auto pr-10 ${(tabIsLoading['earnings'] ?? false) ? 'btn-loading' : ''}',
               onClick: () => calculateEarnings(),
               [Component.text((tabIsLoading['earnings'] ?? false) ? t('btn_calculating') : t('btn_calculate'))]
             ),
@@ -663,7 +728,13 @@ class _AppState extends State<App> {
         ]),
       ]),
       div(classes: 'card p-6 flex flex-col items-center justify-center min-h-[300px] animate-fade-in-right animate-delay-200', [
-        if (earningsResult != null) ...[
+        if (tabIsLoading['earnings'] ?? false) ...[
+          div(classes: 'flex flex-col items-center gap-4 animate-fade-in', [
+            div(classes: 'loading-spinner', []),
+            p(classes: 'text-sm text-yt-gray-500 font-medium', [Component.text(t('btn_calculating'))]),
+            div(classes: 'w-3/4 progress-step-bar', []),
+          ])
+        ] else if (earningsResult != null) ...[
           div(classes: 'text-center animate-bounce-in', [
             span(classes: 'text-sm text-yt-gray-500 font-medium mb-1', [Component.text(t('earn_monthly_rev'))]),
             p(classes: 'text-4xl font-bold text-yt-gray-900 dark:text-white mt-2', [
@@ -802,7 +873,7 @@ class _AppState extends State<App> {
       '@type': 'Organization',
       'name': 'VidSEOKit',
       'url': kSiteUrl,
-      'logo': '\$kSiteUrl/images/og-image.jpg',
+      'logo': '$kSiteUrl/images/og-image.jpg',
       'description': 'Premium YouTube SEO & Growth Tools for Content Creators',
       'areaServed': const [
         {'@type': 'Country', 'name': 'United States'},
@@ -822,7 +893,7 @@ class _AppState extends State<App> {
     if (kTwitterHandle.isNotEmpty) {
       head.add(Component.element(
         tag: 'meta',
-        attributes: {'name': 'twitter:site', 'content': '@\$kTwitterHandle'},
+        attributes: {'name': 'twitter:site', 'content': '@$kTwitterHandle'},
       ));
     }
 
@@ -865,7 +936,7 @@ class _AppState extends State<App> {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         'itemListElement': [
-          {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': '\$kSiteUrl/'},
+          {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': '$kSiteUrl/'},
           {'@type': 'ListItem', 'position': 2, 'name': seo.breadcrumbName, 'item': seo.canonical},
         ],
       }));
@@ -888,7 +959,7 @@ class _AppState extends State<App> {
               '@type': 'ListItem',
               'position': i + 1,
               'name': blogPosts[i].title,
-              'url': '\$kSiteUrl/${blogPosts[i].url}',
+              'url': '$kSiteUrl/${blogPosts[i].url}',
             }
         ],
       }));
