@@ -420,7 +420,6 @@ def render_index(posts):
       <li><button type="button" data-cat="all" aria-pressed="true">All</button></li>
 {filters}
     </ul>
-    <p id="filter-count" style="margin-top: 1rem; color: #606060; font-size: 0.95rem; font-weight: 500;"></p>
   </div>
 
   <ul class="post-list">
@@ -430,16 +429,6 @@ def render_index(posts):
 
 {footer()}
 <script>
-  function updateCount(cat, name, count) {{
-    var countEl = document.getElementById('filter-count');
-    if (!countEl) return;
-    if (cat === 'all') {{
-      countEl.textContent = "Showing all " + count + " articles";
-    }} else {{
-      countEl.textContent = "Showing " + count + " articles for " + name;
-    }}
-  }}
-
   document.querySelector('.filters').addEventListener('click', function (e) {{
     var b = e.target.closest('button');
     if (!b) return;
@@ -447,19 +436,10 @@ def render_index(posts):
     this.querySelectorAll('button').forEach(function (x) {{
       x.setAttribute('aria-pressed', String(x === b));
     }});
-    var count = 0;
     document.querySelectorAll('.post-list > li').forEach(function (li) {{
       var show = (cat === 'all' || li.dataset.cat === cat);
-      li.hidden = !show;
-      if (show) count++;
+      li.style.display = show ? '' : 'none';
     }});
-    updateCount(cat, b.textContent, count);
-  }});
-
-  // Set initial count
-  window.addEventListener('DOMContentLoaded', function() {{
-    var count = document.querySelectorAll('.post-list > li').length;
-    updateCount('all', 'All', count);
   }});
 </script>
 </body>
