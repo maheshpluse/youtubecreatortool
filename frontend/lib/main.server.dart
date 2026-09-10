@@ -10,10 +10,10 @@ void main() {
 
   runApp(Document(
     lang: 'en',
-    // Kept byte-identical to the previous web/index.html. Note that
-    // user-scalable=no is flagged by Lighthouse's accessibility audit; worth
-    // revisiting, but not a silent change to make here.
-    viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+    // maximum-scale/user-scalable=no blocked pinch-zoom, which fails the
+    // accessibility audit outright. Nothing in the layout depends on zoom being
+    // locked, so allowing it costs nothing.
+    viewport: 'width=device-width, initial-scale=1.0',
     head: [RawText(kSiteHead)],
     // The client entrypoint attaches to #app, so the pre-rendered markup has to
     // live inside that same element or hydration would discard all of it.

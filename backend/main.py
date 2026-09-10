@@ -156,8 +156,8 @@ def verify_recaptcha(request: Request):
     # Classic reCAPTCHA v2 verification (siteverify) - much simpler than
     # Enterprise: no GCP-scoped API key needed, just the secret from
     # https://www.google.com/recaptcha/admin paired with the site key
-    # embedded in frontend/web/index.html. v2 has no risk score; a token is
-    # either valid (the widget's own challenge/invisible check passed) or not.
+    # embedded in frontend/lib/data/site_head.dart. v2 has no risk score; a
+    # token is either valid (the widget's own check passed) or not.
     try:
         response = requests.post(
             "https://www.google.com/recaptcha/api/siteverify",

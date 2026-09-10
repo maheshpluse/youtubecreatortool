@@ -139,13 +139,15 @@ const String kSiteHead = r'''
 
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+
         <!-- Fonts: Roboto (YouTube's standard font) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
         
         <!-- Material Symbols (Rounded) -->
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
 
         <!-- Generated CSS -->
         
@@ -207,9 +209,9 @@ const String kSiteHead = r'''
           };
         </script>
 
-        <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-        <script src="auth.js?v=2"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+        <script defer src="auth.js?v=2"></script>
         <script defer src="main.dart.js?v=2"></script>
 
 

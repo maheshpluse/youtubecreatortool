@@ -89,7 +89,7 @@ const Map<String, PageSeo> kPageSeo = {
   'seo': PageSeo(
     title: 'Free YouTube SEO Analyzer - Score Your Video in Seconds',
     description:
-        'Paste your title, description and target keyword to get an instant YouTube SEO score, plus specific fixes for ranking higher in search and suggested video.',
+        'Paste your title, description and target keyword for an instant YouTube SEO score, plus fixes for ranking higher in search and suggested video.',
     canonical: '$kSiteUrl/',
     definition:
         'The VidSEOKit YouTube SEO Analyzer is a free tool that scores a video\'s title, description and tags against a target keyword, then lists the specific changes to make before publishing.',
@@ -122,7 +122,7 @@ const Map<String, PageSeo> kPageSeo = {
   'titles': PageSeo(
     title: 'YouTube Title Generator - Free AI Titles That Get Clicks',
     description:
-        'Generate click-worthy YouTube titles from any topic. Get multiple angles - curiosity, listicle, how-to and result-driven - built around your target keyword, free.',
+        'Generate click-worthy YouTube titles from any topic. Multiple angles - curiosity, listicle, how-to and result-driven - around your keyword, free.',
     canonical: '$kSiteUrl/youtube-title-generator',
     definition:
         'The VidSEOKit YouTube Title Generator is a free tool that turns a video topic into several ready-to-use title options, each written to a different framing so you can compare angles side by side.',
@@ -155,7 +155,7 @@ const Map<String, PageSeo> kPageSeo = {
   'thumbnails': PageSeo(
     title: 'YouTube Thumbnail Ideas Generator - Free AI Concepts',
     description:
-        'Get concrete AI thumbnail concepts for any video topic - subject, expression, text overlay and colour direction - so you stop guessing at what to design.',
+        'Get AI thumbnail concepts for any video topic - subject, expression, text overlay and colour direction - so you stop guessing at what to design.',
     canonical: '$kSiteUrl/youtube-thumbnail-ideas',
     definition:
         'The VidSEOKit Thumbnail Ideas Generator is a free tool that turns a video topic into concrete thumbnail concepts - subject, expression, overlay text and colour direction - to design or brief from.',
@@ -186,7 +186,7 @@ const Map<String, PageSeo> kPageSeo = {
   'tags': PageSeo(
     title: 'YouTube Tag Extractor - See Any Video Tags Free',
     description:
-        'Paste any YouTube URL to extract the tags that video is using. See how ranking videos in your niche describe themselves and find keywords worth targeting.',
+        'Paste any YouTube URL to extract its tags. See how ranking videos in your niche describe themselves and find keywords worth targeting.',
     canonical: '$kSiteUrl/youtube-tag-extractor',
     definition:
         'The VidSEOKit YouTube Tag Extractor is a free tool that reads the public tags off any YouTube video URL, so you can see how videos already ranking in your niche describe themselves.',
@@ -267,7 +267,7 @@ const Map<String, PageSeo> kPageSeo = {
   'blog': PageSeo(
     title: 'YouTube Growth Blog - SEO, Monetization & Analytics',
     description:
-        'In-depth guides on YouTube SEO, the algorithm, monetization requirements, RPM, keyword research and channel analytics - written for creators growing a channel.',
+        'In-depth guides on YouTube SEO, the algorithm, monetization, RPM, keyword research and channel analytics - written for creators growing a channel.',
     canonical: '$kSiteUrl/blog',
     definition:
         'The VidSEOKit blog publishes in-depth guides on YouTube SEO, the recommendation algorithm, monetization requirements, RPM and channel analytics.',
@@ -283,7 +283,7 @@ const Map<String, PageSeo> kPageSeo = {
   'youtube-rpm-by-country': PageSeo(
     title: 'YouTube RPM by Country - US, UK, Canada & Europe 2026',
     description:
-        'What YouTube pays per 1,000 views in the US, UK, Canada, Germany, France and across Europe. Typical RPM ranges by country, and why the same video earns different amounts in each.',
+        'What YouTube pays per 1,000 views in the US, UK, Canada, Germany, France and across Europe. Typical RPM ranges by country, and why they differ.',
     canonical: '$kSiteUrl/youtube-rpm-by-country',
     definition:
         'YouTube RPM by country is the revenue a channel earns per 1,000 views in each market, which varies roughly fourfold between the highest-paying countries such as the United States and Norway and the lowest-paying European markets.',

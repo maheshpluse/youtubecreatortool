@@ -181,19 +181,25 @@ class _AppState extends State<App> {
             // (empty, not null) — reading it blanked activeTab and hid every
             // per-tool article. location carries the real URI.
             String activeTab = _getTabFromPath(Uri.parse(state.location).path);
+            // The page was built entirely from <div>. That cost the landmark
+            // regions screen readers navigate by, and left answer engines with
+            // no structural cue about which part of the page is the content.
             return div(classes: 'min-h-screen font-sans transition-colors duration-300', [
               _buildSeoHead(activeTab),
+              _buildSkipLink(),
               _buildNavbar(),
-              _buildHero(),
-              div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 md:pb-16', [
-                _buildDesktopTabs(activeTab),
-                if (tabErrorMessage[activeTab] != null) _buildErrorBanner(activeTab, tabErrorMessage[activeTab]!),
-                _buildDefinition(activeTab),
-                div(classes: 'animate-fade-in-up animate-delay-100', [
-                  child,
+              Component.element(tag: 'main', attributes: const {'id': 'main-content'}, children: [
+                _buildHero(),
+                div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 md:pb-16', [
+                  _buildDesktopTabs(activeTab),
+                  if (tabErrorMessage[activeTab] != null) _buildErrorBanner(activeTab, tabErrorMessage[activeTab]!),
+                  _buildDefinition(activeTab),
+                  div(classes: 'animate-fade-in-up animate-delay-100', [
+                    child,
+                  ]),
+                  _buildSeoArticle(activeTab),
+                  _buildPageContent(activeTab),
                 ]),
-                _buildSeoArticle(activeTab),
-                _buildPageContent(activeTab),
               ]),
               _buildFooter(),
               _buildMobileNav(activeTab),
@@ -231,11 +237,24 @@ class _AppState extends State<App> {
     return path;
   }
 
+  /// Lets keyboard users jump past the nav straight to the content.
+  ///
+  /// Off-screen until focused, which is the standard pattern — it must stay in
+  /// the DOM (not display:none) or it cannot receive focus at all.
+  Component _buildSkipLink() {
+    return a(
+      href: '#main-content',
+      classes: 'sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 '
+          'focus:px-4 focus:py-2 focus:rounded-lg focus:bg-yt-gray-900 focus:text-white',
+      [Component.text('Skip to content')],
+    );
+  }
+
   // ═══════════════════════════════════════════
   //  NAVBAR
   // ═══════════════════════════════════════════
   Component _buildNavbar() {
-    return div(classes: 'glass fixed top-0 left-0 right-0 z-50 animate-slide-in-top animate-duration-500', [
+    return header(classes: 'glass fixed top-0 left-0 right-0 z-50 animate-slide-in-top animate-duration-500', [
       div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8', [
         div(classes: 'flex items-center justify-between h-14', [
           // Logo
@@ -246,9 +265,10 @@ class _AppState extends State<App> {
           // Right Actions
           div(classes: 'flex items-center gap-3', [
             div(classes: 'relative flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg px-2 py-1', [
-              span(classes: 'material-symbols-rounded text-lg mr-1 text-gray-600 dark:text-gray-400', [Component.text('language')]),
+              span(classes: 'material-symbols-rounded text-lg mr-1 text-gray-600 dark:text-gray-400', attributes: const {'aria-hidden': 'true'}, [Component.text('language')]),
               select(
                 classes: 'bg-transparent text-sm font-medium text-gray-700 dark:text-gray-300 focus:outline-none cursor-pointer outline-none border-none',
+                attributes: const {'aria-label': 'Language'},
                 onChange: (values) {
                   // jaspr's <select> onChange reports the selected values as a
                   // List<String> (to support multi-select); this control only
@@ -283,7 +303,7 @@ class _AppState extends State<App> {
             ]),
             button(
               classes: 'theme-toggle',
-              attributes: {'data-theme-toggle': 'true'},
+              attributes: {'data-theme-toggle': 'true', 'aria-label': 'Toggle dark mode'},
               onClick: () => toggleTheme(),
               [span(classes: 'material-symbols-rounded text-2xl', [Component.text(isDark ? 'light_mode' : 'dark_mode')])]
             ),
@@ -314,7 +334,10 @@ class _AppState extends State<App> {
   //  DESKTOP TABS
   // ═══════════════════════════════════════════
   Component _buildDesktopTabs(String activeTab) {
-    return div(classes: 'hidden md:flex items-center gap-3 mb-8 animate-fade-in-up animate-delay-500 overflow-x-auto pb-2', [
+    return nav(
+        classes: 'hidden md:flex items-center gap-3 mb-8 animate-fade-in-up animate-delay-500 overflow-x-auto pb-2',
+        attributes: const {'aria-label': 'Tools'},
+        [
       _buildTabChip(t('tab_seo'), 'seo', activeTab),
       _buildTabChip(t('tab_titles'), 'titles', activeTab),
       _buildTabChip(t('tab_thumbnails'), 'thumbnails', activeTab),
@@ -368,7 +391,7 @@ class _AppState extends State<App> {
   //  MOBILE BOTTOM NAV
   // ═══════════════════════════════════════════
   Component _buildMobileNav(String activeTab) {
-    return div(classes: 'mobile-nav md:hidden', [
+    return nav(classes: 'mobile-nav md:hidden', attributes: const {'aria-label': 'Primary'}, [
       div(classes: 'flex items-center justify-around px-2', [
         _mobileNavItem('search', t('mobile_seo'), 'seo', activeTab),
         _mobileNavItem('title', t('mobile_titles'), 'titles', activeTab),
@@ -405,21 +428,21 @@ class _AppState extends State<App> {
         div([
           input(
             classes: 'input-field',
-            attributes: {'placeholder': t('seo_placeholder_keyword')},
+            attributes: {'placeholder': t('seo_placeholder_keyword'), 'aria-label': t('seo_placeholder_keyword')},
             onInput: (e) => setState(() => seoTargetKeyword = e.toString()),
           ),
         ]),
         div([
           input(
             classes: 'input-field',
-            attributes: {'placeholder': t('seo_placeholder_title')},
+            attributes: {'placeholder': t('seo_placeholder_title'), 'aria-label': t('seo_placeholder_title')},
             onInput: (e) => setState(() => seoTitle = e.toString()),
           ),
         ]),
         div([
           textarea(
             classes: 'input-field resize-none',
-            attributes: {'placeholder': t('seo_placeholder_desc'), 'rows': '5'},
+            attributes: {'placeholder': t('seo_placeholder_desc'), 'aria-label': t('seo_placeholder_desc'), 'rows': '5'},
             onInput: (e) => setState(() => seoDescription = e.toString()),
             [],
           ),
@@ -502,7 +525,7 @@ class _AppState extends State<App> {
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
-              attributes: {'placeholder': t('title_gen_placeholder')},
+              attributes: {'placeholder': t('title_gen_placeholder'), 'aria-label': t('title_gen_placeholder')},
               onInput: (e) => setState(() => titleTopic = e.toString()),
             ),
           ]),
@@ -569,7 +592,7 @@ class _AppState extends State<App> {
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
-              attributes: {'placeholder': t('thumb_gen_placeholder')},
+              attributes: {'placeholder': t('thumb_gen_placeholder'), 'aria-label': t('thumb_gen_placeholder')},
               onInput: (e) => setState(() => thumbnailTopic = e.toString()),
             ),
           ]),
@@ -642,7 +665,7 @@ class _AppState extends State<App> {
             input(
               classes: 'input-field',
               attributes: {
-                'placeholder': t('tag_ext_placeholder'),
+                'placeholder': t('tag_ext_placeholder'), 'aria-label': t('tag_ext_placeholder'),
                 'value': tagUrl
               },
               onInput: (e) => setState(() => tagUrl = e.toString()),
@@ -700,7 +723,7 @@ class _AppState extends State<App> {
             ]),
             input(
               classes: 'w-full h-1 rounded-full appearance-none cursor-pointer bg-yt-gray-200 dark:bg-yt-gray-700 accent-yt-red',
-              attributes: {'type': 'range', 'min': '1000', 'max': '100000', 'step': '1000'},
+              attributes: {'type': 'range', 'min': '1000', 'max': '100000', 'step': '1000', 'aria-label': t('earn_daily_views')},
               onChange: (e) => setState(() => dailyViews = int.parse(e.toString())),
             ),
           ]),
@@ -1131,7 +1154,7 @@ class _AppState extends State<App> {
   //  FOOTER
   // ═══════════════════════════════════════════
   Component _buildFooter() {
-    return div(classes: 'border-t border-yt-gray-200 dark:border-yt-gray-800 mt-16 mb-20 md:mb-0 pb-8 animate-fade-in animate-delay-500', [
+    return footer(classes: 'border-t border-yt-gray-200 dark:border-yt-gray-800 mt-16 mb-20 md:mb-0 pb-8 animate-fade-in animate-delay-500', [
       div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6', [
         div(classes: 'flex flex-col md:flex-row items-center justify-between gap-4', [
            div(classes: 'flex items-center gap-2', [
@@ -1139,10 +1162,14 @@ class _AppState extends State<App> {
             span(classes: 'font-bold text-sm text-yt-gray-900 dark:text-white tracking-tight', [Component.text(t('nav_logo_text'))]),
           ]),
           div(classes: 'flex flex-wrap justify-center gap-4', [
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('about'), [Component.text(t('footer_about'))]),
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('contact'), [Component.text(t('footer_contact'))]),
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('privacy'), [Component.text(t('footer_privacy_policy'))]),
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: () => switchTab('terms'), [Component.text(t('footer_terms_service'))]),
+            // Real anchors, not buttons. As <button onClick> these pages were
+            // invisible to crawlers — the audit reported "no link to an about page"
+            // for all four — and they passed no link equity to the legal pages that
+            // establish trust.
+            Link(to: '/about', classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', child: Component.text(t('footer_about'))),
+            Link(to: '/contact', classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', child: Component.text(t('footer_contact'))),
+            Link(to: '/privacy', classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', child: Component.text(t('footer_privacy_policy'))),
+            Link(to: '/terms', classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', child: Component.text(t('footer_terms_service'))),
             button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: openConsentPreferences, [Component.text(t('footer_cookies'))]),
           ]),
           if (kSocialProfiles.isNotEmpty)
@@ -1184,7 +1211,7 @@ class _AppState extends State<App> {
       p([Component.text(t('contact_p1'))]),
       div(classes: 'mt-6 p-4 bg-yt-gray-100 dark:bg-yt-gray-800 rounded-lg flex items-center gap-3', [
         span(classes: 'material-symbols-rounded', [Component.text('mail')]),
-        a(href: 'mailto:info@easysignly.com', classes: 'font-medium text-yt-red hover:underline', [Component.text('info@easysignly.com')])
+        a(href: 'mailto:$legalContactEmail', classes: 'font-medium text-yt-red hover:underline', [Component.text(legalContactEmail)])
       ])
     ]);
   }

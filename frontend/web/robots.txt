@@ -47,4 +47,7 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+# Structured summary of the site for AI crawlers (llmstxt.org).
+LLMs: https://vidseokit.com/llms.txt
+
 Sitemap: https://vidseokit.com/sitemap.xml
