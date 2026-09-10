@@ -6,7 +6,7 @@ Reads  : blog_src/posts.json          (metadata for every post)
          blog_src/posts/<slug>.html   (article body, HTML fragment)
 Writes : web/blog/<slug>.html         (one standalone, crawlable page per post)
          web/blog/index.html          (blog hub)
-         web/sitemap.xml, web/robots.txt
+         web/sitemap.xml, web/robots.txt, web/llms.txt
 
 Run:  python3 blog_src/build_blog.py
 """
@@ -394,7 +394,7 @@ def render_index(posts):
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Creator Blog &mdash; YouTube SEO, Analytics &amp; Monetization Guides | {SITE_NAME}</title>
-  <meta name="description" content="In-depth, source-backed guides on YouTube SEO, click-through rate, RPM, keyword research and creator monetization. {len(posts)} long-form articles, updated regularly.">
+  <meta name="description" content="Source-backed guides on YouTube SEO, click-through rate, RPM, keyword research and monetization. {len(posts)} long-form articles, updated regularly.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SITE_URL}/blog/">
   <link rel="icon" href="/favicon.ico">
@@ -538,6 +538,66 @@ def render_sitemap(posts):
             '        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n%s\n</urlset>\n' % (ns, body))
 
 
+def render_llms_txt(posts):
+    """The llmstxt.org summary of the site, for AI crawlers.
+
+    Generated here rather than hand-written: it lists every article, so a
+    hand-maintained copy silently goes stale the moment a post is added (it sat
+    at 20 entries while the blog had 50).
+    """
+    today = date.today().isoformat()
+    tools = [
+        ("YouTube SEO Analyzer", "/",
+         "Scores a video's title, description and tags against a target keyword, "
+         "then lists the specific changes to make before publishing."),
+        ("YouTube Title Generator", "/youtube-title-generator",
+         "Turns a video topic into several ready-to-use title options, each written "
+         "to a different framing so you can compare angles side by side."),
+        ("YouTube Thumbnail Ideas Generator", "/youtube-thumbnail-ideas",
+         "Turns a video topic into concrete thumbnail concepts - subject, expression, "
+         "overlay text and colour direction - to design or brief from."),
+        ("YouTube Tag Extractor", "/youtube-tag-extractor",
+         "Reads the public tags off any YouTube video URL, so you can see how videos "
+         "already ranking in your niche describe themselves."),
+        ("YouTube Earnings Calculator", "/youtube-earnings-calculator",
+         "Estimates monthly AdSense revenue from daily views and content niche, as an "
+         "RPM-based range rather than a single figure."),
+    ]
+    reference = [
+        ("YouTube RPM by Country", "/youtube-rpm-by-country",
+         "What YouTube pays per 1,000 views in the US, UK, Canada, Germany, France and "
+         "across Europe, with typical RPM ranges by market."),
+        ("Blog", "/blog",
+         "In-depth guides on YouTube SEO, the recommendation algorithm, monetization, "
+         "RPM and channel analytics."),
+    ]
+    about = [
+        ("About", "/about", "What VidSEOKit is and who builds it."),
+        ("Contact", "/contact", "How to reach the team."),
+        ("Privacy Policy", "/privacy", "What data is collected and how it is used."),
+        ("Terms of Service", "/terms", "Terms governing use of the tools."),
+    ]
+
+    out = [
+        "# %s" % SITE_NAME, "",
+        "> Free YouTube SEO and analytics tools for creators: SEO scoring, AI title and",
+        "> thumbnail generation, tag extraction, and AdSense earnings estimation. No",
+        "> account required and no paid tier. Written for creators in the US, Canada,",
+        "> UK, Ireland, Australia and Europe.", "",
+        "Content last reviewed: %s" % today, "",
+    ]
+    for heading, rows in (("YouTube tools", tools),
+                          ("Reference and guides", reference),
+                          ("About", about)):
+        out += ["## %s" % heading, ""]
+        out += ["- [%s](%s%s): %s" % (n, SITE_URL, u, d) for n, u, d in rows]
+        out.append("")
+    out += ["## Blog articles", ""]
+    out += ["- [%s](%s/blog/%s.html)" % (p["title"], SITE_URL, p["slug"]) for p in posts]
+    out.append("")
+    return "\n".join(out)
+
+
 def main():
     with open(os.path.join(SRC, "posts.json"), encoding="utf-8") as f:
         posts = json.load(f)
@@ -573,6 +633,8 @@ def main():
         f.write(render_index(live))
     with open(os.path.join(WEB, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(render_sitemap(live))
+    with open(os.path.join(WEB, "llms.txt"), "w", encoding="utf-8") as f:
+        f.write(render_llms_txt(live))
     dart_dir = os.path.join(ROOT, "lib", "data")
     os.makedirs(dart_dir, exist_ok=True)
     with open(os.path.join(dart_dir, "blog_posts.dart"), "w", encoding="utf-8") as f:

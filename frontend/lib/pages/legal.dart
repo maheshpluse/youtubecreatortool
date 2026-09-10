@@ -33,7 +33,7 @@ import 'package:jaspr/jaspr.dart';
 // ═══════════════════════════════════════════════════════════════════════════
 
 const String legalLastUpdated = '4 September 2026';
-const String legalContactEmail = 'info@easysignly.com';
+const String legalContactEmail = 'oleenahouse@gmail.com';
 
 // ── Shared building blocks ─────────────────────────────────────────────────
 

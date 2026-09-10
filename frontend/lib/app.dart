@@ -428,21 +428,21 @@ class _AppState extends State<App> {
         div([
           input(
             classes: 'input-field',
-            attributes: {'placeholder': t('seo_placeholder_keyword'), 'aria-label': t('seo_placeholder_keyword')},
+            attributes: {'placeholder': t('seo_placeholder_keyword'), 'aria-label': t('seo_placeholder_keyword'), 'value': seoTargetKeyword},
             onInput: (e) => setState(() => seoTargetKeyword = e.toString()),
           ),
         ]),
         div([
           input(
             classes: 'input-field',
-            attributes: {'placeholder': t('seo_placeholder_title'), 'aria-label': t('seo_placeholder_title')},
+            attributes: {'placeholder': t('seo_placeholder_title'), 'aria-label': t('seo_placeholder_title'), 'value': seoTitle},
             onInput: (e) => setState(() => seoTitle = e.toString()),
           ),
         ]),
         div([
           textarea(
             classes: 'input-field resize-none',
-            attributes: {'placeholder': t('seo_placeholder_desc'), 'aria-label': t('seo_placeholder_desc'), 'rows': '5'},
+            attributes: {'placeholder': t('seo_placeholder_desc'), 'aria-label': t('seo_placeholder_desc'), 'rows': '5', 'value': seoDescription},
             onInput: (e) => setState(() => seoDescription = e.toString()),
             [],
           ),
@@ -470,7 +470,7 @@ class _AppState extends State<App> {
               for (var w in [100, 85, 70, 90, 60])
                 div(classes: 'flex items-center gap-3', [
                   div(classes: 'skeleton w-5 h-5 rounded-full shrink-0', []),
-                  div(classes: 'skeleton h-4 flex-1', attributes: {'style': 'max-width: ${w}%'}, []),
+                  div(classes: 'skeleton h-4 flex-1', attributes: {'style': 'max-width: $w%'}, []),
                 ]),
             ]),
           ]),
@@ -525,7 +525,7 @@ class _AppState extends State<App> {
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
-              attributes: {'placeholder': t('title_gen_placeholder'), 'aria-label': t('title_gen_placeholder')},
+              attributes: {'placeholder': t('title_gen_placeholder'), 'aria-label': t('title_gen_placeholder'), 'value': titleTopic},
               onInput: (e) => setState(() => titleTopic = e.toString()),
             ),
           ]),
@@ -592,7 +592,7 @@ class _AppState extends State<App> {
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
-              attributes: {'placeholder': t('thumb_gen_placeholder'), 'aria-label': t('thumb_gen_placeholder')},
+              attributes: {'placeholder': t('thumb_gen_placeholder'), 'aria-label': t('thumb_gen_placeholder'), 'value': thumbnailTopic},
               onInput: (e) => setState(() => thumbnailTopic = e.toString()),
             ),
           ]),
@@ -723,7 +723,7 @@ class _AppState extends State<App> {
             ]),
             input(
               classes: 'w-full h-1 rounded-full appearance-none cursor-pointer bg-yt-gray-200 dark:bg-yt-gray-700 accent-yt-red',
-              attributes: {'type': 'range', 'min': '1000', 'max': '100000', 'step': '1000', 'aria-label': t('earn_daily_views')},
+              attributes: {'type': 'range', 'min': '1000', 'max': '100000', 'step': '1000', 'aria-label': t('earn_daily_views'), 'value': dailyViews.toString()},
               onChange: (e) => setState(() => dailyViews = int.parse(e.toString())),
             ),
           ]),
