@@ -27,6 +27,7 @@ class _AppState extends State<App> {
   String seoTargetKeyword = '';
   String seoTitle = '';
   String seoDescription = '';
+  String seoTags = '';
   Map<String, dynamic>? seoResult;
 
   // Title Generator State
@@ -122,11 +123,12 @@ class _AppState extends State<App> {
   }
 
   Future<void> calculateSeo() => _run('seo', () async {
+        final tagList = seoTags.split(',').map((t) => t.trim()).where((t) => t.isNotEmpty).toList();
         final data = await _postJson('/api/calculate-seo', {
           'target_keyword': seoTargetKeyword,
           'title': seoTitle,
           'description': seoDescription,
-          'tags': [],
+          'tags': tagList,
         });
         setState(() => seoResult = data as Map<String, dynamic>);
       });
@@ -452,6 +454,13 @@ class _AppState extends State<App> {
             attributes: {'id': 'seo-description', 'name': 'seo-description', 'placeholder': t('seo_placeholder_desc'), 'aria-label': t('seo_placeholder_desc'), 'rows': '5', 'value': seoDescription},
             onInput: (e) => setState(() => seoDescription = e.toString()),
             [],
+          ),
+        ]),
+        div([
+          input(
+            classes: 'input-field',
+            attributes: {'id': 'seo-tags', 'name': 'seo-tags', 'placeholder': t('seo_placeholder_tags'), 'aria-label': t('seo_placeholder_tags'), 'value': seoTags},
+            onInput: (e) => setState(() => seoTags = e.toString()),
           ),
         ]),
         div(classes: 'flex justify-end', [

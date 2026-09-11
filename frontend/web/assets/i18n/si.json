@@ -83,5 +83,6 @@
   "seo_fb_desc_length_pass": "Pass: විස්තරය (Description) ප්‍රමාණවත් තරම් දිගයි.",
   "seo_fb_desc_length_fail": "Fail: විස්තරය (Description) ඉතා කෙටියි. අවම වශයෙන් අකුරු 150ක් වත් තිබිය යුතුයි.",
   "seo_fb_tags_missing": "Fail: වීඩියෝවට අදාළ Tags කිසිවක් ඇතුළත් කර නොමැත.",
-  "seo_fb_tags_pass": "Pass: වීඩියෝවට අදාළ Tags ඇතුළත් කර ඇත."
+  "seo_fb_tags_pass": "Pass: වීඩියෝවට අදාළ Tags ඇතුළත් කර ඇත.",
+  "seo_placeholder_tags": "Tags ඇතුළත් කරන්න (comma වලින් වෙන් කරන්න)"
 }

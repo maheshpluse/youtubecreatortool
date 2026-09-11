@@ -284,14 +284,16 @@ class SEOResponseSchema(BaseModel):
 
 @app.post("/api/calculate-seo", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
 def calculate_seo(request: SEOCheckRequest):
-    title = request.title.lower()
-    desc = request.description.lower()
+    title = request.title.strip()
+    desc = request.description.strip()
     keyword = request.target_keyword.lower().strip()
+    title_lower = title.lower()
+    desc_lower = desc.lower()
 
     score = 0
     feedback: list[SEOFeedbackItem] = []
 
-    # Fetch Keyword Data using Cache & API
+    # ── 1. Keyword Data (Search Volume & Competition) ── max 30 points ──
     kw_data = get_cached_keyword(db, keyword)
     if not kw_data:
         kw_data = fetch_keyword_data(keyword, db, gemini_model)
@@ -300,64 +302,79 @@ def calculate_seo(request: SEOCheckRequest):
     volume = kw_data.get('search_volume', 0)
     competition = kw_data.get('competition_level', 'High')
 
-    # SEO Logic based on real data
+    # Search Volume (max 15)
     if volume > 50000:
         feedback.append(SEOFeedbackItem(key="seo_fb_volume_high", params={"volume": str(volume)}, status="pass"))
-        score += 20
+        score += 15
     elif volume > 5000:
         feedback.append(SEOFeedbackItem(key="seo_fb_volume_good", params={"volume": str(volume)}, status="pass"))
-        score += 15
+        score += 10
     else:
         feedback.append(SEOFeedbackItem(key="seo_fb_volume_low", params={"volume": str(volume)}, status="fail"))
-        score += 5
+        score += 3
 
+    # Competition (max 15)
     if competition == "Low":
         feedback.append(SEOFeedbackItem(key="seo_fb_competition_low", status="pass"))
-        score += 20
+        score += 15
     elif competition == "Medium":
         feedback.append(SEOFeedbackItem(key="seo_fb_competition_medium", status="pass"))
         score += 10
     else:
         feedback.append(SEOFeedbackItem(key="seo_fb_competition_high", status="fail"))
+        score += 0
 
-    if keyword and keyword in title:
-        score += 30
+    # ── 2. Keyword in Title ── max 20 points ──
+    if keyword and keyword in title_lower:
+        score += 20
         feedback.append(SEOFeedbackItem(key="seo_fb_keyword_title_pass", status="pass"))
     else:
         feedback.append(SEOFeedbackItem(key="seo_fb_keyword_title_fail", status="fail"))
 
-    if title.strip() and title.strip() == desc.strip():
+    # ── 3. Title & Description Relationship ── max 15 + 15 = 30 points ──
+    # CRITICAL: If title == description, user is being lazy — no desc points
+    if title_lower and title_lower == desc_lower:
         feedback.append(SEOFeedbackItem(key="seo_fb_title_desc_match_fail", status="fail"))
-        score -= 20
+        feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_fail", status="fail"))
+        feedback.append(SEOFeedbackItem(key="seo_fb_desc_length_fail", status="fail"))
+        # 0 points for keyword-in-desc, 0 points for desc quality
     else:
-        if keyword and keyword in desc[:200]:
-            score += 20
+        # Keyword in Description (max 15)
+        if keyword and keyword in desc_lower[:200]:
+            score += 15
             feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_pass", status="pass"))
         else:
             feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_fail", status="fail"))
-            
-        if len(desc) >= 150:
-            score += 10
+
+        # Description Quality/Length (max 15)
+        if len(desc) >= 200:
+            score += 15
+            feedback.append(SEOFeedbackItem(key="seo_fb_desc_length_pass", status="pass"))
+        elif len(desc) >= 100:
+            score += 8
             feedback.append(SEOFeedbackItem(key="seo_fb_desc_length_pass", status="pass"))
         else:
             feedback.append(SEOFeedbackItem(key="seo_fb_desc_length_fail", status="fail"))
-            score -= 10
 
-    if 30 <= len(request.title) <= 70:
+    # ── 4. Title Length ── max 10 points ──
+    if 30 <= len(title) <= 70:
         score += 10
         feedback.append(SEOFeedbackItem(key="seo_fb_title_length_pass", status="pass"))
     else:
         feedback.append(SEOFeedbackItem(key="seo_fb_title_length_fail", status="fail"))
 
-    # Check tags
-    if not request.tags or len(request.tags) == 0 or (len(request.tags) == 1 and request.tags[0].strip() == ""):
+    # ── 5. Tags ── max 10 points ──
+    valid_tags = [t for t in request.tags if t.strip()]
+    if not valid_tags:
         feedback.append(SEOFeedbackItem(key="seo_fb_tags_missing", status="fail"))
-        score -= 10
-    else:
-        feedback.append(SEOFeedbackItem(key="seo_fb_tags_pass", status="pass"))
+    elif len(valid_tags) >= 5:
         score += 10
+        feedback.append(SEOFeedbackItem(key="seo_fb_tags_pass", status="pass"))
+    else:
+        score += 5
+        feedback.append(SEOFeedbackItem(key="seo_fb_tags_pass", status="pass"))
 
-    # Cap score at 100
+    # ── Final Score ──
     score = max(0, min(score, 100))
     status = "Excellent" if score >= 80 else ("Good" if score >= 50 else "Needs Improvement")
 

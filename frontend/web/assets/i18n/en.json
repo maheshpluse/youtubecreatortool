@@ -100,5 +100,6 @@
   "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
   "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
   "seo_fb_tags_missing": "Fail: No tags have been provided.",
-  "seo_fb_tags_pass": "Pass: Video tags have been provided."
+  "seo_fb_tags_pass": "Pass: Video tags have been provided.",
+  "seo_placeholder_tags": "Enter tags (comma separated, e.g. tech, review, gadget)"
 }
