@@ -26,7 +26,7 @@ load_dotenv()
 # an env var on the server, no redeploy). Verify a candidate is still served
 # with genai.list_models() before changing it - an unlisted id fails at
 # generate_content time, not here, so a bad name looks like a runtime AI error.
-GEMINI_MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-1.5-flash-8b").strip()
+GEMINI_MODEL_NAME = os.environ.get("GEMINI_MODEL_NAME", "gemini-3.5-flash-lite").strip()
 
 # The .env key, kept separately so the Firestore listener can fall back to it
 # instead of leaving the app with no model at all.
