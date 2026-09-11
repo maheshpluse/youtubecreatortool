@@ -183,36 +183,50 @@ const String kSiteHead = r'''
         <script src="consent.js"></script>
 
         <!-- reCAPTCHA integration -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <div id="recaptcha-container" class="g-recaptcha" data-sitekey="6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik" data-size="invisible" data-callback="onRecaptchaSuccess" data-error-callback="onRecaptchaError"></div>
     <script>
+      let currentRecaptchaResolve = null;
+
+      window.onRecaptchaSuccess = function(token) {
+         if (currentRecaptchaResolve) {
+             currentRecaptchaResolve(token || "DUMMY_TOKEN");
+             currentRecaptchaResolve = null;
+         }
+      };
+
+      window.onRecaptchaError = function() {
+         console.error("reCAPTCHA encountered an error");
+         if (currentRecaptchaResolve) {
+             currentRecaptchaResolve("DUMMY_TOKEN");
+             currentRecaptchaResolve = null;
+         }
+      };
+
       window.executeRecaptcha = function() {
         return new Promise((resolve) => {
           if (typeof grecaptcha === 'undefined') {
+            console.error('grecaptcha is undefined');
             resolve("DUMMY_TOKEN");
             return;
           }
+          currentRecaptchaResolve = resolve;
           try {
-            grecaptcha.ready(async () => {
-              try {
-                const token = await grecaptcha.execute('6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik', {action: 'submit'});
-                    resolve(token || "DUMMY_TOKEN");
-                  } catch (e) {
-                    console.error('reCAPTCHA execution failed', e);
-                    resolve("DUMMY_TOKEN");
-                  }
-                });
-              } catch (err) {
-                console.error('reCAPTCHA ready failed', err);
-                resolve("DUMMY_TOKEN");
-              }
-            });
-          };
-        </script>
+             grecaptcha.reset();
+             grecaptcha.execute();
+          } catch (e) {
+             console.error('reCAPTCHA execution failed:', e);
+             resolve("DUMMY_TOKEN");
+             currentRecaptchaResolve = null;
+          }
+        });
+      };
+    </script>
 
         <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
         <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
         <script defer src="auth.js?v=2"></script>
-        <script defer src="main.dart.js?v=4"></script>
+        <script defer src="main.dart.js?v=5"></script>
 
 
 ''';
