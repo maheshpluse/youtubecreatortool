@@ -8,7 +8,7 @@ echo "Deploying Backend..."
 sshpass -p "$ROOT_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude="venv" --exclude="__pycache__" backend/ root@157.180.22.218:/var/www/vidseokit/backend/
 
 echo "Injecting Environment Variables..."
-sshpass -p "$ROOT_PASSWORD" ssh -o StrictHostKeyChecking=no root@157.180.22.218 "echo 'GEMINI_API_KEY=$GEMINI_API_KEY' > /var/www/vidseokit/backend/.env"
+sshpass -p "$ROOT_PASSWORD" ssh -o StrictHostKeyChecking=no root@157.180.22.218 "grep -q '^GEMINI_API_KEY=' /var/www/vidseokit/backend/.env 2>/dev/null && sed -i 's/^GEMINI_API_KEY=.*/GEMINI_API_KEY=$GEMINI_API_KEY/' /var/www/vidseokit/backend/.env || echo 'GEMINI_API_KEY=$GEMINI_API_KEY' >> /var/www/vidseokit/backend/.env"
 
 echo "Restarting service..."
 sshpass -p "$ROOT_PASSWORD" ssh -o StrictHostKeyChecking=no root@157.180.22.218 "sudo systemctl restart vidseokit"
