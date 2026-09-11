@@ -14,6 +14,13 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
+# Main search engine crawlers explicitly allowed
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 # Answer engines are welcome. These are already permitted by the wildcard
 # above; listing them explicitly records the intent, so a later edit to the
 # wildcard rule cannot cut off citation traffic by accident.
