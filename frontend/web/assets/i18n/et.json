@@ -78,5 +78,10 @@
   "article_earn_p2": "Pea meeles, et finants- ja tehnoloogianišid on tavaliselt kõrgema RPM-iga kui mängud või vlogid, mis tähendab, et võid teenida rohkem väiksema vaatamiste arvuga. Keskendu alati vaatajate hoidmisele, et maksimeerida reklaamikohti.",
   "article_blog_title": "Ülevaated ja strateegiad loojatele",
   "article_blog_p1": "Ole sammu võrra ees uusimate strateegiate, algoritmi muudatuste ja tulu teenimise nõuannetega meie loojate blogis. Jagame keerulised teemad rakendatavateks nõuanneteks igas suuruses YouTuberitele.",
-  "article_blog_p2": "Pisipiltide disaini parandamisest publiku psühholoogia mõistmiseni – blogi on sinu püsiv allikas jätkusuutlikuks kanali kasvuks ja kogukonna loomiseks."
+  "article_blog_p2": "Pisipiltide disaini parandamisest publiku psühholoogia mõistmiseni – blogi on sinu püsiv allikas jätkusuutlikuks kanali kasvuks ja kogukonna loomiseks.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

@@ -78,5 +78,10 @@
   "article_earn_p2": "Қаржы мен технология салаларының RPM-і әдетте ойындар немесе влогтардан жоғары болатынын есте сақтаңыз — яғни аз қаралыммен де көбірек тапса болады. Жарнама орындарын толық пайдалану үшін әрқашан көрермендерді ұстап тұруға назар аударыңыз.",
   "article_blog_title": "Контент жасаушыларға арналған түйсіктер мен стратегиялар",
   "article_blog_p1": "Контент жасаушылар блогындағы соңғы стратегиялар, алгоритм өзгерістері және монетизация кеңестерімен бір қадам алда болыңыз. Күрделі тақырыптарды кез келген көлемдегі YouTuber үшін қолданылатын кеңестерге бөлеміз.",
-  "article_blog_p2": "Нобай дизайнын жақсартудан бастап көрермен психологиясын түсінуге дейін — блог арнаның тұрақты өсуі мен қауымдастық құру үшін сіздің дереккөзіңіз."
+  "article_blog_p2": "Нобай дизайнын жақсартудан бастап көрермен психологиясын түсінуге дейін — блог арнаның тұрақты өсуі мен қауымдастық құру үшін сіздің дереккөзіңіз.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

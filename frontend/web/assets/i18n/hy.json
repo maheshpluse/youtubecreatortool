@@ -78,5 +78,10 @@
   "article_earn_p2": "Հիշեք, որ ֆինանսների և տեխնոլոգիաների նիշերը սովորաբար ունեն ավելի բարձր RPM, քան խաղերը կամ վլոգները, ինչը նշանակում է, որ կարող եք ավելի շատ վաստակել ավելի քիչ դիտումներով։ Միշտ կենտրոնացեք դիտողների պահպանման վրա՝ գովազդային տեղերն առավելագույնս օգտագործելու համար։",
   "article_blog_title": "Պատկերացումներ և ռազմավարություններ ստեղծողների համար",
   "article_blog_p1": "Մնացեք մեկ քայլ առաջ վերջին ռազմավարություններով, ալգորիթմի փոփոխություններով և մոնետիզացիայի խորհուրդներով մեր ստեղծողների բլոգում։ Մենք բարդ թեմաները վերածում ենք գործնական խորհուրդների ցանկացած չափի YouTuber-ի համար։",
-  "article_blog_p2": "Մանրապատկերի դիզայնի բարելավումից մինչև լսարանի հոգեբանության ընկալում՝ բլոգը ձեր աղբյուրն է ալիքի կայուն աճի և համայնքի կառուցման համար։"
+  "article_blog_p2": "Մանրապատկերի դիզայնի բարելավումից մինչև լսարանի հոգեբանության ընկալում՝ բլոգը ձեր աղբյուրն է ալիքի կայուն աճի և համայնքի կառուցման համար։",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

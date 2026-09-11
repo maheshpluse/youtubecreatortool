@@ -78,5 +78,10 @@
   "article_earn_p2": "ຈື່ໄວ້ວ່າຂົງເຂດການເງິນ ແລະ ເທັກໂນໂລຊີໂດຍທົ່ວໄປມີ RPM ສູງກວ່າເກມ ຫຼື vlog, ໝາຍຄວາມວ່າທ່ານສາມາດຫາລາຍໄດ້ຫຼາຍຂຶ້ນດ້ວຍຍອດເບິ່ງໜ້ອຍລົງ. ໃຫ້ຄວາມສຳຄັນສະເໝີກັບການຮັກສາຜູ້ຊົມເພື່ອໃຊ້ປະໂຫຍດຈາກພື້ນທີ່ໂຄສະນາໃຫ້ຫຼາຍທີ່ສຸດ.",
   "article_blog_title": "ຄວາມເຂົ້າໃຈ ແລະ ຍຸດທະສາດສຳລັບຜູ້ສ້າງເນື້ອຫາ",
   "article_blog_p1": "ກ້າວໜ້າກວ່າຄົນອື່ນດ້ວຍຍຸດທະສາດຫຼ້າສຸດ, ການປ່ຽນແປງອະລະກໍລິທຶມ ແລະ ຄຳແນະນຳການສ້າງລາຍໄດ້ໃນບລັອກຜູ້ສ້າງເນື້ອຫາຂອງພວກເຮົາ. ພວກເຮົາແຍກຫົວຂໍ້ທີ່ຊັບຊ້ອນອອກເປັນຄຳແນະນຳທີ່ໃຊ້ໄດ້ຈິງສຳລັບ YouTuber ທຸກຂະໜາດ.",
-  "article_blog_p2": "ຈາກການປັບປຸງການອອກແບບຮູບຕົວຢ່າງ ຈົນເຖິງການເຂົ້າໃຈຈິດຕະສາດຂອງຜູ້ຊົມ, ບລັອກຂອງພວກເຮົາແມ່ນແຫຼ່ງຂໍ້ມູນຫຼັກຂອງທ່ານສຳລັບການເຕີບໂຕຂອງຊ່ອງແບບຍືນຍົງ ແລະ ການສ້າງຊຸມຊົນ."
+  "article_blog_p2": "ຈາກການປັບປຸງການອອກແບບຮູບຕົວຢ່າງ ຈົນເຖິງການເຂົ້າໃຈຈິດຕະສາດຂອງຜູ້ຊົມ, ບລັອກຂອງພວກເຮົາແມ່ນແຫຼ່ງຂໍ້ມູນຫຼັກຂອງທ່ານສຳລັບການເຕີບໂຕຂອງຊ່ອງແບບຍືນຍົງ ແລະ ການສ້າງຊຸມຊົນ.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

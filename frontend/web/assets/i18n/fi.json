@@ -78,5 +78,10 @@
   "article_earn_p2": "Muista, että talous- ja teknologia-nichellä on yleensä korkeampi RPM kuin pelaamisella tai vlogeilla, eli voit ansaita enemmän pienemmällä katselumäärällä. Keskity aina katsojien pysyvyyteen, jotta mainospaikkoja saadaan hyödynnettyä enemmän.",
   "article_blog_title": "Näkemyksiä ja strategioita tekijöille",
   "article_blog_p1": "Pysy askeleen edellä uusimpien strategioiden, algoritmimuutosten ja tienausvinkkien avulla tekijäblogissamme. Puramme monimutkaiset aiheet käytännön vinkeiksi kaiken kokoisille YouTubereille.",
-  "article_blog_p2": "Pikkukuvien suunnittelun parantamisesta yleisön psykologian ymmärtämiseen — blogi on jatkuvan kanavan kasvun ja yhteisön rakentamisen tukikohtasi."
+  "article_blog_p2": "Pikkukuvien suunnittelun parantamisesta yleisön psykologian ymmärtämiseen — blogi on jatkuvan kanavan kasvun ja yhteisön rakentamisen tukikohtasi.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

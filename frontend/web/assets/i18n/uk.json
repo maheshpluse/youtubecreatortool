@@ -78,5 +78,10 @@
   "article_earn_p2": "Врахуйте: у фінансах і технологіях RPM зазвичай вищий, ніж в іграх чи влогах, тобто заробити більше можна й на менших переглядах. Завжди працюйте над утриманням — так рекламних місць буде більше.",
   "article_blog_title": "Розбори та стратегії для авторів",
   "article_blog_p1": "Будьте на крок попереду: свіжі стратегії, зміни алгоритму й поради щодо монетизації в блозі для авторів. Ми розкладаємо складні теми на зрозумілі кроки для каналів будь-якого розміру.",
-  "article_blog_p2": "Від покращення обкладинок до психології аудиторії — блог стане вашою опорою для сталого зростання каналу та побудови спільноти."
+  "article_blog_p2": "Від покращення обкладинок до психології аудиторії — блог стане вашою опорою для сталого зростання каналу та побудови спільноти.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

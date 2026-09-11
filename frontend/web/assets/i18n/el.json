@@ -78,5 +78,10 @@
   "article_earn_p2": "Να θυμάσαι ότι τα οικονομικά και η τεχνολογία έχουν συνήθως υψηλότερο RPM από το gaming ή τα vlog, άρα μπορείς να βγάλεις περισσότερα με λιγότερες προβολές. Δούλευε πάντα τη διατήρηση κοινού για να αξιοποιείς περισσότερες διαφημιστικές θέσεις.",
   "article_blog_title": "Αναλύσεις και στρατηγικές για δημιουργούς",
   "article_blog_p1": "Μείνε ένα βήμα μπροστά με τις τελευταίες στρατηγικές, τις αλλαγές του αλγορίθμου και συμβουλές monetization στο blog μας για δημιουργούς. Μετατρέπουμε σύνθετα θέματα σε πρακτικές συμβουλές για κανάλια κάθε μεγέθους.",
-  "article_blog_p2": "Από τη βελτίωση των μικρογραφιών μέχρι την κατανόηση της ψυχολογίας του κοινού, το blog είναι η βάση σου για βιώσιμη ανάπτυξη καναλιού και χτίσιμο κοινότητας."
+  "article_blog_p2": "Από τη βελτίωση των μικρογραφιών μέχρι την κατανόηση της ψυχολογίας του κοινού, το blog είναι η βάση σου για βιώσιμη ανάπτυξη καναλιού και χτίσιμο κοινότητας.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

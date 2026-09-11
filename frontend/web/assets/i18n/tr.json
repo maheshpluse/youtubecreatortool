@@ -95,5 +95,10 @@
   "seo_fb_keyword_desc_pass": "Başarılı: Hedef anahtar kelime açıklamanın başında bulundu.",
   "seo_fb_keyword_desc_fail": "Başarısız: Hedef anahtar kelime açıklamanın başında eksik.",
   "seo_fb_title_length_pass": "Başarılı: Başlık uzunluğu optimal (30-70 karakter).",
-  "seo_fb_title_length_fail": "Başarısız: Başlık uzunluğu optimal değil."
+  "seo_fb_title_length_fail": "Başarısız: Başlık uzunluğu optimal değil.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

@@ -78,5 +78,10 @@
   "article_earn_p2": "Cheta na ọdịnaya ego na teknụzụ na-enwekarị RPM dị elu karịa egwuregwu ma ọ bụ vlog, nke pụtara na ị nwere ike nweta ihe karịrị site na nlele dị ntakịrị. Na-elekwasị anya mgbe niile na ijide ndị na-ekiri iji ritawanye ọnọdụ mgbasa ozi.",
   "article_blog_title": "Nghọta na Atụmatụ Maka Ndị Mmepụta",
   "article_blog_p1": "Nọgide na-ebute ụzọ site na atụmatụ kacha ọhụrụ, mgbanwe algọridim, na ndụmọdụ ime ka ego banye na Blọgụ Ndị Mmepụta anyị. Anyị na-emebi isiokwu ndị dị mgbagwoju anya n'ime ndụmọdụ e ji arụ ọrụ maka YouTuber nke ọ bụla nha.",
-  "article_blog_p2": "Site n'imezi imewe obere foto ruo n'ịghọta akparamàgwà uche ndị na-ekiri, blọgụ bụ akụrụngwa gị maka uto ọwa na-adịgide adịgide na iwuli obodo."
+  "article_blog_p2": "Site n'imezi imewe obere foto ruo n'ịghọta akparamàgwà uche ndị na-ekiri, blọgụ bụ akụrụngwa gị maka uto ọwa na-adịgide adịgide na iwuli obodo.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

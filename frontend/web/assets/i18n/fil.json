@@ -78,5 +78,10 @@
   "article_earn_p2": "Tandaan na kadalasang mas mataas ang RPM ng finance at tech kaysa gaming o vlog, kaya kahit mas kaunti ang views ay puwedeng mas malaki ang kita. Laging pagtuunan ang audience retention para mas marami ang ad placements.",
   "article_blog_title": "Insights at Estratehiya para sa mga Creator",
   "article_blog_p1": "Manatiling nangunguna sa pinakabagong estratehiya, update sa algorithm, at tips sa monetization sa Creator Blog namin. Pinapasimple namin ang mga komplikadong paksa tungo sa payong kayang gawin ng kahit anong laki ng YouTuber.",
-  "article_blog_p2": "Mula sa pagpapaganda ng thumbnail design hanggang sa pag-unawa sa saloobin ng audience, ang blog namin ang mapagkukunan mo para sa matatag na paglago ng channel at pagbuo ng komunidad."
+  "article_blog_p2": "Mula sa pagpapaganda ng thumbnail design hanggang sa pag-unawa sa saloobin ng audience, ang blog namin ang mapagkukunan mo para sa matatag na paglago ng channel at pagbuo ng komunidad.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

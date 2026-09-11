@@ -78,5 +78,10 @@
   "article_earn_p2": "Yadda saxlayın ki, maliyyə və texnologiya nişləri adətən oyun və ya vloqlardan daha yüksək RPM-ə malikdir, yəni daha az baxışla daha çox qazana bilərsiniz. Reklam yerlərindən maksimum yararlanmaq üçün həmişə tamaşaçı saxlanmasına fokuslanın.",
   "article_blog_title": "Yaradıcılar üçün fikirlər və strategiyalar",
   "article_blog_p1": "Yaradıcı Bloqumuzda ən son strategiyalar, alqoritm dəyişiklikləri və monetizasiya məsləhətləri ilə bir addım öndə qalın. Mürəkkəb mövzuları hər ölçüdə YouTuber üçün tətbiq oluna bilən məsləhətlərə bölürük.",
-  "article_blog_p2": "Miniatür dizaynının yaxşılaşdırılmasından auditoriya psixologiyasının anlaşılmasına qədər, bloq davamlı kanal artımı və icma qurulması üçün mənbənizdir."
+  "article_blog_p2": "Miniatür dizaynının yaxşılaşdırılmasından auditoriya psixologiyasının anlaşılmasına qədər, bloq davamlı kanal artımı və icma qurulması üçün mənbənizdir.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

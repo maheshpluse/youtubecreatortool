@@ -78,5 +78,10 @@
   "article_earn_p2": "Počítej s tím, že finance a technologie mívají vyšší RPM než hraní nebo vlogy, takže vyděláš víc i s méně zhlédnutími. Vždycky pracuj na udržení diváka, ať se zobrazí víc reklam.",
   "article_blog_title": "Postřehy a strategie pro tvůrce",
   "article_blog_p1": "Zůstaň o krok napřed díky nejnovějším strategiím, změnám algoritmu a tipům na monetizaci na našem blogu pro tvůrce. Složitá témata rozebíráme na konkrétní rady pro kanály všech velikostí.",
-  "article_blog_p2": "Od vylepšení náhledů po pochopení psychologie publika je blog tvým zdrojem pro udržitelný růst kanálu a budování komunity."
+  "article_blog_p2": "Od vylepšení náhledů po pochopení psychologie publika je blog tvým zdrojem pro udržitelný růst kanálu a budování komunity.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

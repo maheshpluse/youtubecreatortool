@@ -78,5 +78,10 @@
   "article_earn_p2": "Kumbuka kwamba maeneo ya fedha na teknolojia mara nyingi yana RPM ya juu kuliko michezo au vlogu, maana yake unaweza kupata zaidi kwa mionekano michache. Zingatia daima kuwaweka watazamaji kwa muda mrefu ili kuongeza nafasi za matangazo.",
   "article_blog_title": "Maarifa na Mikakati kwa Watayarishi",
   "article_blog_p1": "Endelea kuwa mbele kwa mikakati mipya, mabadiliko ya kanuni na vidokezo vya kupata mapato kwenye Blogu yetu ya Watayarishi. Tunachambua mada ngumu kuwa ushauri unaotekelezeka kwa YouTuber wa ukubwa wowote.",
-  "article_blog_p2": "Kuanzia kuboresha muundo wa vijipicha hadi kuelewa saikolojia ya watazamaji, blogu yetu ni rasilimali yako kwa ukuaji endelevu wa chaneli na kujenga jamii."
+  "article_blog_p2": "Kuanzia kuboresha muundo wa vijipicha hadi kuelewa saikolojia ya watazamaji, blogu yetu ni rasilimali yako kwa ukuaji endelevu wa chaneli na kujenga jamii.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

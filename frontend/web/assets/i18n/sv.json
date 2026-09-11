@@ -78,5 +78,10 @@
   "article_earn_p2": "Tänk på att ekonomi och teknik oftast har högre RPM än gaming eller vloggar, alltså kan du tjäna mer på färre visningar. Jobba alltid med tittartiden för att få ut fler annonsplatser.",
   "article_blog_title": "Insikter och strategier för kreatörer",
   "article_blog_p1": "Ligg steget före med de senaste strategierna, algoritmuppdateringarna och tipsen om monetisering på vår kreatörsblogg. Vi bryter ner komplexa ämnen till konkreta råd för kanaler i alla storlekar.",
-  "article_blog_p2": "Från bättre miniatyrdesign till förståelse för publikens psykologi är bloggen din källa för hållbar kanaltillväxt och community-bygge."
+  "article_blog_p2": "Från bättre miniatyrdesign till förståelse för publikens psykologi är bloggen din källa för hållbar kanaltillväxt och community-bygge.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

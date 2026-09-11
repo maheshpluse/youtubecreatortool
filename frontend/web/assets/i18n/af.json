@@ -78,5 +78,10 @@
   "article_earn_p2": "Onthou dat finansies en tegnologie gewoonlik hoër RPM's het as gaming of vlogs, wat beteken jy kan meer verdien met minder kyke. Fokus altyd op kykerbehoud om meer advertensieplekke te benut.",
   "article_blog_title": "Insigte en strategieë vir skeppers",
   "article_blog_p1": "Bly voor met die nuutste strategieë, algoritme-opdaterings en monetiseringswenke op ons skeppersblog. Ons breek komplekse onderwerpe af in bruikbare raad vir kanale van alle groottes.",
-  "article_blog_p2": "Van die verbetering van duimnaelontwerp tot die verstaan van gehoorsielkunde, is die blog jou hulpbron vir volhoubare kanaalgroei en gemeenskapsbou."
+  "article_blog_p2": "Van die verbetering van duimnaelontwerp tot die verstaan van gehoorsielkunde, is die blog jou hulpbron vir volhoubare kanaalgroei en gemeenskapsbou.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

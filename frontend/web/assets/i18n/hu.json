@@ -78,5 +78,10 @@
   "article_earn_p2": "Ne feledd, a pénzügyi és tech niche-ek RPM-je jellemzően magasabb, mint a gaminge vagy a vlogoké, tehát kevesebb megtekintésből is többet kereshetsz. Mindig a nézőmegtartásra összpontosíts, hogy több hirdetési helyet tölthess ki.",
   "article_blog_title": "Betekintések és stratégiák alkotóknak",
   "article_blog_p1": "Maradj lépéselőnyben a legújabb stratégiákkal, algoritmusfrissítésekkel és monetizációs tippekkel alkotói blogunkon. Az összetett témákat minden méretű YouTuber számára használható tanácsokká bontjuk le.",
-  "article_blog_p2": "Az indexkép-design javításától a közönség pszichológiájának megértéséig a blog a fenntartható csatornanövekedés és közösségépítés forrása."
+  "article_blog_p2": "Az indexkép-design javításától a közönség pszichológiájának megértéséig a blog a fenntartható csatornanövekedés és közösségépítés forrása.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

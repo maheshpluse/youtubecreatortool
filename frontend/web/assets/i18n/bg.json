@@ -78,5 +78,10 @@
   "article_earn_p2": "Имай предвид, че финансите и технологиите обикновено имат по-висок RPM от гейминга или влоговете, тоест можеш да печелиш повече с по-малко гледания. Винаги работи върху задържането на зрителите, за да се показват повече реклами.",
   "article_blog_title": "Прозрения и стратегии за създатели",
   "article_blog_p1": "Оставай крачка напред с най-новите стратегии, промени в алгоритъма и съвети за монетизация в нашия блог за създатели. Разбиваме сложни теми на приложими съвети за канали от всякакъв размер.",
-  "article_blog_p2": "От подобряване на дизайна на миниатюрите до разбиране на психологията на зрителите – блогът е твоят източник за устойчив растеж на канала и изграждане на общност."
+  "article_blog_p2": "От подобряване на дизайна на миниатюрите до разбиране на психологията на зрителите – блогът е твоят източник за устойчив растеж на канала и изграждане на общност.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

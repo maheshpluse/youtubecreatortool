@@ -78,5 +78,10 @@
   "article_earn_p2": "Imaj na umu da financije i tehnologija obično imaju viši RPM od gaminga ili vlogova, što znači da možeš zaraditi više s manje pregleda. Uvijek radi na zadržavanju publike kako bi iskoristio više oglasnih mjesta.",
   "article_blog_title": "Uvidi i strategije za kreatore",
   "article_blog_p1": "Ostani korak ispred s najnovijim strategijama, izmjenama algoritma i savjetima za monetizaciju na našem blogu za kreatore. Razdvajamo složene teme na praktične savjete za kanale svih veličina.",
-  "article_blog_p2": "Od poboljšanja dizajna sličica do razumijevanja psihologije publike, blog je tvoj izvor za održivi rast kanala i izgradnju zajednice."
+  "article_blog_p2": "Od poboljšanja dizajna sličica do razumijevanja psihologije publike, blog je tvoj izvor za održivi rast kanala i izgradnju zajednice.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

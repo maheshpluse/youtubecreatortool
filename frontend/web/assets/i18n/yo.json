@@ -78,5 +78,10 @@
   "article_earn_p2": "Rántí pé àwọn ẹ̀ka owó àti tẹkinọ́lọ́jì sábà máa ń ní RPM tí ó ga ju eré tàbí vlog lọ, ìyẹn ni pé o lè jèrè síi pẹ̀lú ìwo tí ó dínkù. Máa fojú sí dídúró àwọn olùwò láti lè lo àwọn ààyè ìpolówó ọjà si.",
   "article_blog_title": "Ìmọ̀ Jíjìn Àti Ọgbọ́n Fún Àwọn Olùṣẹ̀dá",
   "article_blog_p1": "Máa wà níwájú pẹ̀lú àwọn ọgbọ́n tuntun, àwọn ìyípadà nínú ẹ̀rọ, àti ìmọ̀ràn nípa jíjẹ́ kí owó wọlé nínú Bulọ́ọ̀gù Olùṣẹ̀dá wa. A ń pín àwọn kókó tí ó le sí ìmọ̀ràn tí ó ṣeéṣe fún àwọn YouTuber ní gbogbo ìwọ̀n.",
-  "article_blog_p2": "Láti ìmúgbòrò àwòrán kékeré títí dé lóye ọkàn àwọn olùwò, bulọ́ọ̀gù wa ni orísun rẹ fún ìdàgbàsókè ọ̀wà tí ó dúró ṣinṣin àti ìkọ́ àwùjọ."
+  "article_blog_p2": "Láti ìmúgbòrò àwòrán kékeré títí dé lóye ọkàn àwọn olùwò, bulọ́ọ̀gù wa ni orísun rẹ fún ìdàgbàsókè ọ̀wà tí ó dúró ṣinṣin àti ìkọ́ àwùjọ.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

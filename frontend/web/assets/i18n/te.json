@@ -78,5 +78,10 @@
   "article_earn_p2": "ఫైనాన్స్, టెక్ రంగాల్లో RPM సాధారణంగా గేమింగ్ లేదా వ్లాగ్‌ల కంటే ఎక్కువ — అంటే తక్కువ వ్యూస్‌తోనూ ఎక్కువ సంపాదించవచ్చు. ప్రకటనల స్థానాలను పూర్తిగా వాడుకోవాలంటే ఎప్పుడూ ఆడియన్స్ రిటెన్షన్‌పై దృష్టి పెట్టండి.",
   "article_blog_title": "క్రియేటర్ అంతర్దృష్టులు, వ్యూహాలు",
   "article_blog_p1": "క్రియేటర్ బ్లాగ్‌లో తాజా వ్యూహాలు, అల్గారిథమ్ మార్పులు, మానిటైజేషన్ చిట్కాలతో ఒక అడుగు ముందుండండి. క్లిష్టమైన అంశాలను అన్ని స్థాయిల YouTuber‌లకు ఉపయోగపడే సలహాలుగా విడగొడతాం.",
-  "article_blog_p2": "థంబ్‌నెయిల్ డిజైన్ మెరుగుపరచడం నుంచి ప్రేక్షకుల మనస్తత్వం అర్థం చేసుకోవడం వరకు — స్థిరమైన ఛానెల్ వృద్ధికి, కమ్యూనిటీ నిర్మాణానికి మా బ్లాగే మీ ఆధారం."
+  "article_blog_p2": "థంబ్‌నెయిల్ డిజైన్ మెరుగుపరచడం నుంచి ప్రేక్షకుల మనస్తత్వం అర్థం చేసుకోవడం వరకు — స్థిరమైన ఛానెల్ వృద్ధికి, కమ్యూనిటీ నిర్మాణానికి మా బ్లాగే మీ ఆధారం.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

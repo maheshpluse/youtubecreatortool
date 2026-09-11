@@ -78,5 +78,10 @@
   "article_earn_p2": "Mbaj mend se financat dhe teknologjia zakonisht kanë RPM më të lartë se gaming apo vlogjet, pra mund të fitosh më shumë me më pak shikime. Fokusohu gjithmonë te mbajtja e audiencës për të shfrytëzuar sa më shumë vende reklamimi.",
   "article_blog_title": "Njohuri dhe strategji për krijuesit",
   "article_blog_p1": "Qëndro një hap përpara me strategjitë më të fundit, ndryshimet e algoritmit dhe këshillat për monetizim në blogun tonë për krijues. I ndajmë temat komplekse në këshilla të zbatueshme për kanale të çdo madhësie.",
-  "article_blog_p2": "Nga përmirësimi i dizajnit të miniaturave te kuptimi i psikologjisë së audiencës, blogu është burimi yt për rritje të qëndrueshme të kanalit dhe ndërtim komuniteti."
+  "article_blog_p2": "Nga përmirësimi i dizajnit të miniaturave te kuptimi i psikologjisë së audiencës, blogu është burimi yt për rritje të qëndrueshme të kanalit dhe ndërtim komuniteti.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

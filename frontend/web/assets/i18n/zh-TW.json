@@ -78,5 +78,10 @@
   "article_earn_p2": "留意財經與科技類的 RPM 通常高於遊戲或 vlog，也就是說觀看數較少也可能賺得更多。想讓廣告版位發揮價值，請優先顧好觀眾續看率。",
   "article_blog_title": "創作者洞察與策略",
   "article_blog_p1": "在創作者部落格掌握最新策略、演算法變化與變現技巧，保持領先。我們把複雜主題拆解成各種規模創作者都能實作的建議。",
-  "article_blog_p2": "從改善縮圖設計到理解觀眾心理，部落格是你經營長期頻道成長與社群的常備資源。"
+  "article_blog_p2": "從改善縮圖設計到理解觀眾心理，部落格是你經營長期頻道成長與社群的常備資源。",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

@@ -78,5 +78,10 @@
   "article_earn_p2": "याद राख्नुहोस्, फाइनान्स र टेक क्षेत्रमा RPM सामान्यतया गेमिङ वा भ्लगभन्दा बढी हुन्छ — अर्थात् कम भ्यूमा पनि बढी कमाउन सकिन्छ। विज्ञापनको ठाउँ पूरा उपयोग गर्न सधैँ दर्शक टिकाउमा ध्यान दिनुहोस्।",
   "article_blog_title": "क्रिएटरका लागि सुझाव र रणनीति",
   "article_blog_p1": "क्रिएटर ब्लगमा नवीनतम रणनीति, एल्गोरिदम परिवर्तन र मोनिटाइजेसन सुझावसहित एक कदम अगाडि रहनुहोस्। जटिल विषयलाई हामी हरेक आकारका YouTuber ले प्रयोग गर्न सक्ने सल्लाहमा बदल्छौं।",
-  "article_blog_p2": "थम्बनेल डिजाइन सुधार्नेदेखि दर्शकको मनोविज्ञान बुझ्नेसम्म — दिगो च्यानल वृद्धि र समुदाय निर्माणका लागि हाम्रो ब्लग तपाईंको भरपर्दो स्रोत हो।"
+  "article_blog_p2": "थम्बनेल डिजाइन सुधार्नेदेखि दर्शकको मनोविज्ञान बुझ्नेसम्म — दिगो च्यानल वृद्धि र समुदाय निर्माणका लागि हाम्रो ब्लग तपाईंको भरपर्दो स्रोत हो।",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

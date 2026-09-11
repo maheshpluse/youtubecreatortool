@@ -78,5 +78,10 @@
   "article_earn_p2": "Tingues en compte que les finances i la tecnologia solen tenir un RPM més alt que el gaming o els vlogs, és a dir, pots guanyar més amb menys visualitzacions. Centra't sempre en la retenció d'audiència per aprofitar més espais publicitaris.",
   "article_blog_title": "Idees i estratègies per a creadors",
   "article_blog_p1": "Mantén-te un pas per davant amb les últimes estratègies, actualitzacions de l'algorisme i consells de monetització al nostre blog per a creadors. Desglossem temes complexos en consells aplicables per a canals de qualsevol mida.",
-  "article_blog_p2": "Des de millorar el disseny de les miniatures fins a entendre la psicologia de l'audiència, el blog és el teu recurs de referència per a un creixement sostenible del canal i la construcció de comunitat."
+  "article_blog_p2": "Des de millorar el disseny de les miniatures fins a entendre la psicologia de l'audiència, el blog és el teu recurs de referència per a un creixement sostenible del canal i la construcció de comunitat.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

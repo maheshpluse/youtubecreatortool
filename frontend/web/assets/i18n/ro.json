@@ -78,5 +78,10 @@
   "article_earn_p2": "Ține minte că finanțele și tehnologia au de obicei RPM mai mare decât gaming-ul sau vlog-urile, deci poți câștiga mai mult cu mai puține vizualizări. Concentrează-te mereu pe retenția audienței ca să profiți la maximum de spațiile publicitare.",
   "article_blog_title": "Perspective și strategii pentru creatori",
   "article_blog_p1": "Rămâi cu un pas înaintea celorlalți cu cele mai noi strategii, actualizări de algoritm și sfaturi de monetizare pe blogul nostru pentru creatori. Descompunem subiecte complexe în sfaturi aplicabile pentru YouTuberi de orice dimensiune.",
-  "article_blog_p2": "De la îmbunătățirea designului miniaturilor la înțelegerea psihologiei audienței, blogul este resursa ta de bază pentru o creștere sustenabilă a canalului și construirea unei comunități."
+  "article_blog_p2": "De la îmbunătățirea designului miniaturilor la înțelegerea psihologiei audienței, blogul este resursa ta de bază pentru o creștere sustenabilă a canalului și construirea unei comunități.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

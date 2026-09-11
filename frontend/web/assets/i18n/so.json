@@ -78,5 +78,10 @@
   "article_earn_p2": "Xasuuso in dhaqaalaha iyo tignoolajiyada ay caadi ahaan leeyihiin RPM ka sarreysa ciyaaraha ama vlogyada, taasoo macnaheedu yahay inaad heli karto wax badan iyadoo daawasho yar. Had iyo jeer diiradda saar hayntada daawadayaasha si aad uga faa'iidaysato meelaha xayeysiiska.",
   "article_blog_title": "Aragti iyo Xeelado Loogu Talagalay Abuurayaasha",
   "article_blog_p1": "Hal talaabo hormood ka noqo xeelado cusub, isbeddellada algorithm-ka, iyo talooyinka lacag-samaynta ee Blogga Abuurayaasha. Waxaan u kala saaraa mawduucyada adag talooyin la fulin karo oo loogu talagalay YouTuber cabbir kasta.",
-  "article_blog_p2": "Laga bilaabo hagaajinta naqshadda sawirka yar ilaa fahamka cilmi-nafsiga daawadayaasha, blogga waa ilaha aad u haysato kobaca kanaalka joogtada ah iyo dhismaha bulshada."
+  "article_blog_p2": "Laga bilaabo hagaajinta naqshadda sawirka yar ilaa fahamka cilmi-nafsiga daawadayaasha, blogga waa ilaha aad u haysato kobaca kanaalka joogtada ah iyo dhismaha bulshada.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

@@ -78,5 +78,10 @@
   "article_earn_p2": "Ka tuna cewa fannonin kuɗi da fasaha yawanci suna da RPM mafi girma fiye da wasanni ko vlog, wanda ke nufin za ka iya samun ƙari da ƙarancin kallo. Ka mai da hankali kan riƙe masu kallo don cin gajiyar wuraren talla masu yawa.",
   "article_blog_title": "Fahimta da Dabaru ga Masu Ƙirƙira",
   "article_blog_p1": "Ka kasance mataki ɗaya a gaba tare da sabbin dabaru, sauye-sauyen algorithm, da shawarwarin samun kuɗi a Blog ɗinmu na Masu Ƙirƙira. Muna raba batutuwa masu wuya zuwa shawarwari masu amfani ga YouTuber na kowane girma.",
-  "article_blog_p2": "Daga inganta ƙirar ƙaramin hoto zuwa fahimtar tunanin masu kallo, blog ɗinmu shine tushen ka don ci gaba mai dorewa na tasha da gina al'umma."
+  "article_blog_p2": "Daga inganta ƙirar ƙaramin hoto zuwa fahimtar tunanin masu kallo, blog ɗinmu shine tushen ka don ci gaba mai dorewa na tasha da gina al'umma.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

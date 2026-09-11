@@ -78,5 +78,10 @@
   "article_earn_p2": "یادت باشد RPM در حوزه مالی و فناوری معمولاً بالاتر از گیمینگ یا ولاگ است؛ یعنی با بازدید کمتر هم می‌شود بیشتر درآورد. برای استفاده بیشتر از جایگاه‌های تبلیغاتی، همیشه روی نگه‌داشتن مخاطب تمرکز کن.",
   "article_blog_title": "تحلیل‌ها و راهکارها برای سازندگان",
   "article_blog_p1": "با تازه‌ترین راهکارها، تغییرات الگوریتم و نکات کسب درآمد در بلاگ سازندگان یک قدم جلوتر باش. موضوعات پیچیده را به توصیه‌های عملی برای کانال‌های هر اندازه تبدیل می‌کنیم.",
-  "article_blog_p2": "از بهبود طراحی تامبنیل تا درک روان‌شناسی مخاطب، بلاگ ما مرجع تو برای رشد پایدار کانال و ساختن جامعه مخاطب است."
+  "article_blog_p2": "از بهبود طراحی تامبنیل تا درک روان‌شناسی مخاطب، بلاگ ما مرجع تو برای رشد پایدار کانال و ساختن جامعه مخاطب است.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

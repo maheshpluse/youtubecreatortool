@@ -78,5 +78,10 @@
   "article_earn_p2": "Ingat bahawa bidang kewangan dan teknologi biasanya mempunyai RPM lebih tinggi berbanding permainan atau vlog, bermakna anda boleh memperoleh lebih banyak dengan tontonan yang lebih sedikit. Sentiasa fokus pada pengekalan penonton untuk memaksimumkan ruang iklan.",
   "article_blog_title": "Pandangan dan Strategi untuk Pencipta",
   "article_blog_p1": "Kekal di hadapan dengan strategi terkini, kemas kini algoritma dan tip pengewangan di Blog Pencipta kami. Kami memecahkan topik rumit kepada nasihat yang boleh terus digunakan oleh YouTuber pelbagai saiz.",
-  "article_blog_p2": "Daripada memperbaik reka bentuk thumbnail sehingga memahami psikologi penonton, blog kami ialah sumber rujukan anda untuk pertumbuhan saluran yang mampan dan pembinaan komuniti."
+  "article_blog_p2": "Daripada memperbaik reka bentuk thumbnail sehingga memahami psikologi penonton, blog kami ialah sumber rujukan anda untuk pertumbuhan saluran yang mampan dan pembinaan komuniti.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

@@ -78,5 +78,10 @@
   "article_earn_p2": "په یاد ولرئ چې د مالي او ټیکنالوژۍ ساحې معمولا د لوبو یا بلاگونو په پرتله لوړ RPM لري — پدې معنی چې تاسو کولی شئ د لږو لیدنو سره هم ډیر ګټه وکړئ. د اعلاناتو ځایونه اعظمي کولو لپاره تل د لیدونکو ساتنې ته پام وکړئ.",
   "article_blog_title": "د جوړونکو لپاره لیدونه او ستراتیژۍ",
   "article_blog_p1": "زموږ د جوړونکو بلاګ کې د وروستیو ستراتیژیو، د الگوریتم بدلونونو، او د عايد لاسته راوړنې مشورو سره یو ګام مخکې پاتې شئ. مونږ پیچلي موضوعات د هر اندازې یوټیوبر لپاره د عملي کولو وړ مشورو ته بدلوو.",
-  "article_blog_p2": "د کوچني انځور ډیزاین ښه کولو څخه نیولی د لیدونکو رواني پوهیدو پورې، بلاګ ستاسو د پایښت لرونکي چینل وده او د ټولنې جوړولو لپاره سرچینه ده."
+  "article_blog_p2": "د کوچني انځور ډیزاین ښه کولو څخه نیولی د لیدونکو رواني پوهیدو پورې، بلاګ ستاسو د پایښت لرونکي چینل وده او د ټولنې جوړولو لپاره سرچینه ده.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

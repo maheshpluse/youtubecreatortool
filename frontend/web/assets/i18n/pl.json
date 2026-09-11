@@ -78,5 +78,10 @@
   "article_earn_p2": "Pamiętaj, że finanse i technologia mają zwykle wyższe RPM niż gaming czy vlogi, więc możesz zarobić więcej przy mniejszej liczbie wyświetleń. Zawsze pracuj nad retencją, żeby wyświetlić więcej reklam.",
   "article_blog_title": "Analizy i strategie dla twórców",
   "article_blog_p1": "Bądź krok przed innymi dzięki najnowszym strategiom, zmianom algorytmu i poradom o monetyzacji na naszym blogu dla twórców. Złożone tematy rozkładamy na konkretne rady dla kanałów każdej wielkości.",
-  "article_blog_p2": "Od poprawy miniatur po zrozumienie psychologii widza, blog jest twoim źródłem wiedzy o stabilnym wzroście kanału i budowaniu społeczności."
+  "article_blog_p2": "Od poprawy miniatur po zrozumienie psychologii widza, blog jest twoim źródłem wiedzy o stabilnym wzroście kanału i budowaniu społeczności.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

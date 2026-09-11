@@ -78,5 +78,10 @@
   "article_earn_p2": "Husk at finans- og teknisk nisje vanligvis har høyere RPM enn gaming eller vlogger, så du kan tjene mer med færre visninger. Fokuser alltid på seerfastholdelse for å utnytte flest mulig annonseplasser.",
   "article_blog_title": "Innsikt og strategier for skapere",
   "article_blog_p1": "Hold deg et skritt foran med de nyeste strategiene, algoritmeoppdateringene og monetiseringstipsene på skaperbloggen vår. Vi bryter ned kompliserte temaer til konkrete råd for kanaler i alle størrelser.",
-  "article_blog_p2": "Fra å forbedre miniatyrdesignet til å forstå publikums psykologi er bloggen din faste kilde til bærekraftig kanalvekst og fellesskapsbygging."
+  "article_blog_p2": "Fra å forbedre miniatyrdesignet til å forstå publikums psykologi er bloggen din faste kilde til bærekraftig kanalvekst og fellesskapsbygging.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

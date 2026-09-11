@@ -78,5 +78,10 @@
   "article_earn_p2": "Atceries, ka finanšu un tehnoloģiju nišām parasti ir augstāks RPM nekā spēlēm vai vlogiem, tāpēc vari nopelnīt vairāk ar mazāk skatījumiem. Vienmēr strādā pie skatītāju noturēšanas, lai izmantotu vairāk reklāmas vietu.",
   "article_blog_title": "Ieskati un stratēģijas satura veidotājiem",
   "article_blog_p1": "Esi soli priekšā ar jaunākajām stratēģijām, algoritma izmaiņām un naudas gūšanas padomiem mūsu satura veidotāju emuārā. Mēs sadalām sarežģītas tēmas praktiskos padomos jebkura izmēra YouTuberiem.",
-  "article_blog_p2": "Sākot no sīktēlu dizaina uzlabošanas līdz auditorijas psiholoģijas izpratnei — emuārs ir tavs resurss ilgtspējīgai kanāla izaugsmei un kopienas veidošanai."
+  "article_blog_p2": "Sākot no sīktēlu dizaina uzlabošanas līdz auditorijas psiholoģijas izpratnei — emuārs ir tavs resurss ilgtspējīgai kanāla izaugsmei un kopienas veidošanai.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

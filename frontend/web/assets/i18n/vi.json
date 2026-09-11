@@ -78,5 +78,10 @@
   "article_earn_p2": "Lưu ý rằng lĩnh vực tài chính và công nghệ thường có RPM cao hơn game hay vlog, nghĩa là bạn có thể kiếm nhiều hơn với ít lượt xem hơn. Hãy luôn tập trung vào thời lượng giữ chân người xem để tận dụng tối đa vị trí quảng cáo.",
   "article_blog_title": "Góc nhìn và chiến lược cho nhà sáng tạo",
   "article_blog_p1": "Luôn đi trước một bước với các chiến lược mới nhất, thay đổi thuật toán và mẹo kiếm tiền trên Blog Nhà sáng tạo. Chúng tôi bóc tách những chủ đề phức tạp thành lời khuyên áp dụng được cho kênh ở mọi quy mô.",
-  "article_blog_p2": "Từ cải thiện thiết kế thumbnail đến hiểu tâm lý khán giả, blog là nguồn tham khảo cho sự tăng trưởng bền vững và xây dựng cộng đồng."
+  "article_blog_p2": "Từ cải thiện thiết kế thumbnail đến hiểu tâm lý khán giả, blog là nguồn tham khảo cho sự tăng trưởng bền vững và xây dựng cộng đồng.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

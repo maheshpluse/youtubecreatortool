@@ -78,5 +78,10 @@
   "article_earn_p2": "כדאי לזכור שבנישות של פיננסים וטכנולוגיה ה-RPM בדרך כלל גבוה יותר מגיימינג או ולוגים, כלומר אפשר להרוויח יותר עם פחות צפיות. תמיד התמקדו בשימור צופים כדי למקסם את מיקומי הפרסומות.",
   "article_blog_title": "תובנות ואסטרטגיות ליוצרים",
   "article_blog_p1": "הישארו צעד קדימה עם האסטרטגיות העדכניות, שינויי האלגוריתם וטיפים למונטיזציה בבלוג היוצרים שלנו. אנחנו מפרקים נושאים מורכבים לעצות ישימות ליוצרים בכל גודל.",
-  "article_blog_p2": "משיפור עיצוב התמונות הממוזערות ועד הבנת הפסיכולוגיה של הקהל, הבלוג הוא המקור שלכם לצמיחה יציבה של הערוץ ולבניית קהילה."
+  "article_blog_p2": "משיפור עיצוב התמונות הממוזערות ועד הבנת הפסיכולוגיה של הקהל, הבלוג הוא המקור שלכם לצמיחה יציבה של הערוץ ולבניית קהילה.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

@@ -78,5 +78,10 @@
   "article_earn_p2": "ಹಣಕಾಸು ಮತ್ತು ಟೆಕ್ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ RPM ಸಾಮಾನ್ಯವಾಗಿ ಗೇಮಿಂಗ್ ಅಥವಾ ವ್ಲಾಗ್‌ಗಿಂತ ಹೆಚ್ಚು — ಅಂದರೆ ಕಡಿಮೆ ವ್ಯೂಸ್‌ನಲ್ಲೂ ಹೆಚ್ಚು ಸಂಪಾದಿಸಬಹುದು. ಜಾಹೀರಾತು ಸ್ಥಳಗಳನ್ನು ಪೂರ್ಣವಾಗಿ ಬಳಸಲು ಯಾವಾಗಲೂ ಪ್ರೇಕ್ಷಕರ ಉಳಿಸಿಕೊಳ್ಳುವಿಕೆಗೆ ಗಮನ ಕೊಡಿ.",
   "article_blog_title": "ಕ್ರಿಯೇಟರ್ ಒಳನೋಟಗಳು ಮತ್ತು ತಂತ್ರಗಳು",
   "article_blog_p1": "ಕ್ರಿಯೇಟರ್ ಬ್ಲಾಗ್‌ನಲ್ಲಿ ಇತ್ತೀಚಿನ ತಂತ್ರಗಳು, ಅಲ್ಗಾರಿದಮ್ ಬದಲಾವಣೆಗಳು ಮತ್ತು ಹಣಗಳಿಕೆ ಸಲಹೆಗಳೊಂದಿಗೆ ಒಂದು ಹೆಜ್ಜೆ ಮುಂದಿರಿ. ಸಂಕೀರ್ಣ ವಿಷಯಗಳನ್ನು ಎಲ್ಲ ಗಾತ್ರದ YouTuber‌ಗಳಿಗೂ ಬಳಕೆಗೆ ಬರುವ ಸಲಹೆಗಳಾಗಿ ಬಿಡಿಸಿ ಕೊಡುತ್ತೇವೆ.",
-  "article_blog_p2": "ಥಂಬ್‌ನೇಲ್ ವಿನ್ಯಾಸ ಸುಧಾರಣೆಯಿಂದ ಪ್ರೇಕ್ಷಕರ ಮನೋವಿಜ್ಞಾನ ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳುವವರೆಗೆ — ಸ್ಥಿರ ಚಾನೆಲ್ ಬೆಳವಣಿಗೆ ಮತ್ತು ಸಮುದಾಯ ಕಟ್ಟುವಿಕೆಗೆ ನಮ್ಮ ಬ್ಲಾಗ್ ನಿಮ್ಮ ಆಸರೆ."
+  "article_blog_p2": "ಥಂಬ್‌ನೇಲ್ ವಿನ್ಯಾಸ ಸುಧಾರಣೆಯಿಂದ ಪ್ರೇಕ್ಷಕರ ಮನೋವಿಜ್ಞಾನ ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳುವವರೆಗೆ — ಸ್ಥಿರ ಚಾನೆಲ್ ಬೆಳವಣಿಗೆ ಮತ್ತು ಸಮುದಾಯ ಕಟ್ಟುವಿಕೆಗೆ ನಮ್ಮ ಬ್ಲಾಗ್ ನಿಮ್ಮ ಆಸರೆ.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

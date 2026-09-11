@@ -95,5 +95,10 @@
   "seo_fb_keyword_desc_pass": "通过：目标关键词出现在描述的靠前位置。",
   "seo_fb_keyword_desc_fail": "未通过：描述开头缺少目标关键词。",
   "seo_fb_title_length_pass": "通过：标题长度合适（30-70 个字符）。",
-  "seo_fb_title_length_fail": "未通过：标题长度不合适。"
+  "seo_fb_title_length_fail": "未通过：标题长度不合适。",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

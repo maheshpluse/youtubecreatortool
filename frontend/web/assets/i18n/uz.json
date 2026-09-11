@@ -78,5 +78,10 @@
   "article_earn_p2": "Moliya va texnologiya nishalarida RPM odatda o'yin yoki vloglardan yuqoriroq bo'lishini yodda tuting — bu kamroq ko'rish bilan ham ko'proq ishlab topish mumkinligini bildiradi. Reklama joylaridan maksimal foydalanish uchun har doim tomoshabinlarni ushlab turishga e'tibor qarating.",
   "article_blog_title": "Kontent yaratuvchilar uchun tushunchalar va strategiyalar",
   "article_blog_p1": "Ijodkorlar blogimizdagi eng so'nggi strategiyalar, algoritm o'zgarishlari va pul topish maslahatlari bilan bir qadam oldinda bo'ling. Murakkab mavzularni har qanday hajmdagi YouTuber uchun amalga oshirsa bo'ladigan maslahatlarga ajratamiz.",
-  "article_blog_p2": "Miniatyura dizaynini yaxshilashdan tortib auditoriya psixologiyasini tushunishgacha — blog barqaror kanal o'sishi va hamjamiyat qurish uchun sizning manbangizdir."
+  "article_blog_p2": "Miniatyura dizaynini yaxshilashdan tortib auditoriya psixologiyasini tushunishgacha — blog barqaror kanal o'sishi va hamjamiyat qurish uchun sizning manbangizdir.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

@@ -326,11 +326,22 @@ def calculate_seo(request: SEOCheckRequest):
     else:
         feedback.append(SEOFeedbackItem(key="seo_fb_keyword_title_fail", status="fail"))
 
-    if keyword and keyword in desc[:200]:
-        score += 20
-        feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_pass", status="pass"))
+    if title.strip() and title.strip() == desc.strip():
+        feedback.append(SEOFeedbackItem(key="seo_fb_title_desc_match_fail", status="fail"))
+        score -= 20
     else:
-        feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_fail", status="fail"))
+        if keyword and keyword in desc[:200]:
+            score += 20
+            feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_pass", status="pass"))
+        else:
+            feedback.append(SEOFeedbackItem(key="seo_fb_keyword_desc_fail", status="fail"))
+            
+        if len(desc) >= 150:
+            score += 10
+            feedback.append(SEOFeedbackItem(key="seo_fb_desc_length_pass", status="pass"))
+        else:
+            feedback.append(SEOFeedbackItem(key="seo_fb_desc_length_fail", status="fail"))
+            score -= 10
 
     if 30 <= len(request.title) <= 70:
         score += 10
@@ -338,8 +349,16 @@ def calculate_seo(request: SEOCheckRequest):
     else:
         feedback.append(SEOFeedbackItem(key="seo_fb_title_length_fail", status="fail"))
 
+    # Check tags
+    if not request.tags or len(request.tags) == 0 or (len(request.tags) == 1 and request.tags[0].strip() == ""):
+        feedback.append(SEOFeedbackItem(key="seo_fb_tags_missing", status="fail"))
+        score -= 10
+    else:
+        feedback.append(SEOFeedbackItem(key="seo_fb_tags_pass", status="pass"))
+        score += 10
+
     # Cap score at 100
-    score = min(score, 100)
+    score = max(0, min(score, 100))
     status = "Excellent" if score >= 80 else ("Good" if score >= 50 else "Needs Improvement")
 
     return SEOResponseSchema(score=score, feedback=feedback, status=status)

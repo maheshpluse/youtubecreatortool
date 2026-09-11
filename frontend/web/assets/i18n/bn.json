@@ -95,5 +95,10 @@
   "seo_fb_keyword_desc_pass": "পাস: বিবরণের শুরুর দিকে লক্ষ্য কীওয়ার্ড পাওয়া গেছে।",
   "seo_fb_keyword_desc_fail": "ফেইল: বিবরণের শুরুতে লক্ষ্য কীওয়ার্ড অনুপস্থিত।",
   "seo_fb_title_length_pass": "পাস: শিরোনামের দৈর্ঘ্য উপযুক্ত (৩০-৭০ অক্ষর)।",
-  "seo_fb_title_length_fail": "ফেইল: শিরোনামের দৈর্ঘ্য উপযুক্ত নয়।"
+  "seo_fb_title_length_fail": "ফেইল: শিরোনামের দৈর্ঘ্য উপযুক্ত নয়।",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

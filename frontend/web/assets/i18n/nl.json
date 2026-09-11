@@ -78,5 +78,10 @@
   "article_earn_p2": "Houd er rekening mee dat finance en tech doorgaans hogere RPM's hebben dan gaming of vlogs: je verdient dus meer met minder weergaven. Werk altijd aan kijkersbinding om meer advertentieplekken te benutten.",
   "article_blog_title": "Inzichten en strategieën voor creators",
   "article_blog_p1": "Blijf voorop met de nieuwste strategieën, algoritme-updates en monetisatietips op onze creatorblog. We vertalen complexe onderwerpen naar concrete adviezen voor kanalen van elk formaat.",
-  "article_blog_p2": "Van betere thumbnailontwerpen tot het doorgronden van kijkerspsychologie: de blog is je vaste bron voor duurzame kanaalgroei en het bouwen van een community."
+  "article_blog_p2": "Van betere thumbnailontwerpen tot het doorgronden van kijkerspsychologie: de blog is je vaste bron voor duurzame kanaalgroei en het bouwen van een community.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

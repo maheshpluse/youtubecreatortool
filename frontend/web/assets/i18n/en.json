@@ -95,5 +95,10 @@
   "article_earn_p2": "Keep in mind that finance and tech niches typically have higher RPMs compared to gaming or vlogs, meaning you can earn more with fewer views. Always focus on audience retention to maximize ad placements.",
   "article_blog_title": "Creator Insights & Strategies",
   "article_blog_p1": "Stay ahead of the curve with the latest strategies, algorithm updates, and monetization tips on our Creator Blog. We break down complex topics into actionable advice for YouTubers of all sizes.",
-  "article_blog_p2": "From improving your thumbnail designs to understanding audience psychology, our blog is your go-to resource for sustainable channel growth and community building."
+  "article_blog_p2": "From improving your thumbnail designs to understanding audience psychology, our blog is your go-to resource for sustainable channel growth and community building.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

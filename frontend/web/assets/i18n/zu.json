@@ -78,5 +78,10 @@
   "article_earn_p2": "Khumbula ukuthi ezezimali nezobuchwepheshe zivamise ukuba ne-RPM ephakeme kunemidlalo noma ama-vlog, okusho ukuthi ungathola okwengeziwe ngokubukwa okuncane. Njalo gxila ekugcineni ababukeli ukuze uthole izindawo eziningi zezikhangiso.",
   "article_blog_title": "Imibono Nezu Zamasu Kubadali",
   "article_blog_p1": "Hlala uphambili ngamasu amasha kakhulu, izinguquko ze-algorithm, namathiphu okuthola imali ku-Bhulogi yethu Yabadali. Sihlukanisa izihloko eziyinkimbinkimbi zibe yiseluleko esisebenzayo kubo bonke abadali be-YouTuber bosayizi olunjalo.",
-  "article_blog_p2": "Kusukela ekuthuthukiseni umklamo wesithombe esincane kuya ekuqondeni ingqondo yezethameli, ibhulogi ngumthombo wakho wokukhula okuqhubekayo kwechaneli nokwakhiwa komphakathi."
+  "article_blog_p2": "Kusukela ekuthuthukiseni umklamo wesithombe esincane kuya ekuqondeni ingqondo yezethameli, ibhulogi ngumthombo wakho wokukhula okuqhubekayo kwechaneli nokwakhiwa komphakathi.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

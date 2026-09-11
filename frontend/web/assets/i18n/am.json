@@ -78,5 +78,10 @@
   "article_earn_p2": "የፋይናንስና የቴክ ዘርፎች ብዙውን ጊዜ ከጌሚንግ ወይም ከቭሎግ የበለጠ ከፍ ያለ RPM እንዳላቸው ያስታውሱ — ይህም ማለት በአነስተኛ እይታዎችም የበለጠ ማግኘት ይችላሉ ማለት ነው። የማስታወቂያ ቦታዎችን ሙሉ በሙሉ ለመጠቀም ሁልጊዜ በተመልካች ማቆያ ላይ ያተኩሩ።",
   "article_blog_title": "ለፈጣሪዎች ግንዛቤዎችና ስልቶች",
   "article_blog_p1": "በፈጣሪዎች ብሎግ ላይ ካሉ የቅርብ ጊዜ ስልቶች፣ የአልጎሪዝም ለውጦችና የገቢ ማግኛ ምክሮች ጋር አንድ እርምጃ ወደፊት ይሁኑ። ውስብስብ ርዕሶችን ለማንኛውም መጠን YouTuber ተግባራዊ ሊሆኑ የሚችሉ ምክሮች እናደርጋለን።",
-  "article_blog_p2": "የድንክዬ ንድፍን ከማሻሻል እስከ የተመልካች ሥነ ልቦናን ከመረዳት ድረስ፣ ብሎጋችን ለቀጣይነት ያለው የቻናል እድገትና ማህበረሰብ ግንባታ ምንጭዎ ነው።"
+  "article_blog_p2": "የድንክዬ ንድፍን ከማሻሻል እስከ የተመልካች ሥነ ልቦናን ከመረዳት ድረስ፣ ብሎጋችን ለቀጣይነት ያለው የቻናል እድገትና ማህበረሰብ ግንባታ ምንጭዎ ነው።",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

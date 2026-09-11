@@ -78,5 +78,10 @@
   "article_earn_p2": "გახსოვდეთ, ფინანსური და ტექნოლოგიური ნიშები ჩვეულებრივ უფრო მაღალი RPM-ით გამოირჩევა, ვიდრე გეიმინგი ან ვლოგები — ანუ შეგიძლიათ მეტი გამოიმუშაოთ ნაკლები ნახვით. ყოველთვის ფოკუსირდით აუდიტორიის შენარჩუნებაზე, რომ მაქსიმალურად გამოიყენოთ სარეკლამო ადგილები.",
   "article_blog_title": "შემოქმედთა ხედვები და სტრატეგიები",
   "article_blog_p1": "დარჩით ერთი ნაბიჯით წინ უახლესი სტრატეგიების, ალგორითმის ცვლილებებისა და მონეტიზაციის რჩევებით ჩვენს შემოქმედთა ბლოგზე. რთულ თემებს ვშლით პრაქტიკულ რჩევებად ნებისმიერი ზომის YouTuber-ისთვის.",
-  "article_blog_p2": "მინიატურის დიზაინის გაუმჯობესებიდან აუდიტორიის ფსიქოლოგიის გაგებამდე — ბლოგი თქვენი წყაროა არხის მდგრადი ზრდისა და საზოგადოების შესაქმნელად."
+  "article_blog_p2": "მინიატურის დიზაინის გაუმჯობესებიდან აუდიტორიის ფსიქოლოგიის გაგებამდე — ბლოგი თქვენი წყაროა არხის მდგრადი ზრდისა და საზოგადოების შესაქმნელად.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

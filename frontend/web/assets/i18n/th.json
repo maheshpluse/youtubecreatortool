@@ -78,5 +78,10 @@
   "article_earn_p2": "อย่าลืมว่าหมวดการเงินและเทคโนโลยีมักมี RPM สูงกว่าเกมหรือ vlog หมายความว่าคุณอาจได้เงินมากกว่าทั้งที่วิวน้อยกว่า และควรโฟกัสที่การรักษาคนดูไว้ให้นาน เพื่อให้มีช่องโฆษณามากขึ้น",
   "article_blog_title": "มุมมองและกลยุทธ์สำหรับครีเอเตอร์",
   "article_blog_p1": "ก้าวนำหนึ่งก้าวด้วยกลยุทธ์ล่าสุด อัปเดตอัลกอริทึม และเคล็ดลับการหารายได้ในบล็อกครีเอเตอร์ของเรา เราย่อยเรื่องซับซ้อนให้เป็นคำแนะนำที่ครีเอเตอร์ทุกขนาดนำไปใช้ได้จริง",
-  "article_blog_p2": "ตั้งแต่การปรับดีไซน์ภาพปกไปจนถึงการเข้าใจจิตวิทยาคนดู บล็อกของเราคือแหล่งข้อมูลหลักสำหรับการเติบโตของช่องอย่างยั่งยืนและการสร้างคอมมูนิตี้"
+  "article_blog_p2": "ตั้งแต่การปรับดีไซน์ภาพปกไปจนถึงการเข้าใจจิตวิทยาคนดู บล็อกของเราคือแหล่งข้อมูลหลักสำหรับการเติบโตของช่องอย่างยั่งยืนและการสร้างคอมมูนิตี้",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

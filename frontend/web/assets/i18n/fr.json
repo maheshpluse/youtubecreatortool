@@ -95,5 +95,10 @@
   "seo_fb_keyword_desc_pass": "Réussi : Le mot-clé cible apparaît tôt dans la description.",
   "seo_fb_keyword_desc_fail": "Échec : Le mot-clé cible est absent du début de la description.",
   "seo_fb_title_length_pass": "Réussi : La longueur du titre est optimale (30-70 caractères).",
-  "seo_fb_title_length_fail": "Échec : La longueur du titre n'est pas optimale."
+  "seo_fb_title_length_fail": "Échec : La longueur du titre n'est pas optimale.",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }

@@ -78,5 +78,10 @@
   "article_earn_p2": "ਧਿਆਨ ਰੱਖੋ ਕਿ ਫਾਈਨੈਂਸ ਤੇ ਟੈਕ ਖੇਤਰਾਂ ਵਿੱਚ RPM ਆਮ ਤੌਰ ਉੱਤੇ ਗੇਮਿੰਗ ਜਾਂ ਵਲੌਗ ਨਾਲੋਂ ਵੱਧ ਹੁੰਦਾ ਹੈ — ਯਾਨੀ ਘੱਟ ਵਿਊਜ਼ ਵਿੱਚ ਵੀ ਵੱਧ ਕਮਾਈ ਹੋ ਸਕਦੀ ਹੈ। ਇਸ਼ਤਿਹਾਰਾਂ ਦੀਆਂ ਥਾਵਾਂ ਦਾ ਪੂਰਾ ਲਾਭ ਲੈਣ ਲਈ ਹਮੇਸ਼ਾ ਦਰਸ਼ਕ ਬਰਕਰਾਰੀ ਉੱਤੇ ਧਿਆਨ ਦਿਓ।",
   "article_blog_title": "ਕਰੀਏਟਰ ਲਈ ਸੂਝ ਅਤੇ ਰਣਨੀਤੀਆਂ",
   "article_blog_p1": "ਕਰੀਏਟਰ ਬਲੌਗ ਉੱਤੇ ਨਵੀਆਂ ਰਣਨੀਤੀਆਂ, ਐਲਗੋਰਿਦਮ ਬਦਲਾਅ ਅਤੇ ਮੌਨੇਟਾਈਜ਼ੇਸ਼ਨ ਟਿਪਸ ਨਾਲ ਇੱਕ ਕਦਮ ਅੱਗੇ ਰਹੋ। ਅਸੀਂ ਔਖੇ ਵਿਸ਼ਿਆਂ ਨੂੰ ਹਰ ਆਕਾਰ ਦੇ YouTuber ਲਈ ਕੰਮ ਆਉਣ ਵਾਲੀ ਸਲਾਹ ਵਿੱਚ ਬਦਲ ਦਿੰਦੇ ਹਾਂ।",
-  "article_blog_p2": "ਥੰਬਨੇਲ ਡਿਜ਼ਾਈਨ ਸੁਧਾਰਨ ਤੋਂ ਲੈ ਕੇ ਦਰਸ਼ਕਾਂ ਦੀ ਮਨੋਵਿਗਿਆਨ ਸਮਝਣ ਤੱਕ — ਟਿਕਾਊ ਚੈਨਲ ਵਾਧੇ ਅਤੇ ਕਮਿਊਨਿਟੀ ਬਣਾਉਣ ਲਈ ਸਾਡਾ ਬਲੌਗ ਤੁਹਾਡਾ ਭਰੋਸੇਯੋਗ ਸਾਥੀ ਹੈ।"
+  "article_blog_p2": "ਥੰਬਨੇਲ ਡਿਜ਼ਾਈਨ ਸੁਧਾਰਨ ਤੋਂ ਲੈ ਕੇ ਦਰਸ਼ਕਾਂ ਦੀ ਮਨੋਵਿਗਿਆਨ ਸਮਝਣ ਤੱਕ — ਟਿਕਾਊ ਚੈਨਲ ਵਾਧੇ ਅਤੇ ਕਮਿਊਨਿਟੀ ਬਣਾਉਣ ਲਈ ਸਾਡਾ ਬਲੌਗ ਤੁਹਾਡਾ ਭਰੋਸੇਯੋਗ ਸਾਥੀ ਹੈ।",
+  "seo_fb_title_desc_match_fail": "Fail: Title and Description are identical. Please write a detailed description.",
+  "seo_fb_desc_length_pass": "Pass: Description is detailed and optimal.",
+  "seo_fb_desc_length_fail": "Fail: Description is too short. It should be at least 150 characters.",
+  "seo_fb_tags_missing": "Fail: No tags have been provided.",
+  "seo_fb_tags_pass": "Pass: Video tags have been provided."
 }
