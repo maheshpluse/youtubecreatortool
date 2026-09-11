@@ -5,7 +5,7 @@ echo "Deploying Frontend..."
 sshpass -p "$ROOT_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" --delete frontend/build/jaspr/ root@157.180.22.218:/var/www/vidseokit/frontend/
 
 echo "Deploying Backend..."
-sshpass -p "$ROOT_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" backend/ root@157.180.22.218:/var/www/vidseokit/backend/
+sshpass -p "$ROOT_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude="venv" --exclude="__pycache__" backend/ root@157.180.22.218:/var/www/vidseokit/backend/
 
 echo "Injecting Environment Variables..."
 sshpass -p "$ROOT_PASSWORD" ssh -o StrictHostKeyChecking=no root@157.180.22.218 "echo 'GEMINI_API_KEY=$GEMINI_API_KEY' > /var/www/vidseokit/backend/.env"

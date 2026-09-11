@@ -18,14 +18,9 @@ def mock_gemini():
 def mock_recaptcha():
     with patch("main.requests.post") as mock_post:
         mock_response = MagicMock()
-        mock_response.json.return_value = {
-            "tokenProperties": {
-                "valid": True,
-                "action": "submit"
-            },
-            "riskAnalysis": {
-                "score": 0.9
-            }
-        }
+        # reCAPTCHA v2 siteverify shape. main.verify_recaptcha only reads
+        # `success` - commit 758f786 moved off Enterprise, whose nested
+        # tokenProperties/riskAnalysis response this used to mirror.
+        mock_response.json.return_value = {"success": True}
         mock_post.return_value = mock_response
         yield mock_response

@@ -829,23 +829,22 @@ class _AppState extends State<App> {
         table(classes: 'w-full min-w-[640px] text-sm border-collapse', [
           thead([
             tr(classes: 'border-b border-yt-gray-300 dark:border-yt-gray-700', [
-              th([Component.text('Country')], classes: 'text-left py-3 pr-4 font-semibold', scope: 'col'),
-              th([Component.text('Currency')], classes: 'text-left py-3 pr-4 font-semibold', scope: 'col'),
-              th([Component.text('Typical RPM (USD)')], classes: 'text-left py-3 pr-4 font-semibold', scope: 'col'),
-              th([Component.text('Notes')], classes: 'text-left py-3 font-semibold', scope: 'col'),
+              th(classes: 'text-left py-3 pr-4 font-semibold', scope: 'col', [Component.text('Country')]),
+              th(classes: 'text-left py-3 pr-4 font-semibold', scope: 'col', [Component.text('Currency')]),
+              th(classes: 'text-left py-3 pr-4 font-semibold', scope: 'col', [Component.text('Typical RPM (USD)')]),
+              th(classes: 'text-left py-3 font-semibold', scope: 'col', [Component.text('Notes')]),
             ])
           ]),
           tbody([
             for (final c in kCountryRpm)
               tr(classes: 'border-b border-yt-gray-200 dark:border-yt-gray-800 align-top', [
-                th([Component.text(c.country)],
-                    classes: 'text-left py-3 pr-4 font-medium text-yt-gray-900 dark:text-white whitespace-nowrap',
-                    scope: 'row'),
-                td([Component.text(c.currency)], classes: 'py-3 pr-4 text-yt-gray-600 dark:text-yt-gray-400'),
-                td([
+                th(classes: 'text-left py-3 pr-4 font-medium text-yt-gray-900 dark:text-white whitespace-nowrap',
+                    scope: 'row', [Component.text(c.country)]),
+                td(classes: 'py-3 pr-4 text-yt-gray-600 dark:text-yt-gray-400', [Component.text(c.currency)]),
+                td(classes: 'py-3 pr-4 font-medium text-yt-gray-900 dark:text-white whitespace-nowrap', [
                   Component.text('\$${c.minRpm.toStringAsFixed(2)} - \$${c.maxRpm.toStringAsFixed(2)}')
-                ], classes: 'py-3 pr-4 font-medium text-yt-gray-900 dark:text-white whitespace-nowrap'),
-                td([Component.text(c.note)], classes: 'py-3 text-yt-gray-600 dark:text-yt-gray-400'),
+                ]),
+                td(classes: 'py-3 text-yt-gray-600 dark:text-yt-gray-400', [Component.text(c.note)]),
               ])
           ])
         ])
@@ -869,10 +868,9 @@ class _AppState extends State<App> {
   //  PER-ROUTE <head>
   // ═══════════════════════════════════════════
 
-  Component _jsonLd(Map<String, Object?> data) => Component.element(
-        tag: 'script',
+  Component _jsonLd(Map<String, Object?> data) => script(
+        content: jsonEncode(data),
         attributes: {'type': 'application/ld+json'},
-        children: [RawText(jsonEncode(data))],
       );
 
   /// Emits the title, description, canonical and social tags for the current
@@ -887,12 +885,12 @@ class _AppState extends State<App> {
     if (seo == null) return div([]);
 
     final List<Component> head = [
-      Component.element(tag: 'link', attributes: {'rel': 'canonical', 'href': seo.canonical}),
-      Component.element(tag: 'meta', attributes: {'property': 'og:title', 'content': seo.title}),
-      Component.element(tag: 'meta', attributes: {'property': 'og:description', 'content': seo.description}),
-      Component.element(tag: 'meta', attributes: {'property': 'og:url', 'content': seo.canonical}),
-      Component.element(tag: 'meta', attributes: {'name': 'twitter:title', 'content': seo.title}),
-      Component.element(tag: 'meta', attributes: {'name': 'twitter:description', 'content': seo.description}),
+      link(href: seo.canonical, rel: 'canonical'),
+      meta(content: seo.title, attributes: {'property': 'og:title'}),
+      meta(content: seo.description, attributes: {'property': 'og:description'}),
+      meta(content: seo.canonical, attributes: {'property': 'og:url'}),
+      meta(name: 'twitter:title', content: seo.title),
+      meta(name: 'twitter:description', content: seo.description),
     ];
 
     // Organization lives here rather than in kSiteHead because sameAs is driven
@@ -921,9 +919,9 @@ class _AppState extends State<App> {
     // Attributes the X card to the brand account. Omitted entirely while the
     // handle is unset — an empty twitter:site attributes the card to nobody.
     if (kTwitterHandle.isNotEmpty) {
-      head.add(Component.element(
-        tag: 'meta',
-        attributes: {'name': 'twitter:site', 'content': '@$kTwitterHandle'},
+      head.add(meta(
+        name: 'twitter:site',
+        content: '@$kTwitterHandle',
       ));
     }
 
@@ -953,9 +951,9 @@ class _AppState extends State<App> {
             {'@type': 'CreativeWork', 'name': src.title, 'url': src.url}
         ],
     }));
-    head.add(Component.element(
-      tag: 'meta',
-      attributes: {'property': 'og:updated_time', 'content': kContentUpdated},
+    head.add(meta(
+      content: kContentUpdated,
+      attributes: {'property': 'og:updated_time'},
     ));
 
     // Breadcrumbs describe the path to *this* page, so unlike the product

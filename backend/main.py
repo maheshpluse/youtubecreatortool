@@ -21,13 +21,71 @@ import traceback
 
 load_dotenv()
 
-# We will initialize Gemini dynamically from Firestore
+# --- GEMINI CONFIGURATION ---
+# Model id lives in one place so a Google model rename is a one-line change (or
+# an env var on the server, no redeploy). Verify a candidate is still served
+# with genai.list_models() before changing it - an unlisted id fails at
+# generate_content time, not here, so a bad name looks like a runtime AI error.
+GEMINI_MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-1.5-flash").strip()
+
+# The .env key, kept separately so the Firestore listener can fall back to it
+# instead of leaving the app with no model at all.
+ENV_GEMINI_API_KEY = (os.getenv("GEMINI_API_KEY") or "").strip()
+
 gemini_model = None
+
+
+def build_gemini_model(api_key, source):
+    """
+    Configure the SDK with `api_key` and return a model, or None if that fails.
+
+    Note this only validates the key's shape, never the model id: an unknown
+    GEMINI_MODEL_NAME constructs fine here and 404s on the first request.
+    """
+    if not api_key:
+        return None
+    try:
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel(GEMINI_MODEL_NAME)
+        print(f"Gemini configured from {source} (model: {GEMINI_MODEL_NAME}).")
+        return model
+    except Exception as e:
+        print(f"Failed to configure Gemini from {source}: {e}")
+        return None
+
+
+# Configure from .env FIRST so the app can always serve AI requests, even if
+# Firestore is unreachable or the admin panel has never had a key saved.
+gemini_model = build_gemini_model(ENV_GEMINI_API_KEY, ".env")
+
+# --- DYNAMIC API KEY OVERRIDE ---
+# The admin panel (admin_panel/src/pages/ApiSettings.tsx) merges keys into
+# app_settings/api_keys, so that document can legitimately exist holding only
+# dataforseo_api_key. A missing gemini_api_key therefore means "no override",
+# NOT "turn AI off" - falling back to the .env key here is what keeps a
+# DataForSEO save from silently 503ing every AI endpoint.
+#
+# Module level (not nested in the Firestore try below) so it stays importable
+# and testable on machines with no Firestore credentials.
+def on_api_keys_snapshot(col_snapshot, changes, read_time):
+    global gemini_model
+    for doc in col_snapshot:
+        data = doc.to_dict() or {}
+        firestore_key = (data.get("gemini_api_key") or "").strip()
+        if firestore_key:
+            model = build_gemini_model(firestore_key, "Firestore")
+            if model:
+                gemini_model = model
+        elif ENV_GEMINI_API_KEY:
+            gemini_model = build_gemini_model(ENV_GEMINI_API_KEY, ".env fallback")
+        else:
+            print("No Gemini key in Firestore or .env - AI endpoints disabled.")
+            gemini_model = None
+
 
 # Initialize Firebase Admin
 if not firebase_admin._apps:
     try:
-        import os
         key_path = os.path.join(os.path.dirname(__file__), "serviceAccountKey.json")
         if os.path.exists(key_path):
             cred = credentials.Certificate(key_path)
@@ -41,48 +99,50 @@ db = None
 try:
     db = firestore.client()
 
-# --- DYNAMIC API KEY CONFIGURATION ---
-    def on_api_keys_snapshot(col_snapshot, changes, read_time):
-        global gemini_model
-        for doc in col_snapshot:
-            data = doc.to_dict()
-            if data:
-                gemini_key = data.get("gemini_api_key")
-                if gemini_key:
-                    try:
-                        genai.configure(api_key=gemini_key)
-                        gemini_model = genai.GenerativeModel("gemini-3.6-flash")
-                        print("Gemini API Key dynamically updated from Firestore.")
-                    except Exception as e:
-                        print(f"Failed to configure Gemini from Firestore: {e}")
-                else:
-                    gemini_model = None
-
     # Watch the api_keys document for real-time updates
     try:
         api_keys_ref = db.collection("app_settings").document("api_keys")
-        api_keys_watch = api_keys_ref.on_snapshot(on_api_keys_snapshot)
 
-        # Also attempt a one-time initial load just in case the listener takes a moment
+        # One-time load first: on_snapshot fires on a background thread, so
+        # doing this before registering the watch keeps startup deterministic.
         initial_doc = api_keys_ref.get()
         if initial_doc.exists:
-            initial_data = initial_doc.to_dict()
-            if initial_data.get("gemini_api_key"):
-                genai.configure(api_key=initial_data.get("gemini_api_key"))
-                gemini_model = genai.GenerativeModel("gemini-3.6-flash")
-                print("Gemini API Key loaded from Firestore on startup.")
+            initial_key = ((initial_doc.to_dict() or {}).get("gemini_api_key") or "").strip()
+            if initial_key:
+                model = build_gemini_model(initial_key, "Firestore (startup)")
+                if model:
+                    gemini_model = model
+
+        api_keys_watch = api_keys_ref.on_snapshot(on_api_keys_snapshot)
     except Exception as e:
         print(f"Could not setup Firestore API key listener: {e}")
-    # --- END DYNAMIC API KEY CONFIGURATION ---
 except Exception as e:
     print(f"Warning: Could not initialize Firestore client: {e}")
 
 if not gemini_model:
-    env_key = os.getenv("GEMINI_API_KEY")
-    if env_key:
-        genai.configure(api_key=env_key)
-        gemini_model = genai.GenerativeModel("gemini-3.6-flash")
-        print("Gemini API Key loaded from .env fallback.")
+    print(
+        "WARNING: No Gemini API key found. Set GEMINI_API_KEY in backend/.env "
+        "or save one in the admin panel (Firestore app_settings/api_keys)."
+    )
+
+
+def require_gemini():
+    """
+    Return the live model, or raise the 503 every AI endpoint shares.
+
+    Reads the module global on each call so a key saved in the admin panel
+    takes effect without a restart.
+    """
+    if gemini_model is None:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "AI is not configured on the server. Add a Gemini API key in the "
+                "admin panel (API Settings) or set GEMINI_API_KEY in backend/.env."
+            ),
+        )
+    return gemini_model
+# --- END GEMINI CONFIGURATION ---
 
 app = FastAPI(title="VidSEOKit API", version="1.0.0")
 
@@ -296,23 +356,22 @@ class TitlesResponse(BaseModel):
 @app.post("/api/generate-titles", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
 def generate_titles(request: TitleRequest):
     topic = request.topic.strip() or "this topic"
-    
-    if gemini_model:
-        try:
-            lang_instruction = (
-                f" Write the titles in {language_name(request.lang)}."
-                if request.lang != "en" else ""
-            )
-            prompt = f"Generate 5 highly clickable, engaging YouTube video titles about '{topic}'.{lang_instruction} Return ONLY a valid JSON array of objects, where each object has a 'title' string and a 'ctr_score' integer between 85 and 99. Example: [{{\"title\": \"The truth about {topic}\", \"ctr_score\": 92}}]"
-            response = gemini_model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
-            data = json.loads(response.text)
-            titles = [TitleResult(**item) for item in data]
-            return TitlesResponse(titles=titles)
-        except Exception as e:
-            print(f"Gemini Title Error: {e}")
-            raise HTTPException(status_code=500, detail="Failed to generate titles using AI.")
-            
-    raise HTTPException(status_code=500, detail="AI model not configured.")
+    model = require_gemini()
+
+    try:
+        lang_instruction = (
+            f" Write the titles in {language_name(request.lang)}."
+            if request.lang != "en" else ""
+        )
+        prompt = f"Generate 5 highly clickable, engaging YouTube video titles about '{topic}'.{lang_instruction} Return ONLY a valid JSON array of objects, where each object has a 'title' string and a 'ctr_score' integer between 85 and 99. Example: [{{\"title\": \"The truth about {topic}\", \"ctr_score\": 92}}]"
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        data = json.loads(response.text)
+        titles = [TitleResult(**item) for item in data]
+        return TitlesResponse(titles=titles)
+    except Exception as e:
+        print(f"Gemini Title Error: {e}")
+        log_error(db, "Gemini Title Error", str(e), traceback.format_exc())
+        raise HTTPException(status_code=502, detail="Failed to generate titles using AI.")
 
 class ThumbnailRequest(BaseModel):
     topic: str
@@ -329,39 +388,39 @@ class ThumbnailsResponse(BaseModel):
 @app.post("/api/generate-thumbnails", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
 def generate_thumbnails(request: ThumbnailRequest):
     topic = request.topic.strip() or "this"
-    
-    if gemini_model:
-        try:
-            lang_instruction = (
-                f" Write all three fields in {language_name(request.lang)}."
-                if request.lang != "en" else ""
-            )
-            prompt = f"Generate 3 distinct, high-converting YouTube thumbnail concepts for a video about '{topic}'.{lang_instruction} Return ONLY a valid JSON array of objects, where each object has 'concept_name' (string), 'visual_description' (detailed prompt describing the visuals), and 'text_on_screen' (very short catchy 1-4 word text). Example: [{{\"concept_name\": \"Shocked Face\", \"visual_description\": \"A close up of a shocked face pointing at a chart.\", \"text_on_screen\": \"OMG!\"}}]"
-            response = gemini_model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
-            data = json.loads(response.text)
-            ideas = [ThumbnailIdea(**item) for item in data]
-            return ThumbnailsResponse(thumbnails=ideas)
-        except Exception as e:
-            print(f"Gemini Thumbnail Error: {e}")
-            raise HTTPException(status_code=500, detail="Failed to generate thumbnails using AI.")
-            
-    raise HTTPException(status_code=500, detail="AI model not configured.")
+    model = require_gemini()
+
+    try:
+        lang_instruction = (
+            f" Write all three fields in {language_name(request.lang)}."
+            if request.lang != "en" else ""
+        )
+        prompt = f"Generate 3 distinct, high-converting YouTube thumbnail concepts for a video about '{topic}'.{lang_instruction} Return ONLY a valid JSON array of objects, where each object has 'concept_name' (string), 'visual_description' (detailed prompt describing the visuals), and 'text_on_screen' (very short catchy 1-4 word text). Example: [{{\"concept_name\": \"Shocked Face\", \"visual_description\": \"A close up of a shocked face pointing at a chart.\", \"text_on_screen\": \"OMG!\"}}]"
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        data = json.loads(response.text)
+        ideas = [ThumbnailIdea(**item) for item in data]
+        return ThumbnailsResponse(thumbnails=ideas)
+    except Exception as e:
+        print(f"Gemini Thumbnail Error: {e}")
+        log_error(db, "Gemini Thumbnail Error", str(e), traceback.format_exc())
+        raise HTTPException(status_code=502, detail="Failed to generate thumbnails using AI.")
 
 class TagRequest(BaseModel):
     url: str
 
 @app.post("/api/extract-tags", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
 def extract_tags(request: TagRequest):
-    if gemini_model:
-        try:
-            prompt = f"Extract 10-15 highly relevant YouTube tags for the content or topic: '{request.url}'. Return ONLY a valid JSON array of strings. Example: [\"tag1\", \"tag2\"]"
-            response = gemini_model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
-            tags = json.loads(response.text)
-            return {"tags": tags}
-        except Exception as e:
-            print(f"Gemini Tag Error: {e}")
-            raise HTTPException(status_code=500, detail="Failed to extract tags using AI.")
-    raise HTTPException(status_code=500, detail="AI model not configured.")
+    model = require_gemini()
+
+    try:
+        prompt = f"Extract 10-15 highly relevant YouTube tags for the content or topic: '{request.url}'. Return ONLY a valid JSON array of strings. Example: [\"tag1\", \"tag2\"]"
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        tags = json.loads(response.text)
+        return {"tags": tags}
+    except Exception as e:
+        print(f"Gemini Tag Error: {e}")
+        log_error(db, "Gemini Tag Error", str(e), traceback.format_exc())
+        raise HTTPException(status_code=502, detail="Failed to extract tags using AI.")
 
 class EarningsRequest(BaseModel):
     daily_views: int

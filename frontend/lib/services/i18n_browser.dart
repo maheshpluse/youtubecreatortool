@@ -41,6 +41,7 @@ void storeLanguage(String storageKey, String code) {
     final storage = globalContext.getProperty<JSAny?>('localStorage'.toJS) as JSObject?;
     storage?.callMethod<JSAny?>('setItem'.toJS, storageKey.toJS, code.toJS);
   } catch (e) {
+    // Ignore errors when localStorage is unavailable.
   }
 }
 
