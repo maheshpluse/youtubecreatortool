@@ -183,21 +183,18 @@ const String kSiteHead = r'''
         <script src="consent.js"></script>
 
         <!-- reCAPTCHA integration -->
-        <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik"></script>
     <script>
       window.executeRecaptcha = function() {
         return new Promise((resolve) => {
-          if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
+          if (typeof grecaptcha === 'undefined') {
             resolve("DUMMY_TOKEN");
             return;
           }
           try {
-            grecaptcha.enterprise.ready(async () => {
+            grecaptcha.ready(async () => {
               try {
-                const token = await grecaptcha.enterprise.execute('6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik', {action: 'submit'});
-                    // execute() yields null on repeat calls within a page
-                    // session; never resolve null or the Dart side cannot
-                    // type it and the awaiting Future hangs.
+                const token = await grecaptcha.execute('6LcP-K4tAAAAAIEPxSn-Jn6WGwcueYcMg-CBFwik', {action: 'submit'});
                     resolve(token || "DUMMY_TOKEN");
                   } catch (e) {
                     console.error('reCAPTCHA execution failed', e);
@@ -215,7 +212,7 @@ const String kSiteHead = r'''
         <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
         <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
         <script defer src="auth.js?v=2"></script>
-        <script defer src="main.dart.js?v=2"></script>
+        <script defer src="main.dart.js?v=4"></script>
 
 
 ''';
