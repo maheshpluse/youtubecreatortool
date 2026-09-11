@@ -435,21 +435,21 @@ class _AppState extends State<App> {
         div([
           input(
             classes: 'input-field',
-            attributes: {'placeholder': t('seo_placeholder_keyword'), 'aria-label': t('seo_placeholder_keyword'), 'value': seoTargetKeyword},
+            attributes: {'id': 'seo-target-keyword', 'name': 'seo-target-keyword', 'placeholder': t('seo_placeholder_keyword'), 'aria-label': t('seo_placeholder_keyword'), 'value': seoTargetKeyword},
             onInput: (e) => setState(() => seoTargetKeyword = e.toString()),
           ),
         ]),
         div([
           input(
             classes: 'input-field',
-            attributes: {'placeholder': t('seo_placeholder_title'), 'aria-label': t('seo_placeholder_title'), 'value': seoTitle},
+            attributes: {'id': 'seo-title', 'name': 'seo-title', 'placeholder': t('seo_placeholder_title'), 'aria-label': t('seo_placeholder_title'), 'value': seoTitle},
             onInput: (e) => setState(() => seoTitle = e.toString()),
           ),
         ]),
         div([
           textarea(
             classes: 'input-field resize-none',
-            attributes: {'placeholder': t('seo_placeholder_desc'), 'aria-label': t('seo_placeholder_desc'), 'rows': '5', 'value': seoDescription},
+            attributes: {'id': 'seo-description', 'name': 'seo-description', 'placeholder': t('seo_placeholder_desc'), 'aria-label': t('seo_placeholder_desc'), 'rows': '5', 'value': seoDescription},
             onInput: (e) => setState(() => seoDescription = e.toString()),
             [],
           ),
@@ -532,7 +532,7 @@ class _AppState extends State<App> {
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
-              attributes: {'placeholder': t('title_gen_placeholder'), 'aria-label': t('title_gen_placeholder'), 'value': titleTopic},
+              attributes: {'id': 'title-topic', 'name': 'title-topic', 'placeholder': t('title_gen_placeholder'), 'aria-label': t('title_gen_placeholder'), 'value': titleTopic},
               onInput: (e) => setState(() => titleTopic = e.toString()),
             ),
           ]),
@@ -599,7 +599,7 @@ class _AppState extends State<App> {
           div(classes: 'flex-1', [
             input(
               classes: 'input-field',
-              attributes: {'placeholder': t('thumb_gen_placeholder'), 'aria-label': t('thumb_gen_placeholder'), 'value': thumbnailTopic},
+              attributes: {'id': 'thumbnail-topic', 'name': 'thumbnail-topic', 'placeholder': t('thumb_gen_placeholder'), 'aria-label': t('thumb_gen_placeholder'), 'value': thumbnailTopic},
               onInput: (e) => setState(() => thumbnailTopic = e.toString()),
             ),
           ]),
@@ -672,6 +672,7 @@ class _AppState extends State<App> {
             input(
               classes: 'input-field',
               attributes: {
+                'id': 'tag-url', 'name': 'tag-url',
                 'placeholder': t('tag_ext_placeholder'), 'aria-label': t('tag_ext_placeholder'),
                 'value': tagUrl
               },
@@ -730,7 +731,7 @@ class _AppState extends State<App> {
             ]),
             input(
               classes: 'w-full h-1 rounded-full appearance-none cursor-pointer bg-yt-gray-200 dark:bg-yt-gray-700 accent-yt-red',
-              attributes: {'type': 'range', 'min': '1000', 'max': '100000', 'step': '1000', 'aria-label': t('earn_daily_views'), 'value': dailyViews.toString()},
+              attributes: {'id': 'daily-views', 'name': 'daily-views', 'type': 'range', 'min': '1000', 'max': '100000', 'step': '1000', 'aria-label': t('earn_daily_views'), 'value': dailyViews.toString()},
               onChange: (e) => setState(() => dailyViews = int.parse(e.toString())),
             ),
           ]),
