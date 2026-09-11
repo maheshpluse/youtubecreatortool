@@ -26,7 +26,7 @@ load_dotenv()
 # an env var on the server, no redeploy). Verify a candidate is still served
 # with genai.list_models() before changing it - an unlisted id fails at
 # generate_content time, not here, so a bad name looks like a runtime AI error.
-GEMINI_MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-1.5-flash").strip()
+GEMINI_MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-1.5-flash-8b").strip()
 
 # The .env key, kept separately so the Firestore listener can fall back to it
 # instead of leaving the app with no model at all.
@@ -146,6 +146,8 @@ def require_gemini():
 
 app = FastAPI(title="VidSEOKit API", version="1.0.0")
 
+from fastapi.responses import JSONResponse
+
 @app.exception_handler(Exception)
 def global_exception_handler(request: Request, exc: Exception):
     """
@@ -157,7 +159,7 @@ def global_exception_handler(request: Request, exc: Exception):
     """
     error_details = traceback.format_exc()
     log_error(db, f"Global Error - {request.url.path}", str(exc), error_details)
-    return {"error": "Something went wrong. Please try again later.", "status": "error"}
+    return JSONResponse(status_code=500, content={"error": "Something went wrong. Please try again later.", "status": "error"})
 
 @app.on_event("startup")
 async def startup_event():
