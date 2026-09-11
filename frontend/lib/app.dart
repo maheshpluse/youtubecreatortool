@@ -123,6 +123,9 @@ class _AppState extends State<App> {
   }
 
   Future<void> calculateSeo() => _run('seo', () async {
+        if (seoTargetKeyword.trim().isEmpty || seoTitle.trim().isEmpty || seoDescription.trim().isEmpty) {
+          throw Exception('Please fill in all fields: keyword, title, and description.');
+        }
         final tagList = seoTags.split(',').map((t) => t.trim()).where((t) => t.isNotEmpty).toList();
         final data = await _postJson('/api/calculate-seo', {
           'target_keyword': seoTargetKeyword,
@@ -134,6 +137,9 @@ class _AppState extends State<App> {
       });
 
   Future<void> generateTitles() => _run('titles', () async {
+        if (titleTopic.trim().isEmpty) {
+          throw Exception('Please enter a topic for title generation.');
+        }
         final data = await _postJson('/api/generate-titles', {
           'topic': titleTopic,
           'lang': I18nService().currentLanguage,
@@ -142,6 +148,9 @@ class _AppState extends State<App> {
       });
 
   Future<void> generateThumbnails() => _run('thumbnails', () async {
+        if (thumbnailTopic.trim().isEmpty) {
+          throw Exception('Please enter a topic for thumbnail ideas.');
+        }
         final data = await _postJson('/api/generate-thumbnails', {
           'topic': thumbnailTopic,
           'lang': I18nService().currentLanguage,
@@ -150,6 +159,9 @@ class _AppState extends State<App> {
       });
 
   Future<void> extractTags() => _run('tags', () async {
+        if (tagUrl.trim().isEmpty) {
+          throw Exception('Please enter a URL or topic to extract tags.');
+        }
         final data = await _postJson('/api/extract-tags', {'url': tagUrl});
         setState(() => extractedTags = data['tags'] as List<dynamic>);
       });

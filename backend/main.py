@@ -401,7 +401,7 @@ def generate_titles(request: TitleRequest):
             f" Write the titles in {language_name(request.lang)}."
             if request.lang != "en" else ""
         )
-        prompt = f"Generate 5 highly clickable, engaging YouTube video titles about '{topic}'.{lang_instruction} Return ONLY a valid JSON array of objects, where each object has a 'title' string and a 'ctr_score' integer between 85 and 99. Example: [{{\"title\": \"The truth about {topic}\", \"ctr_score\": 92}}]"
+        prompt = f"Generate 5 highly clickable, engaging YouTube video titles about '{topic}'.{lang_instruction} For each title, rate its estimated Click-Through Rate potential on a scale of 1-100 based on how compelling, curiosity-driven, and emotionally engaging the title is. Be realistic: most average titles score 40-60, good titles score 60-80, and only truly exceptional viral-worthy titles should score above 80. Return ONLY a valid JSON array of objects, where each object has a 'title' string and a 'ctr_score' integer between 30 and 95. Example: [{{\"title\": \"The truth about {topic}\", \"ctr_score\": 72}}]"
         response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
         data = json.loads(response.text)
         titles = [TitleResult(**item) for item in data]
@@ -468,6 +468,20 @@ class EarningsRequest(BaseModel):
 def calculate_earnings(request: EarningsRequest):
     niche = request.niche.lower().strip()
     
+    # Realistic RPM ranges by niche (USD per 1000 views)
+    # Source: industry averages from creator reports
+    niche_rpm_ranges = {
+        "finance":       (8.0, 25.0),
+        "tech":          (4.0, 12.0),
+        "gaming":        (1.5, 5.0),
+        "vlog":          (1.0, 4.0),
+        "education":     (5.0, 15.0),
+        "entertainment": (2.0, 6.0),
+        "health":        (6.0, 18.0),
+        "beauty":        (3.0, 10.0),
+        "cooking":       (2.5, 8.0),
+    }
+    
     # Fetch real CPC data for the niche/keyword
     kw_data = get_cached_keyword(db, niche)
     if not kw_data:
@@ -476,12 +490,14 @@ def calculate_earnings(request: EarningsRequest):
         
     cpc = kw_data.get('cpc', 1.0)
     
-    # Assuming 1% CTR, 1000 views = 10 clicks. 
-    # YouTube keeps ~45%, Creator gets 55%.
-    # RPM = 10 clicks * CPC * 0.55 = CPC * 5.5
+    # Calculate RPM from CPC (1% CTR, YouTube 55% revenue share)
     rpm = cpc * 5.5
     
-    # Create a range
+    # Clamp RPM to realistic niche-specific bounds
+    rpm_min, rpm_max = niche_rpm_ranges.get(niche, (2.0, 10.0))
+    rpm = max(rpm_min, min(rpm, rpm_max))
+    
+    # Create a range (±30%)
     min_rpm = rpm * 0.7
     max_rpm = rpm * 1.3
         
