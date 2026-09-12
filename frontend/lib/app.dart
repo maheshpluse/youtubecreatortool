@@ -938,6 +938,22 @@ class _AppState extends State<App> {
         'sameAs': [for (final s in kSocialProfiles) s.url],
     }));
 
+    // Add SoftwareApplication schema as recommended by SEO audit
+    head.add(_jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      'name': 'VidSEOKit',
+      'applicationCategory': 'BusinessApplication',
+      'operatingSystem': 'WebBrowser',
+      'description': 'Advanced video SEO software and growth tools designed to help creators improve rankings on YouTube and Google Search.',
+      'offers': {
+        '@type': 'Offer',
+        'price': '0',
+        'priceCurrency': 'USD'
+      }
+    }));
+
+
     // Attributes the X card to the brand account. Omitted entirely while the
     // handle is unset — an empty twitter:site attributes the card to nobody.
     if (kTwitterHandle.isNotEmpty) {

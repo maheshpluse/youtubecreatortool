@@ -87,9 +87,9 @@ const String kContentUpdatedLabel = '6 September 2026';
 /// cannot drift apart.
 const Map<String, PageSeo> kPageSeo = {
   'seo': PageSeo(
-    title: 'Free YouTube SEO Analyzer - Score Your Video in Seconds',
+    title: 'VidSEOKit \u2014 Free Video SEO Tools for YouTube Creators',
     description:
-        'Paste your title, description and target keyword for an instant YouTube SEO score, plus fixes for ranking higher in search and suggested video.',
+        'Analyze your video SEO score, generate viral titles, extract competitor tags and estimate YouTube earnings. 100% free, no sign-up required.',
     canonical: '$kSiteUrl/',
     definition:
         'The VidSEOKit YouTube SEO Analyzer is a free tool that scores a video\'s title, description and tags against a target keyword, then lists the specific changes to make before publishing.',
