@@ -289,7 +289,7 @@ class _AppState extends State<App> {
               span(classes: 'material-symbols-rounded text-lg mr-1 text-gray-600 dark:text-gray-400', attributes: const {'aria-hidden': 'true'}, [Component.text('language')]),
               select(
                 classes: 'bg-transparent text-sm font-medium text-gray-700 dark:text-gray-300 focus:outline-none cursor-pointer outline-none border-none',
-                attributes: const {'aria-label': 'Language'},
+                attributes: const {'id': 'language-select', 'name': 'language-select', 'aria-label': 'Language'},
                 onChange: (values) {
                   // jaspr's <select> onChange reports the selected values as a
                   // List<String> (to support multi-select); this control only
