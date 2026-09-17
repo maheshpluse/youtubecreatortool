@@ -7,13 +7,13 @@
   <meta name="description" content="YouTube Analytics API guide: when Studio is not enough, which API you need, how quota works, and how to build useful reports without writing any code.">
   <meta name="author" content="The VidSEOKit Editorial Team">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <link rel="canonical" href="https://vidseokit.com/blog/youtube-analytics-api-guide">
+  <link rel="canonical" href="https://vidseokit.com/blog/youtube-analytics-api-guide.html">
   <link rel="icon" href="/favicon.ico">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VidSEOKit">
   <meta property="og:title" content="The YouTube Analytics API: When Studio Is Not Enough">
   <meta property="og:description" content="YouTube Analytics API guide: when Studio is not enough, which API you need, how quota works, and how to build useful reports without writing any code.">
-  <meta property="og:url" content="https://vidseokit.com/blog/youtube-analytics-api-guide">
+  <meta property="og:url" content="https://vidseokit.com/blog/youtube-analytics-api-guide.html">
   <meta property="article:published_time" content="2026-02-06">
   <meta property="article:section" content="Analytics">
   <meta name="twitter:card" content="summary_large_image">
@@ -29,8 +29,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
   <link rel="stylesheet" href="/blog/assets/blog.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The YouTube Analytics API: When Studio Is Not Enough","image":["https://vidseokit.com/images/blog/hero/youtube-analytics-api-guide.png"],"description":"Cross-video analysis, long history and joining video data to your own sales figures are all things Studio cannot do. Which API you need, how quota works, and how to get useful data without writing code.","articleSection":"Analytics","keywords":"YouTube Analytics API, YouTube Data API, API quota, creator dashboard, YouTube reporting API, channel analytics automation","wordCount":1246,"inLanguage":"en","datePublished":"2026-02-06","dateModified":"2026-02-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://vidseokit.com/blog/youtube-analytics-api-guide"},"url":"https://vidseokit.com/blog/youtube-analytics-api-guide","author":{"@type":"Organization","name":"The VidSEOKit Editorial Team","url":"https://vidseokit.com"},"publisher":{"@type":"Organization","name":"VidSEOKit","url":"https://vidseokit.com","logo":{"@type":"ImageObject","url":"https://vidseokit.com/images/logo.svg"}},"isAccessibleForFree":true}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vidseokit.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://vidseokit.com/blog"},{"@type":"ListItem","position":3,"name":"The YouTube Analytics API: When Studio Is Not Enough","item":"https://vidseokit.com/blog/youtube-analytics-api-guide"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The YouTube Analytics API: When Studio Is Not Enough","image":["https://vidseokit.com/images/blog/hero/youtube-analytics-api-guide.png"],"description":"Cross-video analysis, long history and joining video data to your own sales figures are all things Studio cannot do. Which API you need, how quota works, and how to get useful data without writing code.","articleSection":"Analytics","keywords":"YouTube Analytics API, YouTube Data API, API quota, creator dashboard, YouTube reporting API, channel analytics automation","wordCount":1246,"inLanguage":"en","datePublished":"2026-02-06","dateModified":"2026-02-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://vidseokit.com/blog/youtube-analytics-api-guide.html"},"url":"https://vidseokit.com/blog/youtube-analytics-api-guide.html","author":{"@type":"Organization","name":"The VidSEOKit Editorial Team","url":"https://vidseokit.com"},"publisher":{"@type":"Organization","name":"VidSEOKit","url":"https://vidseokit.com","logo":{"@type":"ImageObject","url":"https://vidseokit.com/images/logo.svg"}},"isAccessibleForFree":true}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vidseokit.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://vidseokit.com/blog/"},{"@type":"ListItem","position":3,"name":"The YouTube Analytics API: When Studio Is Not Enough","item":"https://vidseokit.com/blog/youtube-analytics-api-guide.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to be a developer to use the YouTube API?","acceptedAnswer":{"@type":"Answer","text":"No. Scheduled bulk CSV exports from the Reporting API, spreadsheet connectors and business intelligence tools all give you most of the value with no code. A scheduled export into a spreadsheet covers the majority of use cases."}},{"@type":"Question","name":"Why does my script run out of quota?","acceptedAnswer":{"@type":"Answer","text":"Search operations are dramatically more expensive than reads. Enumerate a channel's videos through its uploads playlist rather than calling search in a loop, batch your requests, and cache anything that does not change."}},{"@type":"Question","name":"Is API revenue data the same as what I get paid?","acceptedAnswer":{"@type":"Answer","text":"Recent revenue figures are estimates and change as they finalise. Never treat the last few days of revenue data as final, and be careful about reporting estimates to sponsors or buyers as confirmed earnings."}}]}</script>
   <script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3988155577590737"></script>
   <script>
@@ -58,7 +58,7 @@
     <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5a2.25 2.25 0 003.36 1.95l10.07-5.75a2.25 2.25 0 000-3.9L9.86 4.3A2.25 2.25 0 006.5 6.25z"/></svg><span>VidSEOKit</span></a>
     <nav class="header-nav" aria-label="Primary">
       <a href="/">Free tools</a>
-      <a href="/blog">Blog</a>
+      <a href="/blog/">Blog</a>
       <button class="theme-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">&#9681;</button>
     </nav>
   </div>
@@ -66,7 +66,7 @@
 
 <main class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a><span>&rsaquo;</span><a href="/blog">Blog</a><span>&rsaquo;</span>Analytics
+    <a href="/">Home</a><span>&rsaquo;</span><a href="/blog/">Blog</a><span>&rsaquo;</span>Analytics
   </nav>
 
   <article>
@@ -82,7 +82,11 @@
       <p class="standfirst">Cross-video analysis, long history and joining video data to your own sales figures are all things Studio cannot do. Which API you need, how quota works, and how to get useful data without writing code.</p>
     </header>
 
-<!-- Ad slot (in-article top): add ADSENSE_CLIENT + slot id in blog_src/build_blog.py and rebuild. -->
+<div class="ad-slot">
+  <span class="ad-label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3988155577590737" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 <p>YouTube Studio answers most questions well. It becomes limiting at a predictable point: when you want data across many videos at once, history beyond the retention window, or numbers combined with something Studio has never heard of, like your sales figures. That is where the API earns its keep.</p>
 
@@ -301,7 +305,11 @@
 </div>
 
 
-<!-- Ad slot (article bottom): add ADSENSE_CLIENT + slot id in blog_src/build_blog.py and rebuild. -->
+<div class="ad-slot">
+  <span class="ad-label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3988155577590737" data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 
 <section class="endmatter">
@@ -319,9 +327,9 @@
 <section class="related">
   <h2>Keep reading</h2>
   <ul class="card-grid">
-    <li class="card"><span class="cat">Strategy</span><h3><a href="/blog/gdpr-privacy-for-creators">GDPR and Privacy for Creators: What Actually Applies to You</a></h3><p>If you run a website, newsletter or shop, privacy obligations are yours rather than the platform&#x27;s. Where…</p></li>
-    <li class="card"><span class="cat">Monetization</span><h3><a href="/blog/youtube-shorts-monetization-guide">How YouTube Shorts Monetization Actually Works</a></h3><p>Shorts pay from a pooled revenue model with music licensing deducted first, which is why per-view earnings…</p></li>
-    <li class="card"><span class="cat">Monetization</span><h3><a href="/blog/sell-youtube-channel-valuation">What Is Your YouTube Channel Worth? How Buyers Actually Value Channels</a></h3><p>Buyers value profit that survives without you, not subscribers. What sets the multiple, what destroys value…</p></li>
+    <li class="card"><span class="cat">Strategy</span><h3><a href="/blog/gdpr-privacy-for-creators.html">GDPR and Privacy for Creators: What Actually Applies to You</a></h3><p>If you run a website, newsletter or shop, privacy obligations are yours rather than the platform&#x27;s. Where…</p></li>
+    <li class="card"><span class="cat">Monetization</span><h3><a href="/blog/youtube-shorts-monetization-guide.html">How YouTube Shorts Monetization Actually Works</a></h3><p>Shorts pay from a pooled revenue model with music licensing deducted first, which is why per-view earnings…</p></li>
+    <li class="card"><span class="cat">Monetization</span><h3><a href="/blog/sell-youtube-channel-valuation.html">What Is Your YouTube Channel Worth? How Buyers Actually Value Channels</a></h3><p>Buyers value profit that survives without you, not subscribers. What sets the multiple, what destroys value…</p></li>
   </ul>
 </section>
 </main>
