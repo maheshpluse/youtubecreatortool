@@ -29,6 +29,15 @@ class BlogPost {
 /// Every article, newest first.
 const List<BlogPost> blogPosts = [
   BlogPost(
+    slug: 'adsense-not-approved-what-to-do',
+    title: 'Your AdSense Account Wasn\'t Approved: The Complete Guide to Fixing Every Rejection Reason',
+    description: 'Rejected by AdSense? This step-by-step guide decodes every official rejection reason, fixes the content, ads.txt, privacy policy and technical issues that actually cause it, and gives you a 14-day plan to get approved — sourced directly to Google\'s own AdSense Help documentation.',
+    category: 'Monetization',
+    date: 'September 17, 2026',
+    readMinutes: 69,
+    imageUrl: 'images/blog/hero/adsense-not-approved-what-to-do.svg',
+  ),
+  BlogPost(
     slug: 'rank-higher-youtube-search',
     title: 'How to Rank Higher on YouTube Search: A 9-Step Optimization Workflow',
     description: 'YouTube search rewards relevance, engagement and satisfaction — in that order. Here is the repeatable nine-step workflow we use to plan, publish and re-optimise a video so it earns search traffic for years.',

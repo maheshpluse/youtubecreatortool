@@ -1,4 +1,12 @@
 {
+  "adsense-not-approved-what-to-do": {
+    "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
+    "h": 630,
+    "motif": "bars",
+    "png": "/images/blog/hero/adsense-not-approved-what-to-do.png",
+    "svg": "../images/blog/hero/adsense-not-approved-what-to-do.svg",
+    "w": 1200
+  },
   "adsense-revenue-per-1000-views": {
     "alt": "Bar chart of rising revenue per thousand views, with a trend line over the final months",
     "h": 630,
