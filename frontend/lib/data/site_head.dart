@@ -144,18 +144,24 @@ const String kSiteHead = r'''
         <!-- Fonts: Roboto (YouTube's standard font) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-        
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"></noscript>
+
         <!-- Material Symbols (Rounded) -->
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet"></noscript>
 
         <!-- Generated CSS -->
-        
-        <!-- Tailwind CSS -->
-        <link rel="stylesheet" href="tailwind.css?v=1">
-        
 
-        
+        <!-- Tailwind CSS -->
+        <link rel="preload" href="tailwind.css?v=1" as="style">
+        <link rel="stylesheet" href="tailwind.css?v=1">
+
+
+
+        <link rel="preload" href="styles.css" as="style">
         <link rel="stylesheet" href="styles.css">
 
         <!-- Theme Toggle -->
