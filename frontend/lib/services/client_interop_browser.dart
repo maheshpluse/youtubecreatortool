@@ -49,3 +49,7 @@ void pushAdSense() {
     print('AdSense could not be requested: $e');
   }
 }
+
+void navigateTo(String url) {
+  globalContext.getProperty<JSObject>('location'.toJS).setProperty('href'.toJS, url.toJS);
+}

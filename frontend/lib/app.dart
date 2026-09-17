@@ -70,6 +70,10 @@ class _AppState extends State<App> {
   }
 
   void switchTab(String tab) {
+    if (tab == 'blog') {
+      client_interop.navigateTo('/blog/');
+      return;
+    }
     Router.of(context).push(_getPathForTab(tab));
   }
 
@@ -398,7 +402,12 @@ class _AppState extends State<App> {
             : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'}';
     
     if (id == 'blog') {
-      return a(href: _getPathForTab(id), classes: classes, [Component.text(label)]);
+      return a(
+        href: '/blog/', 
+        classes: classes, 
+        events: {'click': (e) { e.preventDefault(); client_interop.navigateTo('/blog/'); }},
+        [Component.text(label)]
+      );
     }
     
     return Link(
@@ -426,13 +435,26 @@ class _AppState extends State<App> {
 
   Component _mobileNavItem(String icon, String label, String tab, String activeTab) {
     bool isActive = activeTab == tab;
+    
+    final child = div(classes: 'flex flex-col items-center gap-1', [
+      span(classes: 'material-symbols-rounded text-2xl ${isActive ? 'filled' : ''}', [Component.text(icon)]),
+      span(classes: 'text-[10px] font-medium', [Component.text(label)]),
+    ]);
+    final classes = 'flex flex-col items-center gap-1 py-1 px-3 transition-all duration-300 ${isActive ? 'text-yt-gray-900 dark:text-white' : 'text-yt-gray-600 dark:text-yt-gray-400'}';
+
+    if (tab == 'blog') {
+      return a(
+        href: '/blog/',
+        classes: classes,
+        events: {'click': (e) { e.preventDefault(); client_interop.navigateTo('/blog/'); }},
+        [child],
+      );
+    }
+
     return Link(
       to: _getPathForTab(tab),
-      classes: 'flex flex-col items-center gap-1 py-1 px-3 transition-all duration-300 ${isActive ? 'text-yt-gray-900 dark:text-white' : 'text-yt-gray-600 dark:text-yt-gray-400'}',
-      child: div(classes: 'flex flex-col items-center gap-1', [
-        span(classes: 'material-symbols-rounded text-2xl ${isActive ? 'filled' : ''}', [Component.text(icon)]),
-        span(classes: 'text-[10px] font-medium', [Component.text(label)]),
-      ])
+      classes: classes,
+      child: child,
     );
   }
 
