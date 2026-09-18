@@ -65,7 +65,7 @@ class _AppState extends State<App> {
     if (tab == 'thumbnails') return '/youtube-thumbnail-ideas';
     if (tab == 'tags') return '/youtube-tag-extractor';
     if (tab == 'earnings') return '/youtube-earnings-calculator';
-    if (tab == 'blog') return '/blog/index.html';
+    if (tab == 'blog') return '/blog/';
     return '/$tab';
   }
 
@@ -231,7 +231,7 @@ class _AppState extends State<App> {
             ]);
           },
           routes: [
-            Route(path: '/', builder: (context, state) => _buildSeoAnalyzer()),
+            Route(path: '/', builder: (context, state) => _buildHomeHub()),
             Route(path: '/youtube-seo-analyzer', builder: (context, state) => _buildSeoAnalyzer()),
             Route(path: '/youtube-title-generator', builder: (context, state) => _buildTitleGenerator()),
             Route(path: '/youtube-thumbnail-ideas', builder: (context, state) => _buildThumbnailGenerator()),
@@ -240,8 +240,17 @@ class _AppState extends State<App> {
             Route(path: '/youtube-rpm-by-country', builder: (context, state) => _buildRpmByCountry()),
             Route(path: '/privacy', builder: (context, state) => _buildPrivacyPolicy()),
             Route(path: '/terms', builder: (context, state) => _buildTerms()),
+            Route(path: '/vidiq-alternative-free', builder: (context, state) => _buildComparisonPage('vidiq-alternative-free')),
             Route(path: '/about', builder: (context, state) => _buildAbout()),
             Route(path: '/contact', builder: (context, state) => _buildContact()),
+            Route(path: '/youtube-description-generator', builder: (context, state) => _buildDescriptionGenerator()),
+            Route(path: '/youtube-hashtag-generator', builder: (context, state) => _buildHashtagGenerator()),
+            Route(path: '/youtube-channel-name-generator', builder: (context, state) => _buildChannelNameGenerator()),
+            Route(path: '/youtube-video-ideas', builder: (context, state) => _buildVideoIdeasGenerator()),
+            Route(path: '/youtube-script-generator', builder: (context, state) => _buildScriptGenerator()),
+            Route(path: '/tubebuddy-alternative', builder: (context, state) => _buildComparisonPage('tubebuddy-alternative')),
+            Route(path: '/youtube-keyword-tool', builder: (context, state) => _buildKeywordTool()),
+            Route(path: '/vidiq-vs-tubebuddy', builder: (context, state) => _buildComparisonPage('vidiq-vs-tubebuddy')),
           ]
         )
       ]
@@ -253,7 +262,8 @@ class _AppState extends State<App> {
     // resolve to the same tab.
     String path = rawPath.isEmpty ? '/' : rawPath;
     if (path.length > 1 && path.endsWith('/')) path = path.substring(0, path.length - 1);
-    if (path == '/youtube-seo-analyzer' || path == '/') return 'seo';
+    if (path == '/youtube-seo-analyzer') return 'seo';
+    if (path == '/') return 'home';
     if (path == '/youtube-title-generator') return 'titles';
     if (path == '/youtube-thumbnail-ideas') return 'thumbnails';
     if (path == '/youtube-tag-extractor') return 'tags';
@@ -461,6 +471,90 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   //  SEO ANALYZER
   // ═══════════════════════════════════════════
+
+  Component _buildHomeHub() {
+    final seo = kPageSeo['home'];
+    return div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12', [
+      if (seo != null)
+        div(classes: 'mb-12 text-center max-w-3xl mx-auto', [
+          p(classes: 'text-xl text-yt-gray-600 dark:text-yt-gray-300', [Component.text(seo.definition)]),
+        ]),
+      div(classes: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8', [
+        _buildToolCard(
+            title: 'YouTube SEO Analyzer',
+            description: 'Analyze your video SEO score against a target keyword. Get actionable feedback on your title, description, and tags.',
+            icon: 'analytics',
+            link: '/youtube-seo-analyzer'),
+        _buildToolCard(
+            title: 'YouTube Title Generator',
+            description: 'Generate viral, click-worthy titles from any topic using AI. Get multiple angles like curiosity, listicle, and how-to.',
+            icon: 'title',
+            link: '/youtube-title-generator'),
+        _buildToolCard(
+            title: 'Thumbnail Ideas Generator',
+            description: 'Get AI thumbnail concepts for any video topic. We provide the subject, expression, text overlay, and color direction.',
+            icon: 'image',
+            link: '/youtube-thumbnail-ideas'),
+        _buildToolCard(
+            title: 'YouTube Tag Extractor',
+            description: 'Extract tags from any YouTube video. See how ranking videos in your niche describe themselves.',
+            icon: 'sell',
+            link: '/youtube-tag-extractor'),
+        _buildToolCard(
+            title: 'Earnings Calculator',
+            description: 'Estimate YouTube AdSense income from your daily views and niche. See how CPM and RPM differ by category.',
+            icon: 'payments',
+            link: '/youtube-earnings-calculator'),
+        _buildToolCard(
+            title: 'YouTube Description Generator',
+            description: 'Automatically write SEO-optimized YouTube descriptions with timestamps, social links, and targeted keywords.',
+            icon: 'description',
+            link: '/youtube-description-generator'),
+        _buildToolCard(
+            title: 'YouTube Hashtag Generator',
+            description: 'Find the most relevant and trending hashtags for your YouTube video to maximize reach and discoverability.',
+            icon: 'tag',
+            link: '/youtube-hashtag-generator'),
+        _buildToolCard(
+            title: 'Channel Name Generator',
+            description: 'Generate catchy, memorable YouTube channel names tailored to your specific niche and target audience.',
+            icon: 'badge',
+            link: '/youtube-channel-name-generator'),
+        _buildToolCard(
+            title: 'YouTube Video Ideas',
+            description: 'Overcome creator block with AI-generated video concepts, including hook ideas, formats, and target demographics.',
+            icon: 'lightbulb',
+            link: '/youtube-video-ideas'),
+        _buildToolCard(
+            title: 'YouTube Script Generator',
+            description: 'Draft complete, engaging YouTube scripts from a simple prompt. Includes hooks, main points, and calls to action.',
+            icon: 'draw',
+            link: '/youtube-script-generator'),
+        _buildToolCard(
+            title: 'YouTube Keyword Tool',
+            description: 'Discover high-volume, low-competition keywords for your YouTube channel to rank higher in search results.',
+            icon: 'manage_search',
+            link: '/youtube-keyword-tool'),
+      ])
+    ]);
+  }
+
+  Component _buildToolCard({required String title, required String description, required String icon, required String link}) {
+    return a(
+      href: link,
+      classes: 'block p-6 bg-white dark:bg-yt-gray-800 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-yt-gray-200 dark:border-yt-gray-700',
+      [
+        div(classes: 'flex items-center mb-4', [
+          div(classes: 'w-12 h-12 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-500 rounded-xl flex items-center justify-center mr-4', [
+            span(classes: 'material-symbols-outlined', attributes: {'aria-hidden': 'true'}, [Component.text(icon)]),
+          ]),
+          h3(classes: 'text-lg font-bold text-yt-gray-900 dark:text-white', [Component.text(title)]),
+        ]),
+        p(classes: 'text-yt-gray-600 dark:text-yt-gray-400', [Component.text(description)]),
+      ]
+    );
+  }
+
   Component _buildSeoAnalyzer() {
     return div(classes: 'grid grid-cols-1 lg:grid-cols-3 gap-6', [
       div(classes: 'lg:col-span-2 space-y-4 animate-fade-in-left animate-delay-100', [
@@ -940,44 +1034,11 @@ class _AppState extends State<App> {
     // Organization lives here rather than in kSiteHead because sameAs is driven
     // by kSocialProfiles: an empty list must emit no sameAs at all, and a raw
     // HTML string cannot be conditional.
-    head.add(_jsonLd({
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      'name': 'VidSEOKit',
-      'url': kSiteUrl,
-      'logo': '$kSiteUrl/images/og-image.jpg',
-      'description': 'Premium YouTube SEO & Growth Tools for Content Creators',
-      'areaServed': const [
-        {'@type': 'Country', 'name': 'United States'},
-        {'@type': 'Country', 'name': 'Canada'},
-        {'@type': 'Country', 'name': 'United Kingdom'},
-        {'@type': 'Country', 'name': 'Ireland'},
-        {'@type': 'Country', 'name': 'Australia'},
-        {'@type': 'Place', 'name': 'Europe'},
-      ],
-      'knowsLanguage': const ['en-US', 'en-GB', 'en-CA', 'en-AU'],
-      if (kSocialProfiles.isNotEmpty)
-        'sameAs': [for (final s in kSocialProfiles) s.url],
-    }));
-
-    // Add SoftwareApplication schema as recommended by SEO audit
-    head.add(_jsonLd({
-      '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
-      'name': 'VidSEOKit',
-      'applicationCategory': 'BusinessApplication',
-      'operatingSystem': 'WebBrowser',
-      'description': 'Advanced video SEO software and growth tools designed to help creators improve rankings on YouTube and Google Search.',
-      'offers': {
-        '@type': 'Offer',
-        'price': '0',
-        'priceCurrency': 'USD'
-      }
-    }));
-
-
-    // Attributes the X card to the brand account. Omitted entirely while the
-    // handle is unset — an empty twitter:site attributes the card to nobody.
+    
+    // Add structured data @graph as recommended by SEO audit
+    head.add(script(content: r'''
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://vidseokit.com/#organization","name":"VidSEOKit","url":"https://vidseokit.com/","logo":{"@type":"ImageObject","url":"https://vidseokit.com/images/og-image.jpg","width":1200,"height":630}},{"@type":"WebSite","@id":"https://vidseokit.com/#website","url":"https://vidseokit.com/","name":"VidSEOKit","publisher":{"@id":"https://vidseokit.com/#organization"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://vidseokit.com/#webapp","name":"VidSEOKit YouTube SEO Analyzer","url":"https://vidseokit.com/youtube-seo-analyzer","applicationCategory":"BusinessApplication","applicationSubCategory":"SEO Tool","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","description":"Free tool that scores a YouTube video title, description and tags against a target keyword and lists the specific changes to make before publishing.","featureList":["Title keyword placement and length scoring","Description first-150-character analysis","Tag relevance scoring","Combined score out of 100"],"isAccessibleForFree":true,"publisher":{"@id":"https://vidseokit.com/#organization"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://vidseokit.com/#faq","mainEntity":[{"@type":"Question","name":"What is a good YouTube SEO score?","acceptedAnswer":{"@type":"Answer","text":"Anything above 80 means your metadata is not holding the video back. Below 60 usually points to a missing keyword in the title or a description too short for YouTube to categorise confidently. The score measures metadata quality only, so a high score does not guarantee views."}},{"@type":"Question","name":"Should my target keyword go at the start of the title?","acceptedAnswer":{"@type":"Answer","text":"Where it fits naturally, yes. Front-loading the keyword helps on mobile, where titles are truncated after roughly 40 characters, and it matches how viewers scan a results page. Do not force it at the cost of a title that reads badly."}},{"@type":"Question","name":"How long should a YouTube description be?","acceptedAnswer":{"@type":"Answer","text":"Aim for 150 to 300 words. The first 150 characters appear before the more link and should contain your keyword and a reason to watch. The rest gives YouTube context, and is a reasonable place for timestamps, links and chapter markers."}},{"@type":"Question","name":"Does changing the title of an old video help?","acceptedAnswer":{"@type":"Answer","text":"It can, particularly if the video already gets impressions but a low click-through rate. Re-optimising the title and thumbnail on a video with existing watch history is often faster than publishing a new one. Change one variable at a time so you can tell what worked."}},{"@type":"Question","name":"How do I get more of my views from the US, UK and Europe?","acceptedAnswer":{"@type":"Answer","text":"Publish so the video lands in the morning in New York and London rather than overnight, since the first hours decide who the algorithm keeps showing it to. Reference the currencies, retailers and regulations those viewers recognise, and add English subtitles to widen reach into the Netherlands, the Nordics and Germany."}},{"@type":"Question","name":"Is this YouTube SEO analyzer free?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no account, no trial and no view limit. You can analyse as many videos as you like."}}]}]}
+      ''', attributes: {'type': 'application/ld+json'}));
     if (kTwitterHandle.isNotEmpty) {
       head.add(meta(
         name: 'twitter:site',
@@ -1219,35 +1280,68 @@ class _AppState extends State<App> {
   //  FOOTER
   // ═══════════════════════════════════════════
   Component _buildFooter() {
-    return footer(classes: 'border-t border-yt-gray-200 dark:border-yt-gray-800 mt-16 mb-20 md:mb-0 pb-8 animate-fade-in animate-delay-500', [
-      div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6', [
-        div(classes: 'flex flex-col md:flex-row items-center justify-between gap-4', [
-           div(classes: 'flex items-center gap-2', [
-            _buildLogoIcon('w-5 h-5'),
-            span(classes: 'font-bold text-sm text-yt-gray-900 dark:text-white tracking-tight', [Component.text(t('nav_logo_text'))]),
-          ]),
-          div(classes: 'flex flex-wrap justify-center gap-4', [
-            // Real anchors, not buttons. As <button onClick> these pages were
-            // invisible to crawlers — the audit reported "no link to an about page"
-            // for all four — and they passed no link equity to the legal pages that
-            // establish trust.
-            Link(to: '/about', classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', child: Component.text(t('footer_about'))),
-            Link(to: '/contact', classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', child: Component.text(t('footer_contact'))),
-            Link(to: '/privacy', classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', child: Component.text(t('footer_privacy_policy'))),
-            Link(to: '/terms', classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', child: Component.text(t('footer_terms_service'))),
-            button(classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors', onClick: openConsentPreferences, [Component.text(t('footer_cookies'))]),
-          ]),
-          if (kSocialProfiles.isNotEmpty)
-            div(classes: 'flex flex-wrap justify-center gap-4', [
-              for (final profile in kSocialProfiles)
-                a(
-                  href: profile.url,
-                  classes: 'text-xs text-yt-gray-500 hover:text-yt-gray-900 dark:hover:text-white transition-colors',
-                  attributes: const {'rel': 'me noopener', 'target': '_blank'},
-                  [Component.text(profile.name)],
-                ),
+    return footer(classes: 'border-t border-yt-gray-200 dark:border-yt-gray-800 mt-16 pt-12 mb-20 md:mb-0 pb-8 animate-fade-in animate-delay-500', [
+      div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8', [
+        div(classes: 'grid grid-cols-2 md:grid-cols-4 gap-8 mb-12', [
+          div(classes: 'col-span-2 md:col-span-1', [
+            div(classes: 'flex items-center gap-2 mb-4', [
+              _buildLogoIcon('w-6 h-6'),
+              span(classes: 'font-bold text-base text-yt-gray-900 dark:text-white tracking-tight', [Component.text(t('nav_logo_text'))]),
             ]),
-          p(classes: 'text-xs text-yt-gray-500', [Component.text(t('footer_copyright'))]),
+            p(classes: 'text-sm text-yt-gray-500 mb-6', [
+              Component.text('Free YouTube SEO tools and calculators designed to help creators grow their channels and increase their revenue.')
+            ]),
+            if (kSocialProfiles.isNotEmpty)
+              div(classes: 'flex flex-wrap gap-4', [
+                for (final profile in kSocialProfiles)
+                  a(
+                    href: profile.url,
+                    classes: 'text-yt-gray-400 hover:text-yt-gray-900 dark:hover:text-white transition-colors',
+                    attributes: const {'rel': 'me noopener', 'target': '_blank', 'aria-label': 'Social Profile'},
+                    [span(classes: 'material-symbols-outlined text-xl', [Component.text('link')])], // Use a generic icon or specific if available
+                  ),
+              ]),
+          ]),
+          div([
+            h3(classes: 'font-bold text-sm text-yt-gray-900 dark:text-white uppercase tracking-wider mb-4', [Component.text('Free Tools')]),
+            ul(classes: 'space-y-3', [
+              li([Link(to: '/youtube-seo-analyzer', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('SEO Analyzer'))]),
+              li([Link(to: '/youtube-title-generator', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Title Generator'))]),
+              li([Link(to: '/youtube-description-generator', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Description Generator'))]),
+              li([Link(to: '/youtube-hashtag-generator', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Hashtag Generator'))]),
+              li([Link(to: '/youtube-tag-extractor', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Tag Extractor'))]),
+              li([Link(to: '/youtube-keyword-tool', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Keyword Tool'))]),
+            ]),
+          ]),
+          div([
+            h3(classes: 'font-bold text-sm text-yt-gray-900 dark:text-white uppercase tracking-wider mb-4', [Component.text('Creator Tools')]),
+            ul(classes: 'space-y-3', [
+              li([Link(to: '/youtube-channel-name-generator', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Channel Name Generator'))]),
+              li([Link(to: '/youtube-video-ideas', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Video Ideas Generator'))]),
+              li([Link(to: '/youtube-script-generator', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Script Generator'))]),
+              li([Link(to: '/youtube-thumbnail-ideas', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Thumbnail Ideas'))]),
+              li([Link(to: '/youtube-earnings-calculator', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('Earnings Calculator'))]),
+              li([Link(to: '/tubebuddy-alternative', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('TubeBuddy Alternative'))]),
+              li([Link(to: '/vidiq-vs-tubebuddy', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text('VidIQ vs TubeBuddy'))]),
+            ]),
+          ]),
+          div([
+            h3(classes: 'font-bold text-sm text-yt-gray-900 dark:text-white uppercase tracking-wider mb-4', [Component.text('Company')]),
+            ul(classes: 'space-y-3', [
+              li([a(href: '/blog', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', [Component.text('Creator Blog')])]),
+              li([Link(to: '/about', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text(t('footer_about')))]),
+              li([Link(to: '/contact', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text(t('footer_contact')))]),
+              li([Link(to: '/privacy', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text(t('footer_privacy_policy')))]),
+              li([Link(to: '/terms', classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', child: Component.text(t('footer_terms_service')))]),
+              li([button(classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 hover:text-yt-red transition-colors', onClick: openConsentPreferences, [Component.text(t('footer_cookies'))])]),
+            ]),
+          ]),
+        ]),
+        div(classes: 'pt-8 border-t border-yt-gray-200 dark:border-yt-gray-800 flex flex-col md:flex-row items-center justify-between gap-4', [
+          p(classes: 'text-sm text-yt-gray-500', [Component.text(t('footer_copyright'))]),
+          p(classes: 'text-xs text-yt-gray-400 text-center md:text-right max-w-xl', [
+            Component.text('Not affiliated with, endorsed by, or sponsored by YouTube or Google.')
+          ]),
         ])
       ])
     ]);
@@ -1287,4 +1381,420 @@ class _AppState extends State<App> {
       div(classes: 'prose dark:prose-invert max-w-none text-yt-gray-600 dark:text-yt-gray-400 space-y-4 leading-relaxed', content)
     ]);
   }
+
+  // ═══════════════════════════════════════════
+  //  COMPARISON / LANDING PAGES
+  //  (VidIQ Alternative, TubeBuddy Alternative, VidIQ vs TubeBuddy)
+  // ═══════════════════════════════════════════
+  Component _buildComparisonPage(String tab) {
+    // The full SEO copy is rendered by _buildSeoArticle in the shell.
+    // We just need a strong above-the-fold CTA to convert visits.
+    return div(classes: 'space-y-8 max-w-4xl animate-fade-in-up', [
+      div(classes: 'card p-8 text-center bg-gradient-to-br from-red-50 to-white dark:from-yt-gray-800 dark:to-yt-gray-900 border border-red-100 dark:border-yt-gray-700', [
+        span(classes: 'material-symbols-rounded text-5xl text-yt-red mb-4 block', [Component.text('star')]),
+        h2(classes: 'text-2xl font-bold text-yt-gray-900 dark:text-white mb-3', [
+          Component.text('Try VidSEOKit Free — No Sign-Up Required')
+        ]),
+        p(classes: 'text-yt-gray-600 dark:text-yt-gray-400 mb-6 max-w-lg mx-auto', [
+          Component.text('Get your free YouTube SEO score in 30 seconds. Paste your title, description and tags, enter your target keyword, and see exactly what to fix before you publish.')
+        ]),
+        a(
+          href: '/youtube-seo-analyzer',
+          classes: 'inline-flex items-center gap-2 btn-primary px-8 py-3 text-base font-semibold rounded-xl',
+          [
+            span(classes: 'material-symbols-rounded', [Component.text('analytics')]),
+            Component.text('Analyze My Video For Free'),
+          ]
+        ),
+      ]),
+      div(classes: 'grid grid-cols-1 sm:grid-cols-3 gap-4', [
+        _buildFeatureCard('analytics', 'SEO Score', 'Scores title, description and tags against your target keyword — with the formula shown openly.'),
+        _buildFeatureCard('title', 'AI Titles', 'Generates 5 click-worthy title angles for any video topic in seconds.'),
+        _buildFeatureCard('sell', 'Tag Extractor', 'Extracts the tags any YouTube video is using — see how ranking videos describe themselves.'),
+      ]),
+    ]);
+  }
+
+  Component _buildFeatureCard(String icon, String title, String description) {
+    return div(classes: 'card p-5 text-center', [
+      span(classes: 'material-symbols-rounded text-3xl text-yt-red mb-3 block', [Component.text(icon)]),
+      h3(classes: 'font-bold text-yt-gray-900 dark:text-white mb-2', [Component.text(title)]),
+      p(classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400', [Component.text(description)]),
+    ]);
+  }
+
+  // ═══════════════════════════════════════════
+  //  YOUTUBE DESCRIPTION GENERATOR
+  // ═══════════════════════════════════════════
+  String descriptionTopic = '';
+  String? generatedDescription;
+
+  Future<void> generateDescription() => _run('description', () async {
+    if (descriptionTopic.trim().isEmpty) throw Exception('Please enter a video topic.');
+    final data = await _postJson('/api/generate-description', {
+      'topic': descriptionTopic.trim(),
+      'lang': I18nService().currentLanguage,
+    });
+    setState(() => generatedDescription = data['description']?.toString() ?? '');
+  });
+
+  Component _buildDescriptionGenerator() {
+    return div(classes: 'space-y-6 max-w-4xl', [
+      div(classes: 'animate-fade-in-up animate-delay-100', [
+        div(classes: 'flex items-center gap-2 mb-4', [
+          span(classes: 'material-symbols-rounded text-2xl', [Component.text('description')]),
+          h2(classes: 'text-xl font-bold', [Component.text('YouTube Description Generator')]),
+        ]),
+        div(classes: 'flex flex-col sm:flex-row gap-3', [
+          div(classes: 'flex-1', [
+            input(
+              classes: 'input-field',
+              attributes: {
+                'id': 'description-topic', 'name': 'description-topic',
+                'placeholder': 'Enter your video topic or title…',
+                'aria-label': 'Video topic for description generation',
+                'value': descriptionTopic,
+              },
+              onInput: (e) => setState(() => descriptionTopic = e.toString()),
+            ),
+          ]),
+          button(
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['description'] ?? false) ? 'btn-loading' : ''}',
+            onClick: () => generateDescription(),
+            [Component.text((tabIsLoading['description'] ?? false) ? t('btn_working') : 'Generate Description')]
+          ),
+        ]),
+      ]),
+      if (tabIsLoading['description'] ?? false) div(classes: 'card p-6 space-y-3 animate-fade-in', [
+        div(classes: 'skeleton h-4 w-full', []),
+        div(classes: 'skeleton h-4 w-full', []),
+        div(classes: 'skeleton h-4', attributes: {'style': 'width: 80%'}, []),
+        div(classes: 'skeleton h-4', attributes: {'style': 'width: 60%'}, []),
+        div(classes: 'skeleton h-4 w-full', []),
+      ]),
+      if (generatedDescription != null && !(tabIsLoading['description'] ?? false))
+        div(classes: 'card p-6 animate-fade-in space-y-3', [
+          div(classes: 'flex items-center justify-between mb-2', [
+            span(classes: 'text-sm font-medium text-yt-gray-600 dark:text-yt-gray-400', [Component.text('Generated Description')]),
+            button(
+              classes: 'text-xs btn-secondary px-3 py-1',
+              attributes: {'onclick': 'navigator.clipboard.writeText(document.getElementById(\'desc-output\').innerText)'},
+              [Component.text('Copy')]
+            ),
+          ]),
+          pre(
+            id: 'desc-output',
+            classes: 'whitespace-pre-wrap text-sm text-yt-gray-700 dark:text-yt-gray-300 leading-relaxed font-sans',
+            [Component.text(generatedDescription!)]
+          ),
+        ]),
+    ]);
+  }
+
+  // ═══════════════════════════════════════════
+  //  YOUTUBE HASHTAG GENERATOR
+  // ═══════════════════════════════════════════
+  String hashtagTopic = '';
+  List<Map<String, dynamic>>? generatedHashtags;
+
+  Future<void> generateHashtags() => _run('hashtags', () async {
+    if (hashtagTopic.trim().isEmpty) throw Exception('Please enter a video topic.');
+    final data = await _postJson('/api/generate-hashtags', {
+      'topic': hashtagTopic.trim(),
+      'lang': I18nService().currentLanguage,
+    });
+    final list = data['hashtags'] as List? ?? [];
+    setState(() => generatedHashtags = list.map((e) => Map<String, dynamic>.from(e as Map)).toList());
+  });
+
+  Component _buildHashtagGenerator() {
+    return div(classes: 'space-y-6 max-w-4xl', [
+      div(classes: 'animate-fade-in-up animate-delay-100', [
+        div(classes: 'flex items-center gap-2 mb-4', [
+          span(classes: 'material-symbols-rounded text-2xl', [Component.text('tag')]),
+          h2(classes: 'text-xl font-bold', [Component.text('YouTube Hashtag Generator')]),
+        ]),
+        div(classes: 'flex flex-col sm:flex-row gap-3', [
+          div(classes: 'flex-1', [
+            input(
+              classes: 'input-field',
+              attributes: {
+                'id': 'hashtag-topic', 'name': 'hashtag-topic',
+                'placeholder': 'Enter your video topic…',
+                'aria-label': 'Video topic for hashtag generation',
+                'value': hashtagTopic,
+              },
+              onInput: (e) => setState(() => hashtagTopic = e.toString()),
+            ),
+          ]),
+          button(
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['hashtags'] ?? false) ? 'btn-loading' : ''}',
+            onClick: () => generateHashtags(),
+            [Component.text((tabIsLoading['hashtags'] ?? false) ? t('btn_working') : 'Generate Hashtags')]
+          ),
+        ]),
+      ]),
+      if (tabIsLoading['hashtags'] ?? false) div(classes: 'card p-6 flex flex-wrap gap-2 animate-fade-in', [
+        for (var w in [100, 130, 90, 120, 80])
+          div(classes: 'skeleton h-9 rounded-full', attributes: {'style': 'width: ${w}px'}, []),
+      ]),
+      if (generatedHashtags != null && !(tabIsLoading['hashtags'] ?? false)) div(classes: 'card p-6 animate-fade-in', [
+        p(classes: 'text-xs font-medium text-yt-gray-500 mb-3', [
+          Component.text('First 3 appear above your video title on YouTube. Add all 5 to your description.')
+        ]),
+        div(classes: 'flex flex-wrap gap-2', [
+          for (var i = 0; i < generatedHashtags!.length; i++)
+            div(classes: 'flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium card-stagger ${i < 3 ? 'bg-yt-red text-white' : 'bg-yt-gray-100 dark:bg-yt-gray-800 text-yt-gray-900 dark:text-white'}', attributes: {'style': 'animation-delay: ${i * 100}ms'}, [
+              if (i < 3) span(classes: 'text-xs opacity-75', [Component.text('${i+1}')]),
+              Component.text(generatedHashtags![i]['hashtag']?.toString() ?? ''),
+            ])
+        ]),
+      ]),
+    ]);
+  }
+
+  // ═══════════════════════════════════════════
+  //  YOUTUBE CHANNEL NAME GENERATOR
+  // ═══════════════════════════════════════════
+  String channelNameTopic = '';
+  List<Map<String, dynamic>>? generatedChannelNames;
+
+  Future<void> generateChannelNames() => _run('channelnames', () async {
+    if (channelNameTopic.trim().isEmpty) throw Exception('Please enter a niche or content type.');
+    final data = await _postJson('/api/generate-channel-names', {
+      'topic': channelNameTopic.trim(),
+    });
+    final list = data['names'] as List? ?? [];
+    setState(() => generatedChannelNames = list.map((e) => Map<String, dynamic>.from(e as Map)).toList());
+  });
+
+  Component _buildChannelNameGenerator() {
+    return div(classes: 'space-y-6 max-w-4xl', [
+      div(classes: 'animate-fade-in-up animate-delay-100', [
+        div(classes: 'flex items-center gap-2 mb-4', [
+          span(classes: 'material-symbols-rounded text-2xl', [Component.text('person')]),
+          h2(classes: 'text-xl font-bold', [Component.text('YouTube Channel Name Generator')]),
+        ]),
+        div(classes: 'flex flex-col sm:flex-row gap-3', [
+          div(classes: 'flex-1', [
+            input(
+              classes: 'input-field',
+              attributes: {
+                'id': 'channel-name-topic', 'name': 'channel-name-topic',
+                'placeholder': 'Enter your niche or content type…',
+                'aria-label': 'Niche for channel name generation',
+                'value': channelNameTopic,
+              },
+              onInput: (e) => setState(() => channelNameTopic = e.toString()),
+            ),
+          ]),
+          button(
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['channelnames'] ?? false) ? 'btn-loading' : ''}',
+            onClick: () => generateChannelNames(),
+            [Component.text((tabIsLoading['channelnames'] ?? false) ? t('btn_working') : 'Generate Names')]
+          ),
+        ]),
+      ]),
+      if (tabIsLoading['channelnames'] ?? false) div(classes: 'space-y-3 animate-fade-in', [
+        for (var i = 0; i < 4; i++) div(classes: 'card p-4', [
+          div(classes: 'skeleton h-5 mb-2', attributes: {'style': 'width: 35%'}, []),
+          div(classes: 'skeleton h-4', attributes: {'style': 'width: 70%'}, []),
+        ]),
+      ]),
+      if (generatedChannelNames != null && !(tabIsLoading['channelnames'] ?? false)) div(classes: 'space-y-3', [
+        for (var i = 0; i < generatedChannelNames!.length; i++)
+          div(classes: 'card p-4 card-stagger', attributes: {'style': 'animation-delay: ${i * 100}ms'}, [
+            div(classes: 'flex items-center gap-3 mb-1', [
+              span(classes: 'font-bold text-lg text-yt-gray-900 dark:text-white', [Component.text(generatedChannelNames![i]['name']?.toString() ?? '')]),
+              span(classes: 'text-xs px-2 py-0.5 rounded-full ${generatedChannelNames![i]['type'] == 'personal' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' : 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300'}', [
+                Component.text(generatedChannelNames![i]['type']?.toString() ?? '')
+              ]),
+            ]),
+            p(classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400', [Component.text(generatedChannelNames![i]['rationale']?.toString() ?? '')]),
+          ]),
+      ]),
+    ]);
+  }
+
+  // ═══════════════════════════════════════════
+  //  YOUTUBE VIDEO IDEAS GENERATOR
+  // ═══════════════════════════════════════════
+  String videoIdeasNiche = '';
+  List<Map<String, dynamic>>? generatedVideoIdeas;
+
+  Future<void> generateVideoIdeas() => _run('videoideas', () async {
+    if (videoIdeasNiche.trim().isEmpty) throw Exception('Please enter a niche.');
+    final data = await _postJson('/api/generate-video-ideas', {
+      'niche': videoIdeasNiche.trim(),
+      'lang': I18nService().currentLanguage,
+    });
+    final list = data['ideas'] as List? ?? [];
+    setState(() => generatedVideoIdeas = list.map((e) => Map<String, dynamic>.from(e as Map)).toList());
+  });
+
+  Component _buildVideoIdeasGenerator() {
+    return div(classes: 'space-y-6 max-w-4xl', [
+      div(classes: 'animate-fade-in-up animate-delay-100', [
+        div(classes: 'flex items-center gap-2 mb-4', [
+          span(classes: 'material-symbols-rounded text-2xl', [Component.text('lightbulb')]),
+          h2(classes: 'text-xl font-bold', [Component.text('YouTube Video Ideas Generator')]),
+        ]),
+        div(classes: 'flex flex-col sm:flex-row gap-3', [
+          div(classes: 'flex-1', [
+            input(
+              classes: 'input-field',
+              attributes: {
+                'id': 'video-ideas-niche', 'name': 'video-ideas-niche',
+                'placeholder': 'Enter your niche (e.g. personal finance, cooking, tech)…',
+                'aria-label': 'Niche for video ideas generation',
+                'value': videoIdeasNiche,
+              },
+              onInput: (e) => setState(() => videoIdeasNiche = e.toString()),
+            ),
+          ]),
+          button(
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['videoideas'] ?? false) ? 'btn-loading' : ''}',
+            onClick: () => generateVideoIdeas(),
+            [Component.text((tabIsLoading['videoideas'] ?? false) ? t('btn_working') : 'Generate Ideas')]
+          ),
+        ]),
+      ]),
+      if (tabIsLoading['videoideas'] ?? false) div(classes: 'space-y-3 animate-fade-in', [
+        for (var i = 0; i < 4; i++) div(classes: 'card p-5', [
+          div(classes: 'skeleton h-5 mb-2 w-3/4', []),
+          div(classes: 'skeleton h-4 w-full', []),
+          div(classes: 'skeleton h-4 w-1/2 mt-2', []),
+        ]),
+      ]),
+      if (generatedVideoIdeas != null && !(tabIsLoading['videoideas'] ?? false)) div(classes: 'space-y-3', [
+        for (var i = 0; i < generatedVideoIdeas!.length; i++) () {
+          final idea = generatedVideoIdeas![i];
+          final difficulty = idea['estimated_difficulty']?.toString() ?? 'medium';
+          final diffColor = difficulty == 'low'
+              ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300'
+              : difficulty == 'high'
+                  ? 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300'
+                  : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300';
+          return div(classes: 'card p-5 card-stagger', attributes: {'style': 'animation-delay: ${i * 100}ms'}, [
+            div(classes: 'flex items-start justify-between gap-3 mb-2', [
+              h3(classes: 'font-bold text-yt-gray-900 dark:text-white', [Component.text(idea['title']?.toString() ?? '')]),
+              span(classes: 'text-xs px-2 py-0.5 rounded-full shrink-0 $diffColor', [Component.text(difficulty)]),
+            ]),
+            p(classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 italic', [Component.text('"${idea['hook']}"')]),
+            span(classes: 'text-xs text-yt-gray-500 mt-2 block', [Component.text('Intent: ${idea['search_intent']}')]),
+          ]);
+        }(),
+      ]),
+    ]);
+  }
+
+  // ═══════════════════════════════════════════
+  //  YOUTUBE SCRIPT GENERATOR
+  // ═══════════════════════════════════════════
+  String scriptTopic = '';
+  int scriptDuration = 5;
+  List<Map<String, dynamic>>? generatedScript;
+
+  Future<void> generateScript() => _run('script', () async {
+    if (scriptTopic.trim().isEmpty) throw Exception('Please enter a video topic.');
+    final data = await _postJson('/api/generate-script', {
+      'topic': scriptTopic.trim(),
+      'duration_minutes': scriptDuration,
+      'lang': I18nService().currentLanguage,
+    });
+    final list = data['sections'] as List? ?? [];
+    setState(() => generatedScript = list.map((e) => Map<String, dynamic>.from(e as Map)).toList());
+  });
+
+  Component _buildScriptGenerator() {
+    return div(classes: 'space-y-6 max-w-4xl', [
+      div(classes: 'animate-fade-in-up animate-delay-100', [
+        div(classes: 'flex items-center gap-2 mb-4', [
+          span(classes: 'material-symbols-rounded text-2xl', [Component.text('article')]),
+          h2(classes: 'text-xl font-bold', [Component.text('YouTube Script Generator')]),
+        ]),
+        div(classes: 'flex flex-col sm:flex-row gap-3', [
+          div(classes: 'flex-1', [
+            input(
+              classes: 'input-field',
+              attributes: {
+                'id': 'script-topic', 'name': 'script-topic',
+                'placeholder': 'Enter your video topic…',
+                'aria-label': 'Video topic for script generation',
+                'value': scriptTopic,
+              },
+              onInput: (e) => setState(() => scriptTopic = e.toString()),
+            ),
+          ]),
+          div(classes: 'flex items-center gap-2', [
+            label(attributes: {'for': 'script-duration'}, classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 whitespace-nowrap', [Component.text('Duration:')]),
+            select(
+              classes: 'input-field',
+              attributes: {'id': 'script-duration', 'name': 'script-duration', 'aria-label': 'Target video duration in minutes'},
+              onChange: (vals) => setState(() => scriptDuration = int.tryParse(vals.firstOrNull ?? '5') ?? 5),
+              [
+                for (var m in [3, 5, 8, 10, 15])
+                  option(value: m.toString(), attributes: scriptDuration == m ? {'selected': 'true'} : {}, [Component.text('$m min')]),
+              ]
+            ),
+          ]),
+          button(
+            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['script'] ?? false) ? 'btn-loading' : ''}',
+            onClick: () => generateScript(),
+            [Component.text((tabIsLoading['script'] ?? false) ? t('btn_working') : 'Generate Script')]
+          ),
+        ]),
+      ]),
+      if (tabIsLoading['script'] ?? false) div(classes: 'space-y-4 animate-fade-in', [
+        for (var i = 0; i < 4; i++) div(classes: 'card p-5', [
+          div(classes: 'skeleton h-5 mb-3', attributes: {'style': 'width: 20%'}, []),
+          div(classes: 'skeleton h-4 w-full mb-1', []),
+          div(classes: 'skeleton h-4 w-full mb-1', []),
+          div(classes: 'skeleton h-4', attributes: {'style': 'width: 70%'}, []),
+        ]),
+      ]),
+      if (generatedScript != null && !(tabIsLoading['script'] ?? false)) div(classes: 'space-y-4', [
+        for (var i = 0; i < generatedScript!.length; i++)
+          div(classes: 'card p-5 card-stagger', attributes: {'style': 'animation-delay: ${i * 80}ms'}, [
+            h3(classes: 'text-sm font-bold text-yt-red uppercase tracking-widest mb-3', [
+              Component.text(generatedScript![i]['section']?.toString() ?? '')
+            ]),
+            p(classes: 'text-sm text-yt-gray-700 dark:text-yt-gray-300 leading-relaxed whitespace-pre-wrap', [
+              Component.text(generatedScript![i]['content']?.toString() ?? '')
+            ]),
+          ]),
+      ]),
+    ]);
+  }
+
+  // ═══════════════════════════════════════════
+  //  YOUTUBE KEYWORD TOOL
+  //  (reuses the SEO Analyzer's keyword lookup — enters keyword and shows
+  //   volume + competition data pulled from DataForSEO via calculate-seo)
+  // ═══════════════════════════════════════════
+  Component _buildKeywordTool() {
+    // Delegates to the full SEO analyzer so creators can immediately
+    // action the keyword data. The SEO article below the tool provides
+    // all the educational context for the keyword-tool search query.
+    return div(classes: 'space-y-6 max-w-4xl', [
+      div(classes: 'card p-6 text-center animate-fade-in-up', [
+        span(classes: 'material-symbols-rounded text-4xl text-yt-red mb-3 block', [Component.text('search')]),
+        h2(classes: 'text-xl font-bold text-yt-gray-900 dark:text-white mb-2', [
+          Component.text('YouTube Keyword Research Tool')
+        ]),
+        p(classes: 'text-yt-gray-600 dark:text-yt-gray-400 mb-5 max-w-md mx-auto text-sm', [
+          Component.text('Enter your target keyword in the SEO Analyzer below. It pulls real search volume and competition data from DataForSEO and factors it into your score — so you can research keywords and optimize your metadata in one step.')
+        ]),
+        a(
+          href: '/youtube-seo-analyzer',
+          classes: 'inline-flex items-center gap-2 btn-primary px-6 py-2 text-sm font-semibold rounded-xl',
+          [
+            span(classes: 'material-symbols-rounded text-sm', [Component.text('analytics')]),
+            Component.text('Open SEO Analyzer & Keyword Tool'),
+          ]
+        ),
+      ]),
+    ]);
+  }
 }
+
