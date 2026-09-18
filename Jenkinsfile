@@ -61,20 +61,29 @@ pipeline {
                         sh '''
                         # 1. Deploy Frontend
                         rsync -avz -e "ssh -o StrictHostKeyChecking=no" --delete frontend/build/jaspr/ root@157.180.22.218:/var/www/vidseokit/frontend/
-                        
+
                         # 2. Deploy Admin Panel
                         rsync -avz -e "ssh -o StrictHostKeyChecking=no" --delete admin_panel/dist/ root@157.180.22.218:/var/www/vidseokit/admin_panel/
-                        
+
                         # 3. Deploy Backend (Assuming we just copy files and pip install is handled by the service or we restart)
                         rsync -avz -e "ssh -o StrictHostKeyChecking=no" backend/ root@157.180.22.218:/var/www/vidseokit/backend/
-                        
+
                         # 4. Inject Environment Variables and Secrets
                         ssh -o StrictHostKeyChecking=no root@157.180.22.218 "cp -n /var/www/creatortools/backend/serviceAccountKey.json /var/www/vidseokit/backend/ 2>/dev/null || true"
                         ssh -o StrictHostKeyChecking=no root@157.180.22.218 "cp -n /var/www/creatortools/backend/.env /var/www/vidseokit/backend/ 2>/dev/null || true"
                         ssh -o StrictHostKeyChecking=no root@157.180.22.218 "grep -q '^GEMINI_API_KEY=' /var/www/vidseokit/backend/.env 2>/dev/null && sed -i 's/^GEMINI_API_KEY=.*/GEMINI_API_KEY=$GEMINI_API_KEY/' /var/www/vidseokit/backend/.env || echo 'GEMINI_API_KEY=$GEMINI_API_KEY' >> /var/www/vidseokit/backend/.env"
-                        
+
                         # 5. Restart the python service
                         ssh -o StrictHostKeyChecking=no root@157.180.22.218 "sudo systemctl restart vidseokit"
+
+                        # 6. Deploy nginx config and reload
+                        #
+                        # deploy/nginx_vidseokit.conf carries the gzip/HTTP2 perf fixes (699591a,
+                        # 564ea57) but nothing in this pipeline ever pushed it to the server, so
+                        # both fixes sat committed but not live. Validate with `nginx -t` before
+                        # reloading so a bad config never gets applied to the running server.
+                        scp -o StrictHostKeyChecking=no deploy/nginx_vidseokit.conf root@157.180.22.218:/etc/nginx/sites-available/vidseokit.conf
+                        ssh -o StrictHostKeyChecking=no root@157.180.22.218 "nginx -t && systemctl reload nginx || echo 'nginx config test failed - server still running the previous config'"
                         '''
                     }
                 }
