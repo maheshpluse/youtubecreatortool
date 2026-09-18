@@ -214,7 +214,8 @@ class _AppState extends State<App> {
               _buildSkipLink(),
               _buildNavbar(),
               Component.element(tag: 'main', attributes: const {'id': 'main-content'}, children: [
-                _buildHero(),
+                if (!['about', 'contact', 'privacy', 'terms'].contains(activeTab))
+                  _buildHero(),
                 div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 md:pb-16', [
                   _buildDesktopTabs(activeTab),
                   if (tabErrorMessage[activeTab] != null) _buildErrorBanner(activeTab, tabErrorMessage[activeTab]!),
