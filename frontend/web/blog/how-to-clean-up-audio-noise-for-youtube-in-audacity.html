@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Clean Up Audio Noise for YouTube in Audacity (Guide)</title>
+  <meta name="description" content="Learn how to remove background noise in Audacity for YouTube videos with this step-by-step tutorial on Noise Reduction, EQ, and Compression.">
+  <meta name="author" content="The VidSEOKit Editorial Team">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://vidseokit.com/blog/how-to-clean-up-audio-noise-for-youtube-in-audacity.html">
+  <link rel="icon" href="/favicon.ico">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="VidSEOKit">
+  <meta property="og:title" content="How to Clean Up Audio Noise in Audacity for YouTube">
+  <meta property="og:description" content="Learn how to remove background noise in Audacity for YouTube videos with this step-by-step tutorial on Noise Reduction, EQ, and Compression.">
+  <meta property="og:url" content="https://vidseokit.com/blog/how-to-clean-up-audio-noise-for-youtube-in-audacity.html">
+  <meta property="article:published_time" content="2026-09-18">
+  <meta property="article:section" content="Equipment">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Clean Up Audio Noise in Audacity for YouTube">
+  <meta name="twitter:description" content="Learn how to remove background noise in Audacity for YouTube videos with this step-by-step tutorial on Noise Reduction, EQ, and Compression.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="/blog/assets/blog.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Clean Up Audio Noise in Audacity for YouTube","image":["https://vidseokit.com/images/og-image.jpg"],"description":"Learn how to remove background noise in Audacity for YouTube videos with this step-by-step tutorial on Noise Reduction, EQ, and Compression.","articleSection":"Equipment","keywords":"audacity noise reduction, clean audio for youtube, remove background noise audacity, youtube audio editing, audacity audio cleanup, youtube background noise, audacity tutorial youtube","wordCount":1279,"inLanguage":"en","datePublished":"2026-09-18","dateModified":"2026-09-18","mainEntityOfPage":{"@type":"WebPage","@id":"https://vidseokit.com/blog/how-to-clean-up-audio-noise-for-youtube-in-audacity.html"},"url":"https://vidseokit.com/blog/how-to-clean-up-audio-noise-for-youtube-in-audacity.html","author":{"@type":"Organization","name":"The VidSEOKit Editorial Team","url":"https://vidseokit.com"},"publisher":{"@type":"Organization","name":"VidSEOKit","url":"https://vidseokit.com","logo":{"@type":"ImageObject","url":"https://vidseokit.com/images/logo.svg"}},"isAccessibleForFree":true}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vidseokit.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://vidseokit.com/blog/"},{"@type":"ListItem","position":3,"name":"How to Clean Up Audio Noise in Audacity for YouTube","item":"https://vidseokit.com/blog/how-to-clean-up-audio-noise-for-youtube-in-audacity.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much Noise Reduction should I apply in Audacity?","acceptedAnswer":{"@type":"Answer","text":"For most YouTube videos, applying 10 dB to 14 dB of Noise Reduction is ideal. Applying more than 18 dB can distort your voice, creating a hollow, metallic, or robotic artifact."}},{"@type":"Question","name":"Should I remove noise before or after compression?","acceptedAnswer":{"@type":"Answer","text":"Always apply Noise Reduction before compression. Compression boosts quiet sounds—including background noise—so removing the noise profile first prevents unwanted hiss from being amplified."}},{"@type":"Question","name":"Can Audacity eliminate room echo and reverb?","acceptedAnswer":{"@type":"Answer","text":"Audacity's Noise Reduction tool is designed for continuous noise (like fans or ambient hiss), not room reverb. To reduce echo, combine mild noise reduction with a Noise Gate plugin and improve acoustic treatment in your recording space."}},{"@type":"Question","name":"What loudness level should I target for YouTube audio?","acceptedAnswer":{"@type":"Answer","text":"YouTube normalizes audio content to -14 LUFS integrated loudness with a peak level of -1.0 dB to -2.0 dB True Peak to prevent clipping and distortion across different devices."}}]}</script>
+  <script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3988155577590737"></script>
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem('ct-theme');
+        if (s === 'light') document.documentElement.classList.remove('dark');
+        else document.documentElement.classList.add('dark');
+      } catch (e) {}
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-theme-toggle]');
+        if (!b) return;
+        document.documentElement.classList.toggle('dark');
+        try {
+          localStorage.setItem('ct-theme',
+            document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        } catch (e) {}
+      });
+    })();
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5a2.25 2.25 0 003.36 1.95l10.07-5.75a2.25 2.25 0 000-3.9L9.86 4.3A2.25 2.25 0 006.5 6.25z"/></svg><span>VidSEOKit</span></a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="/">Free tools</a>
+      <a href="/blog/">Blog</a>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">&#9681;</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span>&rsaquo;</span><a href="/blog/">Blog</a><span>&rsaquo;</span>Equipment
+  </nav>
+
+  <article>
+    <header class="post-head">
+      <span class="eyebrow">Equipment</span>
+      <h1>How to Clean Up Audio Noise in Audacity for YouTube</h1>
+      <div class="post-meta">
+        <span>By The VidSEOKit Editorial Team</span><span>&middot;</span>
+        <time datetime="2026-09-18">September 18, 2026</time><span>&middot;</span>
+        <span>6 min read</span><span>&middot;</span>
+        <span>1,279 words</span>
+      </div>
+      <p class="standfirst">Learn how to remove background noise in Audacity for YouTube videos with this step-by-step tutorial on Noise Reduction, EQ, and Compression.</p>
+    </header>
+
+<div class="ad-slot">
+  <span class="ad-label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3988155577590737" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<h2>Why Pristine Audio Drives YouTube Retention</h2><p>When creators talk about video quality, they almost always focus on 4K cameras, lighting setups, and color grading. However, viewer retention data consistently reveals a different reality: <strong>viewers will tolerate average video quality, but they will leave immediately if the audio is noisy, muffled, or harsh.</strong></p><p>Background noise—such as air conditioner hum, computer fan whirr, room reflections, or electrical hiss—creates subconscious cognitive fatigue for your audience. When listeners have to strain to hear your voice over background buzz, watch time drops dramatically. Fortunately, you do not need a multi-thousand-dollar audio suite to achieve studio-quality sound. <a href='https://www.audacityteam.org/'>Audacity</a>, the free and open-source audio editor, offers robust built-in tools capable of eliminating noise and turning consumer microphone recordings into broadcast-ready YouTube audio.</p><h2>Pre-Production: Capturing a Noise Profile Before You Edit</h2><p>Effective noise cleanup starts before you speak a single word into your microphone. Audacity's Noise Reduction engine relies on spectral subtraction: it analyzes a sample of noise without any voice, creates an acoustic profile, and subtracts those specific frequencies across the full track.</p><blockquote><p><strong>Pro Tip for Creators:</strong> Always record 3 to 5 seconds of total silence at the start of every recording session. This 'room tone' gives Audacity a clean noise sample without you having to hunt for pauses between your sentences later.</p></blockquote><h3>How to Capture the Ideal Room Tone</h3><ul><li><strong>Stay Still:</strong> Avoid shifting in your chair, shuffling papers, or breathing directly into the capsule during the silence.</li><li><strong>Match Recording Conditions:</strong> Keep your fans, air conditioning, and PC equipment running at the exact speed and power level they will operate at while you record your voiceover or camera commentary.</li><li><strong>Maintain Consistent Gain:</strong> Do not adjust your microphone input gain on your audio interface after taking your room tone sample.</li></ul><h2>Step-by-Step Guide: How to Clean Up Audio Noise in Audacity</h2><p>Follow this exact technical workflow to eliminate background noise without destroying the warmth and clarity of your spoken voice.</p><h3>Step 1: Import Your Audio File</h3><p>Export your video's audio track as an uncompressed 24-bit <strong>WAV</strong> or <strong>AIFF</strong> file from your video editing software (Premiere Pro, DaVinci Resolve, or Final Cut Pro), then open Audacity and go to <code>File &gt; Import &gt; Audio</code>.</p><h3>Step 2: Get Your Noise Profile</h3><ol><li>Zoom in on the beginning of your track where you recorded your 3-5 seconds of room tone.</li><li>Click and drag your cursor to highlight a clean selection of noise only.</li><li>Navigate to the top menu and click <code>Effect &gt; Noise Removal and Repair &gt; Noise Reduction</code>.</li><li>In the window that appears, click the button labeled <strong>Get Noise Profile</strong>. The window will close automatically once the sample is captured.</li></ol><h3>Step 3: Apply Noise Reduction to the Track</h3><ol><li>Select your entire audio track by pressing <code>Ctrl + A</code> (Windows) or <code>Cmd + A</code> (Mac).</li><li>Re-open the effect window: <code>Effect &gt; Noise Removal and Repair &gt; Noise Reduction</code>.</li><li>Adjust the parameters according to these recommended baseline settings:</li></ol><ul><li><strong>Noise Reduction (dB): 12 dB.</strong> This controls how much volume reduction is applied to the noise frequencies. Setting this higher than 18 dB often introduces watery or robotic artifacts.</li><li><strong>Sensitivity: 6.00.</strong> Controls how aggressively Audacity classifies sound as noise. A setting between 5.0 and 8.0 strikes a balance between removing hiss and preserving natural speech transients.</li><li><strong>Frequency Smoothing (bands): 3.</strong> Spreads the reduction across neighboring frequency bands to smooth out phase issues. For vocal tracks, 3 to 6 is optimal.</li><li><strong>Residue / Reduce: Select 'Reduce'.</strong> (You can temporarily select 'Residue' and hit Preview to hear exactly what sound is being removed. If you hear your clear voice in the residue preview, your settings are too aggressive).</li></ul><ol><li>Click <strong>OK</strong> to process the file.</li></ol><h2>The Complete YouTube Vocal Mastering Chain in Audacity</h2><p>Removing background noise is only step one. To make your vocal track sound present, polished, and full, you must route your audio through a standard post-processing chain. Always follow this precise sequence:</p><h3>1. High-Pass Filter (Low Cut)</h3><p>Sub-bass rumbles caused by passing traffic, desk thumps, or HVAC systems eat up dynamic headroom without adding any audible quality to human speech. Go to <code>Effect &gt; EQ and Filters &gt; High-Pass Filter</code>. Set the cutoff frequency to <strong>80 Hz</strong> with a roll-off of <strong>12 dB per octave</strong>. This cleanly cuts non-vocal low frequencies.</p><h3>2. Equalization (Graphic or Filter Curve EQ)</h3><p>Enhance the natural tone of your voice using <code>Effect &gt; EQ and Filters &gt; Filter Curve EQ</code>:</p><ul><li><strong>Mud Reduction:</strong> Dip frequencies between <strong>250 Hz and 500 Hz</strong> by 2 dB to 3 dB to eliminate boxy or boomy tones.</li><li><strong>Presence Boost:</strong> Apply a subtle wide boost of 1.5 dB to 3 dB around <strong>2.5 kHz to 5 kHz</strong> to increase vocal clarity and intelligibility.</li><li><strong>Air/Brilliance:</strong> Add a slight shelf boost above <strong>10 kHz</strong> for a crisp, modern podcast sound.</li></ul><h3>3. Dynamic Compression</h3><p>Compression narrows the gap between your quietest whispers and your loudest shouts, keeping your volume consistent throughout the YouTube video. Go to <code>Effect &gt; Volume and Compression &gt; Compressor</code>:</p><ul><li><strong>Threshold:</strong> -18 dB to -22 dB</li><li><strong>Noise Floor:</strong> -40 dB</li><li><strong>Ratio:</strong> 2.5:1 or 3:1 (gentle ratio for natural vocal dynamics)</li><li><strong>Attack Time:</strong> 0.2 seconds</li><li><strong>Release Time:</strong> 1.0 second</li></ul><h3>4. Limiting and Loudness Normalization</h3><p>Finally, prepare your file for YouTube's standard audio playback algorithms. YouTube normalizes content to -14 LUFS (Loudness Units Full Scale). To ensure maximum clarity without clipping:</p><ol><li>Go to <code>Effect &gt; Volume and Compression &gt; Limiter</code>. Set <strong>Limit to (dB): -1.5 dB</strong> to prevent digital clipping when converted to compressed web formats like AAC.</li><li>Go to <code>Effect &gt; Volume and Compression &gt; Loudness Normalization</code>. Set the target to <strong>-14 LUFS Integrated</strong>.</li></ol><h2>Advanced Tip: Eliminating Silent Space Noise with a Noise Gate</h2><p>If lingering noise remains noticeable between spoken phrases, applying a <strong>Noise Gate</strong> is far more effective than forcing extreme Noise Reduction settings.</p><p>A Noise Gate automatically mutes audio whenever the signal drops below a set volume threshold. In Audacity, access this via <code>Effect &gt; Noise Removal and Repair &gt; Noise Gate</code>. Set the <em>Gate Threshold</em> just above your background noise level (typically around -40 dB to -45 dB). When you speak, the gate opens instantly; when you pause, it drops the room tone into complete, clean silence.</p><h2>Key Pitfalls to Avoid</h2><ul><li><strong>Over-Filtering:</strong> If your voice sounds like you are underwater or speaking through a tin can, you applied too much noise reduction. Undo and lower the reduction value down to 8–10 dB.</li><li><strong>Editing Lossy Audio:</strong> Avoid exporting MP3s multiple times during editing. Always work with uncompressed WAV files until your final YouTube video render.</li><li><strong>Ignoring Room Acoustics:</strong> Software processing cannot replace physical sound treatment. Soft furniture, acoustic foam panels, or even hanging thick blankets behind your microphone will produce better results than relying solely on post-production plugins.</li></ul>
+
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq">
+  <details><summary>How much Noise Reduction should I apply in Audacity?</summary><p>For most YouTube videos, applying 10 dB to 14 dB of Noise Reduction is ideal. Applying more than 18 dB can distort your voice, creating a hollow, metallic, or robotic artifact.</p></details>
+  <details><summary>Should I remove noise before or after compression?</summary><p>Always apply Noise Reduction before compression. Compression boosts quiet sounds—including background noise—so removing the noise profile first prevents unwanted hiss from being amplified.</p></details>
+  <details><summary>Can Audacity eliminate room echo and reverb?</summary><p>Audacity's Noise Reduction tool is designed for continuous noise (like fans or ambient hiss), not room reverb. To reduce echo, combine mild noise reduction with a Noise Gate plugin and improve acoustic treatment in your recording space.</p></details>
+  <details><summary>What loudness level should I target for YouTube audio?</summary><p>YouTube normalizes audio content to -14 LUFS integrated loudness with a peak level of -1.0 dB to -2.0 dB True Peak to prevent clipping and distortion across different devices.</p></details>
+</div>
+
+
+<div class="ad-slot">
+  <span class="ad-label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3988155577590737" data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+
+<section class="endmatter">
+  <h2>Sources and further reading</h2>
+  <ol class="sources">
+  <li>Audacity Manual - Noise Reduction &mdash; <a href="https://manual.audacityteam.org/man/noise_reduction.html" rel="noopener nofollow" target="_blank">manual.audacityteam.org/man/noise_reduction.html</a></li>
+  <li>YouTube Recommended Encoding Settings &mdash; <a href="https://support.google.com/youtube/answer/1722171" rel="noopener nofollow" target="_blank">support.google.com/youtube/answer/1722171</a></li>
+  </ol>
+</section>
+  </article>
+
+<section class="related">
+  <h2>Keep reading</h2>
+  <ul class="card-grid">
+    <li class="card"><span class="cat">Monetization</span><h3><a href="/blog/how-to-monetize-gaming-clips-on-youtube-without-copyright.html">Monetize Gaming Clips on YouTube Without Copyright</a></h3><p>Learn how to monetize gaming clips on YouTube without copyright strikes or reused content bans using proven…</p></li>
+    <li class="card"><span class="cat">Growth</span><h3><a href="/blog/how-to-get-more-views-from-browse-features-youtube.html">How to Get Views From YouTube Browse Features</a></h3><p>Unlock massive YouTube growth. Learn proven tactics to optimize CTR, retention, and video packaging to…</p></li>
+    <li class="card"><span class="cat">Monetization</span><h3><a href="/blog/youtube-channel-membership-perk-ideas-for-small-channels.html">YouTube Membership Perk Ideas for Small Channels</a></h3><p>Unlock reliable revenue with these scalable YouTube channel membership perk ideas designed specifically for…</p></li>
+  </ul>
+</section>
+</main>
+
+<footer class="site-footer" style="border-top: 1px solid var(--border); margin-top: 4rem; padding-top: 3rem; padding-bottom: 2rem;">
+  <div class="wrap-wide">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+      <div>
+        <a class="brand" href="/" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5a2.25 2.25 0 003.36 1.95l10.07-5.75a2.25 2.25 0 000-3.9L9.86 4.3A2.25 2.25 0 006.5 6.25z"/></svg>
+          <span style="font-weight: 700; font-size: 1.125rem;">VidSEOKit</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.5;">Free YouTube SEO tools and calculators designed to help creators grow their channels and increase their revenue.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Free Tools</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+          <li><a href="/youtube-seo-analyzer" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">SEO Analyzer</a></li>
+          <li><a href="/youtube-title-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Title Generator</a></li>
+          <li><a href="/youtube-description-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Description Generator</a></li>
+          <li><a href="/youtube-hashtag-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Hashtag Generator</a></li>
+          <li><a href="/youtube-tag-extractor" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Tag Extractor</a></li>
+          <li><a href="/youtube-keyword-tool" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Keyword Tool</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Creator Tools</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+          <li><a href="/youtube-channel-name-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Channel Name Generator</a></li>
+          <li><a href="/youtube-video-ideas" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Video Ideas Generator</a></li>
+          <li><a href="/youtube-script-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Script Generator</a></li>
+          <li><a href="/youtube-thumbnail-ideas" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Thumbnail Ideas</a></li>
+          <li><a href="/youtube-earnings-calculator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Earnings Calculator</a></li>
+          <li><a href="/tubebuddy-alternative" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">TubeBuddy Alternative</a></li>
+          <li><a href="/vidiq-vs-tubebuddy" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">VidIQ vs TubeBuddy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Company</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+          <li><a href="/blog/" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Creator Blog</a></li>
+          <li><a href="/about" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">About</a></li>
+          <li><a href="/contact" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Contact</a></li>
+          <li><a href="/privacy" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Privacy Policy</a></li>
+          <li><a href="/terms" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div style="border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center;">
+      <span style="font-size: 0.875rem; color: var(--text-muted);">&copy; 2026 VidSEOKit</span>
+      <span style="font-size: 0.75rem; color: var(--text-muted); text-align: right; max-width: 600px;">Not affiliated with, endorsed by, or sponsored by YouTube or Google.</span>
+    </div>
+    
+    <p class="disclosure" style="margin-top: 2rem; font-size: 0.75rem; color: var(--text-muted); opacity: 0.8;">Editorial note: earnings figures on this site are estimates, not
+    guarantees &mdash; real revenue depends on your audience, watch time and advertiser demand.
+    Some articles link to third-party products; where a link is a paid affiliate link it is
+    labelled as such in the article.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -311,25 +311,60 @@
 </section>
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer" style="border-top: 1px solid var(--border); margin-top: 4rem; padding-top: 3rem; padding-bottom: 2rem;">
   <div class="wrap-wide">
-    <div class="footer-inner">
-      <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5a2.25 2.25 0 003.36 1.95l10.07-5.75a2.25 2.25 0 000-3.9L9.86 4.3A2.25 2.25 0 006.5 6.25z"/></svg><span>VidSEOKit</span></a>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="/blog">Blog</a>
-        <a href="/">Tools</a>
-        <a href="/about">About</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms</a>
-        <a href="/contact">Contact</a>
-      </nav>
-      <span>&copy; 2026 VidSEOKit</span>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+      <div>
+        <a class="brand" href="/" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5a2.25 2.25 0 003.36 1.95l10.07-5.75a2.25 2.25 0 000-3.9L9.86 4.3A2.25 2.25 0 006.5 6.25z"/></svg>
+          <span style="font-weight: 700; font-size: 1.125rem;">VidSEOKit</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.5;">Free YouTube SEO tools and calculators designed to help creators grow their channels and increase their revenue.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Free Tools</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+          <li><a href="/youtube-seo-analyzer" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">SEO Analyzer</a></li>
+          <li><a href="/youtube-title-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Title Generator</a></li>
+          <li><a href="/youtube-description-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Description Generator</a></li>
+          <li><a href="/youtube-hashtag-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Hashtag Generator</a></li>
+          <li><a href="/youtube-tag-extractor" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Tag Extractor</a></li>
+          <li><a href="/youtube-keyword-tool" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Keyword Tool</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Creator Tools</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+          <li><a href="/youtube-channel-name-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Channel Name Generator</a></li>
+          <li><a href="/youtube-video-ideas" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Video Ideas Generator</a></li>
+          <li><a href="/youtube-script-generator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Script Generator</a></li>
+          <li><a href="/youtube-thumbnail-ideas" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Thumbnail Ideas</a></li>
+          <li><a href="/youtube-earnings-calculator" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Earnings Calculator</a></li>
+          <li><a href="/tubebuddy-alternative" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">TubeBuddy Alternative</a></li>
+          <li><a href="/vidiq-vs-tubebuddy" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">VidIQ vs TubeBuddy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Company</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+          <li><a href="/blog/" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Creator Blog</a></li>
+          <li><a href="/about" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">About</a></li>
+          <li><a href="/contact" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Contact</a></li>
+          <li><a href="/privacy" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Privacy Policy</a></li>
+          <li><a href="/terms" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Terms of Service</a></li>
+        </ul>
+      </div>
     </div>
-    <p class="disclosure">Editorial note: earnings figures on this site are estimates, not
+    
+    <div style="border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center;">
+      <span style="font-size: 0.875rem; color: var(--text-muted);">&copy; 2026 VidSEOKit</span>
+      <span style="font-size: 0.75rem; color: var(--text-muted); text-align: right; max-width: 600px;">Not affiliated with, endorsed by, or sponsored by YouTube or Google.</span>
+    </div>
+    
+    <p class="disclosure" style="margin-top: 2rem; font-size: 0.75rem; color: var(--text-muted); opacity: 0.8;">Editorial note: earnings figures on this site are estimates, not
     guarantees &mdash; real revenue depends on your audience, watch time and advertiser demand.
     Some articles link to third-party products; where a link is a paid affiliate link it is
-    labelled as such in the article. This site is not affiliated with, endorsed by, or sponsored
-    by YouTube or Google.</p>
+    labelled as such in the article.</p>
   </div>
 </footer>
 </body>
