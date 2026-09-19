@@ -99,3 +99,83 @@ def fetch_keyword_data(keyword: str, db=None, gemini_model=None) -> dict:
             raise ValueError("Failed to estimate keyword data using AI.")
             
     raise ValueError("No data sources available to fetch keyword data.")
+
+
+def fetch_keyword_ideas(seed_keyword: str, db=None, limit: int = 100) -> list[dict]:
+    """
+    Expands one seed keyword into related search-term ideas with real volume/
+    competition data, via the same DataForSEO Labs `keyword_ideas` endpoint
+    `fetch_keyword_data` already calls for the SEO Analyzer tool — that
+    function only reads `items[0]` (the seed's own stats); this reads the
+    rest of the list, which is where the actual content/keyword-gap ideas
+    live. No Gemini fallback: an AI-estimated list of "related" keywords
+    isn't grounded in anything, so a DataForSEO failure just returns [].
+    """
+    api_key = DATAFORSEO_BASE64
+
+    if db:
+        try:
+            doc_ref = db.collection("app_settings").document("api_keys").get()
+            if doc_ref.exists:
+                dynamic_key = doc_ref.to_dict().get("dataforseo_api_key")
+                if dynamic_key:
+                    api_key = dynamic_key
+        except Exception as e:
+            print(f"Failed to fetch DataForSEO key from Firestore: {e}")
+
+    url = "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live"
+    headers = {
+        'Authorization': f'Basic {api_key}',
+        'Content-Type': 'application/json'
+    }
+
+    payload = [{
+        "keywords": [seed_keyword.lower()],
+        "location_code": 2840,  # United States
+        "language_code": "en",
+        "limit": limit
+    }]
+
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=20)
+        if response.status_code != 200:
+            print(f"DataForSEO keyword_ideas error: Status {response.status_code}. {response.text}")
+            return []
+
+        data = response.json()
+        tasks = data.get('tasks') or []
+        if not tasks:
+            return []
+        result = tasks[0].get('result') or []
+        if not result:
+            return []
+        items = result[0].get('items') or []
+
+        ideas = []
+        for item in items:
+            keyword_info = item.get('keyword_info', {}) or {}
+            volume = keyword_info.get('search_volume') or 0
+            competition_index = keyword_info.get('competition_index')
+            if competition_index is None:
+                competition_index = 50
+            cpc = keyword_info.get('cpc') or 0.0
+
+            if competition_index > 79:
+                comp_level = "High"
+            elif competition_index > 39:
+                comp_level = "Medium"
+            else:
+                comp_level = "Low"
+
+            ideas.append({
+                "keyword": item.get('keyword', '').strip(),
+                "search_volume": volume,
+                "cpc": round(cpc, 2),
+                "competition_level": comp_level,
+                "competition_index": competition_index,
+                "seed": seed_keyword,
+            })
+        return ideas
+    except Exception as e:
+        print(f"DataForSEO keyword_ideas request error: {e}")
+        return []

@@ -83,7 +83,10 @@ pipeline {
                         # both fixes sat committed but not live. Validate with `nginx -t` before
                         # reloading so a bad config never gets applied to the running server.
                         scp -o StrictHostKeyChecking=no deploy/nginx_vidseokit.conf root@157.180.22.218:/etc/nginx/sites-available/vidseokit.conf
-                        ssh -o StrictHostKeyChecking=no root@157.180.22.218 "nginx -t && systemctl reload nginx || echo 'nginx config test failed - server still running the previous config'"
+                        # Fail the build loudly: the old `|| echo` swallowed nginx -t failures, so
+                        # the gzip/HSTS/HTTP2 config never went live and nobody noticed. Listing
+                        # sites-enabled shows whether this file is actually the one nginx loads.
+                        ssh -o StrictHostKeyChecking=no root@157.180.22.218 "ls -l /etc/nginx/sites-enabled/ && nginx -t && systemctl reload nginx"
                         '''
                     }
                 }

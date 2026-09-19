@@ -22,6 +22,7 @@ class App extends StatefulComponent {
 
 class _AppState extends State<App> {
   bool isDark = true;
+  bool isDrawerOpen = false;
 
   // SEO Analyzer State
   String seoTargetKeyword = '';
@@ -45,6 +46,7 @@ class _AppState extends State<App> {
   // Earnings Calculator State
   int dailyViews = 10000;
   String selectedNiche = 'Finance';
+  bool _nicheInitialized = false;
   Map<String, dynamic>? earningsResult;
 
   // Loading & Error States per tab
@@ -215,7 +217,7 @@ class _AppState extends State<App> {
               _buildNavbar(),
               Component.element(tag: 'main', attributes: const {'id': 'main-content'}, children: [
                 if (!['about', 'contact', 'privacy', 'terms'].contains(activeTab))
-                  _buildHero(),
+                  _buildHero(activeTab),
                 div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 md:pb-16', [
                   _buildDesktopTabs(activeTab),
                   if (tabErrorMessage[activeTab] != null) _buildErrorBanner(activeTab, tabErrorMessage[activeTab]!),
@@ -228,7 +230,7 @@ class _AppState extends State<App> {
                 ]),
               ]),
               _buildFooter(),
-              _buildMobileNav(activeTab),
+              _buildMobileDrawer(activeTab),
             ]);
           },
           routes: [
@@ -238,6 +240,15 @@ class _AppState extends State<App> {
             Route(path: '/youtube-thumbnail-ideas', builder: (context, state) => _buildThumbnailGenerator()),
             Route(path: '/youtube-tag-extractor', builder: (context, state) => _buildTagExtractor()),
             Route(path: '/youtube-earnings-calculator', builder: (context, state) => _buildEarningsCalculator()),
+            Route(path: "/youtube-earnings-calculator-finance", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Finance")),
+            Route(path: "/youtube-earnings-calculator-tech", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Tech")),
+            Route(path: "/youtube-earnings-calculator-gaming", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Gaming")),
+            Route(path: "/youtube-earnings-calculator-vlog", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Vlog")),
+            Route(path: "/youtube-earnings-calculator-education", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Education")),
+            Route(path: "/youtube-earnings-calculator-entertainment", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Entertainment")),
+            Route(path: "/youtube-earnings-calculator-health", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Health")),
+            Route(path: "/youtube-earnings-calculator-beauty", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Beauty")),
+            Route(path: "/youtube-earnings-calculator-cooking", builder: (context, state) => _buildEarningsCalculator(preselectedNiche: "Cooking")),
             Route(path: '/youtube-rpm-by-country', builder: (context, state) => _buildRpmByCountry()),
             Route(path: '/privacy', builder: (context, state) => _buildPrivacyPolicy()),
             Route(path: '/terms', builder: (context, state) => _buildTerms()),
@@ -343,6 +354,17 @@ class _AppState extends State<App> {
               onClick: () => toggleTheme(),
               [span(classes: 'material-symbols-rounded text-2xl', [Component.text(isDark ? 'light_mode' : 'dark_mode')])]
             ),
+            button(
+              classes: 'md:hidden p-2 flex justify-center items-center gap-x-2 rounded-lg border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700',
+              attributes: {
+                'type': 'button',
+                'aria-label': 'Toggle navigation',
+              },
+              events: {'click': (e) => setState(() => isDrawerOpen = true)},
+              [
+                span(classes: 'material-symbols-rounded text-2xl', [Component.text('menu')])
+              ]
+            ),
           ]),
         ])
       ])
@@ -352,13 +374,23 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   //  HERO
   // ═══════════════════════════════════════════
-  Component _buildHero() {
+  Component _buildHero(String activeTab) {
+    // On the homepage, the hero text IS the page's single <h1>.
+    // On every other page, _buildSeoHead or _buildStaticPage supplies the <h1>,
+    // so the hero must use a <p> to avoid a "multiple H1" audit warning.
+    final bool isHome = activeTab == 'home';
+    final heroContent = isHome
+        ? h1(classes: 'text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight animate-fade-in-up animate-delay-200', [
+            Component.text(t('hero_grow_channel')),
+            span(classes: 'text-yt-red', [Component.text(t('nav_logo_text'))])
+          ])
+        : p(classes: 'text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight animate-fade-in-up animate-delay-200', [
+            Component.text(t('hero_grow_channel')),
+            span(classes: 'text-yt-red', [Component.text(t('nav_logo_text'))])
+          ]);
     return div(classes: 'pt-24 pb-8 md:pt-28 md:pb-8 text-center px-4 relative overflow-hidden', [
       div(classes: 'relative z-10', [
-        h1(classes: 'text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight animate-fade-in-up animate-delay-200', [
-          Component.text(t('hero_grow_channel')),
-          span(classes: 'text-yt-red', [Component.text(t('nav_logo_text'))])
-        ]),
+        heroContent,
         p(classes: 'mt-4 text-yt-gray-600 dark:text-yt-gray-400 text-base max-w-xl mx-auto leading-relaxed animate-fade-in-up animate-delay-400', [
           Component.text(t('hero_description'))
         ]),
@@ -371,16 +403,22 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   Component _buildDesktopTabs(String activeTab) {
     return nav(
-        classes: 'hidden md:flex items-center gap-3 mb-8 animate-fade-in-up animate-delay-500 overflow-x-auto pb-2',
-        attributes: const {'aria-label': 'Tools'},
-        [
-      _buildTabChip(t('tab_seo'), 'seo', activeTab),
-      _buildTabChip(t('tab_titles'), 'titles', activeTab),
-      _buildTabChip(t('tab_thumbnails'), 'thumbnails', activeTab),
-      _buildTabChip(t('tab_tags'), 'tags', activeTab),
-      _buildTabChip(t('tab_earnings'), 'earnings', activeTab),
-      _buildTabChip(t('tab_blog'), 'blog', activeTab),
-    ]);
+      classes: 'hidden md:flex flex-wrap justify-center p-1 rounded-lg bg-gray-100 dark:bg-neutral-800 gap-2 mb-8 animate-fade-in-up animate-delay-500 max-w-fit mx-auto shadow-sm',
+      attributes: const {'aria-label': 'Tabs', 'role': 'tablist', 'aria-orientation': 'horizontal'},
+      [
+        _buildTabChip(t('tab_seo'), 'seo', activeTab),
+        _buildTabChip(t('tab_titles'), 'titles', activeTab),
+        _buildTabChip(t('tab_thumbnails'), 'thumbnails', activeTab),
+        _buildTabChip(t('tab_tags'), 'tags', activeTab),
+        _buildTabChip(t('tab_earnings'), 'earnings', activeTab),
+        _buildTabChip(t('Descriptions'), 'youtube-description-generator', activeTab),
+        _buildTabChip(t('Hashtags'), 'youtube-hashtag-generator', activeTab),
+        _buildTabChip(t('Names'), 'youtube-channel-name-generator', activeTab),
+        _buildTabChip(t('Ideas'), 'youtube-video-ideas', activeTab),
+        _buildTabChip(t('Scripts'), 'youtube-script-generator', activeTab),
+        _buildTabChip(t('tab_blog'), 'blog', activeTab),
+      ]
+    );
   }
 
   /// Inline banner for a failed request, dismissible so it never blocks the UI.
@@ -408,14 +446,16 @@ class _AppState extends State<App> {
 
   Component _buildTabChip(String label, String id, String activeTab) {
     bool isActive = activeTab == id;
-    final classes = 'px-4 py-1.5 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${isActive
-            ? 'bg-yt-gray-900 text-white dark:bg-white dark:text-yt-gray-900'
-            : 'bg-yt-gray-100 text-yt-gray-900 dark:bg-yt-gray-800 dark:text-white hover:bg-yt-gray-200 dark:hover:bg-yt-gray-700'}';
+    final classes = 'py-2 px-4 inline-flex items-center gap-x-2 bg-transparent text-sm font-medium rounded-lg hover:text-yt-red disabled:opacity-50 disabled:pointer-events-none dark:hover:text-yt-red transition-all whitespace-nowrap '
+        '${isActive ? 'bg-yt-red text-white shadow-sm dark:bg-yt-red dark:text-white' : 'text-black dark:text-white'}';
     
     if (id == 'blog') {
       return a(
         href: '/blog/', 
         classes: classes, 
+        attributes: {
+          if (isActive) 'aria-selected': 'true'
+        },
         events: {'click': (e) { e.preventDefault(); client_interop.navigateTo('/blog/'); }},
         [Component.text(label)]
       );
@@ -424,6 +464,9 @@ class _AppState extends State<App> {
     return Link(
       to: _getPathForTab(id),
       classes: classes,
+      attributes: {
+        if (isActive) 'aria-selected': 'true'
+      },
       child: Component.text(label),
     );
   }
@@ -431,155 +474,319 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   //  MOBILE BOTTOM NAV
   // ═══════════════════════════════════════════
-  Component _buildMobileNav(String activeTab) {
-    return nav(classes: 'mobile-nav md:hidden', attributes: const {'aria-label': 'Primary'}, [
-      div(classes: 'flex items-center justify-around px-2', [
-        _mobileNavItem('search', t('mobile_seo'), 'seo', activeTab),
-        _mobileNavItem('title', t('mobile_titles'), 'titles', activeTab),
-        _mobileNavItem('image', t('mobile_thumb'), 'thumbnails', activeTab),
-        _mobileNavItem('sell', t('mobile_tags'), 'tags', activeTab),
-        _mobileNavItem('payments', t('mobile_earn'), 'earnings', activeTab),
-        _mobileNavItem('article', t('mobile_blog'), 'blog', activeTab),
-      ])
-    ]);
-  }
-
-  Component _mobileNavItem(String icon, String label, String tab, String activeTab) {
-    bool isActive = activeTab == tab;
-    
-    final child = div(classes: 'flex flex-col items-center gap-1', [
-      span(classes: 'material-symbols-rounded text-2xl ${isActive ? 'filled' : ''}', [Component.text(icon)]),
-      span(classes: 'text-[10px] font-medium', [Component.text(label)]),
-    ]);
-    final classes = 'flex flex-col items-center gap-1 py-1 px-3 transition-all duration-300 ${isActive ? 'text-yt-gray-900 dark:text-white' : 'text-yt-gray-600 dark:text-yt-gray-400'}';
-
-    if (tab == 'blog') {
-      return a(
-        href: '/blog/',
-        classes: classes,
-        events: {'click': (e) { e.preventDefault(); client_interop.navigateTo('/blog/'); }},
-        [child],
-      );
-    }
-
-    return Link(
-      to: _getPathForTab(tab),
-      classes: classes,
-      child: child,
+  Component _buildMobileDrawer(String activeTab) {
+    return div(
+      classes: 'md:hidden',
+      [
+        // Backdrop
+        if (isDrawerOpen)
+          div(
+            classes: 'fixed inset-0 z-[90] bg-gray-900/50 transition-opacity',
+            events: {'click': (e) => setState(() => isDrawerOpen = false)},
+            []
+          ),
+        
+        // Drawer Panel
+        div(
+          attributes: {
+            'id': 'mobile-drawer',
+            'role': 'dialog',
+            'aria-labelledby': 'mobile-drawer-label',
+          },
+          classes: 'fixed top-0 start-0 transition-transform duration-300 transform h-full max-w-[280px] w-full z-[100] bg-white border-e dark:bg-neutral-800 dark:border-neutral-700 ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'}',
+          [
+            div(classes: 'flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700', [
+              h3(
+                attributes: {'id': 'mobile-drawer-label'},
+                classes: 'font-bold text-gray-800 dark:text-white',
+                [Component.text('Tools')]
+              ),
+              button(
+                attributes: {
+                  'type': 'button',
+                },
+                events: {'click': (e) => setState(() => isDrawerOpen = false)},
+                classes: 'size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600',
+                [
+                  span(classes: 'sr-only', [Component.text('Close drawer')]),
+                  span(classes: 'material-symbols-rounded', [Component.text('close')]),
+                ]
+              ),
+            ]),
+            div(classes: 'p-4 overflow-y-auto h-[calc(100vh-60px)]', [
+              nav(classes: 'flex flex-col gap-2', [
+                _buildDrawerItem(t('tab_seo'), 'seo', activeTab),
+                _buildDrawerItem(t('tab_titles'), 'titles', activeTab),
+                _buildDrawerItem(t('tab_thumbnails'), 'thumbnails', activeTab),
+                _buildDrawerItem(t('tab_tags'), 'tags', activeTab),
+                _buildDrawerItem(t('tab_earnings'), 'earnings', activeTab),
+                _buildDrawerItem(t('Descriptions'), 'youtube-description-generator', activeTab),
+                _buildDrawerItem(t('Hashtags'), 'youtube-hashtag-generator', activeTab),
+                _buildDrawerItem(t('Names'), 'youtube-channel-name-generator', activeTab),
+                _buildDrawerItem(t('Ideas'), 'youtube-video-ideas', activeTab),
+                _buildDrawerItem(t('Scripts'), 'youtube-script-generator', activeTab),
+                _buildDrawerItem(t('tab_blog'), 'blog', activeTab),
+              ])
+            ])
+          ]
+        )
+      ]
     );
   }
 
+  Component _buildDrawerItem(String label, String id, String activeTab) {
+    bool isActive = activeTab == id;
+    final classes = 'py-3 px-4 flex items-center gap-x-2 bg-transparent text-sm font-medium rounded-lg hover:bg-yt-red hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-yt-red dark:hover:text-white transition-all '
+        '${isActive ? 'bg-yt-red text-white shadow-sm dark:bg-yt-red dark:text-white' : 'text-black dark:text-white'}';
+    
+    if (id == 'blog') {
+      return a(
+        href: '/blog/', 
+        classes: classes, 
+        attributes: {
+          if (isActive) 'aria-selected': 'true',
+        },
+        events: {'click': (e) { 
+          e.preventDefault(); 
+          setState(() => isDrawerOpen = false);
+          client_interop.navigateTo('/blog/'); 
+        }},
+        [Component.text(label)]
+      );
+    }
+    
+    return a(
+      href: _getPathForTab(id),
+      classes: classes,
+      attributes: {
+        if (isActive) 'aria-selected': 'true',
+      },
+      events: {'click': (e) { 
+        e.preventDefault(); 
+        setState(() => isDrawerOpen = false);
+        client_interop.navigateTo(_getPathForTab(id)); 
+      }},
+      [Component.text(label)]
+    );
+  }
   // ═══════════════════════════════════════════
   //  SEO ANALYZER
   // ═══════════════════════════════════════════
 
   Component _buildHomeHub() {
-    final seo = kPageSeo['home'];
-    return div(classes: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12', [
-      if (seo != null)
-        div(classes: 'mb-12 text-center max-w-3xl mx-auto', [
-          p(classes: 'text-xl text-yt-gray-600 dark:text-yt-gray-300', [Component.text(seo.definition)]),
-        ]),
-      div(classes: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8', [
+    return div(classes: 'max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-6 mx-auto', [
+      div(classes: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4', [
         _buildToolCard(
-            title: 'YouTube SEO Analyzer',
+            title: 'How to Rank High in YouTube Search (SEO Analyzer)',
             description: 'Analyze your video SEO score against a target keyword. Get actionable feedback on your title, description, and tags.',
-            icon: 'analytics',
+            icon: _getSvgIcon('analytics'),
             link: '/youtube-seo-analyzer'),
         _buildToolCard(
             title: 'YouTube Title Generator',
             description: 'Generate viral, click-worthy titles from any topic using AI. Get multiple angles like curiosity, listicle, and how-to.',
-            icon: 'title',
+            icon: _getSvgIcon('title'),
             link: '/youtube-title-generator'),
         _buildToolCard(
             title: 'Thumbnail Ideas Generator',
             description: 'Get AI thumbnail concepts for any video topic. We provide the subject, expression, text overlay, and color direction.',
-            icon: 'image',
+            icon: _getSvgIcon('image'),
             link: '/youtube-thumbnail-ideas'),
         _buildToolCard(
-            title: 'YouTube Tag Extractor',
-            description: 'Extract tags from any YouTube video. See how ranking videos in your niche describe themselves.',
-            icon: 'sell',
+            title: 'YouTube Competitor Analysis (Tag Extractor)',
+            description: 'Extract tags from any YouTube video for competitor analysis. See how ranking videos in your niche describe themselves.',
+            icon: _getSvgIcon('sell'),
             link: '/youtube-tag-extractor'),
         _buildToolCard(
             title: 'Earnings Calculator',
             description: 'Estimate YouTube AdSense income from your daily views and niche. See how CPM and RPM differ by category.',
-            icon: 'payments',
+            icon: _getSvgIcon('payments'),
             link: '/youtube-earnings-calculator'),
         _buildToolCard(
             title: 'YouTube Description Generator',
             description: 'Automatically write SEO-optimized YouTube descriptions with timestamps, social links, and targeted keywords.',
-            icon: 'description',
+            icon: _getSvgIcon('description'),
             link: '/youtube-description-generator'),
         _buildToolCard(
             title: 'YouTube Hashtag Generator',
             description: 'Find the most relevant and trending hashtags for your YouTube video to maximize reach and discoverability.',
-            icon: 'tag',
+            icon: _getSvgIcon('tag'),
             link: '/youtube-hashtag-generator'),
         _buildToolCard(
             title: 'Channel Name Generator',
             description: 'Generate catchy, memorable YouTube channel names tailored to your specific niche and target audience.',
-            icon: 'badge',
+            icon: _getSvgIcon('badge'),
             link: '/youtube-channel-name-generator'),
         _buildToolCard(
             title: 'YouTube Video Ideas',
             description: 'Overcome creator block with AI-generated video concepts, including hook ideas, formats, and target demographics.',
-            icon: 'lightbulb',
+            icon: _getSvgIcon('lightbulb'),
             link: '/youtube-video-ideas'),
         _buildToolCard(
             title: 'YouTube Script Generator',
             description: 'Draft complete, engaging YouTube scripts from a simple prompt. Includes hooks, main points, and calls to action.',
-            icon: 'draw',
+            icon: _getSvgIcon('draw'),
             link: '/youtube-script-generator'),
         _buildToolCard(
             title: 'YouTube Keyword Tool',
             description: 'Discover high-volume, low-competition keywords for your YouTube channel to rank higher in search results.',
-            icon: 'manage_search',
+            icon: _getSvgIcon('manage_search'),
             link: '/youtube-keyword-tool'),
+        _buildToolCard(
+            title: 'YouTube Creator Blog',
+            description: 'Read the latest tips, tricks, and updates on how to grow your YouTube channel and maximize your earnings.',
+            icon: _getSvgIcon('blog'),
+            link: '/blog/'),
       ])
     ]);
   }
 
-  Component _buildToolCard({required String title, required String description, required String icon, required String link}) {
+  Component _getSvgIcon(String name, {String classes = 'w-[30px] h-[30px]'}) {
+    final attributes = {'xmlns': 'http://www.w3.org/2000/svg', 'viewBox': '0 0 24 24', 'fill': 'none', 'stroke': 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'};
+    List<Component> paths = [];
+    
+    switch (name) {
+      case 'search':
+      case 'analytics':
+        paths = [
+          circle(attributes: {'cx': '11', 'cy': '11', 'r': '8'}, []),
+          line(attributes: {'x1': '21', 'y1': '21', 'x2': '16.65', 'y2': '16.65'}, [])
+        ];
+        break;
+      case 'title':
+        paths = [
+          path(attributes: {'d': 'M4 7V4h16v3'}, []),
+          path(attributes: {'d': 'M9 20h6'}, []),
+          path(attributes: {'d': 'M12 4v16'}, [])
+        ];
+        break;
+      case 'image':
+        paths = [
+          rect(attributes: {'x': '3', 'y': '3', 'width': '18', 'height': '18', 'rx': '2', 'ry': '2'}, []),
+          circle(attributes: {'cx': '8.5', 'cy': '8.5', 'r': '1.5'}, []),
+          polyline(attributes: {'points': '21 15 16 10 5 21'}, [])
+        ];
+        break;
+      case 'sell':
+        paths = [
+          path(attributes: {'d': 'M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z'}, []),
+          line(attributes: {'x1': '7', 'y1': '7', 'x2': '7.01', 'y2': '7'}, [])
+        ];
+        break;
+      case 'payments':
+        paths = [
+          rect(attributes: {'x': '2', 'y': '6', 'width': '20', 'height': '12', 'rx': '2'}, []),
+          circle(attributes: {'cx': '12', 'cy': '12', 'r': '2'}, []),
+          path(attributes: {'d': 'M6 12h.01M18 12h.01'}, [])
+        ];
+        break;
+      case 'description':
+        paths = [
+          path(attributes: {'d': 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'}, []),
+          polyline(attributes: {'points': '14 2 14 8 20 8'}, []),
+          line(attributes: {'x1': '16', 'y1': '13', 'x2': '8', 'y2': '13'}, []),
+          line(attributes: {'x1': '16', 'y1': '17', 'x2': '8', 'y2': '17'}, []),
+          polyline(attributes: {'points': '10 9 9 9 8 9'}, [])
+        ];
+        break;
+      case 'tag':
+        paths = [
+          line(attributes: {'x1': '4', 'y1': '9', 'x2': '20', 'y2': '9'}, []),
+          line(attributes: {'x1': '4', 'y1': '15', 'x2': '20', 'y2': '15'}, []),
+          line(attributes: {'x1': '10', 'y1': '3', 'x2': '8', 'y2': '21'}, []),
+          line(attributes: {'x1': '16', 'y1': '3', 'x2': '14', 'y2': '21'}, [])
+        ];
+        break;
+      case 'badge':
+        paths = [
+          path(attributes: {'d': 'M3 7v11c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V7c0-1.1-.9-2-2-2h-4l-2-2h-2L9 5H5a2 2 0 0 0-2 2z'}, []),
+          circle(attributes: {'cx': '12', 'cy': '12', 'r': '3'}, [])
+        ];
+        break;
+      case 'lightbulb':
+        paths = [
+          path(attributes: {'d': 'M9 21h6'}, []),
+          path(attributes: {'d': 'M10.5 17h3'}, []),
+          path(attributes: {'d': 'M12 2v1'}, []),
+          path(attributes: {'d': 'M12 17c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z'}, [])
+        ];
+        break;
+      case 'draw':
+        paths = [
+          path(attributes: {'d': 'M12 19l7-7 3 3-7 7-3-3z'}, []),
+          path(attributes: {'d': 'M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z'}, []),
+          path(attributes: {'d': 'M2 2l7.586 7.586'}, []),
+          circle(attributes: {'cx': '11', 'cy': '11', 'r': '2'}, [])
+        ];
+        break;
+      case 'manage_search':
+        paths = [
+          circle(attributes: {'cx': '11', 'cy': '11', 'r': '8'}, []),
+          line(attributes: {'x1': '21', 'y1': '21', 'x2': '16.65', 'y2': '16.65'}, []),
+          line(attributes: {'x1': '11', 'y1': '8', 'x2': '11', 'y2': '14'}, []),
+          line(attributes: {'x1': '8', 'y1': '11', 'x2': '14', 'y2': '11'}, [])
+        ];
+        break;
+      case 'blog':
+        paths = [
+          path(attributes: {'d': 'M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z'}, []),
+          path(attributes: {'d': 'M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'}, [])
+        ];
+        break;
+      default:
+        paths = [
+          circle(attributes: {'cx': '12', 'cy': '12', 'r': '10'}, []),
+          line(attributes: {'x1': '12', 'y1': '16', 'x2': '12', 'y2': '12'}, []),
+          line(attributes: {'x1': '12', 'y1': '8', 'x2': '12.01', 'y2': '8'}, [])
+        ];
+    }
+    
+    return svg(
+      classes: classes,
+      attributes: attributes,
+      paths
+    );
+  }
+
+  Component _buildToolCard({required String title, required String description, required Component icon, required String link}) {
     return a(
       href: link,
-      classes: 'block p-6 bg-white dark:bg-yt-gray-800 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-yt-gray-200 dark:border-yt-gray-700',
+      classes: 'group flex flex-col h-full bg-white border-2 border-black shadow-sm rounded-xl hover:shadow-[4px_4px_0px_0px_rgba(255,0,0,1)] hover:border-yt-red transition-all dark:bg-black dark:border-white dark:hover:border-yt-red dark:hover:shadow-[4px_4px_0px_0px_rgba(255,0,0,1)]',
       [
-        div(classes: 'flex items-center mb-4', [
-          div(classes: 'w-12 h-12 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-500 rounded-xl flex items-center justify-center mr-4', [
-            span(classes: 'material-symbols-outlined', attributes: {'aria-hidden': 'true'}, [Component.text(icon)]),
+        div(classes: 'p-4 flex flex-col items-center text-center', [
+          div(classes: 'flex justify-center items-center w-12 h-12 rounded-lg bg-yt-red text-white dark:bg-yt-red dark:text-white mx-auto mb-3 shrink-0', [
+            icon,
           ]),
-          h3(classes: 'text-lg font-bold text-yt-gray-900 dark:text-white', [Component.text(title)]),
+          h3(classes: 'text-lg font-bold text-black dark:text-white group-hover:text-yt-red dark:group-hover:text-yt-red transition-colors mb-1', [Component.text(title)]),
+          p(classes: 'text-sm text-black font-medium dark:text-white', [Component.text(description)]),
         ]),
-        p(classes: 'text-yt-gray-600 dark:text-yt-gray-400', [Component.text(description)]),
       ]
     );
   }
 
   Component _buildSeoAnalyzer() {
-    return div(classes: 'grid grid-cols-1 lg:grid-cols-3 gap-6', [
-      div(classes: 'lg:col-span-2 space-y-4 animate-fade-in-left animate-delay-100', [
+    return div(classes: 'grid grid-cols-1 lg:grid-cols-8 gap-8 max-w-6xl mx-auto', [
+      div(classes: 'lg:col-span-5 space-y-6 animate-fade-in-left animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('analytics')]),
-          h2(classes: 'text-xl font-bold', [Component.text(t('tab_seo'))]),
+          h2(classes: 'text-xl font-bold', [Component.text('How to Rank High in YouTube Search (SEO Analyzer)')]),
         ]),
         div([
           input(
-            classes: 'input-field',
+            classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
             attributes: {'id': 'seo-target-keyword', 'name': 'seo-target-keyword', 'placeholder': t('seo_placeholder_keyword'), 'aria-label': t('seo_placeholder_keyword'), 'value': seoTargetKeyword},
             onInput: (e) => setState(() => seoTargetKeyword = e.toString()),
           ),
         ]),
         div([
           input(
-            classes: 'input-field',
+            classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
             attributes: {'id': 'seo-title', 'name': 'seo-title', 'placeholder': t('seo_placeholder_title'), 'aria-label': t('seo_placeholder_title'), 'value': seoTitle},
             onInput: (e) => setState(() => seoTitle = e.toString()),
           ),
         ]),
         div([
           textarea(
-            classes: 'input-field resize-none',
+            classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 resize-none',
             attributes: {'id': 'seo-description', 'name': 'seo-description', 'placeholder': t('seo_placeholder_desc'), 'aria-label': t('seo_placeholder_desc'), 'rows': '5', 'value': seoDescription},
             onInput: (e) => setState(() => seoDescription = e.toString()),
             [],
@@ -587,14 +794,14 @@ class _AppState extends State<App> {
         ]),
         div([
           input(
-            classes: 'input-field',
+            classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
             attributes: {'id': 'seo-tags', 'name': 'seo-tags', 'placeholder': t('seo_placeholder_tags'), 'aria-label': t('seo_placeholder_tags'), 'value': seoTags},
             onInput: (e) => setState(() => seoTags = e.toString()),
           ),
         ]),
         div(classes: 'flex justify-end', [
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full md:w-auto pr-10 ${(tabIsLoading['seo'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none w-full md:w-auto ${(tabIsLoading['seo'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => calculateSeo(),
             [
               Component.text((tabIsLoading['seo'] ?? false) ? t('btn_analyzing') : t('btn_analyze')),
@@ -602,7 +809,7 @@ class _AppState extends State<App> {
           ),
         ])
       ]),
-      div(classes: 'card p-6 flex flex-col items-center justify-center min-h-[300px] animate-fade-in-right animate-delay-200', [
+      div(classes: 'lg:col-span-3 card p-6 flex flex-col items-center justify-center min-h-[300px] animate-fade-in-right animate-delay-200', [
         if (tabIsLoading['seo'] ?? false) ...[
           // SEO Analysis loading — progress steps + skeleton
           div(classes: 'w-full space-y-5 animate-fade-in', [
@@ -660,7 +867,7 @@ class _AppState extends State<App> {
   //  TITLE GENERATOR
   // ═══════════════════════════════════════════
   Component _buildTitleGenerator() {
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('title')]),
@@ -669,13 +876,13 @@ class _AppState extends State<App> {
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {'id': 'title-topic', 'name': 'title-topic', 'placeholder': t('title_gen_placeholder'), 'aria-label': t('title_gen_placeholder'), 'value': titleTopic},
               onInput: (e) => setState(() => titleTopic = e.toString()),
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['titles'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap ${(tabIsLoading['titles'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => generateTitles(),
             [Component.text((tabIsLoading['titles'] ?? false) ? t('btn_working') : t('btn_generate'))]
           ),
@@ -727,7 +934,7 @@ class _AppState extends State<App> {
   //  THUMBNAIL GENERATOR
   // ═══════════════════════════════════════════
   Component _buildThumbnailGenerator() {
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('image')]),
@@ -736,13 +943,13 @@ class _AppState extends State<App> {
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {'id': 'thumbnail-topic', 'name': 'thumbnail-topic', 'placeholder': t('thumb_gen_placeholder'), 'aria-label': t('thumb_gen_placeholder'), 'value': thumbnailTopic},
               onInput: (e) => setState(() => thumbnailTopic = e.toString()),
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['thumbnails'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap ${(tabIsLoading['thumbnails'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => generateThumbnails(),
             [Component.text((tabIsLoading['thumbnails'] ?? false) ? t('btn_working') : t('btn_generate'))]
           ),
@@ -799,16 +1006,16 @@ class _AppState extends State<App> {
 
   // ═══════════════════════════════════════════
   Component _buildTagExtractor() {
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('sell')]),
-          h2(classes: 'text-xl font-bold', [Component.text(t('tag_ext_title'))]),
+          h2(classes: 'text-xl font-bold', [Component.text('YouTube Competitor Analysis (Tag Extractor)')]),
         ]),
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {
                 'id': 'tag-url', 'name': 'tag-url',
                 'placeholder': t('tag_ext_placeholder'), 'aria-label': t('tag_ext_placeholder'),
@@ -818,7 +1025,7 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['tags'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap ${(tabIsLoading['tags'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => extractTags(),
             [Component.text((tabIsLoading['tags'] ?? false) ? t('btn_extracting') : t('btn_extract'))]
           ),
@@ -854,9 +1061,14 @@ class _AppState extends State<App> {
   // ═══════════════════════════════════════════
   //  EARNINGS CALCULATOR
   // ═══════════════════════════════════════════
-  Component _buildEarningsCalculator() {
-    return div(classes: 'grid grid-cols-1 lg:grid-cols-3 gap-6', [
-      div(classes: 'lg:col-span-2 space-y-6 animate-fade-in-left animate-delay-100', [
+  Component _buildEarningsCalculator({String? preselectedNiche}) {
+    if (preselectedNiche != null && !_nicheInitialized) {
+      selectedNiche = preselectedNiche;
+      _nicheInitialized = true;
+    }
+
+    return div(classes: 'grid grid-cols-1 lg:grid-cols-8 gap-8 max-w-6xl mx-auto', [
+      div(classes: 'lg:col-span-5 space-y-6 animate-fade-in-left animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('payments')]),
           h2(classes: 'text-xl font-bold', [Component.text(t('earn_calc_title'))]),
@@ -889,14 +1101,14 @@ class _AppState extends State<App> {
           ]),
           div(classes: 'flex justify-end pt-2', [
              button(
-              classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center gap-2 w-full sm:w-auto pr-10 ${(tabIsLoading['earnings'] ?? false) ? 'btn-loading' : ''}',
+              classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none w-full sm:w-auto ${(tabIsLoading['earnings'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
               onClick: () => calculateEarnings(),
               [Component.text((tabIsLoading['earnings'] ?? false) ? t('btn_calculating') : t('btn_calculate'))]
             ),
           ])
         ]),
       ]),
-      div(classes: 'card p-6 flex flex-col items-center justify-center min-h-[300px] animate-fade-in-right animate-delay-200', [
+      div(classes: 'lg:col-span-3 card p-6 flex flex-col items-center justify-center min-h-[300px] animate-fade-in-right animate-delay-200', [
         if (tabIsLoading['earnings'] ?? false) ...[
           div(classes: 'flex flex-col items-center gap-4 animate-fade-in', [
             div(classes: 'loading-spinner', []),
@@ -1036,10 +1248,15 @@ class _AppState extends State<App> {
     // by kSocialProfiles: an empty list must emit no sameAs at all, and a raw
     // HTML string cannot be conditional.
     
-    // Add structured data @graph as recommended by SEO audit
-    head.add(script(content: r'''
-{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://vidseokit.com/#organization","name":"VidSEOKit","url":"https://vidseokit.com/","logo":{"@type":"ImageObject","url":"https://vidseokit.com/images/og-image.jpg","width":1200,"height":630}},{"@type":"WebSite","@id":"https://vidseokit.com/#website","url":"https://vidseokit.com/","name":"VidSEOKit","publisher":{"@id":"https://vidseokit.com/#organization"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://vidseokit.com/#webapp","name":"VidSEOKit YouTube SEO Analyzer","url":"https://vidseokit.com/youtube-seo-analyzer","applicationCategory":"BusinessApplication","applicationSubCategory":"SEO Tool","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","description":"Free tool that scores a YouTube video title, description and tags against a target keyword and lists the specific changes to make before publishing.","featureList":["Title keyword placement and length scoring","Description first-150-character analysis","Tag relevance scoring","Combined score out of 100"],"isAccessibleForFree":true,"publisher":{"@id":"https://vidseokit.com/#organization"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://vidseokit.com/#faq","mainEntity":[{"@type":"Question","name":"What is a good YouTube SEO score?","acceptedAnswer":{"@type":"Answer","text":"Anything above 80 means your metadata is not holding the video back. Below 60 usually points to a missing keyword in the title or a description too short for YouTube to categorise confidently. The score measures metadata quality only, so a high score does not guarantee views."}},{"@type":"Question","name":"Should my target keyword go at the start of the title?","acceptedAnswer":{"@type":"Answer","text":"Where it fits naturally, yes. Front-loading the keyword helps on mobile, where titles are truncated after roughly 40 characters, and it matches how viewers scan a results page. Do not force it at the cost of a title that reads badly."}},{"@type":"Question","name":"How long should a YouTube description be?","acceptedAnswer":{"@type":"Answer","text":"Aim for 150 to 300 words. The first 150 characters appear before the more link and should contain your keyword and a reason to watch. The rest gives YouTube context, and is a reasonable place for timestamps, links and chapter markers."}},{"@type":"Question","name":"Does changing the title of an old video help?","acceptedAnswer":{"@type":"Answer","text":"It can, particularly if the video already gets impressions but a low click-through rate. Re-optimising the title and thumbnail on a video with existing watch history is often faster than publishing a new one. Change one variable at a time so you can tell what worked."}},{"@type":"Question","name":"How do I get more of my views from the US, UK and Europe?","acceptedAnswer":{"@type":"Answer","text":"Publish so the video lands in the morning in New York and London rather than overnight, since the first hours decide who the algorithm keeps showing it to. Reference the currencies, retailers and regulations those viewers recognise, and add English subtitles to widen reach into the Netherlands, the Nordics and Germany."}},{"@type":"Question","name":"Is this YouTube SEO analyzer free?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no account, no trial and no view limit. You can analyse as many videos as you like."}}]}]}
-      ''', attributes: {'type': 'application/ld+json'}));
+    // Add structured data @graph only on the home and seo pages, where the
+    // WebApplication and homepage FAQs are actually relevant. Emitting these
+    // on every page caused Semrush to flag 22 pages with invalid structured
+    // data (schema that did not match visible content).
+    if (activeTab == 'home' || activeTab == 'seo') {
+      head.add(script(content: r'''
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://vidseokit.com/#organization","name":"VidSEOKit","url":"https://vidseokit.com/","logo":{"@type":"ImageObject","url":"https://vidseokit.com/images/og-image.jpg","width":1200,"height":630}},{"@type":"WebSite","@id":"https://vidseokit.com/#website","url":"https://vidseokit.com/","name":"VidSEOKit","publisher":{"@id":"https://vidseokit.com/#organization"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://vidseokit.com/#webapp","name":"VidSEOKit YouTube SEO Analyzer","url":"https://vidseokit.com/youtube-seo-analyzer","applicationCategory":"BusinessApplication","applicationSubCategory":"SEO Tool","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","description":"Free tool that scores a YouTube video title, description and tags against a target keyword and lists the specific changes to make before publishing.","featureList":["Title keyword placement and length scoring","Description first-150-character analysis","Tag relevance scoring","Combined score out of 100"],"isAccessibleForFree":true,"publisher":{"@id":"https://vidseokit.com/#organization"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}
+        ''', attributes: {'type': 'application/ld+json'}));
+    }
     if (kTwitterHandle.isNotEmpty) {
       head.add(meta(
         name: 'twitter:site',
@@ -1150,7 +1367,7 @@ class _AppState extends State<App> {
     final PageSeo? seo = kPageSeo[activeTab];
     if (seo == null || seo.definition.isEmpty) return div([]);
     return p(
-      classes: 'mb-8 max-w-3xl text-base leading-relaxed text-yt-gray-700 dark:text-yt-gray-300',
+      classes: 'mb-8 max-w-3xl mx-auto text-center text-base leading-relaxed text-yt-gray-700 dark:text-yt-gray-300',
       [Component.text(seo.definition)],
     );
   }
@@ -1167,7 +1384,7 @@ class _AppState extends State<App> {
     final PageSeo? seo = kPageSeo[activeTab];
     if (seo == null || (seo.sections.isEmpty && seo.faqs.isEmpty)) return div([]);
 
-    return div(classes: 'mt-12 pt-8 border-t border-yt-gray-200 dark:border-yt-gray-800 max-w-3xl', [
+    return div(classes: 'mt-12 pt-8 border-t border-yt-gray-200 dark:border-yt-gray-800 max-w-3xl mx-auto', [
       for (final s in seo.sections)
         div(classes: 'mb-10', [
           h2(classes: 'text-xl font-bold text-yt-gray-900 dark:text-white mb-4', [Component.text(s.heading)]),
@@ -1271,7 +1488,7 @@ class _AppState extends State<App> {
         return div([]);
     }
 
-    return div(classes: 'mt-12 pt-8 border-t border-yt-gray-200 dark:border-yt-gray-800 animate-fade-in animate-duration-300 max-w-3xl', [
+    return div(classes: 'mt-12 pt-8 border-t border-yt-gray-200 dark:border-yt-gray-800 animate-fade-in animate-duration-300 max-w-3xl mx-auto', [
       h2(classes: 'text-lg font-bold text-yt-gray-900 dark:text-white mb-4', [Component.text(title)]),
       div(classes: 'space-y-4 text-yt-gray-600 dark:text-yt-gray-400 text-sm leading-relaxed', content)
     ]);
@@ -1390,7 +1607,7 @@ class _AppState extends State<App> {
   Component _buildComparisonPage(String tab) {
     // The full SEO copy is rendered by _buildSeoArticle in the shell.
     // We just need a strong above-the-fold CTA to convert visits.
-    return div(classes: 'space-y-8 max-w-4xl animate-fade-in-up', [
+    return div(classes: 'space-y-8 max-w-4xl mx-auto animate-fade-in-up', [
       div(classes: 'card p-8 text-center bg-gradient-to-br from-red-50 to-white dark:from-yt-gray-800 dark:to-yt-gray-900 border border-red-100 dark:border-yt-gray-700', [
         span(classes: 'material-symbols-rounded text-5xl text-yt-red mb-4 block', [Component.text('star')]),
         h2(classes: 'text-2xl font-bold text-yt-gray-900 dark:text-white mb-3', [
@@ -1401,7 +1618,7 @@ class _AppState extends State<App> {
         ]),
         a(
           href: '/youtube-seo-analyzer',
-          classes: 'inline-flex items-center gap-2 btn-primary px-8 py-3 text-base font-semibold rounded-xl',
+          classes: 'py-3 px-6 inline-flex justify-center items-center gap-x-2 text-base font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none',
           [
             span(classes: 'material-symbols-rounded', [Component.text('analytics')]),
             Component.text('Analyze My Video For Free'),
@@ -1440,7 +1657,7 @@ class _AppState extends State<App> {
   });
 
   Component _buildDescriptionGenerator() {
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('description')]),
@@ -1449,7 +1666,7 @@ class _AppState extends State<App> {
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {
                 'id': 'description-topic', 'name': 'description-topic',
                 'placeholder': 'Enter your video topic or title…',
@@ -1460,7 +1677,7 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['description'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap ${(tabIsLoading['description'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => generateDescription(),
             [Component.text((tabIsLoading['description'] ?? false) ? t('btn_working') : 'Generate Description')]
           ),
@@ -1478,7 +1695,7 @@ class _AppState extends State<App> {
           div(classes: 'flex items-center justify-between mb-2', [
             span(classes: 'text-sm font-medium text-yt-gray-600 dark:text-yt-gray-400', [Component.text('Generated Description')]),
             button(
-              classes: 'text-xs btn-secondary px-3 py-1',
+              classes: 'py-2 px-3 inline-flex justify-center items-center gap-x-2 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800',
               attributes: {'onclick': 'navigator.clipboard.writeText(document.getElementById(\'desc-output\').innerText)'},
               [Component.text('Copy')]
             ),
@@ -1509,7 +1726,7 @@ class _AppState extends State<App> {
   });
 
   Component _buildHashtagGenerator() {
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('tag')]),
@@ -1518,7 +1735,7 @@ class _AppState extends State<App> {
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {
                 'id': 'hashtag-topic', 'name': 'hashtag-topic',
                 'placeholder': 'Enter your video topic…',
@@ -1529,7 +1746,7 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['hashtags'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap ${(tabIsLoading['hashtags'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => generateHashtags(),
             [Component.text((tabIsLoading['hashtags'] ?? false) ? t('btn_working') : 'Generate Hashtags')]
           ),
@@ -1570,7 +1787,7 @@ class _AppState extends State<App> {
   });
 
   Component _buildChannelNameGenerator() {
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('person')]),
@@ -1579,7 +1796,7 @@ class _AppState extends State<App> {
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {
                 'id': 'channel-name-topic', 'name': 'channel-name-topic',
                 'placeholder': 'Enter your niche or content type…',
@@ -1590,7 +1807,7 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['channelnames'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap ${(tabIsLoading['channelnames'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => generateChannelNames(),
             [Component.text((tabIsLoading['channelnames'] ?? false) ? t('btn_working') : 'Generate Names')]
           ),
@@ -1607,7 +1824,7 @@ class _AppState extends State<App> {
           div(classes: 'card p-4 card-stagger', attributes: {'style': 'animation-delay: ${i * 100}ms'}, [
             div(classes: 'flex items-center gap-3 mb-1', [
               span(classes: 'font-bold text-lg text-yt-gray-900 dark:text-white', [Component.text(generatedChannelNames![i]['name']?.toString() ?? '')]),
-              span(classes: 'text-xs px-2 py-0.5 rounded-full ${generatedChannelNames![i]['type'] == 'personal' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' : 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300'}', [
+              span(classes: 'text-xs px-2 py-0.5 rounded-full ${generatedChannelNames![i]['type'] == 'personal' ? 'bg-yt-red/10 text-yt-red dark:bg-yt-red/20 dark:text-yt-red' : 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300'}', [
                 Component.text(generatedChannelNames![i]['type']?.toString() ?? '')
               ]),
             ]),
@@ -1634,7 +1851,7 @@ class _AppState extends State<App> {
   });
 
   Component _buildVideoIdeasGenerator() {
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('lightbulb')]),
@@ -1643,7 +1860,7 @@ class _AppState extends State<App> {
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {
                 'id': 'video-ideas-niche', 'name': 'video-ideas-niche',
                 'placeholder': 'Enter your niche (e.g. personal finance, cooking, tech)…',
@@ -1654,7 +1871,7 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['videoideas'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap ${(tabIsLoading['videoideas'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => generateVideoIdeas(),
             [Component.text((tabIsLoading['videoideas'] ?? false) ? t('btn_working') : 'Generate Ideas')]
           ),
@@ -1708,7 +1925,7 @@ class _AppState extends State<App> {
   });
 
   Component _buildScriptGenerator() {
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'animate-fade-in-up animate-delay-100', [
         div(classes: 'flex items-center gap-2 mb-4', [
           span(classes: 'material-symbols-rounded text-2xl', [Component.text('article')]),
@@ -1717,7 +1934,7 @@ class _AppState extends State<App> {
         div(classes: 'flex flex-col sm:flex-row gap-3', [
           div(classes: 'flex-1', [
             input(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {
                 'id': 'script-topic', 'name': 'script-topic',
                 'placeholder': 'Enter your video topic…',
@@ -1730,7 +1947,7 @@ class _AppState extends State<App> {
           div(classes: 'flex items-center gap-2', [
             label(attributes: {'for': 'script-duration'}, classes: 'text-sm text-yt-gray-600 dark:text-yt-gray-400 whitespace-nowrap', [Component.text('Duration:')]),
             select(
-              classes: 'input-field',
+              classes: 'py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-yt-red focus:ring-yt-red disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600',
               attributes: {'id': 'script-duration', 'name': 'script-duration', 'aria-label': 'Target video duration in minutes'},
               onChange: (vals) => setState(() => scriptDuration = int.tryParse(vals.firstOrNull ?? '5') ?? 5),
               [
@@ -1740,7 +1957,7 @@ class _AppState extends State<App> {
             ),
           ]),
           button(
-            classes: 'btn-primary font-medium px-6 py-2 text-sm flex items-center justify-center whitespace-nowrap pr-10 ${(tabIsLoading['script'] ?? false) ? 'btn-loading' : ''}',
+            classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap ${(tabIsLoading['script'] ?? false) ? 'opacity-50 pointer-events-none' : ''}',
             onClick: () => generateScript(),
             [Component.text((tabIsLoading['script'] ?? false) ? t('btn_working') : 'Generate Script')]
           ),
@@ -1777,7 +1994,7 @@ class _AppState extends State<App> {
     // Delegates to the full SEO analyzer so creators can immediately
     // action the keyword data. The SEO article below the tool provides
     // all the educational context for the keyword-tool search query.
-    return div(classes: 'space-y-6 max-w-4xl', [
+    return div(classes: 'space-y-6 max-w-4xl mx-auto', [
       div(classes: 'card p-6 text-center animate-fade-in-up', [
         span(classes: 'material-symbols-rounded text-4xl text-yt-red mb-3 block', [Component.text('search')]),
         h2(classes: 'text-xl font-bold text-yt-gray-900 dark:text-white mb-2', [
@@ -1788,7 +2005,7 @@ class _AppState extends State<App> {
         ]),
         a(
           href: '/youtube-seo-analyzer',
-          classes: 'inline-flex items-center gap-2 btn-primary px-6 py-2 text-sm font-semibold rounded-xl',
+          classes: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-yt-red text-white hover:bg-yt-darkred disabled:opacity-50 disabled:pointer-events-none',
           [
             span(classes: 'material-symbols-rounded text-sm', [Component.text('analytics')]),
             Component.text('Open SEO Analyzer & Keyword Tool'),

@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
   <link rel="stylesheet" href="/blog/assets/blog.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The YouTube Analytics API: When Studio Is Not Enough","image":["https://vidseokit.com/images/blog/hero/youtube-analytics-api-guide.png"],"description":"Cross-video analysis, long history and joining video data to your own sales figures are all things Studio cannot do. Which API you need, how quota works, and how to get useful data without writing code.","articleSection":"Analytics","keywords":"YouTube Analytics API, YouTube Data API, API quota, creator dashboard, YouTube reporting API, channel analytics automation","wordCount":1246,"inLanguage":"en","datePublished":"2026-02-06","dateModified":"2026-02-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://vidseokit.com/blog/youtube-analytics-api-guide.html"},"url":"https://vidseokit.com/blog/youtube-analytics-api-guide.html","author":{"@type":"Organization","name":"The VidSEOKit Editorial Team","url":"https://vidseokit.com"},"publisher":{"@type":"Organization","name":"VidSEOKit","url":"https://vidseokit.com","logo":{"@type":"ImageObject","url":"https://vidseokit.com/images/logo.svg"}},"isAccessibleForFree":true}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vidseokit.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://vidseokit.com/blog/"},{"@type":"ListItem","position":3,"name":"The YouTube Analytics API: When Studio Is Not Enough","item":"https://vidseokit.com/blog/youtube-analytics-api-guide.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vidseokit.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://vidseokit.com/blog"},{"@type":"ListItem","position":3,"name":"The YouTube Analytics API: When Studio Is Not Enough","item":"https://vidseokit.com/blog/youtube-analytics-api-guide.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to be a developer to use the YouTube API?","acceptedAnswer":{"@type":"Answer","text":"No. Scheduled bulk CSV exports from the Reporting API, spreadsheet connectors and business intelligence tools all give you most of the value with no code. A scheduled export into a spreadsheet covers the majority of use cases."}},{"@type":"Question","name":"Why does my script run out of quota?","acceptedAnswer":{"@type":"Answer","text":"Search operations are dramatically more expensive than reads. Enumerate a channel's videos through its uploads playlist rather than calling search in a loop, batch your requests, and cache anything that does not change."}},{"@type":"Question","name":"Is API revenue data the same as what I get paid?","acceptedAnswer":{"@type":"Answer","text":"Recent revenue figures are estimates and change as they finalise. Never treat the last few days of revenue data as final, and be careful about reporting estimates to sponsors or buyers as confirmed earnings."}}]}</script>
   <script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3988155577590737"></script>
   <script>
@@ -58,7 +58,7 @@
     <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.25v11.5a2.25 2.25 0 003.36 1.95l10.07-5.75a2.25 2.25 0 000-3.9L9.86 4.3A2.25 2.25 0 006.5 6.25z"/></svg><span>VidSEOKit</span></a>
     <nav class="header-nav" aria-label="Primary">
       <a href="/">Free tools</a>
-      <a href="/blog/">Blog</a>
+      <a href="/blog">Blog</a>
       <button class="theme-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">&#9681;</button>
     </nav>
   </div>
@@ -66,7 +66,7 @@
 
 <main class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a><span>&rsaquo;</span><a href="/blog/">Blog</a><span>&rsaquo;</span>Analytics
+    <a href="/">Home</a><span>&rsaquo;</span><a href="/blog">Blog</a><span>&rsaquo;</span>Analytics
   </nav>
 
   <article>
@@ -275,7 +275,7 @@
   <div class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
   <div class="watch-body">
     <p class="watch-title">Start with the official reference</p>
-    <p>Google's <a href="https://developers.google.com/youtube/analytics" rel="noopener nofollow" target="_blank">YouTube Analytics and Reporting API documentation</a> includes the full list of available metrics and dimensions, plus which combinations are valid. Skimming the metrics list first saves a lot of guessing.</p>
+    <p>Google's <a href="https://developers.google.com/youtube/analytics" rel="noopener" target="_blank">YouTube Analytics and Reporting API documentation</a> includes the full list of available metrics and dimensions, plus which combinations are valid. Skimming the metrics list first saves a lot of guessing.</p>
   </div>
 </div>
 
@@ -315,11 +315,11 @@
 <section class="endmatter">
   <h2>Sources and further reading</h2>
   <ol class="sources">
-  <li>Google for Developers — YouTube Analytics and Reporting APIs &mdash; <a href="https://developers.google.com/youtube/analytics" rel="noopener nofollow" target="_blank">developers.google.com/youtube/analytics</a></li>
-  <li>YouTube Help — Understand your YouTube content performance &mdash; <a href="https://support.google.com/youtube/answer/12220281" rel="noopener nofollow" target="_blank">support.google.com/youtube/answer/12220281</a></li>
-  <li>YouTube Help — RPM and CPM explained &mdash; <a href="https://support.google.com/youtube/answer/9314357" rel="noopener nofollow" target="_blank">support.google.com/youtube/answer/9314357</a></li>
-  <li>YouTube for Creators — Helpful resources &mdash; <a href="https://www.youtube.com/creators/resources/" rel="noopener nofollow" target="_blank">www.youtube.com/creators/resources/</a></li>
-  <li>Google Search Central — Creating helpful, reliable, people-first content &mdash; <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener nofollow" target="_blank">developers.google.com/search/docs/fundamentals/creating-helpful-content</a></li>
+  <li>Google for Developers — YouTube Analytics and Reporting APIs &mdash; <a href="https://developers.google.com/youtube/analytics" rel="noopener" target="_blank">developers.google.com/youtube/analytics</a></li>
+  <li>YouTube Help — Understand your YouTube content performance &mdash; <a href="https://support.google.com/youtube/answer/12220281" rel="noopener" target="_blank">support.google.com/youtube/answer/12220281</a></li>
+  <li>YouTube Help — RPM and CPM explained &mdash; <a href="https://support.google.com/youtube/answer/9314357" rel="noopener" target="_blank">support.google.com/youtube/answer/9314357</a></li>
+  <li>YouTube for Creators — Helpful resources &mdash; <a href="https://www.youtube.com/creators/resources/" rel="noopener" target="_blank">www.youtube.com/creators/resources/</a></li>
+  <li>Google Search Central — Creating helpful, reliable, people-first content &mdash; <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener" target="_blank">developers.google.com/search/docs/fundamentals/creating-helpful-content</a></li>
   </ol>
 </section>
   </article>
@@ -370,7 +370,7 @@
       <div>
         <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Company</h3>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-          <li><a href="/blog/" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Creator Blog</a></li>
+          <li><a href="/blog" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Creator Blog</a></li>
           <li><a href="/about" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">About</a></li>
           <li><a href="/contact" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Contact</a></li>
           <li><a href="/privacy" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Privacy Policy</a></li>

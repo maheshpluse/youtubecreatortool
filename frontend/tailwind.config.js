@@ -3,7 +3,8 @@ module.exports = {
   darkMode: 'class',
   content: [
     "./web/**/*.{html,js}",
-    "./lib/**/*.dart"
+    "./lib/**/*.dart",
+    "./node_modules/preline/preline.js"
   ],
   theme: {
     extend: {

@@ -4,7 +4,7 @@ VidSEOKit blog builder.
 
 Reads  : blog_src/posts.json          (metadata for every post)
          blog_src/posts/<slug>.html   (article body, HTML fragment)
-Writes : web/blog/<slug>.html         (one standalone, crawlable page per post)
+Writes : web/blog<slug>.html         (one standalone, crawlable page per post)
          web/blog/index.html          (blog hub)
          web/sitemap.xml, web/robots.txt, web/llms.txt
 
@@ -156,7 +156,7 @@ def header(depth_prefix: str = "../") -> str:
     <a class="brand" href="/">{LOGO_SVG}<span>VidSEOKit</span></a>
     <nav class="header-nav" aria-label="Primary">
       <a href="/">Free tools</a>
-      <a href="/blog/">Blog</a>
+      <a href="/blog">Blog</a>
       <button class="theme-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">&#9681;</button>
     </nav>
   </div>
@@ -200,7 +200,7 @@ def footer() -> str:
       <div>
         <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Company</h3>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-          <li><a href="/blog/" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Creator Blog</a></li>
+          <li><a href="/blog" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Creator Blog</a></li>
           <li><a href="/about" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">About</a></li>
           <li><a href="/contact" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Contact</a></li>
           <li><a href="/privacy" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Privacy Policy</a></li>
@@ -237,7 +237,7 @@ def render_endmatter(post):
     # terms still travel in the JSON-LD "keywords" property, which is the
     # appropriate place for them.
     src = "\n".join(
-        '  <li>%s &mdash; <a href="%s" rel="noopener nofollow" target="_blank">%s</a></li>'
+        '  <li>%s &mdash; <a href="%s" rel="noopener" target="_blank">%s</a></li>'
         % (html.escape(t), u, html.escape(u.replace("https://", "")))
         for t, u in post["sources"]
     )
@@ -299,7 +299,7 @@ def json_ld(post):
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL},
-            {"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE_URL + "/blog/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE_URL + "/blog"},
             {"@type": "ListItem", "position": 3, "name": post["title"], "item": url},
         ],
     }
@@ -364,7 +364,7 @@ def render_post(post, posts, body):
 
 <main class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a><span>&rsaquo;</span><a href="/blog/">Blog</a><span>&rsaquo;</span>{html.escape(post['category'])}
+    <a href="/">Home</a><span>&rsaquo;</span><a href="/blog">Blog</a><span>&rsaquo;</span>{html.escape(post['category'])}
   </nav>
 
   <article>
@@ -431,11 +431,11 @@ def render_index(posts):
   <title>Creator Blog &mdash; YouTube SEO, Analytics &amp; Monetization Guides | {SITE_NAME}</title>
   <meta name="description" content="Source-backed guides on YouTube SEO, click-through rate, RPM, keyword research and monetization. {len(posts)} long-form articles, updated regularly.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <link rel="canonical" href="{SITE_URL}/blog/">
+  <link rel="canonical" href="{SITE_URL}/blog">
   <link rel="icon" href="/favicon.ico">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Creator Blog | {SITE_NAME}">
-  <meta property="og:url" content="{SITE_URL}/blog/">
+  <meta property="og:url" content="{SITE_URL}/blog">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
@@ -562,7 +562,7 @@ def render_sitemap(posts):
         (SITE_URL + "/vidiq-alternative-free", today, "0.9"),
         (SITE_URL + "/tubebuddy-alternative", today, "0.9"),
         (SITE_URL + "/vidiq-vs-tubebuddy", today, "0.9"),
-        (SITE_URL + "/blog/", today, "0.9"),
+        (SITE_URL + "/blog", today, "0.9"),
         (SITE_URL + "/about", today, "0.6"),
         (SITE_URL + "/contact", today, "0.6"),
         (SITE_URL + "/privacy", today, "0.5"),

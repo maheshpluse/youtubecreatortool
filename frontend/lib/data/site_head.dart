@@ -92,46 +92,46 @@ const String kSiteHead = r'''
   "@type": "ItemList",
   "itemListElement": [
     {
-      "@type": "SiteNavigationElement",
+      "@type": "ListItem",
       "position": 1,
       "name": "YouTube SEO Analyzer",
       "description": "Analyze your video SEO and get a score.",
       "url": "https://vidseokit.com/youtube-seo-analyzer"
     },
     {
-      "@type": "SiteNavigationElement",
+      "@type": "ListItem",
       "position": 2,
       "name": "Title Generator",
       "description": "Generate viral YouTube titles using AI.",
       "url": "https://vidseokit.com/youtube-title-generator"
     },
     {
-      "@type": "SiteNavigationElement",
+      "@type": "ListItem",
       "position": 3,
       "name": "Thumbnail Ideas",
       "description": "Get AI generated ideas for your thumbnails.",
       "url": "https://vidseokit.com/youtube-thumbnail-ideas"
     },
     {
-      "@type": "SiteNavigationElement",
+      "@type": "ListItem",
       "position": 4,
       "name": "Tag Extractor",
       "description": "Extract tags from any YouTube video.",
       "url": "https://vidseokit.com/youtube-tag-extractor"
     },
     {
-      "@type": "SiteNavigationElement",
+      "@type": "ListItem",
       "position": 5,
       "name": "Earnings Calculator",
       "description": "Calculate estimated AdSense revenue.",
       "url": "https://vidseokit.com/youtube-earnings-calculator"
     },
     {
-      "@type": "SiteNavigationElement",
+      "@type": "ListItem",
       "position": 6,
       "name": "Creator Blog",
       "description": "Learn YouTube strategies and growth tips.",
-      "url": "https://vidseokit.com/blog/"
+      "url": "https://vidseokit.com/blog"
     }
   ]
 }

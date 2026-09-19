@@ -460,6 +460,207 @@ def extract_tags(request: TagRequest):
         log_error(db, "Gemini Tag Error", str(e), traceback.format_exc())
         raise HTTPException(status_code=502, detail="Failed to extract tags using AI.")
 
+# ── NEW GENERATOR ENDPOINTS ────────────────────────────────────────────────
+
+class DescriptionRequest(BaseModel):
+    topic: str
+    lang: str = "en"
+
+@app.post("/api/generate-description", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
+def generate_description(request: DescriptionRequest):
+    """
+    Generate a complete, SEO-optimised YouTube video description from a topic or title.
+    Returns a description with hook, keyword-rich body, timestamp placeholders, and CTA.
+    """
+    topic = request.topic.strip() or "this topic"
+    model = require_gemini()
+    try:
+        lang_instruction = (
+            f" Write the description in {language_name(request.lang)}."
+            if request.lang != "en" else ""
+        )
+        prompt = (
+            f"Write a complete, SEO-optimised YouTube video description for a video about '{topic}'.{lang_instruction} "
+            "The description must: (1) start with the main keyword naturally in the first sentence within 150 characters, "
+            "(2) include a 200-300 word body with 3-5 naturally placed related keywords, "
+            "(3) include a section for timestamps formatted as '0:00 Introduction\\n2:30 ...' (use placeholder chapter names), "
+            "(4) end with a single clear call-to-action. "
+            "Return ONLY a valid JSON object with a single 'description' string field. "
+            "Example: {\"description\": \"Full description text here...\"}"
+        )
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        data = json.loads(response.text)
+        return {"description": data.get("description", ""), "status": "ok"}
+    except Exception as e:
+        print(f"Gemini Description Error: {e}")
+        log_error(db, "Gemini Description Error", str(e), traceback.format_exc())
+        raise HTTPException(status_code=502, detail="Failed to generate description using AI.")
+
+
+class HashtagRequest(BaseModel):
+    topic: str
+    lang: str = "en"
+
+class HashtagResult(BaseModel):
+    hashtag: str
+    type: str  # "broad" | "niche" | "branded"
+
+class HashtagsResponse(BaseModel):
+    hashtags: list[HashtagResult]
+
+@app.post("/api/generate-hashtags", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
+def generate_hashtags(request: HashtagRequest):
+    """
+    Generate a ranked list of YouTube hashtags for a topic.
+    Returns a mix of broad, niche, and branded tags (5 total: first 3 are most important).
+    """
+    topic = request.topic.strip() or "this topic"
+    model = require_gemini()
+    try:
+        prompt = (
+            f"Generate exactly 5 YouTube hashtags for a video about '{topic}'. "
+            "Include a mix: 1-2 broad category hashtags, 2-3 niche-specific hashtags, and 1 #VidSEOKit branded hashtag. "
+            "The first 3 in the list are the most important (they appear above the title on YouTube). "
+            "Return ONLY a valid JSON array of objects with 'hashtag' (string starting with #) and 'type' ('broad', 'niche', or 'branded'). "
+            "Example: [{\"hashtag\": \"#YouTubeSEO\", \"type\": \"broad\"}]"
+        )
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        data = json.loads(response.text)
+        hashtags = [HashtagResult(**item) for item in data]
+        return HashtagsResponse(hashtags=hashtags)
+    except Exception as e:
+        print(f"Gemini Hashtag Error: {e}")
+        log_error(db, "Gemini Hashtag Error", str(e), traceback.format_exc())
+        raise HTTPException(status_code=502, detail="Failed to generate hashtags using AI.")
+
+
+class ChannelNameRequest(BaseModel):
+    topic: str
+    style: str = "both"  # "personal" | "branded" | "both"
+
+class ChannelNameResult(BaseModel):
+    name: str
+    type: str  # "personal" | "branded"
+    rationale: str
+
+class ChannelNamesResponse(BaseModel):
+    names: list[ChannelNameResult]
+
+@app.post("/api/generate-channel-names", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
+def generate_channel_names(request: ChannelNameRequest):
+    """
+    Generate creative, unique YouTube channel name ideas from a niche or topic.
+    Returns a mix of personal-brand and topic-branded name styles.
+    """
+    topic = request.topic.strip() or "this niche"
+    model = require_gemini()
+    try:
+        prompt = (
+            f"Generate 6 unique, creative YouTube channel name ideas for a channel about '{topic}'. "
+            "Include a mix of personal-brand names (creator-centric, memorable) and topic-branded names (descriptive, niche-specific). "
+            "Each name should be: under 25 characters, easy to spell, memorable, and not an exact copy of an existing major channel. "
+            "Return ONLY a valid JSON array of objects with 'name' (string), 'type' ('personal' or 'branded'), and 'rationale' (1 sentence explanation). "
+            "Example: [{\"name\": \"TechWithTara\", \"type\": \"personal\", \"rationale\": \"Personal-brand style that works across tech topics.\"}]"
+        )
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        data = json.loads(response.text)
+        names = [ChannelNameResult(**item) for item in data]
+        return ChannelNamesResponse(names=names)
+    except Exception as e:
+        print(f"Gemini Channel Names Error: {e}")
+        log_error(db, "Gemini Channel Names Error", str(e), traceback.format_exc())
+        raise HTTPException(status_code=502, detail="Failed to generate channel names using AI.")
+
+
+class VideoIdeasRequest(BaseModel):
+    niche: str
+    lang: str = "en"
+
+class VideoIdeaResult(BaseModel):
+    title: str
+    hook: str
+    search_intent: str  # "search" | "suggested" | "both"
+    estimated_difficulty: str  # "low" | "medium" | "high"
+
+class VideoIdeasResponse(BaseModel):
+    ideas: list[VideoIdeaResult]
+
+@app.post("/api/generate-video-ideas", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
+def generate_video_ideas(request: VideoIdeasRequest):
+    """
+    Generate searchable, niche-specific YouTube video topic ideas with hooks and difficulty estimates.
+    """
+    niche = request.niche.strip() or "this niche"
+    model = require_gemini()
+    try:
+        lang_instruction = (
+            f" Write the ideas in {language_name(request.lang)}."
+            if request.lang != "en" else ""
+        )
+        prompt = (
+            f"Generate 6 unique YouTube video ideas for the '{niche}' niche.{lang_instruction} "
+            "For each idea include: a compelling title (50-60 chars), a one-sentence hook for the first 30 seconds, "
+            "whether it targets 'search' or 'suggested' or 'both', and estimated competition difficulty ('low', 'medium', 'high'). "
+            "Prioritise ideas with high search demand and low-to-medium competition for growing channels. "
+            "Return ONLY a valid JSON array of objects with 'title', 'hook', 'search_intent', 'estimated_difficulty'. "
+            "Example: [{\"title\": \"5 YouTube SEO Mistakes Beginners Make\", \"hook\": \"Most creators waste their first 100 videos on these fixable errors.\", \"search_intent\": \"search\", \"estimated_difficulty\": \"low\"}]"
+        )
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        data = json.loads(response.text)
+        ideas = [VideoIdeaResult(**item) for item in data]
+        return VideoIdeasResponse(ideas=ideas)
+    except Exception as e:
+        print(f"Gemini Video Ideas Error: {e}")
+        log_error(db, "Gemini Video Ideas Error", str(e), traceback.format_exc())
+        raise HTTPException(status_code=502, detail="Failed to generate video ideas using AI.")
+
+
+class ScriptRequest(BaseModel):
+    topic: str
+    duration_minutes: int = 5  # target video length in minutes
+    lang: str = "en"
+
+class ScriptSection(BaseModel):
+    section: str  # e.g. "Hook", "Introduction", "Main Point 1", "CTA"
+    content: str
+
+class ScriptResponse(BaseModel):
+    word_count: int
+    sections: list[ScriptSection]
+
+@app.post("/api/generate-script", dependencies=[Depends(verify_recaptcha), Depends(rate_limiter)])
+def generate_script(request: ScriptRequest):
+    """
+    Generate a structured YouTube video script with hook, body sections, and CTA.
+    Target word count: ~140 words per minute of target duration.
+    """
+    topic = request.topic.strip() or "this topic"
+    model = require_gemini()
+    target_words = request.duration_minutes * 140
+    try:
+        lang_instruction = (
+            f" Write the script in {language_name(request.lang)}."
+            if request.lang != "en" else ""
+        )
+        prompt = (
+            f"Write a complete YouTube video script for a {request.duration_minutes}-minute video about '{topic}'.{lang_instruction} "
+            f"Target approximately {target_words} words total. "
+            "Structure: Hook (first 30 seconds, state the payoff, raise an open question), "
+            "Introduction (what the video covers), "
+            "2-4 Main Sections (each with a clear point), "
+            "Conclusion (summary + CTA to subscribe and comment). "
+            "Return ONLY a valid JSON object with 'word_count' (integer) and 'sections' (array of objects with 'section' (string label) and 'content' (the script text for that section)). "
+            "Example: {\"word_count\": 700, \"sections\": [{\"section\": \"Hook\", \"content\": \"Script text here...\"}]}"
+        )
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        data = json.loads(response.text)
+        sections = [ScriptSection(**s) for s in data.get("sections", [])]
+        return ScriptResponse(word_count=data.get("word_count", 0), sections=sections)
+    except Exception as e:
+        print(f"Gemini Script Error: {e}")
+        log_error(db, "Gemini Script Error", str(e), traceback.format_exc())
+        raise HTTPException(status_code=502, detail="Failed to generate script using AI.")
+
 class EarningsRequest(BaseModel):
     daily_views: int
     niche: str

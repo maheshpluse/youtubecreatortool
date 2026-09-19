@@ -83,52 +83,6 @@
         }
         </script>
         
-        <!-- JSON-LD Structured Data: BreadcrumbList -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://vidseokit.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "YouTube SEO Analyzer",
-              "item": "https://vidseokit.com/youtube-seo-analyzer"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Title Generator",
-              "item": "https://vidseokit.com/youtube-title-generator"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Tag Extractor",
-              "item": "https://vidseokit.com/youtube-tag-extractor"
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "name": "Earnings Calculator",
-              "item": "https://vidseokit.com/youtube-earnings-calculator"
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "name": "Blog",
-              "item": "https://vidseokit.com/blog/"
-            }
-          ]
-        }
-        </script>
-        
         <!-- JSON-LD Structured Data: SiteNavigationElement (For Google Sitelinks) -->
         <script type="application/ld+json">
         {
@@ -136,96 +90,46 @@
           "@type": "ItemList",
           "itemListElement": [
             {
-              "@type": "SiteNavigationElement",
+              "@type": "ListItem",
               "position": 1,
               "name": "YouTube SEO Analyzer",
               "description": "Analyze your video SEO and get a score.",
               "url": "https://vidseokit.com/youtube-seo-analyzer"
             },
             {
-              "@type": "SiteNavigationElement",
+              "@type": "ListItem",
               "position": 2,
               "name": "Title Generator",
               "description": "Generate viral YouTube titles using AI.",
               "url": "https://vidseokit.com/youtube-title-generator"
             },
             {
-              "@type": "SiteNavigationElement",
+              "@type": "ListItem",
               "position": 3,
               "name": "Thumbnail Ideas",
               "description": "Get AI generated ideas for your thumbnails.",
               "url": "https://vidseokit.com/youtube-thumbnail-ideas"
             },
             {
-              "@type": "SiteNavigationElement",
+              "@type": "ListItem",
               "position": 4,
               "name": "Tag Extractor",
               "description": "Extract tags from any YouTube video.",
               "url": "https://vidseokit.com/youtube-tag-extractor"
             },
             {
-              "@type": "SiteNavigationElement",
+              "@type": "ListItem",
               "position": 5,
               "name": "Earnings Calculator",
               "description": "Calculate estimated AdSense revenue.",
               "url": "https://vidseokit.com/youtube-earnings-calculator"
             },
             {
-              "@type": "SiteNavigationElement",
+              "@type": "ListItem",
               "position": 6,
               "name": "Creator Blog",
               "description": "Learn YouTube strategies and growth tips.",
-              "url": "https://vidseokit.com/blog/"
-            }
-          ]
-        }
-        </script>
-        
-        <!-- JSON-LD Structured Data: FAQPage (helps with rich snippets) -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is VidSEOKit?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "VidSEOKit is a free suite of YouTube SEO tools that helps content creators optimize their videos for better search rankings. It includes an SEO Analyzer, AI Title Generator, Tag Extractor, AdSense Earnings Calculator, and AI Thumbnail Idea Generator."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How does the YouTube SEO Analyzer work?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Our YouTube SEO Analyzer evaluates your video title, description, and tags against your target keyword. It provides an overall SEO score with specific recommendations to improve your video's search ranking on YouTube."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is VidSEOKit free to use?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, all tools on VidSEOKit are completely free to use. You can analyze SEO, generate titles, extract tags, and calculate earnings without any subscription or payment."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How can I increase my YouTube AdSense earnings?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "To increase YouTube AdSense earnings, focus on high CPM niches like finance and technology, optimize your SEO for better discoverability, improve audience retention rates, and use tools like our Earnings Calculator to estimate revenue potential across different niches."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What are YouTube tags and why do they matter?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "YouTube tags are keywords you add to your video to help YouTube understand the context and content. While tags have less SEO weight than titles and descriptions, they still help the algorithm categorize your video and suggest it alongside related content."
-              }
+              "url": "https://vidseokit.com/blog"
             }
           ]
         }
@@ -340,6 +244,20 @@
         <script defer src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
         <script defer src="auth.js?v=2"></script>
         <script defer src="main.dart.js?v=3"></script>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/preline@2.1.0/dist/preline.min.js"></script>
+        
+        <!-- Preline SPA Auto-Init on DOM mutations -->
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const observer = new MutationObserver((mutations) => {
+              if (window.HSStaticMethods && window.HSStaticMethods.autoInit) {
+                window.HSStaticMethods.autoInit();
+              }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+          });
+        </script>
 
     </head>
     <body class="font-sans antialiased bg-white dark:bg-yt-gray-900 text-yt-gray-900 dark:text-yt-gray-100 transition-colors duration-300">
